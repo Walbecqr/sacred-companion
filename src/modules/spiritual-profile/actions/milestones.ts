@@ -79,6 +79,14 @@ function getSupabaseClient(): SupabaseClient {
   return createSupabaseClient(url, anonKey)
 }
 
+/**
+ * Creates a new spiritual milestone record for the authenticated user.
+ *
+ * Validates required fields and associates the milestone with the current user. On success, returns the created milestone; otherwise, returns an appropriate error.
+ *
+ * @param input - The milestone details to create
+ * @returns The created milestone record, or an error result if creation fails
+ */
 export async function createMilestone(
   input: CreateMilestoneInput
 ): Promise<ApiResult<SpiritualMilestone>> {
@@ -141,6 +149,14 @@ export async function createMilestone(
   }
 }
 
+/**
+ * Updates an existing spiritual milestone for the authenticated user.
+ *
+ * If the milestone does not exist or does not belong to the user, returns a not found error. On success, returns the updated milestone.
+ *
+ * @param input - The milestone update data, including the milestone ID and fields to update
+ * @returns The updated milestone on success, or an error result if the operation fails
+ */
 export async function updateMilestone(
   input: UpdateMilestoneInput
 ): Promise<ApiResult<SpiritualMilestone>> {
@@ -199,6 +215,14 @@ export async function updateMilestone(
   }
 }
 
+/**
+ * Deletes a spiritual milestone belonging to the authenticated user.
+ *
+ * Attempts to remove the milestone with the specified ID if it is owned by the current user. On success, triggers revalidation of the spiritual journey dashboard. Returns an error result if authentication fails or a database error occurs.
+ *
+ * @param id - The unique identifier of the milestone to delete
+ * @returns An API result indicating success or containing an error
+ */
 export async function deleteMilestone(id: string): Promise<ApiResult<void>> {
   try {
     const supabase = getSupabaseClient()

@@ -61,7 +61,11 @@ function SpiritualJourneyLoading() {
   )
 }
 
-// Main page component
+/**
+ * Renders the Spiritual Journey dashboard page for authenticated users.
+ *
+ * Redirects unauthenticated users to the login page with a return path to this dashboard. Displays a loading skeleton while the main dashboard content loads.
+ */
 export default async function SpiritualJourneyPage() {
   const supabase = client
   

@@ -9,6 +9,13 @@ interface LoginFormProps {
   returnTo?: string
 }
 
+/**
+ * Renders a mystical-themed authentication form with sign-in and sign-up modes, supporting email/password and Google OAuth.
+ *
+ * Displays input fields for email, password, and (on sign-up) display name, with validation and error handling. On successful authentication, redirects the user to the specified `returnTo` URL or a default dashboard. Handles user profile creation on sign-up and preserves redirect targets through the OAuth flow.
+ *
+ * @param returnTo - Optional URL to redirect to after successful authentication
+ */
 export default function LoginForm({ returnTo }: LoginFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
