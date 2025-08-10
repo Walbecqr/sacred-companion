@@ -53,7 +53,16 @@ export default function ChatInterface({ conversationId: initialConversationId, o
     setConversationId(undefined);
     setMessages([]);
     setInputMessage('');
-    textareaRef.current?.focus();
+    if (typeof window !== 'undefined') {
+      try {
+        window.getSelection()?.removeAllRanges();
+      } catch {
+        // ignore selection clear errors
+      }
+      requestAnimationFrame(() => {
+        textareaRef.current?.focus();
+      });
+    }
   };
 
   const loadConversationHistory = async (convId: string) => {
@@ -128,7 +137,7 @@ export default function ChatInterface({ conversationId: initialConversationId, o
     }
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       sendMessage();
@@ -174,7 +183,7 @@ export default function ChatInterface({ conversationId: initialConversationId, o
       </div>
 
       {/* Messages Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div key={conversationId || 'new'} className="flex-1 overflow-y-auto p-4 space-y-4">
         {messages.length === 0 ? (
           <div className="text-center py-12">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900/50 rounded-full mb-4">
@@ -239,7 +248,7 @@ export default function ChatInterface({ conversationId: initialConversationId, o
             ref={textareaRef}
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyDown}
             placeholder="Share what's on your heart..."
             className="flex-1 resize-none rounded-xl border border-purple-200 dark:border-purple-700 bg-white dark:bg-gray-800 px-4 py-3 text-gray-800 dark:text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent max-h-32"
             rows={1}
