@@ -19,6 +19,7 @@ export default function ChatInterface({ conversationId: initialConversationId }:
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState(initialConversationId);
+  const [hasUserResetConversation, setHasUserResetConversation] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -40,10 +41,18 @@ export default function ChatInterface({ conversationId: initialConversationId }:
 
   // Sync internal state when the parent provides a conversationId later
   useEffect(() => {
-    if (initialConversationId && initialConversationId !== conversationId) {
+    if (!hasUserResetConversation && initialConversationId && initialConversationId !== conversationId) {
       setConversationId(initialConversationId);
     }
-  }, [initialConversationId]);
+  }, [initialConversationId, hasUserResetConversation, conversationId]);
+
+  const startNewConversation = () => {
+    setHasUserResetConversation(true);
+    setConversationId(undefined);
+    setMessages([]);
+    setInputMessage('');
+    textareaRef.current?.focus();
+  };
 
   const loadConversationHistory = async (convId: string) => {
     try {
@@ -149,6 +158,14 @@ export default function ChatInterface({ conversationId: initialConversationId }:
           <div className="ml-auto flex gap-2">
             <Moon className="w-5 h-5 text-purple-200" />
             <Sun className="w-5 h-5 text-yellow-200" />
+            <button
+              type="button"
+              onClick={startNewConversation}
+              className="ml-2 text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded-lg transition"
+              title="Start a new chat"
+            >
+              New Chat
+            </button>
           </div>
         </div>
       </div>
