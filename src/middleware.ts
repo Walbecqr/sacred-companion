@@ -9,16 +9,22 @@ export async function middleware(req: NextRequest) {
   // Refresh session if expired
   const { data: { session } } = await supabase.auth.getSession();
 
-  // Protected routes that require authentication
-  const protectedRoutes = ['/dashboard', '/api/chat'];
+  // Protected routes that require authentication (avoid redirecting API requests)
+  const protectedRoutes = ['/dashboard'];
   const authRoutes = ['/login', '/signup'];
   
   const path = req.nextUrl.pathname;
   
   // Check if the current path is protected
   const isProtectedRoute = protectedRoutes.some(route => path.startsWith(route));
+  const isApiRoute = path.startsWith('/api/');
   const isAuthRoute = authRoutes.some(route => path.startsWith(route));
   
+  // Let API routes handle auth themselves to avoid redirecting POSTs
+  if (isApiRoute) {
+    return res;
+  }
+
   // Redirect to login if accessing protected route without session
   if (isProtectedRoute && !session) {
     const redirectUrl = new URL('/login', req.url);

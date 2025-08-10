@@ -1,27 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { getDataObject, type DataObjectOptions } from '../../lib/data/supabaseDataObjects';
 import { gatherSpiritualContext, generateBeatriceResponse } from '../../lib/ai/beatrice';
 
 export async function POST(request: NextRequest) {
     try {
-        // Initialize Supabase client with user context (SSR-compatible)
-        const cookieStore = await cookies() as unknown as {
-            get: (name: string) => { value: string } | undefined;
-            set: (init: { name: string; value: string } & CookieOptions) => void;
-        };
-        const supabase = createServerClient(
-            process.env.NEXT_PUBLIC_SUPABASE_URL!,
-            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-            {
-                cookies: {
-                    get: (name: string) => cookieStore.get(name)?.value,
-                    set: (name: string, value: string, options: CookieOptions) => cookieStore.set({ name, value, ...options }),
-                    remove: (name: string, options: CookieOptions) => cookieStore.set({ name, value: '', ...options })
-                }
-            }
-        );
+        // Initialize Supabase client with user context (route handler-aware)
+        const supabase = createRouteHandlerClient({ cookies });
 
         // Verify user authentication
         const { data: userData, error: authError } = await supabase.auth.getUser();

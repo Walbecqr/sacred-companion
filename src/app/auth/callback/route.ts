@@ -21,7 +21,7 @@ export async function GET(request: Request) {
         .from('user_spiritual_profiles')
         .select('user_id')
         .eq('user_id', user.id)
-        .single();
+        .maybeSingle();
       
       if (!profile) {
         // Create a new profile for OAuth users

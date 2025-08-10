@@ -37,20 +37,22 @@ export default function LoginForm() {
 
         if (error) throw error;
 
-        if (data.user) {
-          // Create user profile
+        // If email confirmation is required, there is no active session.
+        if (data.session) {
+          // Safe to create profile with an active session
           const { error: profileError } = await supabase
             .from('user_spiritual_profiles')
             .insert({
-              user_id: data.user.id,
+              user_id: data.user!.id,
               display_name: displayName || email.split('@')[0],
               experience_level: 'beginner',
               created_at: new Date().toISOString()
             });
-
           if (profileError) console.error('Profile creation error:', profileError);
-          
           router.push('/dashboard');
+        } else {
+          // No session yet; prompt user to verify email and then sign in
+          setError("Please check your email to confirm your account, then sign in.");
         }
       } else {
         // Sign in existing user
