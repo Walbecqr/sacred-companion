@@ -5,7 +5,11 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import { Mail, Lock, Eye, EyeOff, Sparkles, Moon } from 'lucide-react';
 
-export default function LoginForm() {
+interface LoginFormProps {
+  returnTo?: string
+}
+
+export default function LoginForm({ returnTo }: LoginFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -49,7 +53,7 @@ export default function LoginForm() {
               created_at: new Date().toISOString()
             });
           if (profileError) console.error('Profile creation error:', profileError);
-          router.push('/dashboard');
+          router.push(returnTo || '/dashboard');
         } else {
           // No session yet; prompt user to verify email and then sign in
           setError("Please check your email to confirm your account, then sign in.");
@@ -63,7 +67,7 @@ export default function LoginForm() {
 
         if (error) throw error;
         
-        router.push('/dashboard');
+        router.push(returnTo || '/dashboard');
         router.refresh();
       }
     } catch (err: unknown) {
@@ -78,7 +82,7 @@ export default function LoginForm() {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`
+          redirectTo: `${window.location.origin}/auth/callback?returnTo=${encodeURIComponent(returnTo || '/dashboard')}`
         }
       });
       

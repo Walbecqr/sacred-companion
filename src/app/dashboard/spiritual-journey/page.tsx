@@ -1,4 +1,4 @@
-// app/(app)/spiritual-journey/page.tsx
+// app/dashboard/spiritual-journey/page.tsx
 
 import { Suspense } from 'react'
 import { supabase as client } from '@/lib/supabase'
@@ -67,7 +67,7 @@ export default async function SpiritualJourneyPage() {
   
   const { data: { user }, error: authError } = await supabase.auth.getUser()
   if (authError || !user) {
-    redirect('/auth/login?returnTo=/spiritual-journey')
+    redirect(`/login?returnTo=${encodeURIComponent('/dashboard/spiritual-journey')}`)
   }
 
   return (
