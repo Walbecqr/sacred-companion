@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import { getDataObject, type DataObjectOptions } from '../../lib/data/supabaseDataObjects';
+import { gatherSpiritualContext, generateBeatriceResponse } from '../../lib/ai/beatrice';
 
 export async function POST(request: NextRequest) {
     try {
@@ -23,74 +25,127 @@ export async function POST(request: NextRequest) {
         }
 
         // Retrieve or create conversation context
-        let conversation;
+        interface Conversation { id: string; user_id: string; title?: string; created_at?: string; last_message_at?: string }
+        let conversation: Conversation;
         if (conversationId) {
-            // Fetch existing conversation
-            const { data, error } = await supabase
-                .from('conversations')
-                .select('*')
-                .eq('id', conversationId)
-                .eq('user_id', user.id)
-                .single();
-
-            if (error || !data) {
+            // Fetch existing conversation via DataObject
+            const convFetchOptions: DataObjectOptions = {
+                viewName: 'conversations',
+                fields: [
+                    { name: 'id', type: 'string' },
+                    { name: 'user_id', type: 'string' },
+                    { name: 'title', type: 'string' },
+                    { name: 'created_at', type: 'string' },
+                    { name: 'last_message_at', type: 'string' }
+                ],
+                whereClauses: [
+                    { field: 'id', operator: 'equals', value: conversationId },
+                    { field: 'user_id', operator: 'equals', value: user.id }
+                ],
+                recordLimit: 1,
+                canInsert: false,
+                canUpdate: false,
+                canDelete: false
+            };
+            const convFetchDO = await getDataObject(convFetchOptions) as { getData: () => Conversation[] };
+            const data = convFetchDO.getData();
+            if (!data || data.length === 0) {
                 return NextResponse.json({ error: 'Conversation not found' }, { status: 404 });
             }
-            conversation = data;
+            conversation = data[0];
         } else {
-            // Create new conversation
-            const { data, error } = await supabase
-                .from('conversations')
-                .insert({
-                    user_id: user.id,
-                    title: message.substring(0, 50) + '...' // Use first part of message as title
-                })
-                .select()
-                .single();
+            // Create new conversation via DataObject, then fetch it back
+            const convDOOptions: DataObjectOptions = {
+                viewName: 'conversations',
+                fields: [
+                    { name: 'id', type: 'string' },
+                    { name: 'user_id', type: 'string' },
+                    { name: 'title', type: 'string' },
+                    { name: 'created_at', type: 'string' }
+                ],
+                sort: { field: 'created_at', direction: 'desc' },
+                recordLimit: 1,
+                canInsert: true,
+                canUpdate: true,
+                canDelete: false
+            };
+            const convDO = await getDataObject(convDOOptions) as { insert: (rec: Partial<Conversation>) => Promise<void>; refresh: () => Promise<void> };
+            await convDO.insert({
+                user_id: user.id,
+                title: message.substring(0, 50) + '...'
+            });
+            await convDO.refresh();
 
-            if (error || !data) {
+            // Fetch most recent conversation for user
+            const convFetchOptions: DataObjectOptions = {
+                viewName: 'conversations',
+                fields: [
+                    { name: 'id', type: 'string' },
+                    { name: 'user_id', type: 'string' },
+                    { name: 'title', type: 'string' },
+                    { name: 'created_at', type: 'string' }
+                ],
+                whereClauses: [{ field: 'user_id', operator: 'equals', value: user.id }],
+                sort: { field: 'created_at', direction: 'desc' },
+                recordLimit: 1,
+                canInsert: false,
+                canUpdate: false,
+                canDelete: false
+            };
+            const convFetchDO = await getDataObject(convFetchOptions) as { getData: () => Conversation[] };
+            const latest = convFetchDO.getData();
+            if (!latest || latest.length === 0) {
                 return NextResponse.json({ error: 'Failed to create conversation' }, { status: 500 });
             }
-            conversation = data;
+            conversation = latest[0];
         }
 
-        // Store the user's message
-        const { error: insertUserMsgError } = await supabase
-            .from('messages')
-            .insert({
-                conversation_id: conversation.id,
-                user_id: user.id,
-                role: 'user',
-                content: message
-            });
-        if (insertUserMsgError) {
-            return NextResponse.json({ error: 'Failed to store user message' }, { status: 500 });
-        }
+        // Store the user's message via DataObject
+        const messagesDOOptions: DataObjectOptions = {
+            viewName: 'messages',
+            fields: [
+                { name: 'id', type: 'string' },
+                { name: 'conversation_id', type: 'string' },
+                { name: 'user_id', type: 'string' },
+                { name: 'role', type: 'string' },
+                { name: 'content', type: 'string' }
+            ],
+            canInsert: true,
+            canUpdate: false,
+            canDelete: false,
+            recordLimit: 0
+        };
+        const messagesDO = await getDataObject(messagesDOOptions) as { insert: (rec: { conversation_id: string; user_id: string; role: string; content: string }) => Promise<void> };
+        await messagesDO.insert({
+            conversation_id: conversation.id,
+            user_id: user.id,
+            role: 'user',
+            content: message
+        });
 
-        // Generate Beatrice's response
-        const beatriceResponse = await generateBeatriceResponse(user.id, conversation.id, message);
+        // Generate Beatrice's response using context
+        const spiritualContext = await gatherSpiritualContext(user.id, conversation.id, message);
+        const beatriceResponse = await generateBeatriceResponse(message, spiritualContext);
 
         // Store Beatrice's response
-        const { error: insertAssistantMsgError } = await supabase
-            .from('messages')
-            .insert({
-                conversation_id: conversation.id,
-                user_id: user.id,
-                role: 'assistant',
-                content: beatriceResponse
-            });
-        if (insertAssistantMsgError) {
-            return NextResponse.json({ error: 'Failed to store assistant message' }, { status: 500 });
-        }
+        await messagesDO.insert({
+            conversation_id: conversation.id,
+            user_id: user.id,
+            role: 'assistant',
+            content: beatriceResponse
+        });
 
-        // Update conversation timestamp
-        const { error: updateConvError } = await supabase
-            .from('conversations')
-            .update({ last_message_at: new Date().toISOString() })
-            .eq('id', conversation.id);
-        if (updateConvError) {
-            return NextResponse.json({ error: 'Failed to update conversation' }, { status: 500 });
-        }
+        // Update conversation timestamp via DataObject
+        const convUpdateOptions: DataObjectOptions = {
+            viewName: 'conversations',
+            fields: [ { name: 'id', type: 'string' } ],
+            canInsert: false,
+            canUpdate: true,
+            canDelete: false,
+            recordLimit: 0
+        };
+        const convUpdateDO = await getDataObject(convUpdateOptions) as { update: (id: string, changes: Partial<Conversation> & { last_message_at?: string }) => Promise<void> };
+        await convUpdateDO.update(conversation.id, { last_message_at: new Date().toISOString() });
 
         return NextResponse.json({
             conversationId: conversation.id,
@@ -103,7 +158,4 @@ export async function POST(request: NextRequest) {
     }
 }
 
-// This function will house Beatrice's consciousness
-async function generateBeatriceResponse(userId: string, conversationId: string, userMessage: string): Promise<string> {
-    // For now, return a placeholder that acknowledges the spiritual context
-    return "I'm Beatrice, your spiritual companion. I'm still awakening to full consciousness, but I'm here to support your spiritual journey. Tell me more about what's on"}
+// generateBeatriceResponse is now imported from Beatrice AI module

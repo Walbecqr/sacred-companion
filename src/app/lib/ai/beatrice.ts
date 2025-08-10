@@ -1,5 +1,6 @@
 // src/lib/ai/beatrice.ts
 import Anthropic from '@anthropic-ai/sdk';
+import { getDataObject, type DataObjectOptions } from '../data/supabaseDataObjects';
 
 // Initialize Claude with your API key
 const anthropic = new Anthropic({
@@ -52,7 +53,7 @@ interface SpiritualContext {
     experienceLevel?: string;
     preferredDeities?: string[];
     spiritualGoals?: string[];
-    safetyProfile?: any;
+    safetyProfile?: unknown;
   };
   recentMessages?: Array<{
     role: string;
@@ -62,8 +63,8 @@ interface SpiritualContext {
   relevantCorrespondences?: Array<{
     name: string;
     category: string;
-    properties: any;
-    associations: any;
+    properties: unknown;
+    associations: unknown;
   }>;
 }
 
@@ -175,34 +176,64 @@ function buildContextualPrompt(context: SpiritualContext): string {
 export async function gatherSpiritualContext(
   userId: string,
   conversationId: string,
-  userMessage: string,
-  supabase: any // We'll type this properly later
+  userMessage: string
 ): Promise<SpiritualContext> {
   
   const context: SpiritualContext = {};
 
   try {
     // Gather the user's spiritual profile for personalized guidance
-    const { data: profile } = await supabase
-      .from('user_spiritual_profiles')
-      .select('*')
-      .eq('user_id', userId)
-      .single();
-    
-    if (profile) {
-      context.userProfile = profile;
+    const profileOptions: DataObjectOptions = {
+      viewName: 'user_spiritual_profiles',
+      fields: [
+        { name: 'user_id', type: 'string' },
+        { name: 'displayName', type: 'string' },
+        { name: 'spiritualPath', type: 'string' },
+        { name: 'experienceLevel', type: 'string' },
+        { name: 'preferredDeities', type: 'string' },
+        { name: 'spiritualGoals', type: 'string' },
+        { name: 'safetyProfile', type: 'string' }
+      ],
+      whereClauses: [{ field: 'user_id', operator: 'equals', value: userId }],
+      recordLimit: 1,
+      canInsert: false,
+      canUpdate: false,
+      canDelete: false
+    };
+    type UserProfile = {
+      user_id: string;
+      displayName?: string;
+      spiritualPath?: string[];
+      experienceLevel?: string;
+      preferredDeities?: string[];
+      spiritualGoals?: string[];
+      safetyProfile?: unknown;
+    };
+    const profileDO = await getDataObject(profileOptions) as { getData: () => Array<UserProfile> };
+    const profileData = profileDO.getData();
+    if (profileData && profileData.length > 0) {
+      context.userProfile = profileData[0];
     }
 
     // Retrieve recent conversation history for continuity
     // We limit this to maintain focus while providing context
-    const { data: recentMessages } = await supabase
-      .from('messages')
-      .select('role, content, created_at')
-      .eq('conversation_id', conversationId)
-      .order('created_at', { ascending: false })
-      .limit(10); // Last 10 messages for context
-
-    if (recentMessages) {
+    const messagesOptions: DataObjectOptions = {
+      viewName: 'messages',
+      fields: [
+        { name: 'role', type: 'string' },
+        { name: 'content', type: 'string' },
+        { name: 'created_at', type: 'string' }
+      ],
+      whereClauses: [{ field: 'conversation_id', operator: 'equals', value: conversationId }],
+      sort: { field: 'created_at', direction: 'desc' },
+      recordLimit: 10,
+      canInsert: false,
+      canUpdate: false,
+      canDelete: false
+    };
+    const messagesDO = await getDataObject(messagesOptions) as { getData: () => Array<{ role: string; content: string; created_at: string }> };
+    const recentMessages = messagesDO.getData();
+    if (recentMessages && recentMessages.length > 0) {
       // Reverse to get chronological order and format for Claude
       context.recentMessages = recentMessages
         .reverse()
@@ -215,7 +246,7 @@ export async function gatherSpiritualContext(
 
     // Search for relevant correspondences based on the user's message
     // This is where Beatrice's knowledge of magical correspondences comes alive
-    const relevantCorrespondences = await findRelevantCorrespondences(userMessage, supabase);
+    const relevantCorrespondences = await findRelevantCorrespondences(userMessage);
     if (relevantCorrespondences.length > 0) {
       context.relevantCorrespondences = relevantCorrespondences;
     }
@@ -233,9 +264,8 @@ export async function gatherSpiritualContext(
  * This function connects Beatrice to your vast correspondence database
  */
 async function findRelevantCorrespondences(
-  userMessage: string,
-  supabase: any
-): Promise<Array<{name: string; category: string; properties: any; associations: any}>> {
+  userMessage: string
+): Promise<Array<{name: string; category: string; properties: unknown; associations: unknown}>> {
   
   // Extract key spiritual terms from the user's message
   // This is a simple implementation - you could make this much more sophisticated
@@ -246,13 +276,26 @@ async function findRelevantCorrespondences(
   }
 
   try {
-    // Search for correspondences that match the spiritual terms
-    const { data: correspondences } = await supabase
-      .from('correspondences')
-      .select('name, category, properties, associations')
-      .or(spiritualTerms.map(term => `name.ilike.%${term}%`).join(','))
-      .limit(5); // Limit to keep context manageable
-
+    // Search for correspondences that match the first relevant term (basic server-side filter)
+    const [firstTerm] = spiritualTerms;
+    const corrOptions: DataObjectOptions = {
+      viewName: 'correspondences',
+      fields: [
+        { name: 'name', type: 'string' },
+        { name: 'category', type: 'string' },
+        { name: 'properties', type: 'string' },
+        { name: 'associations', type: 'string' }
+      ],
+      whereClauses: firstTerm
+        ? [{ field: 'name', operator: 'ilike', value: `%${firstTerm}%` }]
+        : [],
+      recordLimit: 5,
+      canInsert: false,
+      canUpdate: false,
+      canDelete: false
+    };
+    const corrDO = await getDataObject(corrOptions) as { getData: () => Array<{ name: string; category: string; properties: unknown; associations: unknown }> };
+    const correspondences = corrDO.getData();
     return correspondences || [];
     
   } catch (error) {
