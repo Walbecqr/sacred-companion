@@ -1,6 +1,7 @@
 // src/lib/ai/beatrice.ts
 import Anthropic from '@anthropic-ai/sdk';
 import { getDataObject, type DataObjectOptions } from '../data/supabaseDataObjects';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 // Initialize Claude with your API key
 const anthropic = new Anthropic({
@@ -180,7 +181,8 @@ function buildContextualPrompt(context: SpiritualContext): string {
 export async function gatherSpiritualContext(
   userId: string,
   conversationId: string,
-  userMessage: string
+  userMessage: string,
+  supabaseClient?: SupabaseClient
 ): Promise<SpiritualContext> {
   
   const context: SpiritualContext = {};
@@ -213,7 +215,7 @@ export async function gatherSpiritualContext(
       spiritual_goals?: string[];
       safety_profile?: unknown;
     };
-    const profileDO = await getDataObject(profileOptions) as { getData: () => Array<UserProfile> };
+    const profileDO = await getDataObject(profileOptions, supabaseClient as unknown) as { getData: () => Array<UserProfile> };
     const profileData = profileDO.getData();
     if (profileData && profileData.length > 0) {
       const p = profileData[0];
@@ -243,7 +245,7 @@ export async function gatherSpiritualContext(
       canUpdate: false,
       canDelete: false
     };
-    const messagesDO = await getDataObject(messagesOptions) as { getData: () => Array<{ role: string; content: string; created_at: string }> };
+    const messagesDO = await getDataObject(messagesOptions, supabaseClient as unknown) as { getData: () => Array<{ role: string; content: string; created_at: string }> };
     const recentMessages = messagesDO.getData();
     if (recentMessages && recentMessages.length > 0) {
       // Reverse to get chronological order and format for Claude
@@ -258,7 +260,7 @@ export async function gatherSpiritualContext(
 
     // Search for relevant correspondences based on the user's message
     // This is where Beatrice's knowledge of magical correspondences comes alive
-    const relevantCorrespondences = await findRelevantCorrespondences(userMessage);
+  const relevantCorrespondences = await findRelevantCorrespondences(userMessage, supabaseClient);
     if (relevantCorrespondences.length > 0) {
       context.relevantCorrespondences = relevantCorrespondences;
     }
@@ -276,7 +278,8 @@ export async function gatherSpiritualContext(
  * This function connects Beatrice to your vast correspondence database
  */
 async function findRelevantCorrespondences(
-  userMessage: string
+  userMessage: string,
+  supabaseClient?: SupabaseClient
 ): Promise<Array<{name: string; category: string; properties: unknown; associations: unknown}>> {
   
   // Extract key spiritual terms from the user's message
@@ -306,7 +309,7 @@ async function findRelevantCorrespondences(
       canUpdate: false,
       canDelete: false
     };
-    const corrDO = await getDataObject(corrOptions) as { getData: () => Array<{ name: string; category: string; properties: unknown; associations: unknown }> };
+    const corrDO = await getDataObject(corrOptions, supabaseClient as unknown) as { getData: () => Array<{ name: string; category: string; properties: unknown; associations: unknown }> };
     const correspondences = corrDO.getData();
     return correspondences || [];
     

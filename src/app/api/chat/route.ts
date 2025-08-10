@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { getDataObject, type DataObjectOptions } from '../../lib/data/supabaseDataObjects';
+import type { SupabaseClient } from '@supabase/supabase-js';
 import { gatherSpiritualContext, generateBeatriceResponse } from '../../lib/ai/beatrice';
 
 export async function POST(request: NextRequest) {
@@ -124,7 +125,13 @@ export async function POST(request: NextRequest) {
         });
 
         // Generate Beatrice's response using context
-        const spiritualContext = await gatherSpiritualContext(user.id, conversation.id, message);
+        const supabaseClient = supabase as unknown as SupabaseClient;
+        const spiritualContext = await gatherSpiritualContext(
+            user.id,
+            conversation.id,
+            message,
+            supabaseClient
+        );
         const beatriceResponse = await generateBeatriceResponse(message, spiritualContext);
 
         // Store Beatrice's response
