@@ -1,14 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import ChatInterface from '../components/chat/ChatInterface';
 import { 
-  Sparkles, Moon, Sun, BookOpen, Compass, 
-  Heart, LogOut, Menu, X, Calendar, 
-  CrystalBall, Feather, Settings
+  Sparkles, Moon, BookOpen, Compass, 
+  Heart, LogOut, Menu, X, 
+  Feather
 } from 'lucide-react';
+import type { User } from '@supabase/supabase-js';
 
 interface UserProfile {
   display_name?: string;
@@ -18,7 +19,7 @@ interface UserProfile {
 }
 
 export default function Dashboard() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile>({});
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -28,12 +29,11 @@ export default function Dashboard() {
   const router = useRouter();
   const supabase = createClientComponentClient();
 
-  useEffect(() => {
-    checkUser();
-    fetchMoonPhase();
-  }, []);
+  const spiritualPaths = Array.isArray(userProfile.spiritual_path)
+    ? userProfile.spiritual_path
+    : [];
 
-  const checkUser = async () => {
+  const checkUser = useCallback(async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
       
@@ -59,7 +59,12 @@ export default function Dashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [supabase, router]);
+
+  useEffect(() => {
+    checkUser();
+    fetchMoonPhase();
+  }, [checkUser]);
 
   const fetchMoonPhase = () => {
     // Simple moon phase calculation (you can make this more accurate)
@@ -89,7 +94,7 @@ export default function Dashboard() {
   const navigationItems = [
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', badge: null },
     { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
-    { id: 'rituals', icon: CrystalBall, label: 'Rituals', badge: 'Coming Soon' },
+    { id: 'rituals', icon: Sparkles, label: 'Rituals', badge: 'Coming Soon' },
     { id: 'grimoire', icon: BookOpen, label: 'Grimoire', badge: 'Coming Soon' },
     { id: 'correspondences', icon: Compass, label: 'Correspondences', badge: 'Coming Soon' },
     { id: 'profile', icon: Heart, label: 'Spiritual Profile', badge: null },
@@ -174,7 +179,7 @@ export default function Dashboard() {
 
             {/* Daily Spiritual Stats */}
             <div className="mt-6 p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
-              <h3 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3">Today's Energy</h3>
+              <h3 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3">Today&apos;s Energy</h3>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-gray-600 dark:text-gray-400">Spiritual Focus</span>
@@ -234,8 +239,8 @@ export default function Dashboard() {
                       Spiritual Path
                     </label>
                     <div className="flex flex-wrap gap-2 mt-2">
-                      {userProfile.spiritual_path?.length > 0 ? (
-                        userProfile.spiritual_path.map((path, i) => (
+                      {spiritualPaths.length > 0 ? (
+                        spiritualPaths.map((path, i) => (
                           <span key={i} className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-full text-sm">
                             {path}
                           </span>

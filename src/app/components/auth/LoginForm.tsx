@@ -64,8 +64,8 @@ export default function LoginForm() {
         router.push('/dashboard');
         router.refresh();
       }
-    } catch (error: any) {
-      setError(error.message || 'An error occurred during authentication');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred during authentication');
     } finally {
       setIsLoading(false);
     }
@@ -81,8 +81,8 @@ export default function LoginForm() {
       });
       
       if (error) throw error;
-    } catch (error: any) {
-      setError(error.message || 'An error occurred with Google sign-in');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred with Google sign-in');
     }
   };
 
@@ -240,7 +240,7 @@ export default function LoginForm() {
           {/* Toggle Sign Up / Sign In */}
           <div className="mt-8 text-center">
             <p className="text-purple-200 text-sm">
-              {isSignUp ? 'Already have an account?' : "Don't have an account?"}
+              {isSignUp ? 'Already have an account?' : "Don&apos;t have an account?"}
               <button
                 onClick={() => {
                   setIsSignUp(!isSignUp);
@@ -257,4 +257,9 @@ export default function LoginForm() {
           <div className="mt-6 flex items-center justify-center gap-2 text-purple-200">
             <Moon className="w-4 h-4" />
             <span className="text-xs">Protected by sacred encryption</span>
-          </div
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
