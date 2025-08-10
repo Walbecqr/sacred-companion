@@ -128,7 +128,7 @@ export async function createMilestone(
     }
 
     // Revalidate relevant pages
-    revalidatePath('/spiritual-journey')
+    revalidatePath('/dashboard/spiritual-journey')
     revalidatePath('/dashboard')
 
     return { ok: true, data }
@@ -186,8 +186,8 @@ export async function updateMilestone(
     }
 
     // Revalidate relevant pages
-    revalidatePath('/spiritual-journey')
-    revalidatePath(`/spiritual-journey/milestone/${id}`)
+    revalidatePath('/dashboard/spiritual-journey')
+    revalidatePath(`/dashboard/spiritual-journey/milestone/${id}`)
 
     return { ok: true, data }
   } catch (error) {
@@ -228,7 +228,7 @@ export async function deleteMilestone(id: string): Promise<ApiResult<void>> {
     }
 
     // Revalidate relevant pages
-    revalidatePath('/spiritual-journey')
+    revalidatePath('/dashboard/spiritual-journey')
 
     return { ok: true, data: undefined }
   } catch (error) {
