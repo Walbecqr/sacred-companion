@@ -25,6 +25,7 @@ export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [activeSection, setActiveSection] = useState('chat');
   const [currentMoonPhase, setCurrentMoonPhase] = useState('');
+  const [initialConversationId, setInitialConversationId] = useState<string | undefined>(undefined);
   
   const router = useRouter();
   const supabase = createClientComponentClient();
@@ -69,6 +70,19 @@ export default function Dashboard() {
         if (created) setUserProfile(created);
       } else {
         setUserProfile(profile);
+      }
+
+      // Load most recent conversation so Beatrice can remember context
+      const { data: lastConversation } = await supabase
+        .from('conversations')
+        .select('id, last_message_at, created_at')
+        .eq('user_id', user.id)
+        .order('last_message_at', { ascending: false, nullsFirst: false })
+        .order('created_at', { ascending: false })
+        .limit(1)
+        .maybeSingle();
+      if (lastConversation?.id) {
+        setInitialConversationId(lastConversation.id);
       }
     } catch (error) {
       console.error('Error fetching user:', error);
@@ -222,7 +236,7 @@ export default function Dashboard() {
         <div className="flex-1 overflow-hidden">
           {activeSection === 'chat' && (
             <div className="h-full p-4">
-              <ChatInterface />
+              <ChatInterface conversationId={initialConversationId} />
             </div>
           )}
           

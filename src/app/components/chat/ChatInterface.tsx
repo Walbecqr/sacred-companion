@@ -38,6 +38,13 @@ export default function ChatInterface({ conversationId: initialConversationId }:
     }
   }, [conversationId]);
 
+  // Sync internal state when the parent provides a conversationId later
+  useEffect(() => {
+    if (initialConversationId && initialConversationId !== conversationId) {
+      setConversationId(initialConversationId);
+    }
+  }, [initialConversationId]);
+
   const loadConversationHistory = async (convId: string) => {
     try {
       const response = await fetch(`/api/chat/history/${convId}`);
