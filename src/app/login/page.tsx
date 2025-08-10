@@ -1,6 +1,12 @@
 import LoginForm from '../components/auth/LoginForm'
 import type { Metadata } from 'next'
 
+/**
+ * Renders the login page, passing a decoded `returnTo` parameter to the login form if provided in the search parameters.
+ *
+ * @param searchParams - A promise resolving to an object that may contain a `returnTo` string indicating the redirect destination after login
+ * @returns The login form component with the appropriate redirect parameter
+ */
 export default async function LoginPage({
   searchParams
 }: {

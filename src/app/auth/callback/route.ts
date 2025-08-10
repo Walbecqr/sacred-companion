@@ -2,6 +2,11 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 
+/**
+ * Handles the OAuth sign-in callback, exchanges the authorization code for a session, ensures a user profile exists, and redirects the user.
+ *
+ * If an authorization code is present in the request, authenticates the user via Supabase and creates a default user profile if one does not already exist. Redirects the user to the path specified by the `returnTo` query parameter or to `/dashboard` by default.
+ */
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');
