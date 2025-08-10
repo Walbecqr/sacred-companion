@@ -44,14 +44,30 @@ export default function Dashboard() {
       
       setUser(user);
       
-      // Fetch user profile
+      // Fetch user profile; create if missing
       const { data: profile } = await supabase
         .from('user_spiritual_profiles')
         .select('*')
         .eq('user_id', user.id)
-        .single();
-      
-      if (profile) {
+        .maybeSingle();
+
+      if (!profile) {
+        const defaultDisplay = user.email?.split('@')[0] || 'Seeker';
+        await supabase
+          .from('user_spiritual_profiles')
+          .insert({
+            user_id: user.id,
+            display_name: defaultDisplay,
+            experience_level: 'beginner',
+            created_at: new Date().toISOString(),
+          });
+        const { data: created } = await supabase
+          .from('user_spiritual_profiles')
+          .select('*')
+          .eq('user_id', user.id)
+          .maybeSingle();
+        if (created) setUserProfile(created);
+      } else {
         setUserProfile(profile);
       }
     } catch (error) {
