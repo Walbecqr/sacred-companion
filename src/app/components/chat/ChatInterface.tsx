@@ -23,6 +23,7 @@ export default function ChatInterface({ conversationId: initialConversationId, o
   const [hasUserResetConversation, setHasUserResetConversation] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const lastInitialIdRef = useRef<string | undefined>(initialConversationId);
 
   // Auto-scroll to bottom when new messages arrive
   const scrollToBottom = () => {
@@ -42,11 +43,21 @@ export default function ChatInterface({ conversationId: initialConversationId, o
 
   // Sync internal state when the parent provides a conversationId later
   useEffect(() => {
-    if (initialConversationId && initialConversationId !== conversationId) {
-      setHasUserResetConversation(false);
+    const propChanged = lastInitialIdRef.current !== initialConversationId;
+    if (hasUserResetConversation) {
+      // If user clicked New Chat locally, only override if parent explicitly changed selection
+      if (propChanged && initialConversationId) {
+        setHasUserResetConversation(false);
+        setConversationId(initialConversationId);
+      }
+      lastInitialIdRef.current = initialConversationId;
+      return;
+    }
+    if (propChanged && initialConversationId !== conversationId) {
       setConversationId(initialConversationId);
     }
-  }, [initialConversationId, conversationId]);
+    lastInitialIdRef.current = initialConversationId;
+  }, [initialConversationId, conversationId, hasUserResetConversation]);
 
   const startNewConversation = () => {
     setHasUserResetConversation(true);
@@ -118,6 +129,7 @@ export default function ChatInterface({ conversationId: initialConversationId, o
       // Update conversation ID if this is a new conversation
       if (!conversationId && data.conversationId) {
         setConversationId(data.conversationId);
+        setHasUserResetConversation(false);
         if (onConversationId) onConversationId(data.conversationId);
       }
 
