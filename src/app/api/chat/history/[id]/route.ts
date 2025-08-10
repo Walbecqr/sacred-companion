@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { cookies } from 'next/headers';
+import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 
 export async function GET(
   request: NextRequest,
@@ -8,22 +8,7 @@ export async function GET(
 ) {
   try {
     // Initialize Supabase client with user context
-    const cookieStore = await cookies() as unknown as {
-      get: (name: string) => { value: string } | undefined;
-      set: (init: { name: string; value: string } & CookieOptions) => void;
-    };
-    
-    const supabase = createServerClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      {
-        cookies: {
-          get: (name: string) => cookieStore.get(name)?.value,
-          set: (name: string, value: string, options: CookieOptions) => cookieStore.set({ name, value, ...options }),
-          remove: (name: string, options: CookieOptions) => cookieStore.set({ name, value: '', ...options })
-        }
-      }
-    );
+    const supabase = createRouteHandlerClient({ cookies });
 
     // Verify user authentication
     const { data: userData, error: authError } = await supabase.auth.getUser();
