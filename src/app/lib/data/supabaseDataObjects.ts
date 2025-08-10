@@ -2,6 +2,7 @@ export interface SupabaseConfig {
   url: string;
   anonKey: string;
 }
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 export interface DataObjectFieldOption {
   name: string;
@@ -41,7 +42,7 @@ function getSupabaseConfig(): SupabaseConfig {
   return { url, anonKey };
 }
 
-export async function getDataObject(options: DataObjectOptions) {
+export async function getDataObject(options: DataObjectOptions, existingClient?: unknown) {
   const config = getSupabaseConfig();
   // Dynamically import to make the helper optional at build time
   try {
@@ -63,7 +64,8 @@ export async function getDataObject(options: DataObjectOptions) {
   } catch {
     // Fallback: emulate a minimal DataObject using supabase-js directly
     const { createClient } = await import('@supabase/supabase-js');
-    const client = createClient(config.url, config.anonKey);
+    // If a client with session context is provided (e.g., from route handler), use it
+    const client: SupabaseClient = (existingClient as SupabaseClient) || createClient(config.url, config.anonKey);
 
     type RecordMap = Record<string, unknown>;
     let cached: RecordMap[] = [];

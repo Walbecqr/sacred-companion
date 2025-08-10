@@ -4,7 +4,7 @@ import { getDataObject, type DataObjectOptions } from '../data/supabaseDataObjec
 
 // Initialize Claude with your API key
 const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY!,
+  apiKey: process.env.ANTHROPIC_API_KEY || '',
 });
 
 /**
@@ -89,6 +89,10 @@ export async function generateBeatriceResponse(
     ];
 
     // Generate Beatrice's response through Claude
+    if (!process.env.ANTHROPIC_API_KEY) {
+      return "I can't reach the wisdom library right now (missing API key). I'll still keep you company and reflect with you.";
+    }
+
     const response = await anthropic.messages.create({
       model: 'claude-3-sonnet-20240229',
       max_tokens: 1000,
@@ -183,16 +187,16 @@ export async function gatherSpiritualContext(
 
   try {
     // Gather the user's spiritual profile for personalized guidance
-    const profileOptions: DataObjectOptions = {
+      const profileOptions: DataObjectOptions = {
       viewName: 'user_spiritual_profiles',
       fields: [
         { name: 'user_id', type: 'string' },
-        { name: 'displayName', type: 'string' },
-        { name: 'spiritualPath', type: 'string' },
-        { name: 'experienceLevel', type: 'string' },
-        { name: 'preferredDeities', type: 'string' },
-        { name: 'spiritualGoals', type: 'string' },
-        { name: 'safetyProfile', type: 'string' }
+        { name: 'display_name', type: 'string' },
+        { name: 'spiritual_path', type: 'string' },
+        { name: 'experience_level', type: 'string' },
+        { name: 'preferred_deities', type: 'string' },
+        { name: 'spiritual_goals', type: 'string' },
+        { name: 'safety_profile', type: 'string' }
       ],
       whereClauses: [{ field: 'user_id', operator: 'equals', value: userId }],
       recordLimit: 1,
@@ -202,17 +206,25 @@ export async function gatherSpiritualContext(
     };
     type UserProfile = {
       user_id: string;
-      displayName?: string;
-      spiritualPath?: string[];
-      experienceLevel?: string;
-      preferredDeities?: string[];
-      spiritualGoals?: string[];
-      safetyProfile?: unknown;
+      display_name?: string;
+      spiritual_path?: string[];
+      experience_level?: string;
+      preferred_deities?: string[];
+      spiritual_goals?: string[];
+      safety_profile?: unknown;
     };
     const profileDO = await getDataObject(profileOptions) as { getData: () => Array<UserProfile> };
     const profileData = profileDO.getData();
     if (profileData && profileData.length > 0) {
-      context.userProfile = profileData[0];
+      const p = profileData[0];
+      context.userProfile = {
+        displayName: p.display_name,
+        spiritualPath: p.spiritual_path,
+        experienceLevel: p.experience_level,
+        preferredDeities: p.preferred_deities,
+        spiritualGoals: p.spiritual_goals,
+        safetyProfile: p.safety_profile,
+      };
     }
 
     // Retrieve recent conversation history for continuity
