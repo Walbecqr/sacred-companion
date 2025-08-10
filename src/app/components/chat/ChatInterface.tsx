@@ -12,10 +12,9 @@ interface Message {
 
 interface ChatInterfaceProps {
   conversationId?: string;
-  userId: string;
 }
 
-export default function ChatInterface({ conversationId: initialConversationId, userId }: ChatInterfaceProps) {
+export default function ChatInterface({ conversationId: initialConversationId }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -43,11 +42,14 @@ export default function ChatInterface({ conversationId: initialConversationId, u
     try {
       const response = await fetch(`/api/chat/history/${convId}`);
       if (response.ok) {
-        const data = await response.json();
-        setMessages(data.messages.map((msg: any) => ({
-          ...msg,
-          timestamp: new Date(msg.timestamp)
-        })));
+        type ApiMessage = Omit<Message, 'timestamp'> & { timestamp: string | number };
+        const data: { messages: ApiMessage[] } = await response.json();
+        setMessages(
+          data.messages.map((msg: ApiMessage) => ({
+            ...msg,
+            timestamp: new Date(msg.timestamp)
+          }))
+        );
       }
     } catch (error) {
       console.error('Error loading conversation history:', error);
@@ -153,7 +155,7 @@ export default function ChatInterface({ conversationId: initialConversationId, u
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-2">Welcome, dear one.</p>
             <p className="text-sm text-gray-500 dark:text-gray-500">
-              I'm Beatrice, your guide on this sacred journey. How may I support you today?
+              I&apos;m Beatrice, your guide on this sacred journey. How may I support you today?
             </p>
           </div>
         ) : (
@@ -193,9 +195,9 @@ export default function ChatInterface({ conversationId: initialConversationId, u
                 <span className="text-xs font-medium text-purple-600 dark:text-purple-400">Beatrice is contemplating...</span>
               </div>
               <div className="flex gap-1 mt-2">
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:0ms]"></div>
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:150ms]"></div>
+                <div className="w-2 h-2 bg-purple-400 rounded-full animate-bounce [animation-delay:300ms]"></div>
               </div>
             </div>
           </div>

@@ -201,7 +201,7 @@ export default function Dashboard() {
         <div className="flex-1 overflow-hidden">
           {activeSection === 'chat' && (
             <div className="h-full p-4">
-              <ChatInterface userId={user?.id} />
+              <ChatInterface />
             </div>
           )}
           
