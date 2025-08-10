@@ -207,60 +207,41 @@ export default function Dashboard() {
               );
             })}
 
-            {/* Daily Spiritual Stats */}
-            <div className="mt-6 p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg">
-              <h3 className="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-3">Today&apos;s Energy</h3>
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-600 dark:text-gray-400">Spiritual Focus</span>
-                  <div className="flex gap-1">
-                    {[1,2,3,4,5].map((i) => (
-                      <div key={i} className={`w-2 h-2 rounded-full ${i <= 3 ? 'bg-purple-500' : 'bg-gray-300 dark:bg-gray-600'}`} />
-                    ))}
-                  </div>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-600 dark:text-gray-400">Energy Level</span>
-                  <div className="flex gap-1">
-                    {[1,2,3,4,5].map((i) => (
-                      <div key={i} className={`w-2 h-2 rounded-full ${i <= 4 ? 'bg-indigo-500' : 'bg-gray-300 dark:bg-gray-600'}`} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Removed "Today’s Energy" section for now */}
 
-            {/* Conversations */}
-            <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg border border-purple-100 dark:border-purple-800">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200">Conversations</h3>
-                <button
-                  onClick={() => setInitialConversationId(undefined)}
-                  className="text-xs px-2 py-1 rounded bg-purple-600 text-white hover:bg-purple-700"
-                  title="Start a new conversation"
-                >
-                  New
-                </button>
-              </div>
-              <div className="space-y-1 max-h-64 overflow-auto">
-                {conversations.length === 0 && (
-                  <p className="text-xs text-gray-500 dark:text-gray-400">No conversations yet</p>
-                )}
-                {conversations.map((c) => (
+            {/* Conversations: visible only on the "Chat with Beatrice" page */}
+            {activeSection === 'chat' && (
+              <div className="mt-6 p-4 bg-white dark:bg-gray-800 rounded-lg border border-purple-100 dark:border-purple-800">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200">Conversations</h3>
                   <button
-                    key={c.id}
-                    onClick={() => setInitialConversationId(c.id)}
-                    className={`w-full text-left px-3 py-2 rounded hover:bg-purple-100 dark:hover:bg-purple-900/50 ${initialConversationId === c.id ? 'bg-purple-100 dark:bg-purple-900/40' : ''}`}
-                    title={c.title || 'Untitled conversation'}
+                    onClick={() => setInitialConversationId(undefined)}
+                    className="text-xs px-2 py-1 rounded bg-purple-600 text-white hover:bg-purple-700"
+                    title="Start a new conversation"
                   >
-                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">{c.title || 'Untitled conversation'}</p>
-                    <p className="text-[10px] text-gray-500 dark:text-gray-400">
-                      {new Date(c.last_message_at || c.created_at || '').toLocaleString()}
-                    </p>
+                    New
                   </button>
-                ))}
+                </div>
+                <div className="space-y-1 max-h-64 overflow-auto">
+                  {conversations.length === 0 && (
+                    <p className="text-xs text-gray-500 dark:text-gray-400">No conversations yet</p>
+                  )}
+                  {conversations.map((c) => (
+                    <button
+                      key={c.id}
+                      onClick={() => setInitialConversationId(c.id)}
+                      className={`w-full text-left px-3 py-2 rounded hover:bg-purple-100 dark:hover:bg-purple-900/50 ${initialConversationId === c.id ? 'bg-purple-100 dark:bg-purple-900/40' : ''}`}
+                      title={c.title || 'Untitled conversation'}
+                    >
+                      <p className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">{c.title || 'Untitled conversation'}</p>
+                      <p className="text-[10px] text-gray-500 dark:text-gray-400">
+                        {new Date(c.last_message_at || c.created_at || '').toLocaleString()}
+                      </p>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </nav>
         </div>
 
