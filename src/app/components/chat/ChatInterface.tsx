@@ -12,9 +12,10 @@ interface Message {
 
 interface ChatInterfaceProps {
   conversationId?: string;
+  onConversationId?: (id: string) => void;
 }
 
-export default function ChatInterface({ conversationId: initialConversationId }: ChatInterfaceProps) {
+export default function ChatInterface({ conversationId: initialConversationId, onConversationId }: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -41,10 +42,11 @@ export default function ChatInterface({ conversationId: initialConversationId }:
 
   // Sync internal state when the parent provides a conversationId later
   useEffect(() => {
-    if (!hasUserResetConversation && initialConversationId && initialConversationId !== conversationId) {
+    if (initialConversationId && initialConversationId !== conversationId) {
+      setHasUserResetConversation(false);
       setConversationId(initialConversationId);
     }
-  }, [initialConversationId, hasUserResetConversation, conversationId]);
+  }, [initialConversationId, conversationId]);
 
   const startNewConversation = () => {
     setHasUserResetConversation(true);
@@ -107,6 +109,7 @@ export default function ChatInterface({ conversationId: initialConversationId }:
       // Update conversation ID if this is a new conversation
       if (!conversationId && data.conversationId) {
         setConversationId(data.conversationId);
+        if (onConversationId) onConversationId(data.conversationId);
       }
 
       const assistantMessage: Message = {
