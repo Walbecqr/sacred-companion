@@ -61,7 +61,89 @@ export async function getDataObject(options: DataObjectOptions) {
     }
     return createDataObjectFn(config, options);
   } catch {
-    throw new Error('supabase-dataobject-helper is not available. Ensure the extension or package is installed.');
+    // Fallback: emulate a minimal DataObject using supabase-js directly
+    const { createClient } = await import('@supabase/supabase-js');
+    const client = createClient(config.url, config.anonKey);
+
+    type RecordMap = Record<string, unknown>;
+    let cached: RecordMap[] = [];
+    const listeners: Array<(data: RecordMap[]) => void> = [];
+
+    type WithFilters<Q> = Q & {
+      eq: (field: string, value: unknown) => Q;
+      ilike: (field: string, value: string) => Q;
+      order: (field: string, opts: { ascending: boolean }) => Q;
+      limit: (count: number) => Q;
+    };
+
+    function applyQuery<Q>(query: WithFilters<Q>): WithFilters<Q> {
+      if (options.whereClauses && options.whereClauses.length > 0) {
+        for (const clause of options.whereClauses) {
+          if (clause.operator === 'equals') {
+            query = query.eq(clause.field, clause.value) as WithFilters<Q>;
+          } else if (clause.operator === 'ilike') {
+            query = query.ilike(clause.field, clause.value as string) as WithFilters<Q>;
+          }
+        }
+      }
+      if (options.sort) {
+        query = query.order(options.sort.field, { ascending: options.sort.direction === 'asc' }) as WithFilters<Q>;
+      }
+      if (options.recordLimit && options.recordLimit > 0) {
+        query = query.limit(options.recordLimit) as WithFilters<Q>;
+      }
+      return query;
+    }
+
+    const refresh = async () => {
+      const fields = options.fields?.map(f => f.name).join(',') || '*';
+      const q = client.from(options.viewName).select(fields);
+      const filtered = applyQuery(q as unknown as WithFilters<typeof q>);
+      const { data, error } = await (filtered as unknown as typeof q);
+      if (error) {
+        throw error;
+      }
+      const rows = (data as unknown as RecordMap[]) ?? [];
+      cached = rows;
+      listeners.forEach(fn => fn(cached));
+    };
+
+    await refresh();
+
+    return {
+      onDataChanged(handler: (data: RecordMap[]) => void) {
+        listeners.push(handler);
+      },
+      getData() {
+        return cached;
+      },
+      async insert(record: RecordMap) {
+        if (!options.canInsert) throw new Error('Insert not allowed by DataObjectOptions');
+        const { error } = await client.from(options.viewName).insert(record);
+        if (error) throw error;
+        await refresh();
+      },
+      async update(id: string | number, changes: RecordMap) {
+        if (!options.canUpdate) throw new Error('Update not allowed by DataObjectOptions');
+        const idField = options.fields.find(f => f.name === 'id')?.name || 'id';
+        const { error } = await client.from(options.viewName).update(changes).eq(idField, id);
+        if (error) throw error;
+        await refresh();
+      },
+      async delete(id: string | number) {
+        if (!options.canDelete) throw new Error('Delete not allowed by DataObjectOptions');
+        const idField = options.fields.find(f => f.name === 'id')?.name || 'id';
+        const { error } = await client.from(options.viewName).delete().eq(idField, id);
+        if (error) throw error;
+        await refresh();
+      },
+      async refresh() {
+        await refresh();
+      },
+      dispose() {
+        listeners.length = 0;
+      }
+    };
   }
 }
 
