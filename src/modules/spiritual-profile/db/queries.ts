@@ -6,7 +6,8 @@ import type {
   UserSpiritualProfile,
   UpdateSpiritualProfileInput,
   MilestonesTimelineData,
-  SpiritualJourneyStats
+  SpiritualJourneyStats,
+  SpiritualFocusPeriod
 } from '@/modules/spiritual-profile/types'
 
 export class SpiritualProfileQueries {
@@ -170,7 +171,7 @@ export class SpiritualProfileQueries {
       journeyDurationDays: profile?.days_since_start || 0,
       mostCommonMilestoneType: mostCommonType,
       recentMilestones: (recentMilestones as SpiritualMilestone[]) || [],
-      currentFocusAreas: (currentFocus as any) || []
+      currentFocusAreas: (currentFocus ?? []) as SpiritualFocusPeriod[]
     }
   }
 
