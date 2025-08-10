@@ -91,11 +91,15 @@ export async function generateBeatriceResponse(
 
     // Generate Beatrice's response through Claude
     if (!process.env.ANTHROPIC_API_KEY) {
-      return "I can't reach the wisdom library right now (missing API key). I'll still keep you company and reflect with you.";
+      let msg = "I can't reach the wisdom library right now (missing API key). I'll still keep you company and reflect with you.";
+      if (process.env.NODE_ENV !== 'production') {
+        msg += "\n\n[dev hint] Missing ANTHROPIC_API_KEY in environment.";
+      }
+      return msg;
     }
 
     const response = await anthropic.messages.create({
-      model: 'claude-3-sonnet-20240229',
+      model: 'claude-3-5-sonnet-latest',
       max_tokens: 1000,
       temperature: 0.7, // Slightly creative but still coherent
       system: BEATRICE_SYSTEM_PROMPT,
@@ -113,7 +117,12 @@ export async function generateBeatriceResponse(
   } catch (error) {
     console.error('Error generating Beatrice response:', error);
     // Provide a fallback response that maintains the spiritual connection
-    return "I'm experiencing some difficulty connecting with my full wisdom right now, but I'm still here with you. Please share what's on your heart, and I'll do my best to offer guidance and support.";
+    let fallback = "I'm experiencing some difficulty connecting with my full wisdom right now, but I'm still here with you. Please share what's on your heart, and I'll do my best to offer guidance and support.";
+    if (process.env.NODE_ENV !== 'production') {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      fallback += `\n\n[dev hint] Anthropic error: ${errorMessage}`;
+    }
+    return fallback;
   }
 }
 
