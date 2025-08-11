@@ -25,7 +25,7 @@
      })
  
      return NextResponse.json({ ok: true })
-   } catch (e) {
+   } catch (_e) {
      return NextResponse.json({ error: 'Failed to log' }, { status: 500 })
    }
  }

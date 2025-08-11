@@ -12,7 +12,7 @@
    current_journey_phase?: string | null
  }
  
- export async function POST(req: NextRequest) {
+ export async function POST(_req: NextRequest) {
    const supabase = createRouteHandlerClient({ cookies })
    const { data: userData } = await supabase.auth.getUser()
    const user = userData?.user

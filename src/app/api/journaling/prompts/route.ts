@@ -3,7 +3,7 @@
  import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
  import type { SupabaseClient } from '@supabase/supabase-js'
  
- export async function POST(req: NextRequest) {
+ export async function POST(_req: NextRequest) {
    const supabase = createRouteHandlerClient({ cookies })
    const { data: userData } = await supabase.auth.getUser()
    const user = userData?.user

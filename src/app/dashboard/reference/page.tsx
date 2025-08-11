@@ -39,15 +39,15 @@ export default function ReferencePage() {
             <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
               Coming Soon
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-              We're building an extensive reference library of spiritual symbols, 
-              correspondences, and tools. This will be your go-to resource for 
-              understanding the deeper meanings behind your practice.
-            </p>
+                         <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+               We&apos;re building an extensive reference library of spiritual symbols, 
+               correspondences, and tools. This will be your go-to resource for 
+               understanding the deeper meanings behind your practice.
+             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mt-8 text-left">
               <div className="space-y-3">
-                <h3 className="font-semibold text-purple-700 dark:text-purple-300">What's Coming:</h3>
+                <h3 className="font-semibold text-purple-700 dark:text-purple-300">What&apos;s Coming:</h3>
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
                   <li>• Crystal and gemstone properties</li>
                   <li>• Herbal correspondences and uses</li>
