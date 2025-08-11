@@ -294,12 +294,12 @@ export default function Dashboard() {
           <nav className="p-4 space-y-2">
             {navigationItems.map((item) => {
               const Icon = item.icon;
-                  return item.href ? (
-                    <Link
-                      key={item.id}
-                      href={item.href}
+              return item.href ? (
+                <Link
+                  key={item.id}
+                  href={item.href}
                       className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-gray-700 dark:text-gray-300 ${item.id === 'overview' ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg' : ''}`}
-                    >
+                >
                   <div className="flex items-center gap-3">
                     <Icon className="w-5 h-5" />
                     <span className="font-medium">{item.label}</span>
@@ -349,7 +349,7 @@ export default function Dashboard() {
                     <h1 className="text-2xl font-semibold">Welcome{userProfile.display_name ? `, ${userProfile.display_name}` : ''}!</h1>
                     <p className="text-sm text-white/80">Current Moon: {currentMoonPhase}</p>
                   </div>
-                  <Link href="/dashboard/chat" className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg">Open Beatrice</Link>
+                  <Link href="/dashboard/spiritual-journey" className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg">View Spiritual Journey</Link>
                 </div>
               </div>
 
@@ -364,7 +364,7 @@ export default function Dashboard() {
                 <Link href="/dashboard/spiritual-journey" className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow hover:shadow-md transition">
                   <div className="flex items-center gap-3 text-purple-700 dark:text-purple-300">
                     <MapIcon className="w-5 h-5" />
-                    <span className="font-medium">View Spiritual Journey</span>
+                    <span className="font-medium">Spiritual Journey Dashboard</span>
                   </div>
                 </Link>
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow opacity-70">
@@ -513,7 +513,7 @@ export default function Dashboard() {
               </div>
             </div>
           )}
-
+          
           {activeSection === 'profile' && (
             <div className="p-8">
               <div className="max-w-2xl mx-auto">

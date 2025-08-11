@@ -1,8 +1,6 @@
 // app/dashboard/spiritual-journey/page.tsx
 
 import { Suspense } from 'react'
-import { supabase as client } from '@/lib/supabase'
-import { redirect } from 'next/navigation'
 import SpiritualJourneyDashboard from '@/modules/spiritual-profile/ui/SpiritualJourneyDashboard'
 import { SpiritualProfileQueries } from '@/modules/spiritual-profile/db/queries'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -63,13 +61,6 @@ function SpiritualJourneyLoading() {
 
 // Main page component
 export default async function SpiritualJourneyPage() {
-  const supabase = client
-  
-  const { data: { user }, error: authError } = await supabase.auth.getUser()
-  if (authError || !user) {
-    redirect(`/login?returnTo=${encodeURIComponent('/dashboard/spiritual-journey')}`)
-  }
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Suspense fallback={<SpiritualJourneyLoading />}>
