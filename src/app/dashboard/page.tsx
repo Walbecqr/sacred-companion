@@ -8,7 +8,7 @@ import ChatInterface from '../components/chat/ChatInterface';
 import {
   Sparkles, Moon, BookOpen, Compass,
   Heart, LogOut, Menu, X,
-  Feather, Map,
+  Feather, Map as MapIcon,
   type LucideIcon,
 } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
@@ -133,7 +133,7 @@ export default function Dashboard() {
 
   const navigationItems: NavigationItem[] = [
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', badge: null },
-    { id: 'journey', icon: Map, label: 'Spiritual Journey', href: '/dashboard/spiritual-journey', badge: null },
+    { id: 'journey', icon: MapIcon, label: 'Spiritual Journey', href: '/dashboard/spiritual-journey', badge: null },
     { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
     { id: 'rituals', icon: Sparkles, label: 'Rituals', badge: 'Coming Soon' },
     { id: 'grimoire', icon: BookOpen, label: 'Grimoire', badge: 'Coming Soon' },
