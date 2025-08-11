@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Send, Sparkles, Moon, Sun, Heart } from 'lucide-react';
+import { Send, Sparkles, Moon, Sun, Heart, History, X } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -13,14 +13,24 @@ interface Message {
 interface ChatInterfaceProps {
   conversationId?: string;
   onConversationId?: (id: string) => void;
+  conversations?: Array<{ id: string; title: string | null; last_message_at: string | null; created_at: string | null }>;
+  onSelectConversation?: (id: string) => void;
+  onNewConversation?: () => void;
 }
 
-export default function ChatInterface({ conversationId: initialConversationId, onConversationId }: ChatInterfaceProps) {
+export default function ChatInterface({
+  conversationId: initialConversationId,
+  onConversationId,
+  conversations = [],
+  onSelectConversation,
+  onNewConversation
+}: ChatInterfaceProps) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [conversationId, setConversationId] = useState(initialConversationId);
   const [hasUserResetConversation, setHasUserResetConversation] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const lastInitialIdRef = useRef<string | undefined>(initialConversationId);
@@ -74,6 +84,18 @@ export default function ChatInterface({ conversationId: initialConversationId, o
         textareaRef.current?.focus();
       });
     }
+  };
+
+  const handleNewConversation = () => {
+    startNewConversation();
+    if (onNewConversation) onNewConversation();
+    setShowHistory(false);
+  };
+
+  const handleSelectConversation = (id: string) => {
+    setConversationId(id);
+    if (onSelectConversation) onSelectConversation(id);
+    setShowHistory(false);
   };
 
   const loadConversationHistory = async (convId: string) => {
@@ -165,7 +187,49 @@ export default function ChatInterface({ conversationId: initialConversationId, o
   }, [inputMessage]);
 
   return (
-    <div className="flex flex-col h-full bg-gradient-to-b from-purple-50/50 to-indigo-50/50 dark:from-purple-950/20 dark:to-indigo-950/20 rounded-lg shadow-xl">
+    <div className="relative flex flex-col h-full bg-gradient-to-b from-purple-50/50 to-indigo-50/50 dark:from-purple-950/20 dark:to-indigo-950/20 rounded-lg shadow-xl">
+      {showHistory && (
+        <div className="absolute inset-0 flex z-10">
+          <div className="w-64 bg-white dark:bg-gray-800 p-4 border-r border-purple-200 dark:border-purple-800 overflow-y-auto">
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-200">Conversations</h3>
+              <button
+                onClick={() => setShowHistory(false)}
+                className="p-1 rounded hover:bg-purple-100 dark:hover:bg-purple-900/50"
+                title="Close history"
+              >
+                <X className="w-4 h-4 text-purple-700 dark:text-purple-200" />
+              </button>
+            </div>
+            <button
+              onClick={handleNewConversation}
+              className="text-xs px-2 py-1 mb-2 rounded bg-purple-600 text-white hover:bg-purple-700"
+              title="Start a new conversation"
+            >
+              New
+            </button>
+            <div className="space-y-1 max-h-[calc(100%-4rem)] overflow-auto">
+              {conversations.length === 0 && (
+                <p className="text-xs text-gray-500 dark:text-gray-400">No conversations yet</p>
+              )}
+              {conversations.map((c) => (
+                <button
+                  key={c.id}
+                  onClick={() => handleSelectConversation(c.id)}
+                  className={`w-full text-left px-3 py-2 rounded hover:bg-purple-100 dark:hover:bg-purple-900/50 ${conversationId === c.id ? 'bg-purple-100 dark:bg-purple-900/40' : ''}`}
+                  title={c.title || 'Untitled conversation'}
+                >
+                  <p className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">{c.title || 'Untitled conversation'}</p>
+                  <p className="text-[10px] text-gray-500 dark:text-gray-400">
+                    {new Date(c.last_message_at || c.created_at || '').toLocaleString()}
+                  </p>
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex-1 bg-black/50" onClick={() => setShowHistory(false)}></div>
+        </div>
+      )}
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-4 rounded-t-lg">
         <div className="flex items-center gap-3">
@@ -180,11 +244,19 @@ export default function ChatInterface({ conversationId: initialConversationId, o
             <p className="text-xs text-purple-100">Your Spiritual Companion</p>
           </div>
           <div className="ml-auto flex gap-2">
+            <button
+              type="button"
+              onClick={() => setShowHistory(true)}
+              className="text-white/70 hover:text-white"
+              title="Show chat history"
+            >
+              <History className="w-5 h-5" />
+            </button>
             <Moon className="w-5 h-5 text-purple-200" />
             <Sun className="w-5 h-5 text-yellow-200" />
             <button
               type="button"
-              onClick={startNewConversation}
+              onClick={handleNewConversation}
               className="ml-2 text-xs bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded-lg transition"
               title="Start a new chat"
             >
