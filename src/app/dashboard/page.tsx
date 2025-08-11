@@ -71,6 +71,20 @@ export default function Dashboard() {
   const [draftPrefs, setDraftPrefs] = useState<UserPreferences>({});
   const lastSavedPrefsRef = useRef<UserPreferences>({});
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const settingsButtonRef = useRef<HTMLButtonElement | null>(null);
+  const overlayPanelRef = useRef<HTMLDivElement | null>(null);
+  const prevFocusRef = useRef<HTMLElement | null>(null);
+
+  // Simple toast notifications
+  type Toast = { id: string; message: string; type: 'success' | 'error' | 'info' };
+  const [toasts, setToasts] = useState<Toast[]>([]);
+  const addToast = useCallback((message: string, type: Toast['type'] = 'info') => {
+    const id = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    setToasts((t) => [...t, { id, message, type }]);
+    setTimeout(() => {
+      setToasts((t) => t.filter((x) => x.id !== id));
+    }, 3000);
+  }, []);
   
   const router = useRouter();
   const pathname = usePathname();
@@ -121,8 +135,9 @@ export default function Dashboard() {
       setLoading(false);
 
       // Initialize preferences draft from profile
-      setDraftPrefs((profile?.preferences as UserPreferences) || {});
-      lastSavedPrefsRef.current = (profile?.preferences as UserPreferences) || {};
+      const initial = (profile?.preferences as UserPreferences) || {};
+      setDraftPrefs(initial);
+      lastSavedPrefsRef.current = initial;
 
       // Load user's conversations (most recent first) in background
       (async () => {
@@ -199,14 +214,16 @@ export default function Dashboard() {
           setTimeout(() => setSavingPrefs('idle'), 1500);
           // reflect in header data source
           setUserProfile((p) => ({ ...(p || {}), preferences: next }));
+          addToast('Preferences saved', 'success');
         } catch {
           setSavingPrefs('error');
           setTimeout(() => setSavingPrefs('idle'), 2000);
+          addToast('Failed to save preferences', 'error');
         }
       }, 500);
       return next;
     });
-  }, [supabase, user]);
+  }, [supabase, user, addToast]);
 
   const undoLastSave = useCallback(() => {
     const prev = lastSavedPrefsRef.current || {};
@@ -222,16 +239,28 @@ export default function Dashboard() {
         if (error) throw error;
         setSavingPrefs('saved');
         setTimeout(() => setSavingPrefs('idle'), 1500);
+        addToast('Changes undone', 'success');
       } catch {
         setSavingPrefs('error');
         setTimeout(() => setSavingPrefs('idle'), 2000);
+        addToast('Failed to undo', 'error');
       }
     })();
-  }, [supabase, user]);
+  }, [supabase, user, addToast]);
 
   const handleAvatarUpload = useCallback(async (file: File) => {
     if (!user) return;
     try {
+      const MAX_BYTES = 2 * 1024 * 1024; // 2MB
+      const allowed = ['image/jpeg','image/png','image/webp','image/avif'];
+      if (!allowed.includes(file.type)) {
+        addToast('Unsupported image type. Use JPEG, PNG, WebP, or AVIF.', 'error');
+        return;
+      }
+      if (file.size > MAX_BYTES) {
+        addToast('Image too large. Max 2MB.', 'error');
+        return;
+      }
       const ext = file.name.split('.').pop() || 'png';
       const path = `${user.id}/${Date.now()}.${ext}`;
       const { error: upErr } = await supabase.storage.from('avatars').upload(path, file, { upsert: true });
@@ -239,11 +268,95 @@ export default function Dashboard() {
       const { data } = supabase.storage.from('avatars').getPublicUrl(path);
       const url = data.publicUrl;
       applyPrefChange((prev) => ({ ...(prev || {}), avatar: { ...(prev?.avatar || {}), url } }));
+      addToast('Avatar updated', 'success');
     } catch {
       setSavingPrefs('error');
       setTimeout(() => setSavingPrefs('idle'), 2000);
+      addToast('Failed to upload avatar', 'error');
     }
-  }, [applyPrefChange, supabase, user]);
+  }, [applyPrefChange, supabase, user, addToast]);
+
+  // Defaults and per-toggle undo
+  const DEFAULT_PREFS = useMemo<UserPreferences>(() => ({
+    avatar: { theme: 'moon', url: '' },
+    notifications: { dailyReminder: 'off' },
+    privacy: { showProfilePublicly: false, shareMilestonesWithAI: false }
+  }), []);
+
+  const resetToDefaults = useCallback(() => {
+    applyPrefChange(() => DEFAULT_PREFS);
+    addToast('Preferences reset to defaults', 'success');
+  }, [applyPrefChange, addToast, DEFAULT_PREFS]);
+
+  const undoAvatarTheme = useCallback(() => {
+    const prev = lastSavedPrefsRef.current?.avatar?.theme;
+    if (typeof prev === 'string') {
+      applyPrefChange((p) => ({ ...(p || {}), avatar: { ...(p?.avatar || {}), theme: prev } }));
+      addToast('Avatar theme reverted', 'success');
+    }
+  }, [applyPrefChange, addToast]);
+
+  const undoDailyReminder = useCallback(() => {
+    const prev = (lastSavedPrefsRef.current?.notifications?.dailyReminder || 'off') as DailyReminderSlot;
+    applyPrefChange((p) => ({ ...(p || {}), notifications: { ...(p?.notifications || {}), dailyReminder: prev } }));
+    addToast('Notification timing reverted', 'success');
+  }, [applyPrefChange, addToast]);
+
+  const undoPrivacyProp = useCallback((prop: 'showProfilePublicly' | 'shareMilestonesWithAI') => {
+    const prev = !!(lastSavedPrefsRef.current?.privacy && (lastSavedPrefsRef.current.privacy as Required<NonNullable<UserPreferences['privacy']>>)[prop]);
+    applyPrefChange((p) => ({ ...(p || {}), privacy: { ...(p?.privacy || {}), [prop]: prev } } as UserPreferences));
+    addToast('Privacy setting reverted', 'success');
+  }, [applyPrefChange, addToast]);
+
+  // Focus trap and restore
+  useEffect(() => {
+    if (!settingsOpen) return;
+    prevFocusRef.current = (document.activeElement as HTMLElement) || null;
+    const panel = overlayPanelRef.current;
+    const focusables = () => {
+      if (!panel) return [] as HTMLElement[];
+      return Array.from(panel.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      ));
+    };
+    const tryFocusFirst = () => {
+      const els = focusables();
+      if (els.length > 0) els[0].focus();
+    };
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setSettingsOpen(false);
+      } else if (e.key === 'Tab') {
+        const els = focusables();
+        if (els.length === 0) return;
+        const first = els[0];
+        const last = els[els.length - 1];
+        const isShift = e.shiftKey;
+        const active = document.activeElement as HTMLElement;
+        if (!isShift && active === last) {
+          e.preventDefault();
+          first.focus();
+        } else if (isShift && active === first) {
+          e.preventDefault();
+          last.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    setTimeout(tryFocusFirst, 0);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [settingsOpen]);
+
+  useEffect(() => {
+    if (!settingsOpen && prevFocusRef.current) {
+      setTimeout(() => {
+        try {
+          settingsButtonRef.current?.focus();
+        } catch {}
+      }, 0);
+    }
+  }, [settingsOpen]);
 
   // Helpers for personalized welcome message
   const getPreferredName = useCallback(() => {
@@ -473,6 +586,7 @@ export default function Dashboard() {
               {/* Profile & Settings quick access */}
               <button
                 type="button"
+                ref={settingsButtonRef}
                 onClick={() => setSettingsOpen(true)}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-100/70 dark:bg-purple-900/40 hover:bg-purple-200 dark:hover:bg-purple-900/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                 aria-label="Open Profile and Settings"
@@ -813,7 +927,7 @@ export default function Dashboard() {
                 onClick={() => setSettingsOpen(false)}
                 aria-hidden="true"
               />
-              <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl p-5 overflow-y-auto">
+              <div ref={overlayPanelRef} className="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl p-5 overflow-y-auto">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <UserIcon className="w-5 h-5 text-purple-600" />
@@ -885,6 +999,15 @@ export default function Dashboard() {
                       );
                     })}
                   </div>
+                  <div className="mt-2">
+                    <button
+                      type="button"
+                      onClick={undoAvatarTheme}
+                      className="inline-flex items-center gap-1 text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                    >
+                      <Undo2 className="w-3 h-3" /> Undo avatar theme
+                    </button>
+                  </div>
                 </section>
 
                 {/* Notifications */}
@@ -906,6 +1029,15 @@ export default function Dashboard() {
                       );
                     })}
                   </div>
+                  <div className="mt-2">
+                    <button
+                      type="button"
+                      onClick={undoDailyReminder}
+                      className="inline-flex items-center gap-1 text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                    >
+                      <Undo2 className="w-3 h-3" /> Undo notification timing
+                    </button>
+                  </div>
                 </section>
 
                 {/* Privacy */}
@@ -920,6 +1052,13 @@ export default function Dashboard() {
                       />
                       <span className="flex items-center gap-2"><Eye className="w-4 h-4" /> Show profile publicly</span>
                     </label>
+                    <button
+                      type="button"
+                      onClick={() => undoPrivacyProp('showProfilePublicly')}
+                      className="ml-6 inline-flex items-center gap-1 text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                    >
+                      <Undo2 className="w-3 h-3" /> Undo
+                    </button>
                     <label className="flex items-center gap-2">
                       <input
                         type="checkbox"
@@ -928,6 +1067,13 @@ export default function Dashboard() {
                       />
                       <span className="flex items-center gap-2"><Shield className="w-4 h-4" /> Allow AI insights from milestones</span>
                     </label>
+                    <button
+                      type="button"
+                      onClick={() => undoPrivacyProp('shareMilestonesWithAI')}
+                      className="ml-6 inline-flex items-center gap-1 text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                    >
+                      <Undo2 className="w-3 h-3" /> Undo
+                    </button>
                   </div>
                 </section>
 
@@ -935,10 +1081,33 @@ export default function Dashboard() {
                 <section className="mb-2 text-xs text-gray-500 dark:text-gray-400">
                   Changes are saved automatically. You can use Undo to revert the last change.
                 </section>
+                <div className="mt-4 flex items-center justify-between">
+                  <button
+                    type="button"
+                    onClick={resetToDefaults}
+                    className="text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                  >
+                    Reset to defaults
+                  </button>
+                  <button
+                    type="button"
+                    onClick={undoLastSave}
+                    className="text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                  >
+                    Undo last save
+                  </button>
+                </div>
               </div>
             </div>
           )}
         </div>
+      </div>
+      <div className="fixed bottom-4 right-4 z-[60] space-y-2">
+        {toasts.map((t) => (
+          <div key={t.id} className={`rounded-md px-4 py-2 shadow text-sm text-white ${t.type === 'success' ? 'bg-green-600' : t.type === 'error' ? 'bg-red-600' : 'bg-gray-800'}`}>
+            {t.message}
+          </div>
+        ))}
       </div>
     </div>
   );
