@@ -462,11 +462,11 @@ export default function Dashboard() {
     { id: 'overview', icon: Sparkles, label: 'Overview', href: '/dashboard', badge: null },
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', href: '/dashboard/chat', badge: null },
     { id: 'journey', icon: MapIcon, label: 'Journey', href: '/dashboard/spiritual-journey', badge: null },
+    { id: 'profile', icon: Heart, label: 'Spiritual Profile', href: '/dashboard/spiritual-profile', badge: null },
     { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
     { id: 'rituals', icon: Flame, label: 'Rituals', badge: 'Coming Soon' },
     { id: 'library', icon: BookOpen, label: 'Library', badge: 'Coming Soon' },
     { id: 'reference', icon: Gem, label: 'Reference', badge: 'Coming Soon' },
-    { id: 'profile', icon: Heart, label: 'Spiritual Profile', badge: null },
   ];
 
   // Persist daily check-in and journal draft
