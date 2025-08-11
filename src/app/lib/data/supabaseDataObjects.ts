@@ -44,28 +44,11 @@ function getSupabaseConfig(): SupabaseConfig {
 
 export async function getDataObject(options: DataObjectOptions, existingClient?: unknown) {
   const config = getSupabaseConfig();
-  // Dynamically import to make the helper optional at build time
-  try {
-    // Avoid bundler static resolution by using the Function constructor
-    const dynamicImport: (specifier: string) => Promise<unknown> = new Function(
-      'specifier',
-      'return import(specifier)'
-    ) as unknown as (specifier: string) => Promise<unknown>;
-
-    const modUnknown = await dynamicImport('supabase-dataobject-helper');
-    const mod = modUnknown as { createDataObject?: (cfg: SupabaseConfig, opt: DataObjectOptions) => Promise<unknown> } | { default?: { createDataObject?: (cfg: SupabaseConfig, opt: DataObjectOptions) => Promise<unknown> } };
-    const createDataObjectFn = ('createDataObject' in (mod as Record<string, unknown>)
-      ? (mod as { createDataObject: (cfg: SupabaseConfig, opt: DataObjectOptions) => Promise<unknown> }).createDataObject
-      : (mod as { default?: { createDataObject?: (cfg: SupabaseConfig, opt: DataObjectOptions) => Promise<unknown> } }).default?.createDataObject);
-    if (!createDataObjectFn) {
-      throw new Error('createDataObject not found in supabase-dataobject-helper');
-    }
-    return createDataObjectFn(config, options);
-  } catch {
-    // Fallback: emulate a minimal DataObject using supabase-js directly
-    const { createClient } = await import('@supabase/supabase-js');
-    // If a client with session context is provided (e.g., from route handler), use it
-    const client: SupabaseClient = (existingClient as SupabaseClient) || createClient(config.url, config.anonKey);
+  
+  // Use supabase-js directly
+  const { createClient } = await import('@supabase/supabase-js');
+  // If a client with session context is provided (e.g., from route handler), use it
+  const client: SupabaseClient = (existingClient as SupabaseClient) || createClient(config.url, config.anonKey);
 
     type RecordMap = Record<string, unknown>;
     let cached: RecordMap[] = [];
@@ -146,7 +129,6 @@ export async function getDataObject(options: DataObjectOptions, existingClient?:
         listeners.length = 0;
       }
     };
-  }
 }
 
 
