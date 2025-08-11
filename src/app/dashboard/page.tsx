@@ -249,6 +249,9 @@ export default function Dashboard() {
         <div className="flex-1 overflow-hidden">
           {activeSection === 'chat' && (
             <div className="h-full p-4">
+              <h1 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                Welcome to the Sacred Companion Dashboard!
+              </h1>
               <ChatInterface
                 conversationId={initialConversationId}
                 onConversationId={(id) => {
