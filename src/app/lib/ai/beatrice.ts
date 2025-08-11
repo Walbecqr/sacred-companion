@@ -53,6 +53,7 @@ interface SpiritualContext {
     spiritualPath?: string[];
     experienceLevel?: string;
     preferredDeities?: string[];
+    growthPhase?: string;
     spiritualGoals?: string[];
     safetyProfile?: unknown;
   };
@@ -152,6 +153,9 @@ function buildContextualPrompt(context: SpiritualContext): string {
     if (profile.preferredDeities && profile.preferredDeities.length > 0) {
       prompt += `They work with or honor these deities: ${profile.preferredDeities.join(', ')}.\n`;
     }
+    if (profile.growthPhase) {
+      prompt += `Their current spiritual growth phase is: ${profile.growthPhase}.\n`;
+    }
     
     if (profile.spiritualGoals && profile.spiritualGoals.length > 0) {
       prompt += `Their spiritual goals include: ${profile.spiritualGoals.join(', ')}.\n`;
@@ -206,7 +210,10 @@ export async function gatherSpiritualContext(
         { name: 'spiritual_path', type: 'string' },
         { name: 'experience_level', type: 'string' },
         { name: 'preferred_deities', type: 'string' },
+        { name: 'primary_deity', type: 'string' },
+        { name: 'secondary_deity', type: 'string' },
         { name: 'spiritual_goals', type: 'string' },
+        { name: 'current_journey_phase', type: 'string' },
         { name: 'safety_profile', type: 'string' }
       ],
       whereClauses: [{ field: 'user_id', operator: 'equals', value: userId }],
@@ -221,19 +228,26 @@ export async function gatherSpiritualContext(
       spiritual_path?: string[];
       experience_level?: string;
       preferred_deities?: string[];
+      primary_deity?: string | null;
+      secondary_deity?: string | null;
       spiritual_goals?: string[];
+      current_journey_phase?: string | null;
       safety_profile?: unknown;
     };
     const profileDO = await getDataObject<UserProfile>(profileOptions, supabaseClient as unknown);
     const profileData = profileDO.getData();
     if (profileData && profileData.length > 0) {
       const p = profileData[0];
+      const deityList: string[] = Array.isArray(p.preferred_deities) && p.preferred_deities.length > 0
+        ? (p.preferred_deities as string[])
+        : [p.primary_deity, p.secondary_deity].filter((x): x is string => !!x && x.trim().length > 0);
       context.userProfile = {
         displayName: p.display_name,
         spiritualPath: p.spiritual_path,
         experienceLevel: p.experience_level,
-        preferredDeities: p.preferred_deities,
+        preferredDeities: deityList,
         spiritualGoals: p.spiritual_goals,
+        growthPhase: p.current_journey_phase || undefined,
         safetyProfile: p.safety_profile,
       };
     }

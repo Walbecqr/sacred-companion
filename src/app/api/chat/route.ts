@@ -134,6 +134,25 @@ export async function POST(request: NextRequest) {
         );
         const beatriceResponse = await generateBeatriceResponse(message, spiritualContext);
 
+        // Log which profile fields were present and used in the context for transparency
+        const usedFields: string[] = [];
+        if (spiritualContext.userProfile) {
+          const p = spiritualContext.userProfile;
+          if (p.spiritualPath && p.spiritualPath.length) usedFields.push('spiritual_path');
+          if (p.preferredDeities && p.preferredDeities.length) usedFields.push('preferred_deities|primary_deity|secondary_deity');
+          if (p.experienceLevel) usedFields.push('experience_level');
+          if (p.growthPhase) usedFields.push('current_journey_phase');
+        }
+        try {
+          await (supabase as unknown as SupabaseClient).from('messages').insert({
+            conversation_id: conversation.id,
+            user_id: user.id,
+            role: 'system',
+            content: `[profile-usage] feature=chat; used=${usedFields.join(', ')}`,
+            metadata: { type: 'profile_usage', usedFields, feature: 'chat' }
+          });
+        } catch {}
+
         // Store Beatrice's response
         await messagesDO.insert({
             conversation_id: conversation.id,
