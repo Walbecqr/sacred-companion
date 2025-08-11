@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
@@ -28,7 +28,7 @@ interface UserProfile {
   current_journey_phase?: string;
 }
 
-export default function ChatPage() {
+function ChatPageInner() {
   const [user, setUser] = useState<User | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile>({});
   const [loading, setLoading] = useState(true);
@@ -217,6 +217,21 @@ export default function ChatPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-purple-800 flex items-center justify-center">
+        <div className="text-center">
+          <Sparkles className="w-12 h-12 text-purple-300 animate-pulse mx-auto mb-4" />
+          <p className="text-white">Preparing your sacred space...</p>
+        </div>
+      </div>
+    }>
+      <ChatPageInner />
+    </Suspense>
   );
 }
 
