@@ -63,6 +63,15 @@ function SpiritualJourneyLoading() {
 export default async function SpiritualJourneyPage() {
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Coming Soon Banner */}
+      <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-3 text-center shadow-lg">
+        <div className="max-w-6xl mx-auto flex items-center justify-center gap-2">
+          <span className="text-lg">⚠️</span>
+          <span className="font-medium">This feature is coming soon - Sample data only</span>
+          <span className="text-lg">⚠️</span>
+        </div>
+      </div>
+      
       <Suspense fallback={<SpiritualJourneyLoading />}>
         <SpiritualJourneyContent />
       </Suspense>
