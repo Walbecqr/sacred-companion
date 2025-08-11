@@ -136,9 +136,9 @@ export default function SpiritualJourneyDashboard(props: DashboardProps) {
   const journeyMonths = Math.floor(((profile.days_since_start || 0) % 365) / 30)
 
   // Derived stats and insights
-  const { avgSignificance, typeCounts, mostCommonType } = useMemo(() => {
+  const { avgSignificance, mostCommonType } = useMemo(() => {
     if (!milestones || milestones.length === 0) {
-      return { avgSignificance: 0, typeCounts: {} as Record<Milestone['milestone_type'], number>, mostCommonType: 'custom' as Milestone['milestone_type'] }
+      return { avgSignificance: 0, mostCommonType: 'custom' as Milestone['milestone_type'] }
     }
     const counts = milestones.reduce((acc, m) => {
       acc[m.milestone_type] = (acc[m.milestone_type] || 0) + 1
@@ -148,7 +148,7 @@ export default function SpiritualJourneyDashboard(props: DashboardProps) {
       milestones.reduce((s, m) => s + m.significance_level, 0) / milestones.length
     )
     const common = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] as Milestone['milestone_type']
-    return { avgSignificance: Number(avg.toFixed(1)), typeCounts: counts, mostCommonType: common || 'custom' }
+    return { avgSignificance: Number(avg.toFixed(1)), mostCommonType: common || 'custom' }
   }, [milestones])
 
   const achievements = useMemo(() => {
