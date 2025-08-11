@@ -7,7 +7,7 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 export default async function LoginPage({
   searchParams
 }: {
-  searchParams: Promise<{ returnTo?: string }>
+  searchParams: { returnTo?: string } & Promise<Record<string, unknown>>
 }) {
   const supabase = createServerComponentClient({ cookies })
   const {
@@ -18,9 +18,26 @@ export default async function LoginPage({
     redirect('/dashboard')
   }
 
-  const params = await searchParams
-  const returnTo = params.returnTo ? decodeURIComponent(params.returnTo) : undefined
+  const decoded = (() => {
+    if (!searchParams.returnTo) return undefined
+    try {
+      return decodeURIComponent(searchParams.returnTo)
+    } catch {
+      return undefined
+    }
+  })()
+  const returnTo = sanitizeReturnTo(decoded)
   return <LoginForm returnTo={returnTo} />
+}
+
+function sanitizeReturnTo(returnTo?: string): string | undefined {
+  if (typeof returnTo !== 'string') return undefined
+  if (!returnTo.startsWith('/')) return '/'
+  if (returnTo.startsWith('//')) return '/'
+  if (returnTo.includes('://')) return '/'
+  if (returnTo.includes('\\')) return '/'
+  const safePathRegex = /^\/[A-Za-z0-9\-._~\/]*$/
+  return safePathRegex.test(returnTo) ? returnTo : '/'
 }
 
 // Add metadata for the page
