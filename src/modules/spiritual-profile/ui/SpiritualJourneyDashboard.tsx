@@ -1,7 +1,7 @@
 "use client"
 
-import { useState } from 'react'
-import { Star, BookOpen, Sparkles, Plus, Edit3, Clock, MapPin } from 'lucide-react'
+import { useMemo, useState } from 'react'
+import { Star, BookOpen, Sparkles, Plus, Edit3, Clock, MapPin, Award, TrendingUp, Activity, CalendarRange } from 'lucide-react'
 
 type Profile = {
   user_id: string
@@ -97,6 +97,18 @@ const mockMilestones: Milestone[] = [
   },
 ]
 
+const mockDeityConnections: Array<{
+  id: string
+  date: string
+  name: string
+  type: 'dream' | 'ritual' | 'sign' | 'meditation'
+  notes?: string
+}> = [
+  { id: 'd1', date: '2024-08-05', name: 'Hecate', type: 'ritual', notes: 'Felt a strong presence during crossroads meditation.' },
+  { id: 'd2', date: '2024-07-22', name: 'Brigid', type: 'sign', notes: 'Series of flame motifs appearing throughout the day.' },
+  { id: 'd3', date: '2024-06-10', name: 'Diana', type: 'dream', notes: 'Guided through a moonlit forest; message of protection.' },
+]
+
 const milestoneTypeConfig: Record<Milestone['milestone_type'], { label: string; icon: string; color: string }> = {
   personal_breakthrough: { label: 'Personal Breakthrough', icon: '✨', color: 'text-purple-600' },
   first_practice: { label: 'First Practice', icon: '🌱', color: 'text-green-600' },
@@ -122,6 +134,36 @@ export default function SpiritualJourneyDashboard(props: DashboardProps) {
 
   const journeyYears = Math.floor((profile.days_since_start || 0) / 365)
   const journeyMonths = Math.floor(((profile.days_since_start || 0) % 365) / 30)
+
+  // Derived stats and insights
+  const { avgSignificance, typeCounts, mostCommonType } = useMemo(() => {
+    if (!milestones || milestones.length === 0) {
+      return { avgSignificance: 0, typeCounts: {} as Record<Milestone['milestone_type'], number>, mostCommonType: 'custom' as Milestone['milestone_type'] }
+    }
+    const counts = milestones.reduce((acc, m) => {
+      acc[m.milestone_type] = (acc[m.milestone_type] || 0) + 1
+      return acc
+    }, {} as Record<Milestone['milestone_type'], number>)
+    const avg = (
+      milestones.reduce((s, m) => s + m.significance_level, 0) / milestones.length
+    )
+    const common = Object.entries(counts).sort((a, b) => b[1] - a[1])[0]?.[0] as Milestone['milestone_type']
+    return { avgSignificance: Number(avg.toFixed(1)), typeCounts: counts, mostCommonType: common || 'custom' }
+  }, [milestones])
+
+  const achievements = useMemo(() => {
+    const total = milestones.length
+    const highSig = milestones.filter(m => m.significance_level >= 4).length
+    const hasDeity = milestones.some(m => m.milestone_type === 'deity_connection')
+    const firstYear = (profile.days_since_start || 0) >= 365
+    return [
+      { id: 'a1', title: 'Getting Started', desc: 'Create your first milestone', unlocked: total >= 1 },
+      { id: 'a2', title: 'On The Path', desc: 'Log 10 milestones', unlocked: total >= 10 },
+      { id: 'a3', title: 'Deep Insight', desc: '5 milestones with high significance', unlocked: highSig >= 5 },
+      { id: 'a4', title: 'Divine Whisper', desc: 'Record a deity/spirit connection', unlocked: hasDeity },
+      { id: 'a5', title: 'Year One', desc: 'Journey for one year', unlocked: firstYear },
+    ]
+  }, [milestones, profile.days_since_start])
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
@@ -172,6 +214,38 @@ export default function SpiritualJourneyDashboard(props: DashboardProps) {
         </div>
       </div>
 
+      {/* Personal Statistics & Insights */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="font-semibold mb-2 flex items-center gap-2"><Activity className="w-4 h-4 text-purple-600"/> Personal Statistics</h3>
+          <div className="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p className="text-gray-500">Avg. Significance</p>
+              <p className="text-xl font-semibold text-purple-700">{avgSignificance}</p>
+            </div>
+            <div>
+              <p className="text-gray-500">Most Common Type</p>
+              <p className="text-sm font-medium">{milestoneTypeConfig[mostCommonType].label}</p>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="font-semibold mb-2 flex items-center gap-2"><TrendingUp className="w-4 h-4 text-purple-600"/> Trend Snapshot</h3>
+          <p className="text-sm text-gray-600">Patterns and trends will appear here based on your logged milestones over time.</p>
+        </div>
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="font-semibold mb-2 flex items-center gap-2"><Award className="w-4 h-4 text-purple-600"/> Achievements</h3>
+          <ul className="space-y-1 text-sm">
+            {achievements.map(a => (
+              <li key={a.id} className={`flex items-center justify-between ${a.unlocked ? 'text-gray-900' : 'text-gray-400'}`}>
+                <span>{a.title}</span>
+                <span className={`text-xs px-2 py-0.5 rounded ${a.unlocked ? 'bg-green-100 text-green-700' : 'bg-gray-100'}`}>{a.unlocked ? 'Unlocked' : 'Locked'}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
           <Clock className="w-5 h-5 text-purple-600" />
@@ -182,6 +256,34 @@ export default function SpiritualJourneyDashboard(props: DashboardProps) {
             <MilestoneCard key={milestone.id} milestone={milestone} />
           ))}
         </div>
+      </div>
+
+      {/* Spirit/Deity Connections Log */}
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-purple-600" />
+          Spirit/Deity Connections Log
+        </h2>
+        <div className="space-y-3">
+          {mockDeityConnections.map((c) => (
+            <div key={c.id} className="flex items-start justify-between border border-gray-200 rounded-md p-3">
+              <div>
+                <p className="font-medium text-gray-900">{c.name} <span className="text-xs text-gray-500">({c.type})</span></p>
+                <p className="text-xs text-gray-500">{new Date(c.date).toLocaleDateString()}</p>
+                {c.notes && <p className="text-sm text-gray-700 mt-1">{c.notes}</p>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Visual Timeline Placeholder */}
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+          <CalendarRange className="w-5 h-5 text-purple-600" />
+          Visual Timeline
+        </h2>
+        <p className="text-sm text-gray-600">A chronological, scrollable timeline of your milestones will appear here.</p>
       </div>
 
       {showCreateMilestone && (

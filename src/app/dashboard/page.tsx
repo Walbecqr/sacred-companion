@@ -134,7 +134,7 @@ export default function Dashboard() {
   const navigationItems: NavigationItem[] = [
     { id: 'overview', icon: Sparkles, label: 'Overview', href: '/dashboard', badge: null },
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', href: '/dashboard/chat', badge: null },
-    { id: 'journey', icon: MapIcon, label: 'Spiritual Journey', href: '/dashboard/spiritual-journey', badge: null },
+    { id: 'journey', icon: MapIcon, label: 'Spiritual Journey Dashboard', href: '/dashboard/spiritual-journey', badge: null },
     { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
     { id: 'rituals', icon: Sparkles, label: 'Rituals', badge: 'Coming Soon' },
     { id: 'grimoire', icon: BookOpen, label: 'Grimoire', badge: 'Coming Soon' },
