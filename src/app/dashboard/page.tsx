@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useState, useCallback } from 'react';
+import Link from 'next/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter } from 'next/navigation';
 import ChatInterface from '../components/chat/ChatInterface';
-import { 
-  Sparkles, Moon, BookOpen, Compass, 
-  Heart, LogOut, Menu, X, 
-  Feather
+import {
+  Sparkles, Moon, BookOpen, Compass,
+  Heart, LogOut, Menu, X,
+  Feather, Map
 } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 
@@ -123,6 +124,7 @@ export default function Dashboard() {
 
   const navigationItems = [
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', badge: null },
+    { id: 'journey', icon: Map, label: 'Spiritual Journey', href: '/dashboard/spiritual-journey', badge: null },
     { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
     { id: 'rituals', icon: Sparkles, label: 'Rituals', badge: 'Coming Soon' },
     { id: 'grimoire', icon: BookOpen, label: 'Grimoire', badge: 'Coming Soon' },
@@ -184,7 +186,23 @@ export default function Dashboard() {
           <nav className="p-4 space-y-2">
             {navigationItems.map((item) => {
               const Icon = item.icon;
-              return (
+              return item.href ? (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-gray-700 dark:text-gray-300"
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon className="w-5 h-5" />
+                    <span className="font-medium">{item.label}</span>
+                  </div>
+                  {item.badge && (
+                    <span className="text-xs bg-purple-200 dark:bg-purple-700 text-purple-700 dark:text-purple-200 px-2 py-1 rounded-full">
+                      {item.badge}
+                    </span>
+                  )}
+                </Link>
+              ) : (
                 <button
                   key={item.id}
                   onClick={() => setActiveSection(item.id)}
