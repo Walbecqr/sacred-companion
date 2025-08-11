@@ -224,7 +224,7 @@ export async function gatherSpiritualContext(
       spiritual_goals?: string[];
       safety_profile?: unknown;
     };
-    const profileDO = await getDataObject(profileOptions, supabaseClient as unknown) as { getData: () => Array<UserProfile> };
+    const profileDO = await getDataObject<UserProfile>(profileOptions, supabaseClient as unknown);
     const profileData = profileDO.getData();
     if (profileData && profileData.length > 0) {
       const p = profileData[0];
@@ -254,7 +254,7 @@ export async function gatherSpiritualContext(
       canUpdate: false,
       canDelete: false
     };
-    const messagesDO = await getDataObject(messagesOptions, supabaseClient as unknown) as { getData: () => Array<{ role: string; content: string; created_at: string }> };
+    const messagesDO = await getDataObject<{ role: string; content: string; created_at: string }>(messagesOptions, supabaseClient as unknown);
     const recentMessages = messagesDO.getData();
     if (recentMessages && recentMessages.length > 0) {
       // Reverse to get chronological order and format for Claude
@@ -318,7 +318,7 @@ async function findRelevantCorrespondences(
       canUpdate: false,
       canDelete: false
     };
-    const corrDO = await getDataObject(corrOptions, supabaseClient as unknown) as { getData: () => Array<{ name: string; category: string; properties: unknown; associations: unknown }> };
+    const corrDO = await getDataObject<{ name: string; category: string; properties: unknown; associations: unknown }>(corrOptions, supabaseClient as unknown);
     const correspondences = corrDO.getData();
     return correspondences || [];
     

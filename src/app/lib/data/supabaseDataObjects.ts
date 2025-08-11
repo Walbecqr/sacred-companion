@@ -42,7 +42,10 @@ function getSupabaseConfig(): SupabaseConfig {
   return { url, anonKey };
 }
 
-export async function getDataObject(options: DataObjectOptions, existingClient?: unknown) {
+export async function getDataObject<TRecord extends object = Record<string, unknown>>(
+  options: DataObjectOptions,
+  existingClient?: unknown
+) {
   const config = getSupabaseConfig();
   
   // Use supabase-js directly
@@ -51,8 +54,8 @@ export async function getDataObject(options: DataObjectOptions, existingClient?:
   const client: SupabaseClient = (existingClient as SupabaseClient) || createClient(config.url, config.anonKey);
 
     type RecordMap = Record<string, unknown>;
-    let cached: RecordMap[] = [];
-    const listeners: Array<(data: RecordMap[]) => void> = [];
+    let cached: TRecord[] = [];
+    const listeners: Array<(data: TRecord[]) => void> = [];
 
     type WithFilters<Q> = Q & {
       eq: (field: string, value: unknown) => Q;
@@ -89,29 +92,29 @@ export async function getDataObject(options: DataObjectOptions, existingClient?:
         throw error;
       }
       const rows = (data as unknown as RecordMap[]) ?? [];
-      cached = rows;
+      cached = rows as unknown as TRecord[];
       listeners.forEach(fn => fn(cached));
     };
 
     await refresh();
 
     return {
-      onDataChanged(handler: (data: RecordMap[]) => void) {
+      onDataChanged(handler: (data: TRecord[]) => void) {
         listeners.push(handler);
       },
       getData() {
         return cached;
       },
-      async insert(record: RecordMap) {
+      async insert(record: Partial<TRecord>) {
         if (!options.canInsert) throw new Error('Insert not allowed by DataObjectOptions');
-        const { error } = await client.from(options.viewName).insert(record);
+        const { error } = await client.from(options.viewName).insert(record as RecordMap);
         if (error) throw error;
         await refresh();
       },
-      async update(id: string | number, changes: RecordMap) {
+      async update(id: string | number, changes: Partial<TRecord>) {
         if (!options.canUpdate) throw new Error('Update not allowed by DataObjectOptions');
         const idField = options.fields.find(f => f.name === 'id')?.name || 'id';
-        const { error } = await client.from(options.viewName).update(changes).eq(idField, id);
+        const { error } = await client.from(options.viewName).update(changes as RecordMap).eq(idField, id);
         if (error) throw error;
         await refresh();
       },

@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
                 canUpdate: false,
                 canDelete: false
             };
-            const convFetchDO = await getDataObject(convFetchOptions, (supabase as unknown)) as { getData: () => Conversation[] };
+            const convFetchDO = await getDataObject<Conversation>(convFetchOptions, (supabase as unknown));
             const data = convFetchDO.getData();
             if (!data || data.length === 0) {
                 return NextResponse.json({ error: 'Conversation not found' }, { status: 404 });
@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
                 canUpdate: true,
                 canDelete: false
             };
-            const convDO = await getDataObject(convDOOptions, (supabase as unknown)) as { insert: (rec: Partial<Conversation>) => Promise<void>; refresh: () => Promise<void> };
+            const convDO = await getDataObject<Conversation>(convDOOptions, (supabase as unknown));
             await convDO.insert({
                 user_id: user.id,
                 title: message.substring(0, 50) + '...'
@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
                 canUpdate: false,
                 canDelete: false
             };
-            const convFetchDO = await getDataObject(convFetchOptions, (supabase as unknown)) as { getData: () => Conversation[] };
+            const convFetchDO = await getDataObject<Conversation>(convFetchOptions, (supabase as unknown));
             const latest = convFetchDO.getData();
             if (!latest || latest.length === 0) {
                 return NextResponse.json({ error: 'Failed to create conversation' }, { status: 500 });
@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
             canDelete: false,
             recordLimit: 0
         };
-        const messagesDO = await getDataObject(messagesDOOptions, (supabase as unknown)) as { insert: (rec: { conversation_id: string; user_id: string; role: string; content: string }) => Promise<void> };
+        const messagesDO = await getDataObject<{ id?: string; conversation_id: string; user_id: string; role: string; content: string }>(messagesDOOptions, (supabase as unknown));
         await messagesDO.insert({
             conversation_id: conversation.id,
             user_id: user.id,
@@ -151,7 +151,7 @@ export async function POST(request: NextRequest) {
             canDelete: false,
             recordLimit: 0
         };
-        const convUpdateDO = await getDataObject(convUpdateOptions) as { update: (id: string, changes: Partial<Conversation> & { last_message_at?: string }) => Promise<void> };
+        const convUpdateDO = await getDataObject<Conversation>(convUpdateOptions);
         await convUpdateDO.update(conversation.id, { last_message_at: new Date().toISOString() });
 
         return NextResponse.json({
