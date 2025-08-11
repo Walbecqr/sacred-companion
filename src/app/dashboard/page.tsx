@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback, useMemo } from 'react';
+import { useEffect, useState, useCallback, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { useRouter, usePathname } from 'next/navigation';
@@ -9,7 +9,8 @@ import {
   Heart, LogOut, Menu, X,
   Feather, Map as MapIcon, Flame,
   type LucideIcon,
-  Quote, NotebookPen, CalendarCheck
+  Quote, NotebookPen, CalendarCheck,
+  Settings as SettingsIcon, User as UserIcon, Check, Bell, Eye, Shield, Upload, Undo2
 } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
 
@@ -26,6 +27,22 @@ interface UserProfile {
   experience_level?: string;
   spiritual_path?: string[];
   current_journey_phase?: string;
+  preferences?: UserPreferences | null;
+}
+
+type DailyReminderSlot = 'off' | 'morning' | 'afternoon' | 'evening';
+interface UserPreferences {
+  avatar?: {
+    url?: string;
+    theme?: 'moon' | 'crystal' | 'pentacle' | 'flame' | 'leaf' | string;
+  } | null;
+  notifications?: {
+    dailyReminder?: DailyReminderSlot;
+  } | null;
+  privacy?: {
+    showProfilePublicly?: boolean;
+    shareMilestonesWithAI?: boolean;
+  } | null;
 }
 
 export default function Dashboard() {
@@ -49,6 +66,11 @@ export default function Dashboard() {
   });
   const [latestAssistantPreview, setLatestAssistantPreview] = useState<string>('');
   const [now, setNow] = useState<Date>(() => new Date());
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [savingPrefs, setSavingPrefs] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [draftPrefs, setDraftPrefs] = useState<UserPreferences>({});
+  const lastSavedPrefsRef = useRef<UserPreferences>({});
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   
   const router = useRouter();
   const pathname = usePathname();
@@ -98,6 +120,10 @@ export default function Dashboard() {
       // Allow UI to render greeting quickly; fetch conversations without blocking
       setLoading(false);
 
+      // Initialize preferences draft from profile
+      setDraftPrefs((profile?.preferences as UserPreferences) || {});
+      lastSavedPrefsRef.current = (profile?.preferences as UserPreferences) || {};
+
       // Load user's conversations (most recent first) in background
       (async () => {
         try {
@@ -144,6 +170,80 @@ export default function Dashboard() {
     await supabase.auth.signOut();
     router.push('/login');
   };
+
+  // Settings overlay logic
+  const themeAvatars = [
+    { id: 'moon', label: 'Moon', symbol: '🌙' },
+    { id: 'crystal', label: 'Crystal', symbol: '🔮' },
+    { id: 'pentacle', label: 'Pentacle', symbol: '⭐' },
+    { id: 'flame', label: 'Flame', symbol: '🔥' },
+    { id: 'leaf', label: 'Leaf', symbol: '🍃' },
+  ];
+
+  const applyPrefChange = useCallback((updater: (prev: UserPreferences) => UserPreferences) => {
+    setDraftPrefs((prev: UserPreferences) => {
+      const next = updater(prev || {});
+      // debounce autosave
+      if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
+      saveTimeoutRef.current = setTimeout(async () => {
+        if (!user) return;
+        try {
+          setSavingPrefs('saving');
+          const { error } = await supabase
+            .from('user_spiritual_profiles')
+            .update({ preferences: next, updated_at: new Date().toISOString() })
+            .eq('user_id', user.id);
+          if (error) throw error;
+          lastSavedPrefsRef.current = next;
+          setSavingPrefs('saved');
+          setTimeout(() => setSavingPrefs('idle'), 1500);
+          // reflect in header data source
+          setUserProfile((p) => ({ ...(p || {}), preferences: next }));
+        } catch {
+          setSavingPrefs('error');
+          setTimeout(() => setSavingPrefs('idle'), 2000);
+        }
+      }, 500);
+      return next;
+    });
+  }, [supabase, user]);
+
+  const undoLastSave = useCallback(() => {
+    const prev = lastSavedPrefsRef.current || {};
+    setDraftPrefs(prev);
+    if (!user) return;
+    (async () => {
+      try {
+        setSavingPrefs('saving');
+        const { error } = await supabase
+          .from('user_spiritual_profiles')
+          .update({ preferences: prev, updated_at: new Date().toISOString() })
+          .eq('user_id', user.id);
+        if (error) throw error;
+        setSavingPrefs('saved');
+        setTimeout(() => setSavingPrefs('idle'), 1500);
+      } catch {
+        setSavingPrefs('error');
+        setTimeout(() => setSavingPrefs('idle'), 2000);
+      }
+    })();
+  }, [supabase, user]);
+
+  const handleAvatarUpload = useCallback(async (file: File) => {
+    if (!user) return;
+    try {
+      const ext = file.name.split('.').pop() || 'png';
+      const path = `${user.id}/${Date.now()}.${ext}`;
+      const { error: upErr } = await supabase.storage.from('avatars').upload(path, file, { upsert: true });
+      if (upErr) throw upErr;
+      const { data } = supabase.storage.from('avatars').getPublicUrl(path);
+      const url = data.publicUrl;
+      applyPrefChange((prev) => ({ ...(prev || {}), avatar: { ...(prev?.avatar || {}), url } }));
+    } catch {
+      setSavingPrefs('error');
+      setTimeout(() => setSavingPrefs('idle'), 2000);
+    }
+  }, [applyPrefChange, supabase, user]);
 
   // Helpers for personalized welcome message
   const getPreferredName = useCallback(() => {
@@ -370,6 +470,24 @@ export default function Dashboard() {
                   {userProfile.current_journey_phase || 'Seeker'}
                 </p>
               </div>
+              {/* Profile & Settings quick access */}
+              <button
+                type="button"
+                onClick={() => setSettingsOpen(true)}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-100/70 dark:bg-purple-900/40 hover:bg-purple-200 dark:hover:bg-purple-900/60 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                aria-label="Open Profile and Settings"
+              >
+                    <div className="w-7 h-7 rounded-full bg-white/80 dark:bg-gray-800 flex items-center justify-center text-base">
+                  {(draftPrefs?.avatar && draftPrefs.avatar.url) ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={String(draftPrefs.avatar.url)} alt="Avatar" className="w-7 h-7 rounded-full object-cover" />
+                  ) : (
+                    <span aria-hidden="true">{draftPrefs?.avatar?.theme ? themeAvatars.find(a => a.id === (draftPrefs.avatar?.theme as string))?.symbol : '🌟'}</span>
+                  )}
+                </div>
+                <SettingsIcon className="w-4 h-4 text-purple-700 dark:text-purple-300" aria-hidden="true" />
+                <span className="hidden md:inline text-sm font-medium text-gray-800 dark:text-gray-200">Settings</span>
+              </button>
               <button
                 onClick={handleLogout}
                 className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
@@ -684,6 +802,139 @@ export default function Dashboard() {
                   This sacred feature is being carefully crafted with love and intention. 
                   It will be available in your spiritual toolkit soon.
                 </p>
+              </div>
+            </div>
+          )}
+          {/* Settings Overlay */}
+          {settingsOpen && (
+            <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+              <div
+                className="absolute inset-0 bg-black/40"
+                onClick={() => setSettingsOpen(false)}
+                aria-hidden="true"
+              />
+              <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white dark:bg-gray-900 shadow-2xl p-5 overflow-y-auto">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <UserIcon className="w-5 h-5 text-purple-600" />
+                    <h2 id="settings-title" className="text-lg font-semibold text-gray-900 dark:text-white">Profile & Settings</h2>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {savingPrefs === 'saving' && <span className="text-xs text-gray-500">Saving…</span>}
+                    {savingPrefs === 'saved' && (
+                      <span className="inline-flex items-center gap-1 text-xs text-green-600"><Check className="w-3 h-3" /> Saved</span>
+                    )}
+                    {savingPrefs === 'error' && <span className="text-xs text-red-600">Save failed</span>}
+                    <button
+                      type="button"
+                      onClick={() => setSettingsOpen(false)}
+                      className="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                      aria-label="Close settings"
+                    >
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Avatar */}
+                <section className="mb-6" aria-labelledby="avatar-section">
+                  <h3 id="avatar-section" className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Avatar</h3>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-800 flex items-center justify-center text-xl">
+                      {(draftPrefs?.avatar && draftPrefs.avatar.url) ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={String(draftPrefs.avatar.url)} alt="Avatar" className="w-12 h-12 rounded-full object-cover" />
+                      ) : (
+                        <span aria-hidden="true">{draftPrefs?.avatar?.theme ? themeAvatars.find(a => a.id === (draftPrefs.avatar?.theme as string))?.symbol : '🌟'}</span>
+                      )}
+                    </div>
+                    <label className="inline-flex items-center gap-2 text-sm cursor-pointer">
+                      <Upload className="w-4 h-4" />
+                      <span>Upload</span>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="sr-only"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0];
+                          if (f) handleAvatarUpload(f);
+                        }}
+                      />
+                    </label>
+                    <button
+                      type="button"
+                      onClick={undoLastSave}
+                      className="ml-auto inline-flex items-center gap-1 text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                    >
+                      <Undo2 className="w-3 h-3" /> Undo
+                    </button>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {themeAvatars.map((a) => {
+                      const active = draftPrefs?.avatar?.theme === a.id;
+                      return (
+                        <button
+                          key={a.id}
+                          type="button"
+                          onClick={() => applyPrefChange((p) => ({ ...(p || {}), avatar: { ...(p?.avatar || {}), theme: a.id, url: '' } }))}
+                          className={`px-3 py-1 rounded-full border text-sm ${active ? 'border-purple-600 text-purple-700 dark:text-purple-300' : 'border-gray-300 text-gray-700 dark:text-gray-300'}`}
+                          aria-label={`Select ${a.label} avatar`}
+                        >
+                          <span className="mr-1" aria-hidden="true">{a.symbol}</span>{a.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </section>
+
+                {/* Notifications */}
+                <section className="mb-6" aria-labelledby="notif-section">
+                  <h3 id="notif-section" className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Notifications</h3>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    {(['off','morning','afternoon','evening'] as DailyReminderSlot[]).map((slot) => {
+                      const active = (draftPrefs?.notifications?.dailyReminder || 'off') === slot;
+                      const label = slot === 'off' ? 'Off' : slot[0].toUpperCase()+slot.slice(1);
+                      return (
+                        <button
+                          key={slot}
+                          type="button"
+                          onClick={() => applyPrefChange((p) => ({ ...(p || {}), notifications: { ...(p?.notifications || {}), dailyReminder: slot } }))}
+                          className={`px-3 py-2 rounded-md border ${active ? 'border-purple-600 text-purple-700 dark:text-purple-300' : 'border-gray-300 text-gray-700 dark:text-gray-300'}`}
+                        >
+                          <Bell className="inline w-4 h-4 mr-2" />{label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </section>
+
+                {/* Privacy */}
+                <section className="mb-6" aria-labelledby="privacy-section">
+                  <h3 id="privacy-section" className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Privacy</h3>
+                  <div className="space-y-3 text-sm">
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={!!draftPrefs?.privacy?.showProfilePublicly}
+                        onChange={(e) => applyPrefChange((p) => ({ ...(p || {}), privacy: { ...(p?.privacy || {}), showProfilePublicly: e.target.checked } }))}
+                      />
+                      <span className="flex items-center gap-2"><Eye className="w-4 h-4" /> Show profile publicly</span>
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={!!draftPrefs?.privacy?.shareMilestonesWithAI}
+                        onChange={(e) => applyPrefChange((p) => ({ ...(p || {}), privacy: { ...(p?.privacy || {}), shareMilestonesWithAI: e.target.checked } }))}
+                      />
+                      <span className="flex items-center gap-2"><Shield className="w-4 h-4" /> Allow AI insights from milestones</span>
+                    </label>
+                  </div>
+                </section>
+
+                {/* Info */}
+                <section className="mb-2 text-xs text-gray-500 dark:text-gray-400">
+                  Changes are saved automatically. You can use Undo to revert the last change.
+                </section>
               </div>
             </div>
           )}
