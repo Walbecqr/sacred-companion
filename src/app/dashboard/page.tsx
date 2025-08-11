@@ -48,6 +48,7 @@ export default function Dashboard() {
     return window.localStorage.getItem('sc_quick_journal_draft') || '';
   });
   const [latestAssistantPreview, setLatestAssistantPreview] = useState<string>('');
+  const [now, setNow] = useState<Date>(() => new Date());
   
   const router = useRouter();
   const supabase = createClientComponentClient();
@@ -66,7 +67,6 @@ export default function Dashboard() {
       }
       
       setUser(user);
-      
       // Fetch user profile; create if missing
       const { data: profile } = await supabase
         .from('user_spiritual_profiles')
@@ -94,20 +94,30 @@ export default function Dashboard() {
         setUserProfile(profile);
       }
 
-      // Load user's conversations (most recent first)
-      const { data: allConversations } = await supabase
-        .from('conversations')
-        .select('id, title, last_message_at, created_at')
-        .eq('user_id', user.id)
-        .order('last_message_at', { ascending: false, nullsFirst: false })
-        .order('created_at', { ascending: false });
-      setConversations(allConversations || []);
-      if ((allConversations?.length || 0) > 0) {
-        setInitialConversationId(allConversations![0].id);
-      }
+      // Allow UI to render greeting quickly; fetch conversations without blocking
+      setLoading(false);
+
+      // Load user's conversations (most recent first) in background
+      (async () => {
+        try {
+          const { data } = await supabase
+            .from('conversations')
+            .select('id, title, last_message_at, created_at')
+            .eq('user_id', user.id)
+            .order('last_message_at', { ascending: false, nullsFirst: false })
+            .order('created_at', { ascending: false });
+
+          const allConversations = data || [];
+          setConversations(allConversations);
+          if (allConversations.length > 0) {
+            setInitialConversationId(allConversations[0].id);
+          }
+        } catch {
+          // ignore background errors for conversations
+        }
+      })();
     } catch (error) {
       console.error('Error fetching user:', error);
-    } finally {
       setLoading(false);
     }
   }, [supabase, router]);
@@ -115,6 +125,9 @@ export default function Dashboard() {
   useEffect(() => {
     checkUser();
     fetchMoonPhase();
+    // Keep time-of-day current for greeting without heavy re-renders
+    const t = setInterval(() => setNow(new Date()), 60_000);
+    return () => clearInterval(t);
   }, [checkUser]);
 
   const fetchMoonPhase = () => {
@@ -130,6 +143,106 @@ export default function Dashboard() {
     await supabase.auth.signOut();
     router.push('/login');
   };
+
+  // Helpers for personalized welcome message
+  const getPreferredName = useCallback(() => {
+    return (
+      userProfile.display_name?.trim() ||
+      user?.email?.split('@')[0] ||
+      'Seeker'
+    );
+  }, [userProfile.display_name, user?.email]);
+
+  const getTimeOfDay = useCallback((d: Date) => {
+    const h = d.getHours();
+    if (h >= 5 && h < 12) return 'morning';
+    if (h >= 12 && h < 17) return 'afternoon';
+    if (h >= 17 && h < 22) return 'evening';
+    return 'night';
+  }, []);
+
+  const getSabbatGreeting = useCallback((d: Date) => {
+    // Approximate Northern Hemisphere dates for the Wheel of the Year
+    const y = d.getFullYear();
+    const md = (m: number, day: number) => new Date(y, m - 1, day);
+    const sameDay = (a: Date, b: Date) => a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    const isOneOf = (date: Date, list: Array<{ name: string; date: Date }>) =>
+      list.find(x => sameDay(date, x.date));
+
+    const sabbats = [
+      { name: 'Imbolc', date: md(2, 1) },
+      { name: 'Ostara', date: md(3, 20) },
+      { name: 'Beltane', date: md(5, 1) },
+      { name: 'Litha', date: md(6, 21) },
+      { name: 'Lughnasadh', date: md(8, 1) },
+      { name: 'Mabon', date: md(9, 22) },
+      { name: 'Samhain', date: md(10, 31) },
+      { name: 'Yule', date: md(12, 21) },
+    ];
+    const hit = isOneOf(d, sabbats);
+    return hit ? `Blessed ${hit.name}` : null;
+  }, []);
+
+  // Compute a simple practice streak from conversation activity
+  const practiceStreak = useMemo(() => {
+    if (!conversations || conversations.length === 0) return 0;
+    const days = new Set(
+      conversations
+        .map(c => (c.last_message_at || c.created_at) || '')
+        .filter(Boolean)
+        .map(d => new Date(d as string).toISOString().slice(0,10))
+    );
+    let streak = 0;
+    const today = new Date();
+    for (let i = 0; i < 365; i++) {
+      const dt = new Date(today);
+      dt.setDate(today.getDate() - i);
+      const key = dt.toISOString().slice(0,10);
+      if (days.has(key)) {
+        streak += 1;
+      } else {
+        // Stop when we hit the first gap (unless i === 0 and it's okay to start tomorrow)
+        break;
+      }
+    }
+    return streak;
+  }, [conversations]);
+
+  const lastActivityInfo = useMemo(() => {
+    if (!conversations || conversations.length === 0) return null;
+    const latestIso = conversations
+      .map(c => (c.last_message_at || c.created_at))
+      .filter(Boolean)
+      .map(s => new Date(s as string))
+      .sort((a, b) => b.getTime() - a.getTime())[0];
+    if (!latestIso) return null;
+    const ms = now.getTime() - latestIso.getTime();
+    const days = Math.max(0, Math.floor(ms / (1000 * 60 * 60 * 24)));
+    return { daysSince: days };
+  }, [conversations, now]);
+
+  const personalizedGreeting = useMemo(() => {
+    const name = getPreferredName();
+    const sabbat = getSabbatGreeting(now);
+    const partOfDay = getTimeOfDay(now);
+
+    const lead = sabbat ? `${sabbat}, ${name}.` :
+      partOfDay === 'morning' ? `Good morning, ${name}.` :
+      partOfDay === 'afternoon' ? `Good afternoon, ${name}.` :
+      partOfDay === 'evening' ? `Good evening, ${name}.` : `Peaceful night, ${name}.`;
+
+    const stage = userProfile.current_journey_phase || userProfile.experience_level || '';
+    const stageText = stage ? ` As a ${stage.toString().toLowerCase()}, may your steps be guided.` : '';
+
+    const activityBits: string[] = [];
+    if (practiceStreak > 0) activityBits.push(`${practiceStreak}-day streak`);
+    if (lastActivityInfo && lastActivityInfo.daysSince > 0) {
+      activityBits.push(`last active ${lastActivityInfo.daysSince} day${lastActivityInfo.daysSince === 1 ? '' : 's'} ago`);
+    }
+    const activityText = activityBits.length > 0 ? ` You are on a ${activityBits.join(' • ')}.` : '';
+
+    return `${lead}${stageText}${activityText}`;
+  }, [getPreferredName, getSabbatGreeting, getTimeOfDay, now, userProfile.current_journey_phase, userProfile.experience_level, practiceStreak, lastActivityInfo]);
 
   const navigationItems: NavigationItem[] = [
     { id: 'overview', icon: Sparkles, label: 'Overview', href: '/dashboard', badge: null },
@@ -175,30 +288,7 @@ export default function Dashboard() {
     fetchPreview();
   }, [initialConversationId]);
 
-  // Compute a simple practice streak from conversation activity
-  const practiceStreak = useMemo(() => {
-    if (!conversations || conversations.length === 0) return 0;
-    const days = new Set(
-      conversations
-        .map(c => (c.last_message_at || c.created_at) || '')
-        .filter(Boolean)
-        .map(d => new Date(d as string).toISOString().slice(0,10))
-    );
-    let streak = 0;
-    const today = new Date();
-    for (let i = 0; i < 365; i++) {
-      const dt = new Date(today);
-      dt.setDate(today.getDate() - i);
-      const key = dt.toISOString().slice(0,10);
-      if (days.has(key)) {
-        streak += 1;
-      } else {
-        // Stop when we hit the first gap (unless i === 0 and it's okay to start tomorrow)
-        break;
-      }
-    }
-    return streak;
-  }, [conversations]);
+  
 
   // Inspirational quotes / oracle messages
   const dailyQuote = useMemo(() => {
@@ -341,15 +431,25 @@ export default function Dashboard() {
         <div className="flex-1 overflow-y-auto">
           {activeSection === 'overview' && (
             <div className="h-full p-4 space-y-6">
-              {/* Welcome & Greeting */}
-              <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg p-6 shadow">
-                <div className="flex items-center gap-4">
-                  <Sparkles className="w-8 h-8" />
+              {/* Personalized Welcome & Greeting */}
+              <div
+                className="bg-gradient-to-r from-purple-700 to-indigo-700 text-white rounded-lg p-6 shadow"
+                role="region"
+                aria-live="polite"
+                aria-label={`Welcome message: ${personalizedGreeting}. Current Moon: ${currentMoonPhase}`}
+              >
+                <div className="flex items-start gap-4">
+                  <Sparkles className="w-8 h-8 shrink-0" aria-hidden="true" />
                   <div className="flex-1">
-                    <h1 className="text-2xl font-semibold">Welcome{userProfile.display_name ? `, ${userProfile.display_name}` : ''}!</h1>
-                    <p className="text-sm text-white/80">Current Moon: {currentMoonPhase}</p>
+                    <h1 className="text-2xl font-semibold">{personalizedGreeting || `Welcome, ${getPreferredName()}.`}</h1>
+                    <p className="text-sm text-white/90 mt-1">Current Moon: {currentMoonPhase}</p>
                   </div>
-                  <Link href="/dashboard/spiritual-journey" className="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg">View Spiritual Journey</Link>
+                  <Link
+                    href="/dashboard/spiritual-journey"
+                    className="bg-white/20 hover:bg-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 text-white px-4 py-2 rounded-lg"
+                  >
+                    View Spiritual Journey
+                  </Link>
                 </div>
               </div>
 
