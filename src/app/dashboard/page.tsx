@@ -896,9 +896,12 @@ export default function Dashboard() {
                     </div>
                   </div>
                   
-                  <button className="mt-6 w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium py-2 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all duration-200">
+                  <Link
+                    href="/dashboard/spiritual-profile"
+                    className="mt-6 inline-flex w-full items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium py-2 rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all duration-200"
+                  >
                     Edit Profile
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
