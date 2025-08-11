@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import {
-  Sparkles, Moon, BookOpen, Compass,
+  Sparkles, Moon,
   Heart, LogOut, Menu, X,
-  Feather, Map as MapIcon,
+  Map as MapIcon,
   type LucideIcon,
 } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
@@ -44,12 +44,8 @@ function ChatPageInner() {
   const navigationItems: NavigationItem[] = [
     { id: 'overview', icon: Sparkles, label: 'Overview', href: '/dashboard', badge: null },
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', href: '/dashboard/chat', badge: null },
-    { id: 'journey', icon: MapIcon, label: 'Spiritual Journey Dashboard', href: '/dashboard/spiritual-journey', badge: null },
-    { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
-    { id: 'rituals', icon: Sparkles, label: 'Rituals', badge: 'Coming Soon' },
-    { id: 'grimoire', icon: BookOpen, label: 'Grimoire', badge: 'Coming Soon' },
-    { id: 'correspondences', icon: Compass, label: 'Correspondences', badge: 'Coming Soon' },
-    { id: 'profile', icon: Heart, label: 'Spiritual Profile', href: '/dashboard#profile', badge: null },
+    { id: 'journey', icon: MapIcon, label: 'Journey', href: '/dashboard/spiritual-journey', badge: null },
+    { id: 'profile', icon: Heart, label: 'Spiritual Profile', href: '/dashboard/spiritual-profile', badge: null },
   ];
 
   const checkUser = useCallback(async () => {
