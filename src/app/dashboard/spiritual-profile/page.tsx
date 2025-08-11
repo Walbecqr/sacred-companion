@@ -147,40 +147,63 @@ type DbProfileRow = {
  
    const canSave = useMemo(() => !!user, [user])
  
-   const handleSubmit = useCallback(async (e: React.FormEvent) => {
-     e.preventDefault()
-     if (!user) return
-     try {
-       setSaving('saving')
-       const payload: Record<string, unknown> = {
-         legal_name: form.legal_name || null,
-         display_name: form.display_name || null,
-         spiritual_name: form.spiritual_name || null,
-         gender: form.gender || null,
-         pronouns: form.pronouns || null,
-         birth_date: form.birth_date || null,
-         birth_time: form.birth_time || null,
-         birth_location: form.birth_location || null,
-         spiritual_path: form.spiritual_path,
-         primary_deity: form.primary_deity || null,
-         secondary_deity: form.secondary_deity || null,
-         practice_frequency: form.practice_frequency || null,
-         experience_level: form.experience_level || null,
-         current_journey_phase: form.current_journey_phase || null,
-         updated_at: new Date().toISOString()
-       }
-       const { error } = await supabase
-         .from('user_spiritual_profiles')
-         .update(payload)
-         .eq('user_id', user.id)
-       if (error) throw error
-       setSaving('saved')
-       setTimeout(() => setSaving('idle'), 1200)
-     } catch {
-       setSaving('error')
-       setTimeout(() => setSaving('idle'), 1500)
-     }
-   }, [form, supabase, user])
+  const saveProfile = useCallback(async (): Promise<boolean> => {
+    if (!user) return false
+    try {
+      setSaving('saving')
+      const payload: Record<string, unknown> = {
+        legal_name: form.legal_name || null,
+        display_name: form.display_name || null,
+        spiritual_name: form.spiritual_name || null,
+        gender: form.gender || null,
+        pronouns: form.pronouns || null,
+        birth_date: form.birth_date || null,
+        birth_time: form.birth_time || null,
+        birth_location: form.birth_location || null,
+        spiritual_path: form.spiritual_path,
+        primary_deity: form.primary_deity || null,
+        secondary_deity: form.secondary_deity || null,
+        practice_frequency: form.practice_frequency || null,
+        experience_level: form.experience_level || null,
+        current_journey_phase: form.current_journey_phase || null,
+        updated_at: new Date().toISOString()
+      }
+      const { error } = await supabase
+        .from('user_spiritual_profiles')
+        .update(payload)
+        .eq('user_id', user.id)
+      if (error) throw error
+      setSaving('saved')
+      setTimeout(() => setSaving('idle'), 1200)
+      return true
+    } catch {
+      setSaving('error')
+      setTimeout(() => setSaving('idle'), 1500)
+      return false
+    }
+  }, [form, supabase, user])
+
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
+    e.preventDefault()
+    await saveProfile()
+  }, [saveProfile])
+
+  const handleClose = useCallback(() => {
+    try {
+      if (typeof window !== 'undefined' && window.history.length > 1) {
+        router.back()
+      } else {
+        router.push('/dashboard')
+      }
+    } catch {
+      router.push('/dashboard')
+    }
+  }, [router])
+
+  const handleSaveAndClose = useCallback(async () => {
+    const ok = await saveProfile()
+    if (ok) handleClose()
+  }, [saveProfile, handleClose])
  
    if (loading) {
      return (
@@ -418,17 +441,37 @@ type DbProfileRow = {
              </div>
            </section>
  
-           <div className="flex items-center justify-end gap-3 pt-2">
-             {saving === 'error' && <span className="text-sm text-red-600">Save failed</span>}
-             {saving === 'saved' && <span className="text-sm text-green-600">Saved</span>}
-             <button
-               type="submit"
-               disabled={!canSave || saving === 'saving'}
-               className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white disabled:opacity-60"
-             >
-               {saving === 'saving' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />} Save Profile
-             </button>
-           </div>
+          <div className="flex items-center justify-between gap-3 pt-2">
+            <button
+              type="button"
+              onClick={handleClose}
+              className="px-3 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-50"
+              aria-label="Close profile without saving"
+            >
+              Close
+            </button>
+            <div className="flex items-center gap-3">
+              {saving === 'error' && <span className="text-sm text-red-600">Save failed</span>}
+              {saving === 'saved' && <span className="text-sm text-green-600">Saved</span>}
+              <button
+                type="submit"
+                disabled={!canSave || saving === 'saving'}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white disabled:opacity-60"
+                aria-label="Save profile"
+              >
+                {saving === 'saving' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />} Save
+              </button>
+              <button
+                type="button"
+                onClick={handleSaveAndClose}
+                disabled={!canSave || saving === 'saving'}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-purple-100 text-purple-700 hover:bg-purple-200 disabled:opacity-60"
+                aria-label="Save profile and close"
+              >
+                {saving === 'saving' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />} Save & Close
+              </button>
+            </div>
+          </div>
          </form>
        </div>
      </div>
