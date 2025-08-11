@@ -3,11 +3,11 @@
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import {
-  Sparkles, Moon, BookOpen, Compass,
+  Sparkles, Moon, BookOpen, Gem,
   Heart, LogOut, Menu, X,
-  Feather, Map as MapIcon,
+  Feather, Map as MapIcon, Flame,
   type LucideIcon,
   Quote, NotebookPen, CalendarCheck
 } from 'lucide-react';
@@ -51,6 +51,7 @@ export default function Dashboard() {
   const [now, setNow] = useState<Date>(() => new Date());
   
   const router = useRouter();
+  const pathname = usePathname();
   const supabase = createClientComponentClient();
 
   const spiritualPaths = Array.isArray(userProfile.spiritual_path)
@@ -247,11 +248,11 @@ export default function Dashboard() {
   const navigationItems: NavigationItem[] = [
     { id: 'overview', icon: Sparkles, label: 'Overview', href: '/dashboard', badge: null },
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', href: '/dashboard/chat', badge: null },
-    { id: 'journey', icon: MapIcon, label: 'Spiritual Journey Dashboard', href: '/dashboard/spiritual-journey', badge: null },
+    { id: 'journey', icon: MapIcon, label: 'Journey', href: '/dashboard/spiritual-journey', badge: null },
     { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
-    { id: 'rituals', icon: Sparkles, label: 'Rituals', badge: 'Coming Soon' },
-    { id: 'grimoire', icon: BookOpen, label: 'Grimoire', badge: 'Coming Soon' },
-    { id: 'correspondences', icon: Compass, label: 'Correspondences', badge: 'Coming Soon' },
+    { id: 'rituals', icon: Flame, label: 'Rituals', badge: 'Coming Soon' },
+    { id: 'library', icon: BookOpen, label: 'Library', badge: 'Coming Soon' },
+    { id: 'reference', icon: Gem, label: 'Reference', badge: 'Coming Soon' },
     { id: 'profile', icon: Heart, label: 'Spiritual Profile', badge: null },
   ];
 
@@ -339,8 +340,11 @@ export default function Dashboard() {
             {/* Left: Logo and Toggle */}
             <div className="flex items-center gap-4">
               <button
+                type="button"
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors"
+                className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                aria-label={sidebarOpen ? 'Collapse navigation' : 'Expand navigation'}
+                aria-controls="primary-navigation"
               >
                 {sidebarOpen ? <X className="w-5 h-5 text-purple-600" /> : <Menu className="w-5 h-5 text-purple-600" />}
               </button>
@@ -351,7 +355,7 @@ export default function Dashboard() {
             </div>
 
             {/* Center: Moon Phase */}
-            <div className="hidden md:flex items-center gap-2 bg-purple-100 dark:bg-purple-900/50 px-4 py-2 rounded-full">
+            <div className="hidden md:flex items-center gap-2 bg-purple-100 dark:bg-purple-900/50 px-4 py-2 rounded-full" aria-live="polite" aria-label={`Moon phase: ${currentMoonPhase}`}>
               <Moon className="w-4 h-4 text-purple-600 dark:text-purple-400" />
               <span className="text-sm font-medium text-purple-700 dark:text-purple-300">{currentMoonPhase}</span>
             </div>
@@ -368,8 +372,9 @@ export default function Dashboard() {
               </div>
               <button
                 onClick={handleLogout}
-                className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors"
+                className="p-2 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                 title="Logout"
+                aria-label="Sign out"
               >
                 <LogOut className="w-5 h-5 text-purple-600" />
               </button>
@@ -381,17 +386,20 @@ export default function Dashboard() {
       <div className="flex h-[calc(100vh-4rem)]">
         {/* Sidebar Navigation */}
         <div className={`${sidebarOpen ? 'w-64' : 'w-0'} transition-all duration-300 overflow-hidden bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg border-r border-purple-200 dark:border-purple-800`}>
-          <nav className="p-4 space-y-2">
+          <nav id="primary-navigation" className="p-4 space-y-2" role="navigation" aria-label="Primary">
             {navigationItems.map((item) => {
               const Icon = item.icon;
+              const isActive = item.href ? pathname === item.href : activeSection === item.id;
               return item.href ? (
                 <Link
                   key={item.id}
                   href={item.href}
-                      className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-gray-700 dark:text-gray-300 ${item.id === 'overview' ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg' : ''}`}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-gray-800 dark:text-gray-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 ${isActive ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg' : ''}`}
+                  aria-current={isActive ? 'page' : undefined}
+                  role="link"
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className="w-5 h-5" />
+                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-purple-700 dark:text-purple-300'}`} aria-hidden="true" />
                     <span className="font-medium">{item.label}</span>
                   </div>
                   {item.badge && (
@@ -404,14 +412,15 @@ export default function Dashboard() {
                 <button
                   key={item.id}
                   onClick={() => setActiveSection(item.id as 'overview' | 'profile')}
-                  className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 ${
-                    activeSection === item.id
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 ${
+                    isActive
                       ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-lg'
-                      : 'hover:bg-purple-100 dark:hover:bg-purple-900/50 text-gray-700 dark:text-gray-300'
+                      : 'hover:bg-purple-100 dark:hover:bg-purple-900/50 text-gray-800 dark:text-gray-200'
                   }`}
+                  aria-current={isActive ? 'page' : undefined}
                 >
                   <div className="flex items-center gap-3">
-                    <Icon className="w-5 h-5" />
+                    <Icon className={`w-5 h-5 ${isActive ? 'text-white' : 'text-purple-700 dark:text-purple-300'}`} aria-hidden="true" />
                     <span className="font-medium">{item.label}</span>
                   </div>
                   {item.badge && (
