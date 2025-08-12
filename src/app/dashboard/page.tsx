@@ -13,6 +13,9 @@ import {
   Settings as SettingsIcon, User as UserIcon, Check, Bell, Eye, Shield, Upload, Undo2
 } from 'lucide-react';
 import OracleCard from '@/components/oracle/OracleCard';
+import MoonPhaseDisplay from '@/components/moon/MoonPhaseDisplay';
+import LunarCalendar from '@/components/moon/LunarCalendar';
+import CompactMoonPhase from '@/components/moon/CompactMoonPhase';
 import type { User } from '@supabase/supabase-js';
 
 interface NavigationItem {
@@ -53,7 +56,6 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [activeSection, setActiveSection] = useState<'overview' | 'profile'>('overview');
-  const [currentMoonPhase, setCurrentMoonPhase] = useState('');
   const [initialConversationId, setInitialConversationId] = useState<string | undefined>(undefined);
   const [conversations, setConversations] = useState<Array<{ id: string; title: string | null; last_message_at: string | null; created_at: string | null }>>([]);
   const [dailyCheckin, setDailyCheckin] = useState<{ mood: string; intention: string }>(() => {
@@ -168,20 +170,10 @@ export default function Dashboard() {
 
   useEffect(() => {
     checkUser();
-    fetchMoonPhase();
     // Keep time-of-day current for greeting without heavy re-renders
     const t = setInterval(() => setNow(new Date()), 60_000);
     return () => clearInterval(t);
   }, [checkUser]);
-
-  const fetchMoonPhase = () => {
-    // Simple moon phase calculation (you can make this more accurate)
-    const phases = ['New Moon 🌑', 'Waxing Crescent 🌒', 'First Quarter 🌓', 'Waxing Gibbous 🌔', 
-                   'Full Moon 🌕', 'Waning Gibbous 🌖', 'Last Quarter 🌗', 'Waning Crescent 🌘'];
-    const today = new Date();
-    const phaseIndex = Math.floor((today.getDate() / 30) * 8) % 8;
-    setCurrentMoonPhase(phases[phaseIndex]);
-  };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -563,11 +555,8 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* Center: Moon Phase */}
-            <div className="hidden md:flex items-center gap-2 bg-purple-100 dark:bg-purple-900/50 px-4 py-2 rounded-full" aria-live="polite" aria-label={`Moon phase: ${currentMoonPhase}`}>
-              <Moon className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-              <span className="text-sm font-medium text-purple-700 dark:text-purple-300">{currentMoonPhase}</span>
-            </div>
+            {/* Center: Current Moon Phase */}
+            <CompactMoonPhase className="hidden md:flex" />
 
             {/* Right: User Menu */}
             <div className="flex items-center gap-4">
@@ -673,13 +662,13 @@ export default function Dashboard() {
                 className="bg-gradient-to-r from-purple-700 to-indigo-700 text-white rounded-lg p-6 shadow"
                 role="region"
                 aria-live="polite"
-                aria-label={`Welcome message: ${personalizedGreeting}. Current Moon: ${currentMoonPhase}`}
+                aria-label={`Welcome message: ${personalizedGreeting}. Sacred space aligned with lunar energies`}
               >
                 <div className="flex items-start gap-4">
                   <Sparkles className="w-8 h-8 shrink-0" aria-hidden="true" />
                   <div className="flex-1">
                     <h1 className="text-2xl font-semibold">{personalizedGreeting || `Welcome, ${getPreferredName()}.`}</h1>
-                    <p className="text-sm text-white/90 mt-1">Current Moon: {currentMoonPhase}</p>
+                    <p className="text-sm text-white/90 mt-1">Sacred space aligned with lunar energies</p>
                   </div>
                   <Link
                     href="/dashboard/spiritual-journey"
@@ -712,8 +701,26 @@ export default function Dashboard() {
                 </div>
               </div>
 
+              {/* Moon Phase Display - Prominent Feature */}
+              <div className="mb-6">
+                <MoonPhaseDisplay 
+                  className="w-full"
+                  compact={false}
+                  showSpiritual={true}
+                  autoUpdate={true}
+                  updateInterval={60}
+                />
+              </div>
+
               {/* Widgets Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Lunar Calendar */}
+                <LunarCalendar 
+                  className="w-full lg:col-span-1"
+                  compact={false}
+                  monthsToShow={3}
+                />
+
                 {/* Daily Spiritual Check-in */}
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow">
                   <div className="flex items-center gap-2 mb-3">
@@ -750,8 +757,14 @@ export default function Dashboard() {
                   </div>
                 </div>
 
+                {/* Oracle Card System */}
+                <OracleCard userTimezone={getUserTimezone()} />
+              </div>
+
+              {/* Secondary Widgets */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Quick Journal Entry */}
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow">
+                <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow lg:col-span-2">
                   <div className="flex items-center gap-2 mb-3">
                     <NotebookPen className="w-5 h-5 text-purple-600" />
                     <h3 className="font-semibold">Quick Journal Entry</h3>
@@ -766,11 +779,6 @@ export default function Dashboard() {
                   <div className="mt-2 text-xs text-gray-500">Autosaved locally</div>
                 </div>
 
-                {/* Oracle Card System */}
-                <OracleCard userTimezone={getUserTimezone()} />
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Correspondence of the Day */}
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow">
                   <h3 className="font-semibold mb-2">Correspondence of the Day</h3>
@@ -782,7 +790,10 @@ export default function Dashboard() {
                     <p><span className="font-medium">Herb:</span> {correspondenceOfTheDay.herb}</p>
                   </div>
                 </div>
+              </div>
 
+              {/* Additional Dashboard Widgets */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Practice Streak Counter */}
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow">
                   <h3 className="font-semibold mb-2">Practice Streak</h3>
@@ -808,29 +819,12 @@ export default function Dashboard() {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Beatrice Chat Preview */}
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow lg:col-span-2">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="font-semibold">Beatrice Chat Preview</h3>
-                    <Link href={`/dashboard/chat${initialConversationId ? `?c=${initialConversationId}` : ''}`} className="text-sm text-purple-600 hover:underline">Open Chat</Link>
-                  </div>
-                  {latestAssistantPreview ? (
-                    <div className="p-4 rounded-md bg-purple-50 dark:bg-purple-900/30 text-gray-800 dark:text-gray-200">
-                      <p className="line-clamp-4 whitespace-pre-wrap">{latestAssistantPreview}</p>
-                    </div>
-                  ) : (
-                    <p className="text-sm text-gray-500">No messages yet. Start a new conversation with Beatrice.</p>
-                  )}
-                </div>
 
                 {/* Recent Activity Overview */}
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow">
                   <h3 className="font-semibold mb-2">Recent Conversations</h3>
                   <div className="space-y-2 max-h-64 overflow-auto pr-1">
-                    {conversations.slice(0, 8).map((c) => (
+                    {conversations.slice(0, 4).map((c) => (
                       <Link key={c.id} href={`/dashboard/chat?c=${c.id}`} className="block p-2 rounded hover:bg-purple-50 dark:hover:bg-purple-900/30">
                         <p className="text-sm font-medium truncate">{c.title || 'Untitled conversation'}</p>
                         <p className="text-[10px] text-gray-500">{new Date(c.last_message_at || c.created_at || '').toLocaleString()}</p>
@@ -841,6 +835,21 @@ export default function Dashboard() {
                     )}
                   </div>
                 </div>
+              </div>
+
+              {/* Beatrice Chat Preview */}
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-semibold">Beatrice Chat Preview</h3>
+                  <Link href={`/dashboard/chat${initialConversationId ? `?c=${initialConversationId}` : ''}`} className="text-sm text-purple-600 hover:underline">Open Chat</Link>
+                </div>
+                {latestAssistantPreview ? (
+                  <div className="p-4 rounded-md bg-purple-50 dark:bg-purple-900/30 text-gray-800 dark:text-gray-200">
+                    <p className="line-clamp-4 whitespace-pre-wrap">{latestAssistantPreview}</p>
+                  </div>
+                ) : (
+                  <p className="text-sm text-gray-500">No messages yet. Start a new conversation with Beatrice.</p>
+                )}
               </div>
             </div>
           )}
