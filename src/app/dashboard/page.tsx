@@ -12,6 +12,7 @@ import {
   Quote, NotebookPen, CalendarCheck,
   Settings as SettingsIcon, User as UserIcon, Check, Bell, Eye, Shield, Upload, Undo2
 } from 'lucide-react';
+import OracleCard from '@/components/oracle/OracleCard';
 import type { User } from '@supabase/supabase-js';
 
 interface NavigationItem {
@@ -42,6 +43,7 @@ interface UserPreferences {
   privacy?: {
     showProfilePublicly?: boolean;
     shareMilestonesWithAI?: boolean;
+    allowOracleSharing?: boolean;
   } | null;
 }
 
@@ -280,7 +282,7 @@ export default function Dashboard() {
   const DEFAULT_PREFS = useMemo<UserPreferences>(() => ({
     avatar: { theme: 'moon', url: '' },
     notifications: { dailyReminder: 'off' },
-    privacy: { showProfilePublicly: false, shareMilestonesWithAI: false }
+    privacy: { showProfilePublicly: false, shareMilestonesWithAI: false, allowOracleSharing: false }
   }), []);
 
   const resetToDefaults = useCallback(() => {
@@ -302,7 +304,7 @@ export default function Dashboard() {
     addToast('Notification timing reverted', 'success');
   }, [applyPrefChange, addToast]);
 
-  const undoPrivacyProp = useCallback((prop: 'showProfilePublicly' | 'shareMilestonesWithAI') => {
+  const undoPrivacyProp = useCallback((prop: 'showProfilePublicly' | 'shareMilestonesWithAI' | 'allowOracleSharing') => {
     const prev = !!(lastSavedPrefsRef.current?.privacy && (lastSavedPrefsRef.current.privacy as Required<NonNullable<UserPreferences['privacy']>>)[prop]);
     applyPrefChange((p) => ({ ...(p || {}), privacy: { ...(p?.privacy || {}), [prop]: prev } } as UserPreferences));
     addToast('Privacy setting reverted', 'success');
@@ -504,19 +506,13 @@ export default function Dashboard() {
 
   
 
-  // Inspirational quotes / oracle messages
-  const dailyQuote = useMemo(() => {
-    const quotes = [
-      'Trust the whisper of your heart; it knows the way.',
-      'In stillness, the sacred reveals itself.',
-      'Each step you take is a prayer in motion.',
-      'You are the temple and the flame within it.',
-      'May your path be guided by kindness and courage.',
-      'The moon teaches us to shine through our changes.'
-    ];
-    const idxSeed = Number(new Date().toISOString().slice(0,10).replace(/-/g, ''));
-    const idx = idxSeed % quotes.length;
-    return quotes[idx];
+  // Get user's timezone for oracle system
+  const getUserTimezone = useCallback(() => {
+    try {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    } catch {
+      return 'UTC';
+    }
   }, []);
 
   const correspondenceOfTheDay = useMemo(() => {
@@ -770,14 +766,8 @@ export default function Dashboard() {
                   <div className="mt-2 text-xs text-gray-500">Autosaved locally</div>
                 </div>
 
-                {/* Inspirational Quote / Oracle */}
-                <div className="bg-white dark:bg-gray-800 rounded-lg p-5 shadow">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Quote className="w-5 h-5 text-purple-600" />
-                    <h3 className="font-semibold">Oracle Message</h3>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-200 italic">“{dailyQuote}”</p>
-                </div>
+                {/* Oracle Card System */}
+                <OracleCard userTimezone={getUserTimezone()} />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -1073,6 +1063,21 @@ export default function Dashboard() {
                     <button
                       type="button"
                       onClick={() => undoPrivacyProp('shareMilestonesWithAI')}
+                      className="ml-6 inline-flex items-center gap-1 text-xs text-purple-700 dark:text-purple-300 hover:underline"
+                    >
+                      <Undo2 className="w-3 h-3" /> Undo
+                    </button>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="checkbox"
+                        checked={!!draftPrefs?.privacy?.allowOracleSharing}
+                        onChange={(e) => applyPrefChange((p) => ({ ...(p || {}), privacy: { ...(p?.privacy || {}), allowOracleSharing: e.target.checked } }))}
+                      />
+                      <span className="flex items-center gap-2"><Shield className="w-4 h-4" /> Allow oracle card sharing</span>
+                    </label>
+                    <button
+                      type="button"
+                      onClick={() => undoPrivacyProp('allowOracleSharing')}
                       className="ml-6 inline-flex items-center gap-1 text-xs text-purple-700 dark:text-purple-300 hover:underline"
                     >
                       <Undo2 className="w-3 h-3" /> Undo
