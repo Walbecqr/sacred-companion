@@ -1,0 +1,993 @@
+# Project Structure
+
+This file maintains an up-to-date list of project files and structure.
+
+## File Structure
+
+- 📁 `.next/`
+  - 📁 `.next\build/`
+    - 📁 `.next\build\chunks/`
+      - 📄 `.next\build\chunks\[root-of-the-server]__4b6f6259._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\build\chunks\[root-of-the-server]__4b6f6259._.js.map` (Unknown)
+      - 📄 `.next\build\chunks\[root-of-the-server]__9abb3e35._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\build\chunks\[root-of-the-server]__9abb3e35._.js.map` (Unknown)
+      - 📄 `.next\build\chunks\[turbopack-node]_transforms_postcss_ts_fe296651._.js` (JavaScript)
+        - *Exports:* `module.exports`
+      - 📄 `.next\build\chunks\[turbopack-node]_transforms_postcss_ts_fe296651._.js.map` (Unknown)
+      - 📄 `.next\build\chunks\[turbopack]_runtime.js` (JavaScript)
+        - *Imports:* `path`, `fs`, `stream`, `url`, `fs/promises`
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\build\chunks\[turbopack]_runtime.js.map` (Unknown)
+      - 📄 `.next\build\chunks\node_modules_b5d1def4._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\build\chunks\node_modules_b5d1def4._.js.map` (Unknown)
+  - 📁 `.next\cache/`
+    - 📁 `.next\cache\eslint/`
+      - 📄 `.next\cache\eslint\.cache_10gta9y` (Unknown)
+      - 📄 `.next\cache\eslint\.cache_5002aj` (Unknown)
+    - 📁 `.next\cache\fetch-cache/`
+      - 📄 `.next\cache\fetch-cache\bb85fd8fc3d7f2739b978cc71c519f569161d6ad19f4d41259dfb98842e14b32` (Unknown)
+      - 📄 `.next\cache\fetch-cache\c6076802b2eb17b11670caaafa0a3a92fc754438684110912225db164fcf20be` (Unknown)
+      - 📄 `.next\cache\fetch-cache\e2cabdb8e334516e56640f3e0223d05bb257105c8683269ab29376fe80e4cca3` (Unknown)
+    - 📁 `.next\cache\swc/`
+      - 📁 `.next\cache\swc\plugins/`
+        - 📁 `.next\cache\swc\plugins\v7_windows_x86_64_17.0.0/`
+    - 📁 `.next\cache\webpack/`
+      - 📁 `.next\cache\webpack\client-production/`
+        - 📄 `.next\cache\webpack\client-production\0.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\1.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\10.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\11.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\12.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\13.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\14.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\15.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\16.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\17.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\18.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\19.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\2.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\3.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\4.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\5.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\6.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\7.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\8.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\9.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\index.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\index.pack.old` (Unknown)
+      - 📁 `.next\cache\webpack\edge-server-production/`
+        - 📄 `.next\cache\webpack\edge-server-production\0.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\1.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\2.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\index.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\index.pack.old` (Unknown)
+      - 📁 `.next\cache\webpack\server-production/`
+        - 📄 `.next\cache\webpack\server-production\0.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\1.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\10.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\11.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\12.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\13.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\14.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\15.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\16.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\17.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\2.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\3.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\4.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\5.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\6.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\7.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\8.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\9.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\index.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\index.pack.old` (Unknown)
+    - 📄 `.next\cache\.previewinfo` (Unknown)
+    - 📄 `.next\cache\.rscinfo` (Unknown)
+    - 📄 `.next\cache\.tsbuildinfo` (Unknown)
+  - 📁 `.next\diagnostics/`
+    - 📄 `.next\diagnostics\build-diagnostics.json` (JSON)
+    - 📄 `.next\diagnostics\framework.json` (JSON)
+  - 📁 `.next\server/`
+    - 📁 `.next\server\app/`
+      - 📁 `.next\server\app\_not-found/`
+        - 📄 `.next\server\app\_not-found\page_client-reference-manifest.js` (JavaScript)
+        - 📄 `.next\server\app\_not-found\page.js` (JavaScript)
+          - *Imports:* `../../webpack-runtime.js`
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\app\_not-found\page.js.nft.json` (JSON)
+      - 📁 `.next\server\app\api/`
+        - 📁 `.next\server\app\api\chat/`
+          - 📁 `.next\server\app\api\chat\history/`
+            - 📁 `.next\server\app\api\chat\history\[id]/`
+              - 📄 `.next\server\app\api\chat\history\[id]\route_client-reference-manifest.js` (JavaScript)
+              - 📄 `.next\server\app\api\chat\history\[id]\route.js` (JavaScript)
+                - *Imports:* `../../../../../webpack-runtime.js`
+                - *Exports:* `module.exports`
+              - 📄 `.next\server\app\api\chat\history\[id]\route.js.nft.json` (JSON)
+          - 📄 `.next\server\app\api\chat\route_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\api\chat\route.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\api\chat\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\journaling/`
+          - 📁 `.next\server\app\api\journaling\prompts/`
+            - 📄 `.next\server\app\api\journaling\prompts\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\journaling\prompts\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\journaling\prompts\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\logs/`
+          - 📁 `.next\server\app\api\logs\profile-usage/`
+            - 📄 `.next\server\app\api\logs\profile-usage\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\logs\profile-usage\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\logs\profile-usage\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\oracle/`
+          - 📁 `.next\server\app\api\oracle\collections/`
+            - 📄 `.next\server\app\api\oracle\collections\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\collections\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\collections\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\daily/`
+            - 📄 `.next\server\app\api\oracle\daily\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\daily\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\daily\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\save/`
+            - 📄 `.next\server\app\api\oracle\save\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\save\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\save\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\seasonal/`
+            - 📄 `.next\server\app\api\oracle\seasonal\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\seasonal\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\seasonal\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\share/`
+            - 📄 `.next\server\app\api\oracle\share\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\share\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\share\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\rituals/`
+          - 📁 `.next\server\app\api\rituals\suggest/`
+            - 📄 `.next\server\app\api\rituals\suggest\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\rituals\suggest\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\rituals\suggest\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\test-connection/`
+          - 📄 `.next\server\app\api\test-connection\route_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\api\test-connection\route.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\api\test-connection\route.js.nft.json` (JSON)
+      - 📁 `.next\server\app\auth/`
+        - 📁 `.next\server\app\auth\callback/`
+          - 📄 `.next\server\app\auth\callback\route_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\auth\callback\route.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\auth\callback\route.js.nft.json` (JSON)
+      - 📁 `.next\server\app\dashboard/`
+        - 📁 `.next\server\app\dashboard\chat/`
+          - 📄 `.next\server\app\dashboard\chat\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\chat\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+            - *Routes Consumed:* `/api/chat`
+          - 📄 `.next\server\app\dashboard\chat\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\library/`
+          - 📄 `.next\server\app\dashboard\library\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\library\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\library\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\reference/`
+          - 📄 `.next\server\app\dashboard\reference\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\reference\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\reference\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\spiritual-journey/`
+          - 📄 `.next\server\app\dashboard\spiritual-journey\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\spiritual-journey\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\spiritual-journey\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\spiritual-profile/`
+          - 📄 `.next\server\app\dashboard\spiritual-profile\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\spiritual-profile\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\spiritual-profile\page.js.nft.json` (JSON)
+        - 📄 `.next\server\app\dashboard\chat.html` (HTML)
+        - 📄 `.next\server\app\dashboard\chat.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\chat.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\library.html` (HTML)
+        - 📄 `.next\server\app\dashboard\library.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\library.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\page_client-reference-manifest.js` (JavaScript)
+        - 📄 `.next\server\app\dashboard\page.js` (JavaScript)
+          - *Imports:* `../../webpack-runtime.js`
+          - *Exports:* `module.exports`
+          - *Routes Consumed:* `/api/oracle/save`, `/api/oracle/share`
+        - 📄 `.next\server\app\dashboard\page.js.nft.json` (JSON)
+        - 📄 `.next\server\app\dashboard\reference.html` (HTML)
+        - 📄 `.next\server\app\dashboard\reference.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\reference.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-journey.html` (HTML)
+        - 📄 `.next\server\app\dashboard\spiritual-journey.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-journey.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-profile.html` (HTML)
+        - 📄 `.next\server\app\dashboard\spiritual-profile.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-profile.rsc` (Unknown)
+      - 📁 `.next\server\app\favicon.ico/`
+        - 📁 `.next\server\app\favicon.ico\route/`
+          - 📄 `.next\server\app\favicon.ico\route\app-build-manifest.json` (JSON)
+          - 📄 `.next\server\app\favicon.ico\route\app-paths-manifest.json` (JSON)
+          - 📄 `.next\server\app\favicon.ico\route\build-manifest.json` (JSON)
+        - 📄 `.next\server\app\favicon.ico\route.js` (JavaScript)
+          - *Imports:* `../../chunks/[turbopack]_runtime.js`
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\app\favicon.ico\route.js.map` (Unknown)
+        - 📄 `.next\server\app\favicon.ico\route.js.nft.json` (JSON)
+      - 📁 `.next\server\app\login/`
+        - 📁 `.next\server\app\login\page/`
+          - 📄 `.next\server\app\login\page\app-build-manifest.json` (JSON)
+          - 📄 `.next\server\app\login\page\app-paths-manifest.json` (JSON)
+          - 📄 `.next\server\app\login\page\build-manifest.json` (JSON)
+          - 📄 `.next\server\app\login\page\next-font-manifest.json` (JSON)
+          - 📄 `.next\server\app\login\page\react-loadable-manifest.json` (JSON)
+          - 📄 `.next\server\app\login\page\server-reference-manifest.json` (JSON)
+        - 📄 `.next\server\app\login\page_client-reference-manifest.js` (JavaScript)
+        - 📄 `.next\server\app\login\page.js` (JavaScript)
+          - *Imports:* `../../chunks/ssr/[turbopack]_runtime.js`
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\app\login\page.js.map` (Unknown)
+        - 📄 `.next\server\app\login\page.js.nft.json` (JSON)
+      - 📁 `.next\server\app\oracle/`
+        - 📁 `.next\server\app\oracle\embed/`
+          - 📁 `.next\server\app\oracle\embed\[id]/`
+            - 📄 `.next\server\app\oracle\embed\[id]\page_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\oracle\embed\[id]\page.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\oracle\embed\[id]\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\oracle\shared/`
+          - 📁 `.next\server\app\oracle\shared\[id]/`
+            - 📄 `.next\server\app\oracle\shared\[id]\page_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\oracle\shared\[id]\page.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\oracle\shared\[id]\page.js.nft.json` (JSON)
+      - 📄 `.next\server\app\_not-found.html` (HTML)
+      - 📄 `.next\server\app\_not-found.meta` (Unknown)
+      - 📄 `.next\server\app\_not-found.rsc` (Unknown)
+      - 📄 `.next\server\app\dashboard.html` (HTML)
+      - 📄 `.next\server\app\dashboard.meta` (Unknown)
+      - 📄 `.next\server\app\dashboard.rsc` (Unknown)
+      - 📄 `.next\server\app\favicon.ico.body` (Unknown)
+      - 📄 `.next\server\app\favicon.ico.meta` (Unknown)
+      - 📄 `.next\server\app\page_client-reference-manifest.js` (JavaScript)
+      - 📄 `.next\server\app\page.js` (JavaScript)
+        - *Imports:* `../webpack-runtime.js`
+        - *Exports:* `module.exports`
+      - 📄 `.next\server\app\page.js.nft.json` (JSON)
+    - 📁 `.next\server\chunks/`
+      - 📁 `.next\server\chunks\ssr/`
+        - 📄 `.next\server\chunks\ssr\[externals]_next_dist_shared_lib_no-fallback-error_external_d7a8835d.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[externals]_next_dist_shared_lib_no-fallback-error_external_d7a8835d.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__57049e88._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__57049e88._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__68968b53._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__68968b53._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__72d72268._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__72d72268._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__86e7898f._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__86e7898f._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__c75c51b7._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__c75c51b7._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__c7e7d7fe._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__c7e7d7fe._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__c8a7866f._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__c8a7866f._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__d8593af1._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[root-of-the-server]__d8593af1._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\[turbopack]_runtime.js` (JavaScript)
+          - *Imports:* `path`, `fs`, `stream`, `url`, `fs/promises`
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\[turbopack]_runtime.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_@supabase_auth-js_dist_module_2a35e6ef._.js` (JavaScript)
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_@supabase_auth-js_dist_module_2a35e6ef._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_@supabase_node-fetch_lib_index_4b7dfe6c.js` (JavaScript)
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_@supabase_node-fetch_lib_index_4b7dfe6c.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_@supabase_node-fetch_lib_index_5cedb70a.js` (JavaScript)
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_@supabase_node-fetch_lib_index_5cedb70a.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_8f848e63._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_8f848e63._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_a1bfb996._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+          - *Routes Provided:* `GET /`, `GET /`
+        - 📄 `.next\server\chunks\ssr\node_modules_a1bfb996._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_a1f21688._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+          - *Routes Provided:* `GET /`, `GET /`
+        - 📄 `.next\server\chunks\ssr\node_modules_a1f21688._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_b59c985a._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_b59c985a._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_bf671b14._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_bf671b14._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_369ae2cc._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+          - *Routes Provided:* `GET /`, `GET /`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_369ae2cc._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_9babd674._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_9babd674._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_1c1e848a._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_1c1e848a._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_1c8c21fa._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_1c8c21fa._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_builtin_forbidden_651c1c6d.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_builtin_forbidden_651c1c6d.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_builtin_global-error_af93ecd6.js` (JavaScript)
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_builtin_global-error_af93ecd6.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_builtin_unauthorized_a3bc0a28.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_client_components_builtin_unauthorized_a3bc0a28.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_compiled_next-devtools_index_4258ed4e.js` (JavaScript)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_compiled_next-devtools_index_4258ed4e.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_esm_b72f3b11._.js` (JavaScript)
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_esm_b72f3b11._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_server_route-modules_app-page_1b403596._.js` (JavaScript)
+          - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_next_dist_server_route-modules_app-page_1b403596._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\node_modules_tr46_1a859af0._.js` (JavaScript)
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\chunks\ssr\node_modules_tr46_1a859af0._.js.map` (Unknown)
+        - 📄 `.next\server\chunks\ssr\src_app_a4430781._.js` (JavaScript)
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\chunks\ssr\src_app_a4430781._.js.map` (Unknown)
+      - 📄 `.next\server\chunks\[root-of-the-server]__80bb4c51._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\server\chunks\[root-of-the-server]__80bb4c51._.js.map` (Unknown)
+      - 📄 `.next\server\chunks\[turbopack]_runtime.js` (JavaScript)
+        - *Imports:* `path`, `fs`, `stream`, `url`, `fs/promises`
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\server\chunks\[turbopack]_runtime.js.map` (Unknown)
+      - 📄 `.next\server\chunks\406.js` (JavaScript)
+      - 📄 `.next\server\chunks\547.js` (JavaScript)
+      - 📄 `.next\server\chunks\548.js` (JavaScript)
+        - *Imports:* `@builder.io/partytown/integration`
+      - 📄 `.next\server\chunks\55.js` (JavaScript)
+      - 📄 `.next\server\chunks\605.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\server\chunks\621.js` (JavaScript)
+      - 📄 `.next\server\chunks\745.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\server\chunks\8.js` (JavaScript)
+      - 📄 `.next\server\chunks\985.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\server\chunks\node_modules_next_11760126._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\server\chunks\node_modules_next_11760126._.js.map` (Unknown)
+    - 📁 `.next\server\edge/`
+      - 📁 `.next\server\edge\chunks/`
+        - 📄 `.next\server\edge\chunks\_a95bd71b._.js` (JavaScript)
+        - 📄 `.next\server\edge\chunks\_a95bd71b._.js.map` (Unknown)
+    - 📁 `.next\server\pages/`
+      - 📁 `.next\server\pages\_app/`
+        - 📄 `.next\server\pages\_app\build-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_app\next-font-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_app\pages-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_app\react-loadable-manifest.json` (JSON)
+      - 📁 `.next\server\pages\_document/`
+        - 📄 `.next\server\pages\_document\next-font-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_document\pages-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_document\react-loadable-manifest.json` (JSON)
+      - 📁 `.next\server\pages\_error/`
+        - 📄 `.next\server\pages\_error\build-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_error\next-font-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_error\pages-manifest.json` (JSON)
+        - 📄 `.next\server\pages\_error\react-loadable-manifest.json` (JSON)
+      - 📄 `.next\server\pages\_app.js` (JavaScript)
+        - *Imports:* `../chunks/ssr/[turbopack]_runtime.js`
+        - *Exports:* `module.exports`
+        - *Routes Provided:* `GET /_app`
+      - 📄 `.next\server\pages\_app.js.map` (Unknown)
+      - 📄 `.next\server\pages\_app.js.nft.json` (JSON)
+      - 📄 `.next\server\pages\_document.js` (JavaScript)
+        - *Imports:* `../chunks/ssr/[turbopack]_runtime.js`
+        - *Exports:* `module.exports`
+        - *Routes Provided:* `GET /_document`
+      - 📄 `.next\server\pages\_document.js.map` (Unknown)
+      - 📄 `.next\server\pages\_document.js.nft.json` (JSON)
+      - 📄 `.next\server\pages\_error.js` (JavaScript)
+        - *Imports:* `../chunks/ssr/[turbopack]_runtime.js`
+        - *Exports:* `module.exports`
+        - *Routes Provided:* `GET /_error`
+      - 📄 `.next\server\pages\_error.js.map` (Unknown)
+      - 📄 `.next\server\pages\_error.js.nft.json` (JSON)
+      - 📄 `.next\server\pages\404.html` (HTML)
+      - 📄 `.next\server\pages\500.html` (HTML)
+    - 📁 `.next\server\src/`
+      - 📄 `.next\server\src\middleware.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`, `GET /`, `GET /`
+      - 📄 `.next\server\src\middleware.js.map` (Unknown)
+    - 📄 `.next\server\app-paths-manifest.json` (JSON)
+    - 📄 `.next\server\edge-runtime-webpack.js` (JavaScript)
+    - 📄 `.next\server\edge-runtime-webpack.js.map` (Unknown)
+    - 📄 `.next\server\functions-config-manifest.json` (JSON)
+    - 📄 `.next\server\interception-route-rewrite-manifest.js` (JavaScript)
+    - 📄 `.next\server\middleware-build-manifest.js` (JavaScript)
+    - 📄 `.next\server\middleware-manifest.json` (JSON)
+    - 📄 `.next\server\middleware-react-loadable-manifest.js` (JavaScript)
+    - 📄 `.next\server\next-font-manifest.js` (JavaScript)
+    - 📄 `.next\server\next-font-manifest.json` (JSON)
+    - 📄 `.next\server\pages-manifest.json` (JSON)
+    - 📄 `.next\server\server-reference-manifest.js` (JavaScript)
+    - 📄 `.next\server\server-reference-manifest.json` (JSON)
+    - 📄 `.next\server\webpack-runtime.js` (JavaScript)
+  - 📁 `.next\static/`
+    - 📁 `.next\static\8_zjyzgo32Z4cZjYIxWyY/`
+      - 📄 `.next\static\8_zjyzgo32Z4cZjYIxWyY\_buildManifest.js` (JavaScript)
+      - 📄 `.next\static\8_zjyzgo32Z4cZjYIxWyY\_ssgManifest.js` (JavaScript)
+    - 📁 `.next\static\chunks/`
+      - 📁 `.next\static\chunks\app/`
+        - 📁 `.next\static\chunks\app\_not-found/`
+          - 📄 `.next\static\chunks\app\_not-found\page-8bc4dec389e39dc0.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\api/`
+          - 📁 `.next\static\chunks\app\api\chat/`
+            - 📁 `.next\static\chunks\app\api\chat\history/`
+              - 📁 `.next\static\chunks\app\api\chat\history\[id]/`
+                - 📄 `.next\static\chunks\app\api\chat\history\[id]\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📄 `.next\static\chunks\app\api\chat\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\journaling/`
+            - 📁 `.next\static\chunks\app\api\journaling\prompts/`
+              - 📄 `.next\static\chunks\app\api\journaling\prompts\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\logs/`
+            - 📁 `.next\static\chunks\app\api\logs\profile-usage/`
+              - 📄 `.next\static\chunks\app\api\logs\profile-usage\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\oracle/`
+            - 📁 `.next\static\chunks\app\api\oracle\collections/`
+              - 📄 `.next\static\chunks\app\api\oracle\collections\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\daily/`
+              - 📄 `.next\static\chunks\app\api\oracle\daily\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\save/`
+              - 📄 `.next\static\chunks\app\api\oracle\save\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\seasonal/`
+              - 📄 `.next\static\chunks\app\api\oracle\seasonal\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\share/`
+              - 📄 `.next\static\chunks\app\api\oracle\share\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\rituals/`
+            - 📁 `.next\static\chunks\app\api\rituals\suggest/`
+              - 📄 `.next\static\chunks\app\api\rituals\suggest\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\test-connection/`
+            - 📄 `.next\static\chunks\app\api\test-connection\route-b6a78dd1f4aebf99.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\auth/`
+          - 📁 `.next\static\chunks\app\auth\callback/`
+            - 📄 `.next\static\chunks\app\auth\callback\route-b6a78dd1f4aebf99.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\dashboard/`
+          - 📁 `.next\static\chunks\app\dashboard\chat/`
+            - 📄 `.next\static\chunks\app\dashboard\chat\page-dbc2c694cb64bc50.js` (JavaScript)
+              - *Routes Consumed:* `/api/chat/history/`, `/api/chat`
+          - 📁 `.next\static\chunks\app\dashboard\library/`
+            - 📄 `.next\static\chunks\app\dashboard\library\page-19a032a528584c7b.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\dashboard\reference/`
+            - 📄 `.next\static\chunks\app\dashboard\reference\page-3b8af87325bfb950.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\dashboard\spiritual-journey/`
+            - 📄 `.next\static\chunks\app\dashboard\spiritual-journey\layout-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📄 `.next\static\chunks\app\dashboard\spiritual-journey\page-296e8918c62ac2ac.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\dashboard\spiritual-profile/`
+            - 📄 `.next\static\chunks\app\dashboard\spiritual-profile\page-e05f734c2a0d24f9.js` (JavaScript)
+          - 📄 `.next\static\chunks\app\dashboard\page-680624441cb93cff.js` (JavaScript)
+            - *Routes Consumed:* `/api/oracle/daily?`, `/api/oracle/save`, `/api/oracle/share`, `/api/chat/history/`
+        - 📁 `.next\static\chunks\app\login/`
+          - 📄 `.next\static\chunks\app\login\page-549269a541641484.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\oracle/`
+          - 📁 `.next\static\chunks\app\oracle\embed/`
+            - 📁 `.next\static\chunks\app\oracle\embed\[id]/`
+              - 📄 `.next\static\chunks\app\oracle\embed\[id]\page-f3b4da0d233d5471.js` (JavaScript)
+                - *Routes Consumed:* `/api/oracle/share?card_id=`
+          - 📁 `.next\static\chunks\app\oracle\shared/`
+            - 📁 `.next\static\chunks\app\oracle\shared\[id]/`
+              - 📄 `.next\static\chunks\app\oracle\shared\[id]\page-e656aa66a325b65a.js` (JavaScript)
+                - *Routes Consumed:* `/api/oracle/share?card_id=`
+        - 📄 `.next\static\chunks\app\layout-5f20073994b9780a.js` (JavaScript)
+        - 📄 `.next\static\chunks\app\page-b6a78dd1f4aebf99.js` (JavaScript)
+      - 📁 `.next\static\chunks\pages/`
+        - 📄 `.next\static\chunks\pages\_app-663ec5428c344dae.js` (JavaScript)
+          - *Routes Provided:* `GET /_app-663ec5428c344dae`
+        - 📄 `.next\static\chunks\pages\_app.js` (JavaScript)
+          - *Routes Provided:* `GET /_app`
+        - 📄 `.next\static\chunks\pages\_error-544778206352ce59.js` (JavaScript)
+          - *Routes Provided:* `GET /_error-544778206352ce59`
+        - 📄 `.next\static\chunks\pages\_error.js` (JavaScript)
+          - *Routes Provided:* `GET /_error`
+      - 📄 `.next\static\chunks\_01f48b92._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\_01f48b92._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\_e69f0d32._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[next]_entry_page-loader_ts_8ccf5f86._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[next]_entry_page-loader_ts_8ccf5f86._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\[next]_entry_page-loader_ts_f9f6e84e._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[next]_entry_page-loader_ts_f9f6e84e._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\[next]_internal_font_google_geist_e531dabc_module_css_e59ae46c._.single.css` (CSS)
+      - 📄 `.next\static\chunks\[next]_internal_font_google_geist_e531dabc_module_css_e59ae46c._.single.css.map` (Unknown)
+      - 📄 `.next\static\chunks\[next]_internal_font_google_geist_mono_68a01160_module_css_e59ae46c._.single.css` (CSS)
+      - 📄 `.next\static\chunks\[next]_internal_font_google_geist_mono_68a01160_module_css_e59ae46c._.single.css.map` (Unknown)
+      - 📄 `.next\static\chunks\[root-of-the-server]__010dee56._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[root-of-the-server]__010dee56._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\[root-of-the-server]__8ebb6d4b._.css` (CSS)
+      - 📄 `.next\static\chunks\[root-of-the-server]__8ebb6d4b._.css.map` (Unknown)
+      - 📄 `.next\static\chunks\[root-of-the-server]__95ff7225._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[root-of-the-server]__95ff7225._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\[turbopack]_browser_dev_hmr-client_hmr-client_ts_5af4a3bc._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[turbopack]_browser_dev_hmr-client_hmr-client_ts_61dcf9ba._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[turbopack]_browser_dev_hmr-client_hmr-client_ts_61dcf9ba._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\[turbopack]_browser_dev_hmr-client_hmr-client_ts_6aaa83c7._.js` (JavaScript)
+      - 📄 `.next\static\chunks\[turbopack]_browser_dev_hmr-client_hmr-client_ts_6aaa83c7._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\341.716d46e6e5cb6bdc.js` (JavaScript)
+      - 📄 `.next\static\chunks\472.a3826d29d6854395.js` (JavaScript)
+      - 📄 `.next\static\chunks\4bd1b696-cf72ae8a39fa05aa.js` (JavaScript)
+      - 📄 `.next\static\chunks\663-a2024bbdf443cdb6.js` (JavaScript)
+      - 📄 `.next\static\chunks\77-6105f6c667838db1.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\static\chunks\796-4367a7f97108064b.js` (JavaScript)
+      - 📄 `.next\static\chunks\964-7a34cadcb7695cec.js` (JavaScript)
+      - 📄 `.next\static\chunks\framework-7c95b8e5103c9e90.js` (JavaScript)
+      - 📄 `.next\static\chunks\main-80f9c9b2241174c9.js` (JavaScript)
+        - *Routes Provided:* `GET /_next/image`, `GET /_next/image`
+      - 📄 `.next\static\chunks\main-app-5d25c55c8222f9af.js` (JavaScript)
+      - 📄 `.next\static\chunks\node_modules_@supabase_node-fetch_browser_b1ac0bb2.js` (JavaScript)
+      - 📄 `.next\static\chunks\node_modules_@supabase_node-fetch_browser_b1ac0bb2.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_@swc_helpers_cjs_8e433861._.js` (JavaScript)
+      - 📄 `.next\static\chunks\node_modules_@swc_helpers_cjs_8e433861._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_00ad6839._.js` (JavaScript)
+        - *Exports:* `module.exports`
+      - 📄 `.next\static\chunks\node_modules_00ad6839._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_13a8e7dd._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\static\chunks\node_modules_13a8e7dd._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_f2979c3a._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_f2979c3a._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_app_95ea274f.js` (JavaScript)
+        - *Exports:* `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_app_95ea274f.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_01fcdebf._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_dist_01fcdebf._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_445d8acf._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_dist_445d8acf._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_7c4b9b2a._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_dist_7c4b9b2a._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_ad6392d3._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_dist_ad6392d3._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_build_polyfills_polyfill-nomodule.js` (JavaScript)
+      - 📄 `.next\static\chunks\node_modules_next_dist_client_20b209c9._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_dist_client_20b209c9._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_client_becf32a6._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+        - *Routes Provided:* `GET /_next/webpack-hmr`
+      - 📄 `.next\static\chunks\node_modules_next_dist_client_becf32a6._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_client_components_builtin_global-error_8dbbc883.js` (JavaScript)
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_0f1b9fd4._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_0f1b9fd4._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_ca41998d._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_ca41998d._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_next-devtools_index_82a36480.js` (JavaScript)
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_next-devtools_index_82a36480.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_next-devtools_index_d575f738.js` (JavaScript)
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_next-devtools_index_d575f738.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_react-dom_1f56dc06._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`
+        - *Routes Provided:* `GET clipPath`
+      - 📄 `.next\static\chunks\node_modules_next_dist_compiled_react-dom_1f56dc06._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_shared_lib_3cbd5cc2._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`
+        - *Routes Provided:* `GET /_next/image`
+      - 📄 `.next\static\chunks\node_modules_next_dist_shared_lib_3cbd5cc2._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_dist_shared_lib_492fcef6._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`
+        - *Routes Provided:* `GET /_next/image`
+      - 📄 `.next\static\chunks\node_modules_next_dist_shared_lib_492fcef6._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_next_error_8c8bf619.js` (JavaScript)
+        - *Exports:* `module.exports`
+      - 📄 `.next\static\chunks\node_modules_next_error_8c8bf619.js.map` (Unknown)
+      - 📄 `.next\static\chunks\node_modules_react-dom_82bb97c6._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`
+        - *Routes Provided:* `GET clipPath`
+      - 📄 `.next\static\chunks\node_modules_react-dom_82bb97c6._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\pages__app_4b3c26ac._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\pages__app_4b3c26ac._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\pages__app_5771e187._.js` (JavaScript)
+      - 📄 `.next\static\chunks\pages__error_50fcf3db._.js` (JavaScript)
+        - *Exports:* `module.exports`, `module.exports`, `module.exports`
+      - 📄 `.next\static\chunks\pages__error_50fcf3db._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\pages__error_5771e187._.js` (JavaScript)
+      - 📄 `.next\static\chunks\polyfills-42372ed130431b0a.js` (JavaScript)
+      - 📄 `.next\static\chunks\src_app_components_auth_LoginForm_tsx_8fe2385c._.js` (JavaScript)
+      - 📄 `.next\static\chunks\src_app_components_auth_LoginForm_tsx_8fe2385c._.js.map` (Unknown)
+      - 📄 `.next\static\chunks\src_app_favicon_ico_mjs_f9cadd25._.js` (JavaScript)
+      - 📄 `.next\static\chunks\src_app_globals_css_e59ae46c._.single.css` (CSS)
+      - 📄 `.next\static\chunks\src_app_globals_css_e59ae46c._.single.css.map` (Unknown)
+      - 📄 `.next\static\chunks\src_app_layout_tsx_68b267f5._.js` (JavaScript)
+      - 📄 `.next\static\chunks\src_app_login_page_tsx_8dbbc883._.js` (JavaScript)
+      - 📄 `.next\static\chunks\webpack-b47fd1548851b972.js` (JavaScript)
+    - 📁 `.next\static\css/`
+      - 📄 `.next\static\css\df7154d8ec4ea532.css` (CSS)
+    - 📁 `.next\static\media/`
+      - 📄 `.next\static\media\569ce4b8f30dc480-s.p.woff2` (Unknown)
+      - 📄 `.next\static\media\747892c23ea88013-s.woff2` (Unknown)
+      - 📄 `.next\static\media\8d697b304b401681-s.woff2` (Unknown)
+      - 📄 `.next\static\media\8ee3a1ba4ed5baee-s.p.be19f591.woff2` (Unknown)
+      - 📄 `.next\static\media\93f479601ee12b01-s.p.woff2` (Unknown)
+      - 📄 `.next\static\media\942c7eecbf9bc714-s.cb6bbcb1.woff2` (Unknown)
+      - 📄 `.next\static\media\9610d9e46709d722-s.woff2` (Unknown)
+      - 📄 `.next\static\media\973faccb4f6aedb5-s.b7d310ad.woff2` (Unknown)
+      - 📄 `.next\static\media\b0a57561b6cb5495-s.p.da1ebef7.woff2` (Unknown)
+      - 📄 `.next\static\media\ba015fad6dcf6784-s.woff2` (Unknown)
+      - 📄 `.next\static\media\d26cc22533d232c7-s.81df3a5b.woff2` (Unknown)
+      - 📄 `.next\static\media\e5e2a9f48cda0a81-s.e32db976.woff2` (Unknown)
+      - 📄 `.next\static\media\favicon.45db1c09.ico` (Unknown)
+  - 📁 `.next\types/`
+    - 📁 `.next\types\app/`
+      - 📁 `.next\types\app\api/`
+        - 📁 `.next\types\app\api\chat/`
+          - 📁 `.next\types\app\api\chat\history/`
+            - 📁 `.next\types\app\api\chat\history\[id]/`
+              - 📄 `.next\types\app\api\chat\history\[id]\route.ts` (TypeScript)
+                - *Imports:* `../../../../../../../src/app/api/chat/history/[id]/route.js`, `next/server.js`
+          - 📄 `.next\types\app\api\chat\route.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/api/chat/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\journaling/`
+          - 📁 `.next\types\app\api\journaling\prompts/`
+            - 📄 `.next\types\app\api\journaling\prompts\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/journaling/prompts/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\logs/`
+          - 📁 `.next\types\app\api\logs\profile-usage/`
+            - 📄 `.next\types\app\api\logs\profile-usage\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/logs/profile-usage/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\oracle/`
+          - 📁 `.next\types\app\api\oracle\collections/`
+            - 📄 `.next\types\app\api\oracle\collections\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/collections/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\daily/`
+            - 📄 `.next\types\app\api\oracle\daily\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/daily/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\save/`
+            - 📄 `.next\types\app\api\oracle\save\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/save/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\seasonal/`
+            - 📄 `.next\types\app\api\oracle\seasonal\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/seasonal/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\share/`
+            - 📄 `.next\types\app\api\oracle\share\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/share/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\rituals/`
+          - 📁 `.next\types\app\api\rituals\suggest/`
+            - 📄 `.next\types\app\api\rituals\suggest\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/rituals/suggest/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\test-connection/`
+          - 📄 `.next\types\app\api\test-connection\route.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/api/test-connection/route.js`, `next/server.js`
+      - 📁 `.next\types\app\auth/`
+        - 📁 `.next\types\app\auth\callback/`
+          - 📄 `.next\types\app\auth\callback\route.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/auth/callback/route.js`, `next/server.js`
+      - 📁 `.next\types\app\dashboard/`
+        - 📁 `.next\types\app\dashboard\chat/`
+          - 📄 `.next\types\app\dashboard\chat\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/chat/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\library/`
+          - 📄 `.next\types\app\dashboard\library\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/library/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\reference/`
+          - 📄 `.next\types\app\dashboard\reference\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/reference/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\spiritual-journey/`
+          - 📄 `.next\types\app\dashboard\spiritual-journey\layout.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/spiritual-journey/layout.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+          - 📄 `.next\types\app\dashboard\spiritual-journey\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/spiritual-journey/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\spiritual-profile/`
+          - 📄 `.next\types\app\dashboard\spiritual-profile\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/spiritual-profile/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📄 `.next\types\app\dashboard\page.ts` (TypeScript)
+          - *Imports:* `../../../../src/app/dashboard/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📁 `.next\types\app\login/`
+        - 📄 `.next\types\app\login\page.ts` (TypeScript)
+          - *Imports:* `../../../../src/app/login/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📁 `.next\types\app\oracle/`
+        - 📁 `.next\types\app\oracle\embed/`
+          - 📁 `.next\types\app\oracle\embed\[id]/`
+            - 📄 `.next\types\app\oracle\embed\[id]\page.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/oracle/embed/[id]/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\oracle\shared/`
+          - 📁 `.next\types\app\oracle\shared\[id]/`
+            - 📄 `.next\types\app\oracle\shared\[id]\page.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/oracle/shared/[id]/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📄 `.next\types\app\layout.ts` (TypeScript)
+        - *Imports:* `../../../src/app/layout.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📄 `.next\types\app\page.ts` (TypeScript)
+        - *Imports:* `../../../src/app/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+    - 📄 `.next\types\cache-life.d.ts` (TypeScript)
+      - *Exports:* `* from next/dist/server/web/spec-extension/unstable-cache`, `* from next/dist/server/web/spec-extension/revalidate`, `* from next/dist/server/web/spec-extension/unstable-no-store`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `* from next/dist/server/use-cache/cache-tag`
+    - 📄 `.next\types\package.json` (JSON)
+  - 📄 `.next\app-build-manifest.json` (JSON)
+  - 📄 `.next\app-path-routes-manifest.json` (JSON)
+  - 📄 `.next\BUILD_ID` (Unknown)
+  - 📄 `.next\build-manifest.json` (JSON)
+  - 📄 `.next\export-marker.json` (JSON)
+  - 📄 `.next\images-manifest.json` (JSON)
+  - 📄 `.next\next-minimal-server.js.nft.json` (JSON)
+  - 📄 `.next\next-server.js.nft.json` (JSON)
+  - 📄 `.next\package.json` (JSON)
+  - 📄 `.next\postcss.js` (JavaScript)
+    - *Imports:* `./build/chunks/[turbopack]_runtime.js`
+    - *Exports:* `module.exports`
+  - 📄 `.next\postcss.js.map` (Unknown)
+  - 📄 `.next\prerender-manifest.json` (JSON)
+  - 📄 `.next\react-loadable-manifest.json` (JSON)
+  - 📄 `.next\required-server-files.json` (JSON)
+  - 📄 `.next\routes-manifest.json` (JSON)
+  - 📄 `.next\trace` (Unknown)
+- 📁 `.vscode/`
+  - 📄 `.vscode\launch.json` (JSON)
+- 📁 `public/`
+  - 📄 `public\file.svg` (Unknown)
+  - 📄 `public\globe.svg` (Unknown)
+  - 📄 `public\next.svg` (Unknown)
+  - 📄 `public\vercel.svg` (Unknown)
+  - 📄 `public\window.svg` (Unknown)
+- 📁 `src/`
+  - 📁 `src\app/`
+    - 📁 `src\app\api/`
+      - 📁 `src\app\api\chat/`
+        - 📁 `src\app\api\chat\history/`
+          - 📁 `src\app\api\chat\history\[id]/`
+            - 📄 `src\app\api\chat\history\[id]\route.ts` (TypeScript)
+              - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`
+              - *Exports:* `GET`
+        - 📁 `src\app\api\chat\stream/`
+        - 📄 `src\app\api\chat\route.ts` (TypeScript)
+          - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`, `../../lib/data/supabaseDataObjects`, `@supabase/supabase-js`, `../../lib/ai/beatrice`
+          - *Exports:* `POST`
+      - 📁 `src\app\api\journaling/`
+        - 📁 `src\app\api\journaling\prompts/`
+          - 📄 `src\app\api\journaling\prompts\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`, `@supabase/supabase-js`
+            - *Exports:* `POST`
+      - 📁 `src\app\api\logs/`
+        - 📁 `src\app\api\logs\profile-usage/`
+          - 📄 `src\app\api\logs\profile-usage\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`
+            - *Exports:* `POST`
+      - 📁 `src\app\api\oracle/`
+        - 📁 `src\app\api\oracle\collections/`
+          - 📄 `src\app\api\oracle\collections\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `GET`, `POST`, `PUT`, `DELETE`
+        - 📁 `src\app\api\oracle\daily/`
+          - 📄 `src\app\api\oracle\daily\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`, `@supabase/supabase-js`
+            - *Exports:* `GET`
+        - 📁 `src\app\api\oracle\save/`
+          - 📄 `src\app\api\oracle\save\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `POST`, `DELETE`
+        - 📁 `src\app\api\oracle\seasonal/`
+          - 📄 `src\app\api\oracle\seasonal\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `GET`, `POST`
+        - 📁 `src\app\api\oracle\share/`
+          - 📄 `src\app\api\oracle\share\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `POST`, `GET`
+      - 📁 `src\app\api\rituals/`
+        - 📁 `src\app\api\rituals\suggest/`
+          - 📄 `src\app\api\rituals\suggest\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`, `@supabase/supabase-js`
+            - *Exports:* `POST`
+      - 📁 `src\app\api\test-connection/`
+        - 📄 `src\app\api\test-connection\route.ts` (TypeScript)
+          - *Imports:* `next/server`, `@/lib/supabase`
+          - *Exports:* `GET`
+    - 📁 `src\app\auth/`
+      - 📁 `src\app\auth\callback/`
+        - 📄 `src\app\auth\callback\route.ts` (TypeScript)
+          - *Imports:* `@supabase/auth-helpers-nextjs`, `next/headers`, `next/server`
+          - *Exports:* `GET`
+    - 📁 `src\app\components/`
+      - 📁 `src\app\components\auth/`
+        - 📄 `src\app\components\auth\LoginForm.tsx` (React TypeScript)
+          - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`
+          - *Exports:* `LoginForm`
+      - 📁 `src\app\components\chat/`
+        - 📄 `src\app\components\chat\ChatInterface.tsx` (React TypeScript)
+          - *Imports:* `react`, `lucide-react`
+          - *Exports:* `ChatInterface`
+          - *Routes Consumed:* `/api/chat`
+    - 📁 `src\app\dashboard/`
+      - 📁 `src\app\dashboard\chat/`
+        - 📄 `src\app\dashboard\chat\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `next/link`, `next/navigation`, `@supabase/auth-helpers-nextjs`, `lucide-react`, `@supabase/supabase-js`, `../../components/chat/ChatInterface`
+          - *Exports:* `ChatPage`
+      - 📁 `src\app\dashboard\library/`
+        - 📄 `src\app\dashboard\library\page.tsx` (React TypeScript)
+          - *Imports:* `lucide-react`, `next/link`
+          - *Exports:* `LibraryPage`
+      - 📁 `src\app\dashboard\reference/`
+        - 📄 `src\app\dashboard\reference\page.tsx` (React TypeScript)
+          - *Imports:* `lucide-react`, `next/link`
+          - *Exports:* `ReferencePage`
+      - 📁 `src\app\dashboard\spiritual-journey/`
+        - 📄 `src\app\dashboard\spiritual-journey\layout.tsx` (React TypeScript)
+          - *Imports:* `react`
+          - *Exports:* `SpiritualJourneyLayout`
+        - 📄 `src\app\dashboard\spiritual-journey\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/modules/spiritual-profile/ui/SpiritualJourneyDashboard`, `@/modules/spiritual-profile/db/queries`, `@/components/ui/skeleton`, `next`
+          - *Exports:* `SpiritualJourneyPage`
+      - 📁 `src\app\dashboard\spiritual-profile/`
+        - 📄 `src\app\dashboard\spiritual-profile\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `@supabase/supabase-js`, `next/navigation`, `lucide-react`
+          - *Exports:* `SpiritualProfilePage`
+      - 📄 `src\app\dashboard\page.tsx` (React TypeScript)
+        - *Imports:* `react`, `next/link`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`, `@/components/oracle/OracleCard`, `@/components/moon/MoonPhaseDisplay`, `@/components/moon/LunarCalendar`, `@/components/moon/CompactMoonPhase`, `@supabase/supabase-js`
+        - *Exports:* `Dashboard`
+    - 📁 `src\app\lib/`
+      - 📁 `src\app\lib\ai/`
+        - 📄 `src\app\lib\ai\beatrice.ts` (TypeScript)
+          - *Imports:* `@anthropic-ai/sdk`, `../data/supabaseDataObjects`, `@supabase/supabase-js`
+          - *Exports:* `generateBeatriceResponse`, `gatherSpiritualContext`
+      - 📁 `src\app\lib\data/`
+        - 📄 `src\app\lib\data\supabaseDataObjects.ts` (TypeScript)
+          - *Imports:* `@supabase/supabase-js`
+          - *Exports:* `getDataObject`
+    - 📁 `src\app\login/`
+      - 📄 `src\app\login\page.tsx` (React TypeScript)
+        - *Imports:* `../components/auth/LoginForm`, `next`, `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
+        - *Exports:* `LoginPage`
+    - 📁 `src\app\oracle/`
+      - 📁 `src\app\oracle\embed/`
+        - 📁 `src\app\oracle\embed\[id]/`
+          - 📄 `src\app\oracle\embed\[id]\page.tsx` (React TypeScript)
+            - *Imports:* `react`, `next/navigation`, `lucide-react`
+            - *Exports:* `EmbedOracleCardPage`
+      - 📁 `src\app\oracle\shared/`
+        - 📁 `src\app\oracle\shared\[id]/`
+          - 📄 `src\app\oracle\shared\[id]\page.tsx` (React TypeScript)
+            - *Imports:* `react`, `next/navigation`, `next/link`, `lucide-react`
+            - *Exports:* `SharedOracleCardPage`
+    - 📁 `src\app\supabase/`
+      - 📄 `src\app\supabase\001_initial_schema.sql` (Unknown)
+    - 📄 `src\app\favicon.ico` (Unknown)
+    - 📄 `src\app\globals.css` (CSS)
+    - 📄 `src\app\layout.tsx` (React TypeScript)
+      - *Imports:* `next`, `next/font/google`, `./globals.css`, `@vercel/speed-insights/next`
+      - *Exports:* `RootLayout`
+    - 📄 `src\app\page.tsx` (React TypeScript)
+      - *Imports:* `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
+      - *Exports:* `Home`
+  - 📁 `src\components/`
+    - 📁 `src\components\moon/`
+      - 📄 `src\components\moon\CompactMoonPhase.tsx` (React TypeScript)
+        - *Imports:* `react`, `lucide-react`, `@/lib/moon-phase-api`, `@/types/moon-phase`
+        - *Exports:* `CompactMoonPhase`
+      - 📄 `src\components\moon\LunarCalendar.tsx` (React TypeScript)
+        - *Imports:* `react`, `lucide-react`, `@/lib/moon-phase-api`
+        - *Exports:* `LunarCalendar`
+      - 📄 `src\components\moon\MoonPhaseDisplay.tsx` (React TypeScript)
+        - *Imports:* `react`, `lucide-react`, `@/lib/moon-phase-api`, `@/types/moon-phase`
+        - *Exports:* `MoonPhaseDisplay`
+    - 📁 `src\components\oracle/`
+      - 📄 `src\components\oracle\OracleCard.tsx` (React TypeScript)
+        - *Imports:* `react`, `lucide-react`
+        - *Exports:* `OracleCardComponent`
+        - *Routes Consumed:* `/api/oracle/save`, `/api/oracle/share`
+    - 📁 `src\components\ui/`
+      - 📄 `src\components\ui\skeleton.tsx` (React TypeScript)
+        - *Exports:* `Skeleton`
+  - 📁 `src\lib/`
+    - 📄 `src\lib\moon-phase-api.ts` (TypeScript)
+      - *Imports:* `@/types/moon-phase`
+      - *Exports:* `MoonPhaseService`
+    - 📄 `src\lib\supabase.ts` (TypeScript)
+      - *Imports:* `@supabase/supabase-js`
+  - 📁 `src\modules/`
+    - 📁 `src\modules\spiritual-profile/`
+      - 📁 `src\modules\spiritual-profile\actions/`
+        - 📄 `src\modules\spiritual-profile\actions\milestones.ts` (TypeScript)
+          - *Imports:* `next/cache`, `@supabase/supabase-js`
+          - *Exports:* `createMilestone`, `updateMilestone`, `deleteMilestone`, `detectAndCreateAutoMilestones`
+      - 📁 `src\modules\spiritual-profile\db/`
+        - 📄 `src\modules\spiritual-profile\db\queries.ts` (TypeScript)
+          - *Imports:* `@/lib/supabase`, `@/modules/spiritual-profile/types`
+          - *Exports:* `SpiritualProfileQueries`
+      - 📁 `src\modules\spiritual-profile\hooks/`
+        - 📄 `src\modules\spiritual-profile\hooks\useMilestones.ts` (TypeScript)
+          - *Imports:* `react`, `next/navigation`, `@/modules/spiritual-profile/actions/milestones`, `@/modules/spiritual-profile/types`
+          - *Exports:* `useMilestones`
+      - 📁 `src\modules\spiritual-profile\ui/`
+        - 📄 `src\modules\spiritual-profile\ui\SpiritualJourneyDashboard.tsx` (React TypeScript)
+          - *Imports:* `react`, `lucide-react`
+          - *Exports:* `SpiritualJourneyDashboard`
+      - 📄 `src\modules\spiritual-profile\types.ts` (TypeScript)
+  - 📁 `src\types/`
+    - 📄 `src\types\moon-phase.ts` (TypeScript)
+  - 📄 `src\middleware.ts` (TypeScript)
+    - *Imports:* `@supabase/auth-helpers-nextjs`, `next/server`, `next/server`
+    - *Exports:* `middleware`
+- 📁 `supabase/`
+  - 📁 `supabase\.branches/`
+    - 📄 `supabase\.branches\_current_branch` (Unknown)
+  - 📁 `supabase\.temp/`
+    - 📄 `supabase\.temp\cli-latest` (Unknown)
+    - 📄 `supabase\.temp\gotrue-version` (Unknown)
+    - 📄 `supabase\.temp\pooler-url` (Unknown)
+    - 📄 `supabase\.temp\postgres-version` (Unknown)
+    - 📄 `supabase\.temp\project-ref` (Unknown)
+    - 📄 `supabase\.temp\rest-version` (Unknown)
+    - 📄 `supabase\.temp\storage-version` (Unknown)
+  - 📁 `supabase\migrations/`
+    - 📄 `supabase\migrations\20250114_oracle_system.sql` (Unknown)
+    - 📄 `supabase\migrations\20250811_add_spiritual_profile_fields.sql` (Unknown)
+  - 📄 `supabase\config.toml` (Unknown)
+- 📄 `.env.example` (Unknown)
+- 📄 `.env.local` (Unknown)
+- 📄 `.env.local.example` (Unknown)
+- 📄 `.gitignore` (Unknown)
+- 📄 `.hintrc` (Unknown)
+- 📄 `eslint.config.mjs` (Unknown)
+- 📄 `MOON_PHASE_FEATURE.md` (Markdown)
+- 📄 `next-env.d.ts` (TypeScript)
+- 📄 `next.config.ts` (TypeScript)
+  - *Imports:* `next`
+- 📄 `package-lock.json` (JSON)
+- 📄 `package.json` (JSON)
+- 📄 `postcss.config.mjs` (Unknown)
+- 📄 `README.md` (Markdown)
+- 📄 `tsconfig.json` (JSON)
+
+---
+Last updated: 2025-08-12T19:47:53.806Z
