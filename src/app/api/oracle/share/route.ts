@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Generate share content based on type
-    let shareContent: any = {};
+    let shareContent: Record<string, unknown> = {};
 
     switch (share_type) {
       case 'social_text':
@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function generateSocialText(card: OracleCard, includeAttribution: boolean, personalNote?: string): any {
+function generateSocialText(card: OracleCard, includeAttribution: boolean, personalNote?: string): Record<string, unknown> {
   let text = '';
   
   if (personalNote) {
@@ -138,7 +138,7 @@ function generateSocialText(card: OracleCard, includeAttribution: boolean, perso
   };
 }
 
-function generatePublicLink(card: OracleCard, includeAttribution: boolean, personalNote?: string): any {
+function generatePublicLink(card: OracleCard, _includeAttribution: boolean, _personalNote?: string): Record<string, unknown> {
   // In a real implementation, you'd create a public share page
   // For now, we'll return the data structure for a share link
   
@@ -162,7 +162,7 @@ function generatePublicLink(card: OracleCard, includeAttribution: boolean, perso
   };
 }
 
-function generateEmbedCode(card: OracleCard, includeAttribution: boolean, personalNote?: string): any {
+function generateEmbedCode(card: OracleCard, includeAttribution: boolean, personalNote?: string): Record<string, unknown> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://your-app.com';
   
   // Generate iframe embed code
@@ -211,7 +211,7 @@ export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams;
     const card_id = searchParams.get('card_id');
-    const type = searchParams.get('type') || 'preview';
+    const _type = searchParams.get('type') || 'preview';
 
     if (!card_id) {
       return NextResponse.json({ error: 'Card ID is required' }, { status: 400 });

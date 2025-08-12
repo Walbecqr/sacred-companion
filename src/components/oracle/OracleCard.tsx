@@ -11,8 +11,6 @@ import {
   Moon,
   Sun,
   Star,
-  Eye,
-  EyeOff,
   Copy,
   Check
 } from 'lucide-react';
@@ -121,7 +119,7 @@ export default function OracleCardComponent({
         throw new Error('Failed to save oracle card');
       }
 
-      const data = await response.json();
+      await response.json();
       setIsSaved(true);
       
       // Show success feedback
@@ -154,7 +152,7 @@ export default function OracleCardComponent({
 
       if (!response.ok) {
         if (response.status === 403) {
-          const errorData = await response.json();
+          await response.json();
           setError('Sharing is disabled in your privacy settings');
           return;
         }
@@ -346,9 +344,9 @@ export default function OracleCardComponent({
         
         <div className="relative z-10">
           <h4 className="text-xl font-semibold mb-3">{oracleCard.title}</h4>
-          <blockquote className="text-lg italic leading-relaxed">
-            "{oracleCard.content}"
-          </blockquote>
+                      <blockquote className="text-lg italic leading-relaxed">
+              &ldquo;{oracleCard.content}&rdquo;
+            </blockquote>
           
           {oracleCard.source && (
             <p className="text-sm opacity-80 mt-4">— {oracleCard.source}</p>

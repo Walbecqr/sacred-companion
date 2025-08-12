@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
 
     // If no collection specified, use or create default collection
     if (!targetCollectionId) {
-      let { data: defaultCollection, error: collectionError } = await supabase
+      const { data: defaultCollection, error: collectionError } = await supabase
         .from('user_oracle_collections')
         .select('id')
         .eq('user_id', user.id)
@@ -66,13 +66,13 @@ export async function POST(request: NextRequest) {
           return NextResponse.json({ error: 'Failed to create collection' }, { status: 500 });
         }
 
-        defaultCollection = newCollection;
+        targetCollectionId = newCollection!.id;
       } else if (collectionError) {
         console.error('Error fetching default collection:', collectionError);
         return NextResponse.json({ error: 'Failed to access collection' }, { status: 500 });
+      } else {
+        targetCollectionId = defaultCollection!.id;
       }
-
-      targetCollectionId = defaultCollection!.id;
     } else {
       // Verify user owns the specified collection
       const { data: collection, error: verifyError } = await supabase
@@ -157,7 +157,7 @@ export async function DELETE(request: NextRequest) {
       return NextResponse.json({ error: 'Oracle card ID is required' }, { status: 400 });
     }
 
-    let whereClause = {
+    let whereClause: { oracle_card_id: string; collection_id?: string } = {
       oracle_card_id: oracle_card_id
     };
 

@@ -9,7 +9,7 @@ import {
   Heart, LogOut, Menu, X,
   Feather, Map as MapIcon, Flame,
   type LucideIcon,
-  Quote, NotebookPen, CalendarCheck,
+  NotebookPen, CalendarCheck,
   Settings as SettingsIcon, User as UserIcon, Check, Bell, Eye, Shield, Upload, Undo2
 } from 'lucide-react';
 import OracleCard from '@/components/oracle/OracleCard';

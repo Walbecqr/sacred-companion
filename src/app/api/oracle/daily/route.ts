@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 interface OracleCard {
   id: string;
@@ -16,22 +17,7 @@ interface OracleCard {
   image_url?: string;
 }
 
-interface DailyOracleState {
-  id: string;
-  user_id: string;
-  oracle_date: string;
-  timezone: string;
-  daily_card_id?: string;
-  manual_draws_count: number;
-  manual_draws_limit: number;
-  last_draw_at?: string;
-}
-
-interface UserProfile {
-  user_id: string;
-  spiritual_path?: string[];
-  experience_level?: string;
-}
+// Removed unused interfaces - using inline types instead
 
 // Get daily oracle card for user
 export async function GET(request: NextRequest) {
@@ -51,12 +37,14 @@ export async function GET(request: NextRequest) {
     const userDate = new Date().toLocaleDateString('en-CA', { timeZone: timezone });
 
     // Get or create daily oracle state
-    let { data: dailyState, error: stateError } = await supabase
+    const { data, error: stateError } = await supabase
       .from('daily_oracle_state')
       .select('*')
       .eq('user_id', user.id)
       .eq('oracle_date', userDate)
       .single();
+
+    let dailyState = data;
 
     if (stateError && stateError.code !== 'PGRST116') {
       console.error('Error fetching daily oracle state:', stateError);
@@ -65,7 +53,7 @@ export async function GET(request: NextRequest) {
 
     // If no daily state exists or forcing new card, get a new card
     if (!dailyState || forceNew) {
-      const newCard = await selectDailyOracleCard(supabase, user.id, timezone);
+      const newCard = await selectDailyOracleCard(supabase, user.id);
       
       if (!newCard) {
         return NextResponse.json({ error: 'No oracle cards available' }, { status: 404 });
@@ -152,7 +140,7 @@ export async function GET(request: NextRequest) {
 
     if (cardError || !dailyCard) {
       // Card doesn't exist or is inactive, get a new one
-      const newCard = await selectDailyOracleCard(supabase, user.id, timezone);
+      const newCard = await selectDailyOracleCard(supabase, user.id);
       
       if (!newCard) {
         return NextResponse.json({ error: 'No oracle cards available' }, { status: 404 });
@@ -188,7 +176,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-async function selectDailyOracleCard(supabase: any, userId: string, timezone: string): Promise<OracleCard | null> {
+async function selectDailyOracleCard(supabase: SupabaseClient, userId: string): Promise<OracleCard | null> {
   try {
     // Get user's spiritual profile for personalization
     const { data: profile } = await supabase
@@ -246,12 +234,12 @@ async function selectDailyOracleCard(supabase: any, userId: string, timezone: st
     }
 
     // Apply seasonal boosting
-    let weightedCards = availableCards.map((card: OracleCard) => {
+    const weightedCards = availableCards.map((card: OracleCard) => {
       let weight = 1.0;
       
       // Boost seasonal cards if we're in their season
       if (seasonalContext && seasonalContext.length > 0) {
-        const activeSeasons = seasonalContext.map((s: any) => s.name.toLowerCase());
+        const activeSeasons = seasonalContext.map((s: { name: string }) => s.name.toLowerCase());
         const cardSeasons = card.seasonal_timing || [];
         
         if (cardSeasons.some(season => 

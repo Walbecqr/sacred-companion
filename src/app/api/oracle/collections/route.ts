@@ -7,15 +7,7 @@ interface CreateCollectionRequest {
   description?: string;
 }
 
-interface Collection {
-  id: string;
-  name: string;
-  description?: string;
-  is_default: boolean;
-  created_at: string;
-  updated_at: string;
-  card_count?: number;
-}
+// Removed unused Collection interface
 
 // Get user's oracle collections
 export async function GET(request: NextRequest) {
@@ -76,7 +68,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Get all collections for user
-    let query = supabase
+    const query = supabase
       .from('user_oracle_collections')
       .select('*')
       .eq('user_id', user.id)
@@ -93,7 +85,7 @@ export async function GET(request: NextRequest) {
     if (include_cards) {
       // Get card counts for each collection
       const collectionsWithCounts = await Promise.all(
-        (collections || []).map(async (collection: any) => {
+        (collections || []).map(async (collection: { id: string; [key: string]: unknown }) => {
           const { count } = await supabase
             .from('oracle_collection_items')
             .select('*', { count: 'exact', head: true })
@@ -208,7 +200,7 @@ export async function PUT(request: NextRequest) {
     }
 
     // Prepare update data
-    const updateData: any = {
+    const updateData: { updated_at: string; name?: string; description?: string | null } = {
       updated_at: new Date().toISOString()
     };
 

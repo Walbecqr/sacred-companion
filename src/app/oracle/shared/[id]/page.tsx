@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { 
   Sparkles, 
   Share2, 
-  Copy, 
   Check, 
   ArrowLeft,
   Heart,
@@ -214,7 +213,7 @@ export default function SharedOracleCardPage() {
               <div className="relative z-10">
                 <h2 className="text-2xl font-bold mb-4">{card.title}</h2>
                 <blockquote className="text-xl leading-relaxed italic">
-                  "{card.content}"
+                  &ldquo;{card.content}&rdquo;
                 </blockquote>
                 
                 {card.source && (

@@ -107,7 +107,7 @@ export default function EmbedOracleCardPage() {
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-3 leading-tight">{card.title}</h3>
             <blockquote className="text-base italic leading-relaxed">
-              "{card.content}"
+              &ldquo;{card.content}&rdquo;
             </blockquote>
             
             {attribution && card.source && (

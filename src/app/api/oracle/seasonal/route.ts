@@ -2,19 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-interface SeasonalContent {
-  id: string;
-  name: string;
-  seasonal_type: string;
-  start_date: string;
-  end_date: string;
-  recurring_pattern: string;
-  content_boost_factor: number;
-  description?: string;
-  spiritual_themes: string[];
-  associated_correspondences: Record<string, unknown>;
-  is_active: boolean;
-}
+// Removed unused SeasonalContent interface
 
 // Get current seasonal context
 export async function GET(request: NextRequest) {
