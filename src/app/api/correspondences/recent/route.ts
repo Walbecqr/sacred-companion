@@ -55,6 +55,7 @@ export async function GET(request: NextRequest) {
     // Transform the data if correspondence is included
     let recent = data || [];
     if (includeCorrespondence && Array.isArray(recent)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       recent = (recent as unknown[]).map((item: any) => ({
         ...item,
         correspondence: item.correspondence ? {
