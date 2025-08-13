@@ -1,0 +1,1342 @@
+# Project Structure
+
+This file maintains an up-to-date list of project files and structure.
+
+## File Structure
+
+- 📁 `.next/`
+  - 📁 `.next\cache/`
+    - 📁 `.next\cache\eslint/`
+      - 📄 `.next\cache\eslint\.cache_10gta9y` (Unknown)
+      - 📄 `.next\cache\eslint\.cache_5002aj` (Unknown)
+    - 📁 `.next\cache\fetch-cache/`
+      - 📄 `.next\cache\fetch-cache\bb85fd8fc3d7f2739b978cc71c519f569161d6ad19f4d41259dfb98842e14b32` (Unknown)
+      - 📄 `.next\cache\fetch-cache\c6076802b2eb17b11670caaafa0a3a92fc754438684110912225db164fcf20be` (Unknown)
+      - 📄 `.next\cache\fetch-cache\e2cabdb8e334516e56640f3e0223d05bb257105c8683269ab29376fe80e4cca3` (Unknown)
+    - 📁 `.next\cache\swc/`
+      - 📁 `.next\cache\swc\plugins/`
+        - 📁 `.next\cache\swc\plugins\v7_windows_x86_64_17.0.0/`
+    - 📁 `.next\cache\webpack/`
+      - 📁 `.next\cache\webpack\client-production/`
+        - 📄 `.next\cache\webpack\client-production\0.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\1.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\10.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\11.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\12.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\13.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\14.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\15.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\16.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\17.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\18.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\19.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\2.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\3.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\4.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\5.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\6.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\7.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\8.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\9.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\index.pack` (Unknown)
+        - 📄 `.next\cache\webpack\client-production\index.pack.old` (Unknown)
+      - 📁 `.next\cache\webpack\edge-server-production/`
+        - 📄 `.next\cache\webpack\edge-server-production\0.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\1.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\2.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\index.pack` (Unknown)
+        - 📄 `.next\cache\webpack\edge-server-production\index.pack.old` (Unknown)
+      - 📁 `.next\cache\webpack\server-production/`
+        - 📄 `.next\cache\webpack\server-production\0.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\1.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\10.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\11.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\12.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\13.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\14.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\15.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\16.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\17.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\2.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\3.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\4.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\5.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\6.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\7.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\8.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\9.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\index.pack` (Unknown)
+        - 📄 `.next\cache\webpack\server-production\index.pack.old` (Unknown)
+    - 📄 `.next\cache\.previewinfo` (Unknown)
+    - 📄 `.next\cache\.rscinfo` (Unknown)
+    - 📄 `.next\cache\.tsbuildinfo` (Unknown)
+  - 📁 `.next\diagnostics/`
+    - 📄 `.next\diagnostics\build-diagnostics.json` (JSON)
+    - 📄 `.next\diagnostics\framework.json` (JSON)
+  - 📁 `.next\server/`
+    - 📁 `.next\server\app/`
+      - 📁 `.next\server\app\_not-found/`
+        - 📄 `.next\server\app\_not-found\page_client-reference-manifest.js` (JavaScript)
+        - 📄 `.next\server\app\_not-found\page.js` (JavaScript)
+          - *Imports:* `../../webpack-runtime.js`
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\app\_not-found\page.js.nft.json` (JSON)
+      - 📁 `.next\server\app\api/`
+        - 📁 `.next\server\app\api\chat/`
+          - 📁 `.next\server\app\api\chat\history/`
+            - 📁 `.next\server\app\api\chat\history\[id]/`
+              - 📄 `.next\server\app\api\chat\history\[id]\route_client-reference-manifest.js` (JavaScript)
+              - 📄 `.next\server\app\api\chat\history\[id]\route.js` (JavaScript)
+                - *Imports:* `../../../../../webpack-runtime.js`
+                - *Exports:* `module.exports`
+              - 📄 `.next\server\app\api\chat\history\[id]\route.js.nft.json` (JSON)
+          - 📄 `.next\server\app\api\chat\route_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\api\chat\route.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\api\chat\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\journaling/`
+          - 📁 `.next\server\app\api\journaling\prompts/`
+            - 📄 `.next\server\app\api\journaling\prompts\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\journaling\prompts\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\journaling\prompts\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\logs/`
+          - 📁 `.next\server\app\api\logs\profile-usage/`
+            - 📄 `.next\server\app\api\logs\profile-usage\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\logs\profile-usage\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\logs\profile-usage\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\oracle/`
+          - 📁 `.next\server\app\api\oracle\collections/`
+            - 📄 `.next\server\app\api\oracle\collections\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\collections\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\collections\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\daily/`
+            - 📄 `.next\server\app\api\oracle\daily\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\daily\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\daily\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\save/`
+            - 📄 `.next\server\app\api\oracle\save\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\save\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\save\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\seasonal/`
+            - 📄 `.next\server\app\api\oracle\seasonal\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\seasonal\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\seasonal\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\oracle\share/`
+            - 📄 `.next\server\app\api\oracle\share\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\oracle\share\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\oracle\share\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\rituals/`
+          - 📁 `.next\server\app\api\rituals\suggest/`
+            - 📄 `.next\server\app\api\rituals\suggest\route_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\api\rituals\suggest\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\rituals\suggest\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\test-connection/`
+          - 📄 `.next\server\app\api\test-connection\route_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\api\test-connection\route.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\api\test-connection\route.js.nft.json` (JSON)
+      - 📁 `.next\server\app\auth/`
+        - 📁 `.next\server\app\auth\callback/`
+          - 📄 `.next\server\app\auth\callback\route_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\auth\callback\route.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\auth\callback\route.js.nft.json` (JSON)
+      - 📁 `.next\server\app\dashboard/`
+        - 📁 `.next\server\app\dashboard\chat/`
+          - 📄 `.next\server\app\dashboard\chat\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\chat\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+            - *Routes Consumed:* `/api/chat`
+          - 📄 `.next\server\app\dashboard\chat\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\library/`
+          - 📄 `.next\server\app\dashboard\library\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\library\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\library\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\reference/`
+          - 📄 `.next\server\app\dashboard\reference\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\reference\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\reference\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\spiritual-journey/`
+          - 📄 `.next\server\app\dashboard\spiritual-journey\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\spiritual-journey\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\spiritual-journey\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\spiritual-profile/`
+          - 📄 `.next\server\app\dashboard\spiritual-profile\page_client-reference-manifest.js` (JavaScript)
+          - 📄 `.next\server\app\dashboard\spiritual-profile\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\spiritual-profile\page.js.nft.json` (JSON)
+        - 📄 `.next\server\app\dashboard\chat.html` (HTML)
+        - 📄 `.next\server\app\dashboard\chat.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\chat.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\library.html` (HTML)
+        - 📄 `.next\server\app\dashboard\library.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\library.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\page_client-reference-manifest.js` (JavaScript)
+        - 📄 `.next\server\app\dashboard\page.js` (JavaScript)
+          - *Imports:* `../../webpack-runtime.js`
+          - *Exports:* `module.exports`
+          - *Routes Consumed:* `/api/oracle/save`, `/api/oracle/share`
+        - 📄 `.next\server\app\dashboard\page.js.nft.json` (JSON)
+        - 📄 `.next\server\app\dashboard\reference.html` (HTML)
+        - 📄 `.next\server\app\dashboard\reference.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\reference.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-journey.html` (HTML)
+        - 📄 `.next\server\app\dashboard\spiritual-journey.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-journey.rsc` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-profile.html` (HTML)
+        - 📄 `.next\server\app\dashboard\spiritual-profile.meta` (Unknown)
+        - 📄 `.next\server\app\dashboard\spiritual-profile.rsc` (Unknown)
+      - 📁 `.next\server\app\favicon.ico/`
+        - 📄 `.next\server\app\favicon.ico\route.js` (JavaScript)
+          - *Imports:* `../../webpack-runtime.js`
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\app\favicon.ico\route.js.nft.json` (JSON)
+      - 📁 `.next\server\app\login/`
+        - 📄 `.next\server\app\login\page_client-reference-manifest.js` (JavaScript)
+        - 📄 `.next\server\app\login\page.js` (JavaScript)
+          - *Imports:* `../../webpack-runtime.js`
+          - *Exports:* `module.exports`
+        - 📄 `.next\server\app\login\page.js.nft.json` (JSON)
+      - 📁 `.next\server\app\oracle/`
+        - 📁 `.next\server\app\oracle\embed/`
+          - 📁 `.next\server\app\oracle\embed\[id]/`
+            - 📄 `.next\server\app\oracle\embed\[id]\page_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\oracle\embed\[id]\page.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\oracle\embed\[id]\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\oracle\shared/`
+          - 📁 `.next\server\app\oracle\shared\[id]/`
+            - 📄 `.next\server\app\oracle\shared\[id]\page_client-reference-manifest.js` (JavaScript)
+            - 📄 `.next\server\app\oracle\shared\[id]\page.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\oracle\shared\[id]\page.js.nft.json` (JSON)
+      - 📄 `.next\server\app\_not-found.html` (HTML)
+      - 📄 `.next\server\app\_not-found.meta` (Unknown)
+      - 📄 `.next\server\app\_not-found.rsc` (Unknown)
+      - 📄 `.next\server\app\dashboard.html` (HTML)
+      - 📄 `.next\server\app\dashboard.meta` (Unknown)
+      - 📄 `.next\server\app\dashboard.rsc` (Unknown)
+      - 📄 `.next\server\app\favicon.ico.body` (Unknown)
+      - 📄 `.next\server\app\favicon.ico.meta` (Unknown)
+      - 📄 `.next\server\app\page_client-reference-manifest.js` (JavaScript)
+      - 📄 `.next\server\app\page.js` (JavaScript)
+        - *Imports:* `../webpack-runtime.js`
+        - *Exports:* `module.exports`
+      - 📄 `.next\server\app\page.js.nft.json` (JSON)
+    - 📁 `.next\server\chunks/`
+      - 📄 `.next\server\chunks\17.js` (JavaScript)
+      - 📄 `.next\server\chunks\406.js` (JavaScript)
+      - 📄 `.next\server\chunks\548.js` (JavaScript)
+        - *Imports:* `@builder.io/partytown/integration`
+      - 📄 `.next\server\chunks\55.js` (JavaScript)
+      - 📄 `.next\server\chunks\605.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\server\chunks\621.js` (JavaScript)
+      - 📄 `.next\server\chunks\679.js` (JavaScript)
+      - 📄 `.next\server\chunks\745.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\server\chunks\8.js` (JavaScript)
+      - 📄 `.next\server\chunks\985.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+    - 📁 `.next\server\pages/`
+      - 📄 `.next\server\pages\_app.js` (JavaScript)
+        - *Imports:* `../webpack-runtime.js`
+        - *Exports:* `module.exports`
+        - *Routes Provided:* `GET /_app`
+      - 📄 `.next\server\pages\_app.js.nft.json` (JSON)
+      - 📄 `.next\server\pages\_document.js` (JavaScript)
+        - *Imports:* `../webpack-runtime.js`
+        - *Exports:* `module.exports`
+        - *Routes Provided:* `GET /_document`
+      - 📄 `.next\server\pages\_document.js.nft.json` (JSON)
+      - 📄 `.next\server\pages\_error.js` (JavaScript)
+        - *Imports:* `next/dist/shared/lib/router/utils/format-url`, `next/dist/shared/lib/page-path/normalize-data-path`, `next/dist/shared/lib/utils`, `next/dist/shared/lib/router/utils/add-path-prefix`, `next/dist/shared/lib/router/utils/remove-trailing-slash`, `../webpack-runtime.js`
+        - *Exports:* `module.exports`
+        - *Routes Provided:* `GET /_error`
+      - 📄 `.next\server\pages\_error.js.nft.json` (JSON)
+      - 📄 `.next\server\pages\404.html` (HTML)
+      - 📄 `.next\server\pages\500.html` (HTML)
+    - 📁 `.next\server\src/`
+      - 📄 `.next\server\src\middleware.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`, `GET /`, `GET /`
+      - 📄 `.next\server\src\middleware.js.map` (Unknown)
+    - 📄 `.next\server\app-paths-manifest.json` (JSON)
+    - 📄 `.next\server\edge-runtime-webpack.js` (JavaScript)
+    - 📄 `.next\server\edge-runtime-webpack.js.map` (Unknown)
+    - 📄 `.next\server\functions-config-manifest.json` (JSON)
+    - 📄 `.next\server\interception-route-rewrite-manifest.js` (JavaScript)
+    - 📄 `.next\server\middleware-build-manifest.js` (JavaScript)
+    - 📄 `.next\server\middleware-manifest.json` (JSON)
+    - 📄 `.next\server\middleware-react-loadable-manifest.js` (JavaScript)
+    - 📄 `.next\server\next-font-manifest.js` (JavaScript)
+    - 📄 `.next\server\next-font-manifest.json` (JSON)
+    - 📄 `.next\server\pages-manifest.json` (JSON)
+    - 📄 `.next\server\server-reference-manifest.js` (JavaScript)
+    - 📄 `.next\server\server-reference-manifest.json` (JSON)
+    - 📄 `.next\server\webpack-runtime.js` (JavaScript)
+  - 📁 `.next\static/`
+    - 📁 `.next\static\chunks/`
+      - 📁 `.next\static\chunks\app/`
+        - 📁 `.next\static\chunks\app\_not-found/`
+          - 📄 `.next\static\chunks\app\_not-found\page-8bc4dec389e39dc0.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\api/`
+          - 📁 `.next\static\chunks\app\api\chat/`
+            - 📁 `.next\static\chunks\app\api\chat\history/`
+              - 📁 `.next\static\chunks\app\api\chat\history\[id]/`
+                - 📄 `.next\static\chunks\app\api\chat\history\[id]\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📄 `.next\static\chunks\app\api\chat\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\journaling/`
+            - 📁 `.next\static\chunks\app\api\journaling\prompts/`
+              - 📄 `.next\static\chunks\app\api\journaling\prompts\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\logs/`
+            - 📁 `.next\static\chunks\app\api\logs\profile-usage/`
+              - 📄 `.next\static\chunks\app\api\logs\profile-usage\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\oracle/`
+            - 📁 `.next\static\chunks\app\api\oracle\collections/`
+              - 📄 `.next\static\chunks\app\api\oracle\collections\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\daily/`
+              - 📄 `.next\static\chunks\app\api\oracle\daily\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\save/`
+              - 📄 `.next\static\chunks\app\api\oracle\save\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\seasonal/`
+              - 📄 `.next\static\chunks\app\api\oracle\seasonal\route-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📁 `.next\static\chunks\app\api\oracle\share/`
+              - 📄 `.next\static\chunks\app\api\oracle\share\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\rituals/`
+            - 📁 `.next\static\chunks\app\api\rituals\suggest/`
+              - 📄 `.next\static\chunks\app\api\rituals\suggest\route-b6a78dd1f4aebf99.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\api\test-connection/`
+            - 📄 `.next\static\chunks\app\api\test-connection\route-b6a78dd1f4aebf99.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\auth/`
+          - 📁 `.next\static\chunks\app\auth\callback/`
+            - 📄 `.next\static\chunks\app\auth\callback\route-b6a78dd1f4aebf99.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\dashboard/`
+          - 📁 `.next\static\chunks\app\dashboard\chat/`
+            - 📄 `.next\static\chunks\app\dashboard\chat\page-12d0dc8ca669cab1.js` (JavaScript)
+              - *Routes Consumed:* `/api/chat/history/`, `/api/chat`
+          - 📁 `.next\static\chunks\app\dashboard\library/`
+            - 📄 `.next\static\chunks\app\dashboard\library\page-be47aea7f12a09d3.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\dashboard\reference/`
+            - 📄 `.next\static\chunks\app\dashboard\reference\page-c834b3ccc58a8a66.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\dashboard\spiritual-journey/`
+            - 📄 `.next\static\chunks\app\dashboard\spiritual-journey\layout-b6a78dd1f4aebf99.js` (JavaScript)
+            - 📄 `.next\static\chunks\app\dashboard\spiritual-journey\page-8f6ef71aa7ee4665.js` (JavaScript)
+          - 📁 `.next\static\chunks\app\dashboard\spiritual-profile/`
+            - 📄 `.next\static\chunks\app\dashboard\spiritual-profile\page-796f7f8799411bdd.js` (JavaScript)
+          - 📄 `.next\static\chunks\app\dashboard\page-2519e3074ee89d82.js` (JavaScript)
+            - *Routes Consumed:* `/api/oracle/daily?`, `/api/oracle/save`, `/api/oracle/share`, `/api/chat/history/`
+        - 📁 `.next\static\chunks\app\login/`
+          - 📄 `.next\static\chunks\app\login\page-d929441351d61661.js` (JavaScript)
+        - 📁 `.next\static\chunks\app\oracle/`
+          - 📁 `.next\static\chunks\app\oracle\embed/`
+            - 📁 `.next\static\chunks\app\oracle\embed\[id]/`
+              - 📄 `.next\static\chunks\app\oracle\embed\[id]\page-799d653d7de3dbe0.js` (JavaScript)
+                - *Routes Consumed:* `/api/oracle/share?card_id=`
+          - 📁 `.next\static\chunks\app\oracle\shared/`
+            - 📁 `.next\static\chunks\app\oracle\shared\[id]/`
+              - 📄 `.next\static\chunks\app\oracle\shared\[id]\page-cb901e5c6ed66034.js` (JavaScript)
+                - *Routes Consumed:* `/api/oracle/share?card_id=`
+        - 📄 `.next\static\chunks\app\layout-5f20073994b9780a.js` (JavaScript)
+        - 📄 `.next\static\chunks\app\page-b6a78dd1f4aebf99.js` (JavaScript)
+      - 📁 `.next\static\chunks\pages/`
+        - 📄 `.next\static\chunks\pages\_app-663ec5428c344dae.js` (JavaScript)
+          - *Routes Provided:* `GET /_app-663ec5428c344dae`
+        - 📄 `.next\static\chunks\pages\_error-544778206352ce59.js` (JavaScript)
+          - *Routes Provided:* `GET /_error-544778206352ce59`
+      - 📄 `.next\static\chunks\341.716d46e6e5cb6bdc.js` (JavaScript)
+      - 📄 `.next\static\chunks\472.a3826d29d6854395.js` (JavaScript)
+      - 📄 `.next\static\chunks\4bd1b696-cf72ae8a39fa05aa.js` (JavaScript)
+      - 📄 `.next\static\chunks\632-6b3fa0f5f27df848.js` (JavaScript)
+      - 📄 `.next\static\chunks\663-a2024bbdf443cdb6.js` (JavaScript)
+      - 📄 `.next\static\chunks\77-549565c98de7e269.js` (JavaScript)
+        - *Routes Provided:* `GET /`, `GET /`
+      - 📄 `.next\static\chunks\874-437a265a67d6cfee.js` (JavaScript)
+      - 📄 `.next\static\chunks\964-7a34cadcb7695cec.js` (JavaScript)
+      - 📄 `.next\static\chunks\framework-7c95b8e5103c9e90.js` (JavaScript)
+      - 📄 `.next\static\chunks\main-80f9c9b2241174c9.js` (JavaScript)
+        - *Routes Provided:* `GET /_next/image`, `GET /_next/image`
+      - 📄 `.next\static\chunks\main-app-5d25c55c8222f9af.js` (JavaScript)
+      - 📄 `.next\static\chunks\polyfills-42372ed130431b0a.js` (JavaScript)
+      - 📄 `.next\static\chunks\webpack-b47fd1548851b972.js` (JavaScript)
+    - 📁 `.next\static\css/`
+      - 📄 `.next\static\css\45ac2f753db9eb23.css` (CSS)
+    - 📁 `.next\static\gBwPnJbaufN5s0uTlDlbH/`
+      - 📄 `.next\static\gBwPnJbaufN5s0uTlDlbH\_buildManifest.js` (JavaScript)
+      - 📄 `.next\static\gBwPnJbaufN5s0uTlDlbH\_ssgManifest.js` (JavaScript)
+    - 📁 `.next\static\media/`
+      - 📄 `.next\static\media\569ce4b8f30dc480-s.p.woff2` (Unknown)
+      - 📄 `.next\static\media\747892c23ea88013-s.woff2` (Unknown)
+      - 📄 `.next\static\media\8d697b304b401681-s.woff2` (Unknown)
+      - 📄 `.next\static\media\93f479601ee12b01-s.p.woff2` (Unknown)
+      - 📄 `.next\static\media\9610d9e46709d722-s.woff2` (Unknown)
+      - 📄 `.next\static\media\ba015fad6dcf6784-s.woff2` (Unknown)
+  - 📁 `.next\types/`
+    - 📁 `.next\types\app/`
+      - 📁 `.next\types\app\api/`
+        - 📁 `.next\types\app\api\chat/`
+          - 📁 `.next\types\app\api\chat\history/`
+            - 📁 `.next\types\app\api\chat\history\[id]/`
+              - 📄 `.next\types\app\api\chat\history\[id]\route.ts` (TypeScript)
+                - *Imports:* `../../../../../../../src/app/api/chat/history/[id]/route.js`, `next/server.js`
+          - 📄 `.next\types\app\api\chat\route.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/api/chat/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\journaling/`
+          - 📁 `.next\types\app\api\journaling\prompts/`
+            - 📄 `.next\types\app\api\journaling\prompts\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/journaling/prompts/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\logs/`
+          - 📁 `.next\types\app\api\logs\profile-usage/`
+            - 📄 `.next\types\app\api\logs\profile-usage\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/logs/profile-usage/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\oracle/`
+          - 📁 `.next\types\app\api\oracle\collections/`
+            - 📄 `.next\types\app\api\oracle\collections\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/collections/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\daily/`
+            - 📄 `.next\types\app\api\oracle\daily\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/daily/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\save/`
+            - 📄 `.next\types\app\api\oracle\save\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/save/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\seasonal/`
+            - 📄 `.next\types\app\api\oracle\seasonal\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/seasonal/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\oracle\share/`
+            - 📄 `.next\types\app\api\oracle\share\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/oracle/share/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\rituals/`
+          - 📁 `.next\types\app\api\rituals\suggest/`
+            - 📄 `.next\types\app\api\rituals\suggest\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/rituals/suggest/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\test-connection/`
+          - 📄 `.next\types\app\api\test-connection\route.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/api/test-connection/route.js`, `next/server.js`
+      - 📁 `.next\types\app\auth/`
+        - 📁 `.next\types\app\auth\callback/`
+          - 📄 `.next\types\app\auth\callback\route.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/auth/callback/route.js`, `next/server.js`
+      - 📁 `.next\types\app\dashboard/`
+        - 📁 `.next\types\app\dashboard\chat/`
+          - 📄 `.next\types\app\dashboard\chat\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/chat/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\library/`
+          - 📄 `.next\types\app\dashboard\library\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/library/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\reference/`
+          - 📄 `.next\types\app\dashboard\reference\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/reference/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\spiritual-journey/`
+          - 📄 `.next\types\app\dashboard\spiritual-journey\layout.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/spiritual-journey/layout.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+          - 📄 `.next\types\app\dashboard\spiritual-journey\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/spiritual-journey/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\spiritual-profile/`
+          - 📄 `.next\types\app\dashboard\spiritual-profile\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/spiritual-profile/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📄 `.next\types\app\dashboard\page.ts` (TypeScript)
+          - *Imports:* `../../../../src/app/dashboard/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📁 `.next\types\app\login/`
+        - 📄 `.next\types\app\login\page.ts` (TypeScript)
+          - *Imports:* `../../../../src/app/login/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📁 `.next\types\app\oracle/`
+        - 📁 `.next\types\app\oracle\embed/`
+          - 📁 `.next\types\app\oracle\embed\[id]/`
+            - 📄 `.next\types\app\oracle\embed\[id]\page.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/oracle/embed/[id]/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\oracle\shared/`
+          - 📁 `.next\types\app\oracle\shared\[id]/`
+            - 📄 `.next\types\app\oracle\shared\[id]\page.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/oracle/shared/[id]/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📄 `.next\types\app\layout.ts` (TypeScript)
+        - *Imports:* `../../../src/app/layout.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+      - 📄 `.next\types\app\page.ts` (TypeScript)
+        - *Imports:* `../../../src/app/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+    - 📄 `.next\types\cache-life.d.ts` (TypeScript)
+      - *Exports:* `* from next/dist/server/web/spec-extension/unstable-cache`, `* from next/dist/server/web/spec-extension/revalidate`, `* from next/dist/server/web/spec-extension/unstable-no-store`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `* from next/dist/server/use-cache/cache-tag`
+    - 📄 `.next\types\package.json` (JSON)
+  - 📄 `.next\app-build-manifest.json` (JSON)
+  - 📄 `.next\app-path-routes-manifest.json` (JSON)
+  - 📄 `.next\BUILD_ID` (Unknown)
+  - 📄 `.next\build-manifest.json` (JSON)
+  - 📄 `.next\export-marker.json` (JSON)
+  - 📄 `.next\images-manifest.json` (JSON)
+  - 📄 `.next\next-minimal-server.js.nft.json` (JSON)
+  - 📄 `.next\next-server.js.nft.json` (JSON)
+  - 📄 `.next\package.json` (JSON)
+  - 📄 `.next\prerender-manifest.json` (JSON)
+  - 📄 `.next\react-loadable-manifest.json` (JSON)
+  - 📄 `.next\required-server-files.json` (JSON)
+  - 📄 `.next\routes-manifest.json` (JSON)
+  - 📄 `.next\trace` (Unknown)
+- 📁 `.vscode/`
+  - 📄 `.vscode\launch.json` (JSON)
+  - 📄 `.vscode\settings.json` (JSON)
+- 📁 `Documentation/`
+  - 📁 `Documentation\API Documentation/`
+    - 📄 `Documentation\API Documentation\Moon Phase API _ Lunar Data & Astronomical Calculations API.pdf` (Unknown)
+  - 📁 `Documentation\Beatrice Persona Resources/`
+    - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice/`
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-21/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-21\14-21-22-Winter_Solstice_Blessing_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-21\14-21-22-Winter_Solstice_Blessing_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-22\18-12-21-Ginger_Infused_Oil_for_Nausea.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-22\18-12-21-Ginger_Infused_Oil_for_Nausea.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-31/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-31\23-17-28-New_Year_Blessing_Ritual.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-31\23-17-28-New_Year_Blessing_Ritual.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-7-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-7-8\12-57-50-Beatrice___Eclectic_Witch_Mentor.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-7-8\12-57-50-Beatrice___Eclectic_Witch_Mentor.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-1-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-1-14\13-43-50-Friendship_Charm_Blessing_Imagery.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-1-14\13-43-50-Friendship_Charm_Blessing_Imagery.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\23-16-43-Positivity_Shield_Spell_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\23-16-43-Positivity_Shield_Spell_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\7-57-53-Daily_Prayer_Update_Hecate.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\7-57-53-Daily_Prayer_Update_Hecate.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-12/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-12\11-24-28-Eucalyptus_Enhancement_to_Basket.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-12\11-24-28-Eucalyptus_Enhancement_to_Basket.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-17/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-17\21-9-44-Harvest_Moon_Water_Blessing.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-17\21-9-44-Harvest_Moon_Water_Blessing.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-2/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-2\16-36-58-Prayer_for_Hecate_s_Guidance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-2\16-36-58-Prayer_for_Hecate_s_Guidance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\13-5-16-Fire_Cider_Benefits_and_Uses.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\13-5-16-Fire_Cider_Benefits_and_Uses.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\16-43-19-Hestia_Goddess_Representation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\16-43-19-Hestia_Goddess_Representation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-28-55-Hecate_and_Athena_Altar_Ideas.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-28-55-Hecate_and_Athena_Altar_Ideas.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-40-2-Spiritual_Practice_Overview.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-40-2-Spiritual_Practice_Overview.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-0-4-Eclectic_Pagan_Witchcraft_Practice.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-0-4-Eclectic_Pagan_Witchcraft_Practice.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-39-26-Pagan_Year_Calendar_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-39-26-Pagan_Year_Calendar_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\14-41-28-Hecate_Shadow_Work_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\14-41-28-Hecate_Shadow_Work_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\21-32-11-Home_Protection_and_Strength.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\21-32-11-Home_Protection_and_Strength.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-5/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-5\14-18-43-Empath_Shielding_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-5\14-18-43-Empath_Shielding_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-7/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-7\18-4-16-Significance_of_Number_47.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-7\18-4-16-Significance_of_Number_47.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-32-2-Tea_for_Stuffy_Nose.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-32-2-Tea_for_Stuffy_Nose.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-58-42-Peppermint_Licorice_Tea_Recipe.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-58-42-Peppermint_Licorice_Tea_Recipe.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-13\16-11-37-Protection_and_Career_Transition.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-13\16-11-37-Protection_and_Career_Transition.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-14\16-56-29-Workplace_Protection_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-14\16-56-29-Workplace_Protection_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\13-40-35-Tea_Leaf_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\13-40-35-Tea_Leaf_Interpretation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-19-24-Night_of_Hekate_Ritual.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-19-24-Night_of_Hekate_Ritual.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-20-37-Honoring_Hecate_and_Moon_Water.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-20-37-Honoring_Hecate_and_Moon_Water.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-22\20-43-38-WLI_Mosaic_Tree_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-22\20-43-38-WLI_Mosaic_Tree_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-28\16-18-17-Thanksgiving_Blessing_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-28\16-18-17-Thanksgiving_Blessing_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-12-Dream_Analysis_and_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-12-Dream_Analysis_and_Interpretation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_and_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_and_Insights.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_Summary.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_Summary.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-15-Dream_Analysis_and_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-15-Dream_Analysis_and_Insights.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\17-44-33-Energy_Clearing_Gift_Ideas.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\17-44-33-Energy_Clearing_Gift_Ideas.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\20-3-54-Moon_Sign_Inquiry.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\20-3-54-Moon_Sign_Inquiry.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\11-12-38-Hedgewitch_Herbalism_Overview.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\11-12-38-Hedgewitch_Herbalism_Overview.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\12-18-58-Personal_Mission_Statement_Development.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\12-18-58-Personal_Mission_Statement_Development.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-30-13-Interconnectedness_and_the_Web.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-30-13-Interconnectedness_and_the_Web.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-42-52-Personal_Mission_and_Values.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-42-52-Personal_Mission_and_Values.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-45-4-Facilitating_Positive_Change.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-45-4-Facilitating_Positive_Change.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-20-52-Tarot_Reading_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-20-52-Tarot_Reading_Interpretation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-23-47-Tarot_Reading_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-23-47-Tarot_Reading_Interpretation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-13\0-57-37-Hekate_Tarot_Spread_Reading.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-13\0-57-37-Hekate_Tarot_Spread_Reading.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-14\10-26-10-Good_morning_greeting.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-14\10-26-10-Good_morning_greeting.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-16/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-16\16-43-8-Hekate_Blessing_for_Communication.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-16\16-43-8-Hekate_Blessing_for_Communication.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-17/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-17\20-4-54-Blessing_for_Hecate_s_Offering.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-17\20-4-54-Blessing_for_Hecate_s_Offering.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-18/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-18\7-50-16-Ritual_Template_Assistance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-18\7-50-16-Ritual_Template_Assistance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-16-30-12_Days_of_Yule.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-16-30-12_Days_of_Yule.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-30-45-12_Days_of_Yule_Rituals.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-30-45-12_Days_of_Yule_Rituals.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\12-5-14-Orange_Slice_Ornament_Ideas.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\12-5-14-Orange_Slice_Ornament_Ideas.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\16-38-36-Hecate_Prayer_for_Peace.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\16-38-36-Hecate_Prayer_for_Peace.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-25/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-25\14-24-2-Custom_Perfume_Protection_Tincture.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-25\14-24-2-Custom_Perfume_Protection_Tincture.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-32-27-Freezer_Spell_for_Protection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-32-27-Freezer_Spell_for_Protection.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-34-55-Freezer_Spell_Effectiveness.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-34-55-Freezer_Spell_Effectiveness.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\16-22-16-Transformation_Through_Hecate_s_Call.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\16-22-16-Transformation_Through_Hecate_s_Call.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\19-32-11-Mugwort_Tea_Blessing_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\19-32-11-Mugwort_Tea_Blessing_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\20-11-2-Deepening_Hecate_Connection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\20-11-2-Deepening_Hecate_Connection.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\11-52-28-Preserving_Ginger_Root_Tips.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\11-52-28-Preserving_Ginger_Root_Tips.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\15-15-41-Silk_Agate_Properties.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\15-15-41-Silk_Agate_Properties.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-8\10-54-37-Dehydrate_Orange_Slices_Oven.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-8\10-54-37-Dehydrate_Orange_Slices_Oven.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-9/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-9\16-20-25-Ornament_Cultural_Sensitivity.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-9\16-20-25-Ornament_Cultural_Sensitivity.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-10/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-10\17-41-52-Organize_witch_apothecary_efficiently_.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-10\17-41-52-Organize_witch_apothecary_efficiently_.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-23\21-21-38-Full_Moon_Time__February.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-23\21-21-38-Full_Moon_Time__February.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-24/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-24\22-42-5-Moon_Blessing_for_Water.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-24\22-42-5-Moon_Blessing_for_Water.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-4\7-9-11-Strength_for_Farewell_Blessing.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-4\7-9-11-Strength_for_Farewell_Blessing.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-4-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-4-23\21-51-12-Invocation_List_Compendium.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-4-23\21-51-12-Invocation_List_Compendium.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-11/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-11\22-33-32-Aurora_Spotting_Near_Wausau.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-11\22-33-32-Aurora_Spotting_Near_Wausau.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-13\9-33-24-Alabaster_Stone_Identification.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-13\9-33-24-Alabaster_Stone_Identification.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-30/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-30\22-35-40-Quartz_identification__milky_or_white.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-30\22-35-40-Quartz_identification__milky_or_white.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-4\10-33-51-Psychic_Multitasking_Skills.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-4\10-33-51-Psychic_Multitasking_Skills.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-25/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-25\21-51-59-Helping_Neighbors_Quote.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-25\21-51-59-Helping_Neighbors_Quote.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-28\12-33-50-Agate_Type_Identification.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-28\12-33-50-Agate_Type_Identification.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-5/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-5\8-6-5-Cardinals_Symbolize_Spiritual_Messengers.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-5\8-6-5-Cardinals_Symbolize_Spiritual_Messengers.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-38-38-Blessed_Be_Greeting.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-38-38-Blessed_Be_Greeting.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-53-48-Ancestor_Guidance_Prayer.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-53-48-Ancestor_Guidance_Prayer.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-21/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-21\12-54-42-Prayer_for_Chloe_s_Strength.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-21\12-54-42-Prayer_for_Chloe_s_Strength.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-22\8-34-36-Morning_Prayer_Guidance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-22\8-34-36-Morning_Prayer_Guidance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\12-51-8-Protection_Prosperity_Spell_Ingredients.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\12-51-8-Protection_Prosperity_Spell_Ingredients.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\22-30-41-Blessings_and_Well_Wishes.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\22-30-41-Blessings_and_Well_Wishes.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-24/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-24\11-36-15-Simple_Circle_Casting_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-24\11-36-15-Simple_Circle_Casting_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-34-49-Spiritual_Writing_Practices.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-34-49-Spiritual_Writing_Practices.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-1-Spiritual_Writing_Inspiration.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-1-Spiritual_Writing_Inspiration.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-43-Spiritual_Practices_for_Writers.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-43-Spiritual_Practices_for_Writers.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-15-Spiritual_Practices_for_Writers.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-15-Spiritual_Practices_for_Writers.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-50-Spiritual_Writing_Enhancement_Tips.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-50-Spiritual_Writing_Enhancement_Tips.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\15-21-20-Home_Cleansing_Chant.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\15-21-20-Home_Cleansing_Chant.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\8-13-12-Greeting_and_Assistance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\8-13-12-Greeting_and_Assistance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-27/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-27\23-48-1-Finding_Spiritual_Community.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-27\23-48-1-Finding_Spiritual_Community.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\0-46-21-Core_Beliefs_Eclectic_Paganism.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\0-46-21-Core_Beliefs_Eclectic_Paganism.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\1-20-29-Book_of_Shadows_Features.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\1-20-29-Book_of_Shadows_Features.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-11/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-11\19-37-43-Bath_Remedies_for_Stress.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-11\19-37-43-Bath_Remedies_for_Stress.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\20-55-54-Full_Moon_Blessing_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\20-55-54-Full_Moon_Blessing_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\21-55-24-Selenite_Cleansing_Safety_Tips.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\21-55-24-Selenite_Cleansing_Safety_Tips.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-43-34-September_21_Equinox.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-43-34-September_21_Equinox.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-45-17-Celebrating_Mabon_Traditions.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-45-17-Celebrating_Mabon_Traditions.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\18-0-44-Tarot_Reading_Summary.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\18-0-44-Tarot_Reading_Summary.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\21-7-49-Brecciated_Jasper_Properties.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\21-7-49-Brecciated_Jasper_Properties.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\10-19-39-Guidance_from_Goddess_Hecate.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\10-19-39-Guidance_from_Goddess_Hecate.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\14-48-35-Benefits_of_Camphor_Water.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\14-48-35-Benefits_of_Camphor_Water.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-28\12-34-42-Cleansing_Tools_Recommitment_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-28\12-34-42-Cleansing_Tools_Recommitment_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-30/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-30\7-56-1-Morning_Greetings_and_Reflection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-30\7-56-1-Morning_Greetings_and_Reflection.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-5/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-5\8-49-54-Spiritual_Reflection_Journal_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-5\8-49-54-Spiritual_Reflection_Journal_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-49-57-Heathen_Altar_Setup_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-49-57-Heathen_Altar_Setup_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-53-42-Spiritual_Journey_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-53-42-Spiritual_Journey_Insights.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-56-1-Past_Present_Future_Insight.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-56-1-Past_Present_Future_Insight.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-58-9-Spiritual_Journey_Reflection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-58-9-Spiritual_Journey_Reflection.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\16-5-17-Exploring_Akashic_Records_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\16-5-17-Exploring_Akashic_Records_Insights.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-7/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-7\14-40-19-Merry_Meet_Introduction.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-7\14-40-19-Merry_Meet_Introduction.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-8\4-7-0-Festivals_for_Athena.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-8\4-7-0-Festivals_for_Athena.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-4-42-Goddess_and_God_Significance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-4-42-Goddess_and_God_Significance.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-44-59-Digital_Grimoire_Setup.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-44-59-Digital_Grimoire_Setup.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\4-41-25-Drawing_Salve_Recipe_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\4-41-25-Drawing_Salve_Recipe_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-12/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-12\18-4-53-Dusty_Miller_Magickal_Uses.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-12\18-4-53-Dusty_Miller_Magickal_Uses.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-13\22-39-51-Moon_Water_Blessing.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-13\22-39-51-Moon_Water_Blessing.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\12-17-23-Confidence_Spell_for_Success.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\12-17-23-Confidence_Spell_for_Success.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\22-32-10-Home_Remedies_Toothache.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\22-32-10-Home_Remedies_Toothache.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-14-Moon_Eagle_Sign.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-14-Moon_Eagle_Sign.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-19-Magical_Moment_Sign.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-19-Magical_Moment_Sign.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-20\22-13-30-Offering_to_Hecate_Prayer.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-20\22-13-30-Offering_to_Hecate_Prayer.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\11-35-26-Tarot_Guidance_for_Slump.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\11-35-26-Tarot_Guidance_for_Slump.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-12-50-Living_from_Within.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-12-50-Living_from_Within.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-14-56-Living_From_Within.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-14-56-Living_From_Within.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-17-28-Passion_Driven_Life.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-17-28-Passion_Driven_Life.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-6/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-6\11-58-36-Crystal_Blessing_for_Confidence.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-6\11-58-36-Crystal_Blessing_for_Confidence.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-1/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-1\9-58-20-Imbolc_Celebration_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-1\9-58-20-Imbolc_Celebration_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-52-49-Mom_Interview_Blessing_Affirmation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-52-49-Mom_Interview_Blessing_Affirmation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-53-0-Interview_Blessing_and_Affirmation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-53-0-Interview_Blessing_and_Affirmation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-2/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-2\19-37-1-Cleansing_Blessing_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-2\19-37-1-Cleansing_Blessing_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-13\22-7-21-Moon_Water_Eclipse_Ritual.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-13\22-7-21-Moon_Water_Eclipse_Ritual.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-16/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-16\11-15-4-Cacao_Ceremony_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-16\11-15-4-Cacao_Ceremony_Insights.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-21/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-21\19-54-57-Drying_Flowers_with_Dehydrator.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-21\19-54-57-Drying_Flowers_with_Dehydrator.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-28\0-6-25-Protection_Spell_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-28\0-6-25-Protection_Spell_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\18-51-17-Merry_Meet_and_Reconnect.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\18-51-17-Merry_Meet_and_Reconnect.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\19-41-56-Dream_Job_Manifestation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\19-41-56-Dream_Job_Manifestation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-7-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-7-8\9-49-29-Morning_Guidance_and_Connection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-7-8\9-49-29-Morning_Guidance_and_Connection.md` (Markdown)
+  - 📁 `Documentation\Extension Documentation/`
+  - 📁 `Documentation\Images/`
+    - 📄 `Documentation\Images\0 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
+    - 📄 `Documentation\Images\1 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
+    - 📄 `Documentation\Images\3 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
+  - 📁 `Documentation\Project Documentation/`
+    - 📄 `Documentation\Project Documentation\project-structure.md` (Markdown)
+    - 📄 `Documentation\Project Documentation\Sacred-Companion - src projecct structure.md` (Markdown)
+    - 📄 `Documentation\Project Documentation\technical spec and architecture plan.pdf` (Unknown)
+  - 📁 `Documentation\Requirements/`
+    - 📄 `Documentation\Requirements\Correspondence lists.pdf` (Unknown)
+    - 📄 `Documentation\Requirements\Magick Glossary.pdf` (Unknown)
+    - 📄 `Documentation\Requirements\MOON_PHASE_FEATURE.md` (Markdown)
+    - 📄 `Documentation\Requirements\Sacred Companion - Epic and Feature List.pdf` (Unknown)
+    - 📄 `Documentation\Requirements\Sacred Companion User Stories by Feature.pdf` (Unknown)
+- 📁 `public/`
+  - 📄 `public\file.svg` (Unknown)
+  - 📄 `public\globe.svg` (Unknown)
+  - 📄 `public\next.svg` (Unknown)
+  - 📄 `public\vercel.svg` (Unknown)
+  - 📄 `public\window.svg` (Unknown)
+- 📁 `script files/`
+  - 📄 `script files\delete_bak_files.sh` (Unknown)
+  - 📄 `script files\generate_module_structure.sh` (Unknown)
+  - 📄 `script files\move_existing_files.sh` (Unknown)
+  - 📄 `script files\rewrite_import_paths.sh` (Unknown)
+- 📁 `src/`
+  - 📁 `src\app/`
+    - 📁 `src\app\api/`
+      - 📁 `src\app\api\chat/`
+        - 📁 `src\app\api\chat\history/`
+          - 📁 `src\app\api\chat\history\[id]/`
+            - 📄 `src\app\api\chat\history\[id]\route.ts` (TypeScript)
+              - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`
+              - *Exports:* `GET`
+        - 📁 `src\app\api\chat\stream/`
+        - 📄 `src\app\api\chat\route.ts` (TypeScript)
+          - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`, `@/lib/supabase/dataObjects`, `@supabase/supabase-js`, `@/modules/ai-chat-with-beatrice/core-chat-interface/db/beatrice`
+          - *Exports:* `POST`
+      - 📁 `src\app\api\journaling/`
+        - 📁 `src\app\api\journaling\prompts/`
+          - 📄 `src\app\api\journaling\prompts\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`, `@supabase/supabase-js`
+            - *Exports:* `POST`
+      - 📁 `src\app\api\logs/`
+        - 📁 `src\app\api\logs\profile-usage/`
+          - 📄 `src\app\api\logs\profile-usage\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`
+            - *Exports:* `POST`
+      - 📁 `src\app\api\oracle/`
+        - 📁 `src\app\api\oracle\collections/`
+          - 📄 `src\app\api\oracle\collections\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `GET`, `POST`, `PUT`, `DELETE`
+        - 📁 `src\app\api\oracle\daily/`
+          - 📄 `src\app\api\oracle\daily\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`, `@supabase/supabase-js`
+            - *Exports:* `GET`
+        - 📁 `src\app\api\oracle\save/`
+          - 📄 `src\app\api\oracle\save\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `POST`, `DELETE`
+        - 📁 `src\app\api\oracle\seasonal/`
+          - 📄 `src\app\api\oracle\seasonal\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `GET`, `POST`
+        - 📁 `src\app\api\oracle\share/`
+          - 📄 `src\app\api\oracle\share\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `POST`, `GET`
+      - 📁 `src\app\api\rituals/`
+        - 📁 `src\app\api\rituals\suggest/`
+          - 📄 `src\app\api\rituals\suggest\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`, `@supabase/supabase-js`
+            - *Exports:* `POST`
+      - 📁 `src\app\api\test-connection/`
+        - 📄 `src\app\api\test-connection\route.ts` (TypeScript)
+          - *Imports:* `next/server`, `@/lib/supabase/index`
+          - *Exports:* `GET`
+    - 📁 `src\app\auth/`
+      - 📁 `src\app\auth\callback/`
+        - 📄 `src\app\auth\callback\route.ts` (TypeScript)
+          - *Imports:* `@supabase/auth-helpers-nextjs`, `next/headers`, `next/server`
+          - *Exports:* `GET`
+    - 📁 `src\app\components/`
+      - 📁 `src\app\components\auth/`
+      - 📁 `src\app\components\chat/`
+    - 📁 `src\app\dashboard/`
+      - 📁 `src\app\dashboard\chat/`
+        - 📄 `src\app\dashboard\chat\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `next/link`, `next/navigation`, `@supabase/auth-helpers-nextjs`, `lucide-react`, `@supabase/supabase-js`, `@/modules/ai-chat-with-beatrice/core-chat-interface/components/ChatInterface`
+          - *Exports:* `ChatPage`
+      - 📁 `src\app\dashboard\library/`
+        - 📄 `src\app\dashboard\library\page.tsx` (React TypeScript)
+          - *Imports:* `lucide-react`, `next/link`
+          - *Exports:* `LibraryPage`
+      - 📁 `src\app\dashboard\reference/`
+        - 📄 `src\app\dashboard\reference\page.tsx` (React TypeScript)
+          - *Imports:* `lucide-react`, `next/link`
+          - *Exports:* `ReferencePage`
+      - 📁 `src\app\dashboard\spiritual-journey/`
+        - 📄 `src\app\dashboard\spiritual-journey\ErrorBoundary.tsx` (React TypeScript)
+          - *Exports:* `SpiritualJourneyErrorBoundary`
+        - 📄 `src\app\dashboard\spiritual-journey\layout.tsx` (React TypeScript)
+          - *Imports:* `react`
+          - *Exports:* `SpiritualJourneyLayout`
+        - 📄 `src\app\dashboard\spiritual-journey\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `./SpiritualJourneyClientWrapper`, `@/modules/personal-dashboard/spiritual-progress-overview/components/Skeleton`, `next`
+          - *Exports:* `SpiritualJourneyPage`
+        - 📄 `src\app\dashboard\spiritual-journey\SpiritualJourneyClientWrapper.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/components/SpiritualJourneyDashboard`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/db/queries`, `./ErrorBoundary`, `@/modules/personal-dashboard/spiritual-progress-overview/components/Skeleton`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types`
+          - *Exports:* `SpiritualJourneyClientWrapper`
+      - 📁 `src\app\dashboard\spiritual-profile/`
+        - 📄 `src\app\dashboard\spiritual-profile\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `@supabase/supabase-js`, `next/navigation`, `lucide-react`
+          - *Exports:* `SpiritualProfilePage`
+      - 📄 `src\app\dashboard\page.tsx` (React TypeScript)
+        - *Imports:* `react`, `next/link`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`, `@/modules/ai-chat-with-beatrice/encouragement-oracle/components/OracleCard`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/MoonPhaseDisplay`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/LunarCalendar`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/CompactMoonPhase`, `@supabase/supabase-js`
+        - *Exports:* `Dashboard`
+    - 📁 `src\app\login/`
+      - 📄 `src\app\login\page.tsx` (React TypeScript)
+        - *Imports:* `@/modules/personal-dashboard/welcome-and-greeting-section/components/LoginForm`, `next`, `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
+        - *Exports:* `LoginPage`
+    - 📁 `src\app\oracle/`
+      - 📁 `src\app\oracle\embed/`
+        - 📁 `src\app\oracle\embed\[id]/`
+          - 📄 `src\app\oracle\embed\[id]\page.tsx` (React TypeScript)
+            - *Imports:* `react`, `next/navigation`, `lucide-react`
+            - *Exports:* `EmbedOracleCardPage`
+      - 📁 `src\app\oracle\shared/`
+        - 📁 `src\app\oracle\shared\[id]/`
+          - 📄 `src\app\oracle\shared\[id]\page.tsx` (React TypeScript)
+            - *Imports:* `react`, `next/navigation`, `next/link`, `lucide-react`
+            - *Exports:* `SharedOracleCardPage`
+    - 📁 `src\app\supabase/`
+      - 📄 `src\app\supabase\001_initial_schema.sql` (Unknown)
+    - 📄 `src\app\favicon.ico` (Unknown)
+    - 📄 `src\app\globals.css` (CSS)
+    - 📄 `src\app\layout.tsx` (React TypeScript)
+      - *Imports:* `next`, `next/font/google`, `./globals.css`, `@vercel/speed-insights/next`
+      - *Exports:* `RootLayout`
+    - 📄 `src\app\page.tsx` (React TypeScript)
+      - *Imports:* `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
+      - *Exports:* `Home`
+  - 📁 `src\lib/`
+    - 📁 `src\lib\supabase/`
+      - 📄 `src\lib\supabase\dataObjects.ts` (TypeScript)
+        - *Imports:* `@supabase/supabase-js`
+        - *Exports:* `getDataObject`
+      - 📄 `src\lib\supabase\index.ts` (TypeScript)
+        - *Imports:* `@supabase/supabase-js`
+  - 📁 `src\modules/`
+    - 📁 `src\modules\advanced-journaling-/`
+    - 📁 `src\modules\ai-chat-with-beatrice/`
+      - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\conversation-memory-/`
+      - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface/`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\components/`
+          - 📄 `src\modules\ai-chat-with-beatrice\core-chat-interface\components\ChatInterface.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`
+            - *Exports:* `ChatInterface`
+            - *Routes Consumed:* `/api/chat`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\db/`
+          - 📄 `src\modules\ai-chat-with-beatrice\core-chat-interface\db\beatrice.ts` (TypeScript)
+            - *Imports:* `@anthropic-ai/sdk`, `@/lib/supabase/dataObjects`, `@supabase/supabase-js`
+            - *Exports:* `generateBeatriceResponse`, `gatherSpiritualContext`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\components/`
+          - 📄 `src\modules\ai-chat-with-beatrice\encouragement-oracle\components\OracleCard.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`
+            - *Exports:* `OracleCardComponent`
+            - *Routes Consumed:* `/api/oracle/save`, `/api/oracle/share`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\types.ts/`
+    - 📁 `src\modules\ai-powered-content-creation-/`
+    - 📁 `src\modules\collaborative-coven-workspace/`
+      - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\member-management/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\types.ts/`
+    - 📁 `src\modules\digital-grimoire/`
+      - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\actions/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\components/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\db/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\hooks/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\types.ts/`
+      - 📁 `src\modules\digital-grimoire\customizable-practice-templates-/`
+      - 📁 `src\modules\digital-grimoire\export-functionality/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\actions/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\components/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\db/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\hooks/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\types.ts/`
+      - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\actions/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\components/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\db/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\hooks/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\types.ts/`
+      - 📁 `src\modules\digital-grimoire\traditional-spell-/`
+      - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\actions/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\components/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\db/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\hooks/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\types.ts/`
+    - 📁 `src\modules\enhanced-spiritual-communication-tracking/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\types.ts/`
+    - 📁 `src\modules\inventory-management/`
+      - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\actions/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\components/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\db/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\hooks/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\types.ts/`
+      - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\actions/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\components/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\db/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\hooks/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\types.ts/`
+      - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\actions/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\components/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\db/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\hooks/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\types.ts/`
+      - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\actions/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\components/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\db/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\hooks/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\types.ts/`
+      - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\actions/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\components/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\db/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\hooks/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\types.ts/`
+      - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\actions/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\components/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\db/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\hooks/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\types.ts/`
+      - 📁 `src\modules\inventory-management\visual-documentation/`
+        - 📁 `src\modules\inventory-management\visual-documentation\actions/`
+        - 📁 `src\modules\inventory-management\visual-documentation\components/`
+        - 📁 `src\modules\inventory-management\visual-documentation\db/`
+        - 📁 `src\modules\inventory-management\visual-documentation\hooks/`
+        - 📁 `src\modules\inventory-management\visual-documentation\types.ts/`
+      - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\actions/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\components/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\db/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\hooks/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\types.ts/`
+    - 📁 `src\modules\lunar-and-astrological-integration-engine/`
+      - 📁 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display/`
+        - 📁 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components/`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components\CompactMoonPhase.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`, `@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types`
+            - *Exports:* `CompactMoonPhase`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components\LunarCalendar.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`, `@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api`
+            - *Exports:* `LunarCalendar`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components\MoonPhaseDisplay.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`, `@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types`
+            - *Exports:* `MoonPhaseDisplay`
+        - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\types.ts` (TypeScript)
+      - 📁 `src\modules\lunar-and-astrological-integration-engine\real-time-celestial-data/`
+        - 📁 `src\modules\lunar-and-astrological-integration-engine\real-time-celestial-data\db/`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\real-time-celestial-data\db\moon-phase-api.ts` (TypeScript)
+            - *Imports:* `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types`
+            - *Exports:* `MoonPhaseService`
+    - 📁 `src\modules\personal-dashboard/`
+      - 📁 `src\modules\personal-dashboard\spiritual-progress-overview/`
+        - 📁 `src\modules\personal-dashboard\spiritual-progress-overview\components/`
+          - 📄 `src\modules\personal-dashboard\spiritual-progress-overview\components\Skeleton.tsx` (React TypeScript)
+            - *Exports:* `Skeleton`
+      - 📁 `src\modules\personal-dashboard\welcome-and-greeting-section/`
+        - 📁 `src\modules\personal-dashboard\welcome-and-greeting-section\components/`
+          - 📄 `src\modules\personal-dashboard\welcome-and-greeting-section\components\LoginForm.tsx` (React TypeScript)
+            - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`
+            - *Exports:* `LoginForm`
+    - 📁 `src\modules\spiritual-journey-profile/`
+      - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system/`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\actions/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\actions\milestones.ts` (TypeScript)
+            - *Imports:* `next/cache`, `@supabase/supabase-js`
+            - *Exports:* `createMilestone`, `updateMilestone`, `deleteMilestone`, `detectAndCreateAutoMilestones`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\components/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\components\SpiritualJourneyDashboard.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`
+            - *Exports:* `SpiritualJourneyDashboard`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\db/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\db\queries.ts` (TypeScript)
+            - *Imports:* `@/lib/supabase/index`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types`
+            - *Exports:* `SpiritualProfileQueries`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\hooks/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\hooks\useMilestones.ts` (TypeScript)
+            - *Imports:* `react`, `next/navigation`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/actions/milestones`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types`
+            - *Exports:* `useMilestones`
+        - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\types.ts` (TypeScript)
+    - 📁 `src\modules\spiritual-profile/`
+      - 📁 `src\modules\spiritual-profile\actions/`
+      - 📁 `src\modules\spiritual-profile\db/`
+      - 📁 `src\modules\spiritual-profile\hooks/`
+      - 📁 `src\modules\spiritual-profile\ui/`
+  - 📁 `src\types/`
+  - 📄 `src\middleware.ts` (TypeScript)
+    - *Imports:* `@supabase/auth-helpers-nextjs`, `next/server`, `next/server`
+    - *Exports:* `middleware`
+- 📁 `supabase/`
+  - 📁 `supabase\.branches/`
+    - 📄 `supabase\.branches\_current_branch` (Unknown)
+  - 📁 `supabase\.temp/`
+    - 📄 `supabase\.temp\cli-latest` (Unknown)
+    - 📄 `supabase\.temp\gotrue-version` (Unknown)
+    - 📄 `supabase\.temp\pooler-url` (Unknown)
+    - 📄 `supabase\.temp\postgres-version` (Unknown)
+    - 📄 `supabase\.temp\project-ref` (Unknown)
+    - 📄 `supabase\.temp\rest-version` (Unknown)
+    - 📄 `supabase\.temp\storage-version` (Unknown)
+  - 📁 `supabase\migrations/`
+    - 📄 `supabase\migrations\20250114_oracle_system.sql` (Unknown)
+    - 📄 `supabase\migrations\20250811_add_spiritual_profile_fields.sql` (Unknown)
+  - 📄 `supabase\config.toml` (Unknown)
+- 📄 `.env.example` (Unknown)
+- 📄 `.env.local.example` (Unknown)
+- 📄 `.gitignore` (Unknown)
+- 📄 `.hintrc` (Unknown)
+- 📄 `eslint.config.mjs` (Unknown)
+- 📄 `next-env.d.ts` (TypeScript)
+- 📄 `next.config.ts` (TypeScript)
+  - *Imports:* `next`
+- 📄 `package-lock.json` (JSON)
+- 📄 `package.json` (JSON)
+- 📄 `postcss.config.mjs` (Unknown)
+- 📄 `README.md` (Markdown)
+- 📄 `tsconfig.json` (JSON)
+
+---
+Last updated: 2025-08-13T18:10:07.539Z
