@@ -774,6 +774,7 @@ This file maintains an up-to-date list of project files and structure.
   - 📄 `.next\trace` (Unknown)
 - 📁 `.vscode/`
   - 📄 `.vscode\launch.json` (JSON)
+  - 📄 `.vscode\project-structure.md` (Markdown)
 - 📁 `public/`
   - 📄 `public\file.svg` (Unknown)
   - 📄 `public\globe.svg` (Unknown)
@@ -990,4 +991,4 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `tsconfig.json` (JSON)
 
 ---
-Last updated: 2025-08-12T19:47:53.806Z
+Last updated: 2025-08-13T14:43:57.314Z
