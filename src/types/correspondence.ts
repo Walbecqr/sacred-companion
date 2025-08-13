@@ -25,9 +25,9 @@ export interface Correspondence {
   zodiac_associations: string[];
   
   // JSON Fields
-  properties: Record<string, any>;
-  associations: Record<string, any>;
-  safety_warnings: Record<string, any>;
+  properties: Record<string, unknown>;
+  associations: Record<string, unknown>;
+  safety_warnings: Record<string, unknown>;
   
   // Metadata
   view_count: number;
@@ -284,9 +284,9 @@ export interface CorrespondenceInsert {
   elemental_associations?: string[];
   planetary_associations?: string[];
   zodiac_associations?: string[];
-  properties?: Record<string, any>;
-  associations?: Record<string, any>;
-  safety_warnings?: Record<string, any>;
+  properties?: Record<string, unknown>;
+  associations?: Record<string, unknown>;
+  safety_warnings?: Record<string, unknown>;
   is_featured?: boolean;
   image_url?: string;
   source_references?: string[];

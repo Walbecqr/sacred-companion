@@ -54,8 +54,8 @@ export async function GET(request: NextRequest) {
 
     // Transform the data if correspondence is included
     let recent = data || [];
-    if (includeCorrespondence) {
-      recent = recent.map((item: any) => ({
+    if (includeCorrespondence && Array.isArray(recent)) {
+      recent = (recent as unknown[]).map((item: any) => ({
         ...item,
         correspondence: item.correspondence ? {
           ...item.correspondence,

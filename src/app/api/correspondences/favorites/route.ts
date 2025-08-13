@@ -54,8 +54,9 @@ export async function GET(request: NextRequest) {
 
     // Transform the data if correspondence is included
     let favorites = data || [];
-    if (includeCorrespondence) {
-      favorites = favorites.map((favorite: any) => ({
+    if (includeCorrespondence && Array.isArray(favorites)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      favorites = (favorites as unknown[]).map((favorite: any) => ({
         ...favorite,
         correspondence: favorite.correspondence ? {
           ...favorite.correspondence,

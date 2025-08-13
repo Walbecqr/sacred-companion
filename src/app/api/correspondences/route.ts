@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
       rarity_level: searchParams.get('rarity_level')?.split(',') || undefined,
       origin_culture: searchParams.get('origin_culture') || undefined,
       featured_only: searchParams.get('featured_only') === 'true',
-      sort_by: (searchParams.get('sort_by') as any) || 'name',
+      sort_by: (searchParams.get('sort_by') as 'name' | 'popularity' | 'view_count' | 'created_at' | 'updated_at') || 'name',
       sort_order: (searchParams.get('sort_order') as 'asc' | 'desc') || 'asc',
       limit: parseInt(searchParams.get('limit') || String(DEFAULT_CORRESPONDENCE_LIMIT)),
       offset: parseInt(searchParams.get('offset') || '0'),

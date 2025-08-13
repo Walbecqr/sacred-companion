@@ -6,7 +6,6 @@ import {
   Filter, 
   Heart, 
   Clock, 
-  Star, 
   Gem, 
   Grid3X3, 
   List,
@@ -18,11 +17,6 @@ import {
   CorrespondenceWithCategory,
   CorrespondenceCategory,
   CorrespondenceSearchParams,
-  CORRESPONDENCE_SORT_OPTIONS,
-  RARITY_LEVELS,
-  ELEMENTAL_ASSOCIATIONS,
-  PLANETARY_ASSOCIATIONS,
-  ZODIAC_ASSOCIATIONS,
   DEFAULT_CORRESPONDENCE_LIMIT,
   DEFAULT_SEARCH_DEBOUNCE
 } from '@/types/correspondence';
