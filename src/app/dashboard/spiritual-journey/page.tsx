@@ -1,10 +1,8 @@
 // app/dashboard/spiritual-journey/page.tsx
 
 import { Suspense } from 'react'
-import SpiritualJourneyDashboard from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/components/SpiritualJourneyDashboard'
-import { SpiritualProfileQueries } from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/db/queries'
+import { SpiritualJourneyClientWrapper } from './SpiritualJourneyClientWrapper'
 import { Skeleton } from '@/modules/personal-dashboard/spiritual-progress-overview/components/Skeleton'
-import { SpiritualJourneyErrorBoundary } from './ErrorBoundary'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -61,7 +59,7 @@ function SpiritualJourneyLoading() {
 }
 
 // Main page component
-export default async function SpiritualJourneyPage() {
+export default function SpiritualJourneyPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Coming Soon Banner */}
@@ -74,59 +72,9 @@ export default async function SpiritualJourneyPage() {
       </div>
       
       <Suspense fallback={<SpiritualJourneyLoading />}>
-        <SpiritualJourneyContent />
+        <SpiritualJourneyClientWrapper />
       </Suspense>
     </div>
   )
-}
-
-// Separate component for data fetching
-async function SpiritualJourneyContent() {
-  try {
-    // Fetch user's spiritual profile and milestones in parallel
-    const [profileResult, milestonesResult, statsResult] = await Promise.allSettled([
-      SpiritualProfileQueries.getSpiritualProfile(),
-      SpiritualProfileQueries.getMilestonesTimeline(10, 0),
-      SpiritualProfileQueries.getSpiritualJourneyStats()
-    ])
-
-    // Handle profile data
-    const profile = profileResult.status === 'fulfilled' ? profileResult.value : null
-    
-    // Handle milestones data
-    const milestonesData = milestonesResult.status === 'fulfilled' ? milestonesResult.value : {
-      milestones: [],
-      totalCount: 0,
-      yearlyGroups: []
-    }
-    
-    // Handle stats data
-    const stats = statsResult.status === 'fulfilled' ? statsResult.value : {
-      totalMilestones: 0,
-      milestonesThisYear: 0,
-      journeyDurationDays: 0,
-      mostCommonMilestoneType: 'custom' as const,
-      recentMilestones: [],
-      currentFocusAreas: []
-    }
-
-    return (
-      <SpiritualJourneyDashboard 
-        profile={profile}
-        milestones={milestonesData.milestones}
-        stats={stats}
-        yearlyGroups={milestonesData.yearlyGroups}
-      />
-    )
-  } catch (error) {
-    console.error('Error loading spiritual journey data:', error)
-    
-    // Return error state component
-    return (
-      <SpiritualJourneyErrorBoundary 
-        error={error instanceof Error ? error.message : 'Unknown error occurred'} 
-      />
-    )
-  }
 }
 

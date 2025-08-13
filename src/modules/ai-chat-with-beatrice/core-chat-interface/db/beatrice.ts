@@ -1,6 +1,6 @@
 // src/lib/ai/beatrice.ts
 import Anthropic from '@anthropic-ai/sdk';
-import { getDataObject, type DataObjectOptions } from '../data/supabaseDataObjects';
+import { getDataObject, type DataObjectOptions } from '@/lib/supabase/dataObjects';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 // Initialize Claude with your API key
