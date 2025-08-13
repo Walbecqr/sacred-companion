@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { Moon } from 'lucide-react';
-import { moonPhaseService } from '@/lib/moon-phase-api';
-import type { MoonPhaseDisplayData } from '@/types/moon-phase';
+import { moonPhaseService } from '@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api';
+import type { MoonPhaseDisplayData } from '@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types';
 
 interface CompactMoonPhaseProps {
   className?: string;

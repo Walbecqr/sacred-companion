@@ -3,7 +3,7 @@ import type {
   MoonPhaseDisplayData, 
   MoonPhaseError,
   SpiritualSignificance 
-} from '@/types/moon-phase';
+} from '@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types';
 
 const MOON_PHASE_API_KEY = process.env.NEXT_PUBLIC_MOON_PHASE_API_KEY;
 const MOON_PHASE_API_HOST = 'moon-phase.p.rapidapi.com';

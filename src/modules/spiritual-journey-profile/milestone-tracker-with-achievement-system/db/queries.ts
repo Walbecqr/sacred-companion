@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase/index'
 import type {
   SpiritualMilestone,
   CreateMilestoneInput,
@@ -8,7 +8,7 @@ import type {
   MilestonesTimelineData,
   SpiritualJourneyStats,
   SpiritualFocusPeriod
-} from '@/modules/spiritual-profile/types'
+} from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types'
 
 export class SpiritualProfileQueries {
   static async createMilestone(input: CreateMilestoneInput): Promise<SpiritualMilestone> {

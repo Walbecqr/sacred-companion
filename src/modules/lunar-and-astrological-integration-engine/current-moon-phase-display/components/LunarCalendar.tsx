@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { Calendar, ChevronLeft, ChevronRight, Moon } from 'lucide-react';
-import { moonPhaseService } from '@/lib/moon-phase-api';
+import { moonPhaseService } from '@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api';
 
 interface LunarCalendarProps {
   className?: string;

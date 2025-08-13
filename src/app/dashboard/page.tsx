@@ -12,10 +12,10 @@ import {
   NotebookPen, CalendarCheck,
   Settings as SettingsIcon, User as UserIcon, Check, Bell, Eye, Shield, Upload, Undo2
 } from 'lucide-react';
-import OracleCard from '@/components/oracle/OracleCard';
-import MoonPhaseDisplay from '@/components/moon/MoonPhaseDisplay';
-import LunarCalendar from '@/components/moon/LunarCalendar';
-import CompactMoonPhase from '@/components/moon/CompactMoonPhase';
+import OracleCard from '@/modules/ai-chat-with-beatrice/encouragement-oracle/components/OracleCard';
+import MoonPhaseDisplay from '@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/MoonPhaseDisplay';
+import LunarCalendar from '@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/LunarCalendar';
+import CompactMoonPhase from '@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/CompactMoonPhase';
 import type { User } from '@supabase/supabase-js';
 
 interface NavigationItem {

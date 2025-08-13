@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { createMilestone, updateMilestone, deleteMilestone } from '@/modules/spiritual-profile/actions/milestones'
-import type { CreateMilestoneInput, UpdateMilestoneInput } from '@/modules/spiritual-profile/types'
+import { createMilestone, updateMilestone, deleteMilestone } from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/actions/milestones'
+import type { CreateMilestoneInput, UpdateMilestoneInput } from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types'
 
 export function useMilestones() {
   const [isLoading, setIsLoading] = useState(false)

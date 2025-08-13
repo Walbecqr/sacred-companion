@@ -1,9 +1,9 @@
 // app/dashboard/spiritual-journey/page.tsx
 
 import { Suspense } from 'react'
-import SpiritualJourneyDashboard from '@/modules/spiritual-profile/ui/SpiritualJourneyDashboard'
-import { SpiritualProfileQueries } from '@/modules/spiritual-profile/db/queries'
-import { Skeleton } from '@/components/ui/skeleton'
+import SpiritualJourneyDashboard from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/components/SpiritualJourneyDashboard'
+import { SpiritualProfileQueries } from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/db/queries'
+import { Skeleton } from '@/modules/personal-dashboard/spiritual-progress-overview/components/Skeleton'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
