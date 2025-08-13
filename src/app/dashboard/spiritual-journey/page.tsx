@@ -1,3 +1,5 @@
+'use client'
+
 // app/dashboard/spiritual-journey/page.tsx
 
 import { Suspense } from 'react'

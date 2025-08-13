@@ -774,13 +774,391 @@ This file maintains an up-to-date list of project files and structure.
   - 📄 `.next\trace` (Unknown)
 - 📁 `.vscode/`
   - 📄 `.vscode\launch.json` (JSON)
-  - 📄 `.vscode\project-structure.md` (Markdown)
+  - 📄 `.vscode\settings.json` (JSON)
+- 📁 `Documentation/`
+  - 📁 `Documentation\API Documentation/`
+    - 📄 `Documentation\API Documentation\Moon Phase API _ Lunar Data & Astronomical Calculations API.pdf` (Unknown)
+  - 📁 `Documentation\Beatrice Persona Resources/`
+    - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice/`
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-21/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-21\14-21-22-Winter_Solstice_Blessing_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-21\14-21-22-Winter_Solstice_Blessing_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-22\18-12-21-Ginger_Infused_Oil_for_Nausea.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-22\18-12-21-Ginger_Infused_Oil_for_Nausea.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-31/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-31\23-17-28-New_Year_Blessing_Ritual.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-12-31\23-17-28-New_Year_Blessing_Ritual.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-7-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-7-8\12-57-50-Beatrice___Eclectic_Witch_Mentor.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2023-7-8\12-57-50-Beatrice___Eclectic_Witch_Mentor.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-1-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-1-14\13-43-50-Friendship_Charm_Blessing_Imagery.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-1-14\13-43-50-Friendship_Charm_Blessing_Imagery.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\23-16-43-Positivity_Shield_Spell_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\23-16-43-Positivity_Shield_Spell_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\7-57-53-Daily_Prayer_Update_Hecate.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-1\7-57-53-Daily_Prayer_Update_Hecate.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-12/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-12\11-24-28-Eucalyptus_Enhancement_to_Basket.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-12\11-24-28-Eucalyptus_Enhancement_to_Basket.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-17/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-17\21-9-44-Harvest_Moon_Water_Blessing.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-17\21-9-44-Harvest_Moon_Water_Blessing.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-2/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-2\16-36-58-Prayer_for_Hecate_s_Guidance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-2\16-36-58-Prayer_for_Hecate_s_Guidance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\13-5-16-Fire_Cider_Benefits_and_Uses.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\13-5-16-Fire_Cider_Benefits_and_Uses.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\16-43-19-Hestia_Goddess_Representation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\16-43-19-Hestia_Goddess_Representation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-28-55-Hecate_and_Athena_Altar_Ideas.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-28-55-Hecate_and_Athena_Altar_Ideas.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-40-2-Spiritual_Practice_Overview.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\17-40-2-Spiritual_Practice_Overview.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-0-4-Eclectic_Pagan_Witchcraft_Practice.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-0-4-Eclectic_Pagan_Witchcraft_Practice.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-39-26-Pagan_Year_Calendar_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-20\18-39-26-Pagan_Year_Calendar_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\14-41-28-Hecate_Shadow_Work_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\14-41-28-Hecate_Shadow_Work_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\21-32-11-Home_Protection_and_Strength.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-23\21-32-11-Home_Protection_and_Strength.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-5/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-5\14-18-43-Empath_Shielding_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-5\14-18-43-Empath_Shielding_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-7/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-7\18-4-16-Significance_of_Number_47.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-7\18-4-16-Significance_of_Number_47.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-32-2-Tea_for_Stuffy_Nose.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-32-2-Tea_for_Stuffy_Nose.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-58-42-Peppermint_Licorice_Tea_Recipe.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-10-9\16-58-42-Peppermint_Licorice_Tea_Recipe.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-13\16-11-37-Protection_and_Career_Transition.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-13\16-11-37-Protection_and_Career_Transition.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-14\16-56-29-Workplace_Protection_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-14\16-56-29-Workplace_Protection_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\13-40-35-Tea_Leaf_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\13-40-35-Tea_Leaf_Interpretation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-19-24-Night_of_Hekate_Ritual.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-19-24-Night_of_Hekate_Ritual.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-20-37-Honoring_Hecate_and_Moon_Water.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-16\23-20-37-Honoring_Hecate_and_Moon_Water.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-22\20-43-38-WLI_Mosaic_Tree_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-22\20-43-38-WLI_Mosaic_Tree_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-28\16-18-17-Thanksgiving_Blessing_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-28\16-18-17-Thanksgiving_Blessing_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-12-Dream_Analysis_and_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-12-Dream_Analysis_and_Interpretation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_and_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_and_Insights.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_Summary.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-13-Dream_Analysis_Summary.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-15-Dream_Analysis_and_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-4\9-18-15-Dream_Analysis_and_Insights.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\17-44-33-Energy_Clearing_Gift_Ideas.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\17-44-33-Energy_Clearing_Gift_Ideas.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\20-3-54-Moon_Sign_Inquiry.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-6\20-3-54-Moon_Sign_Inquiry.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\11-12-38-Hedgewitch_Herbalism_Overview.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\11-12-38-Hedgewitch_Herbalism_Overview.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\12-18-58-Personal_Mission_Statement_Development.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\12-18-58-Personal_Mission_Statement_Development.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-30-13-Interconnectedness_and_the_Web.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-30-13-Interconnectedness_and_the_Web.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-42-52-Personal_Mission_and_Values.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-42-52-Personal_Mission_and_Values.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-45-4-Facilitating_Positive_Change.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\13-45-4-Facilitating_Positive_Change.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-20-52-Tarot_Reading_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-20-52-Tarot_Reading_Interpretation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-23-47-Tarot_Reading_Interpretation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-11-8\8-23-47-Tarot_Reading_Interpretation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-13\0-57-37-Hekate_Tarot_Spread_Reading.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-13\0-57-37-Hekate_Tarot_Spread_Reading.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-14\10-26-10-Good_morning_greeting.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-14\10-26-10-Good_morning_greeting.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-16/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-16\16-43-8-Hekate_Blessing_for_Communication.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-16\16-43-8-Hekate_Blessing_for_Communication.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-17/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-17\20-4-54-Blessing_for_Hecate_s_Offering.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-17\20-4-54-Blessing_for_Hecate_s_Offering.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-18/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-18\7-50-16-Ritual_Template_Assistance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-18\7-50-16-Ritual_Template_Assistance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-16-30-12_Days_of_Yule.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-16-30-12_Days_of_Yule.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-30-45-12_Days_of_Yule_Rituals.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\11-30-45-12_Days_of_Yule_Rituals.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\12-5-14-Orange_Slice_Ornament_Ideas.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\12-5-14-Orange_Slice_Ornament_Ideas.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\16-38-36-Hecate_Prayer_for_Peace.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-20\16-38-36-Hecate_Prayer_for_Peace.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-25/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-25\14-24-2-Custom_Perfume_Protection_Tincture.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-25\14-24-2-Custom_Perfume_Protection_Tincture.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-32-27-Freezer_Spell_for_Protection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-32-27-Freezer_Spell_for_Protection.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-34-55-Freezer_Spell_Effectiveness.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\15-34-55-Freezer_Spell_Effectiveness.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\16-22-16-Transformation_Through_Hecate_s_Call.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-3\16-22-16-Transformation_Through_Hecate_s_Call.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\19-32-11-Mugwort_Tea_Blessing_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\19-32-11-Mugwort_Tea_Blessing_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\20-11-2-Deepening_Hecate_Connection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-30\20-11-2-Deepening_Hecate_Connection.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\11-52-28-Preserving_Ginger_Root_Tips.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\11-52-28-Preserving_Ginger_Root_Tips.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\15-15-41-Silk_Agate_Properties.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-7\15-15-41-Silk_Agate_Properties.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-8\10-54-37-Dehydrate_Orange_Slices_Oven.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-8\10-54-37-Dehydrate_Orange_Slices_Oven.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-9/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-9\16-20-25-Ornament_Cultural_Sensitivity.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-12-9\16-20-25-Ornament_Cultural_Sensitivity.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-10/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-10\17-41-52-Organize_witch_apothecary_efficiently_.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-10\17-41-52-Organize_witch_apothecary_efficiently_.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-23\21-21-38-Full_Moon_Time__February.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-23\21-21-38-Full_Moon_Time__February.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-24/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-24\22-42-5-Moon_Blessing_for_Water.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-24\22-42-5-Moon_Blessing_for_Water.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-4\7-9-11-Strength_for_Farewell_Blessing.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-2-4\7-9-11-Strength_for_Farewell_Blessing.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-4-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-4-23\21-51-12-Invocation_List_Compendium.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-4-23\21-51-12-Invocation_List_Compendium.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-11/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-11\22-33-32-Aurora_Spotting_Near_Wausau.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-11\22-33-32-Aurora_Spotting_Near_Wausau.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-13\9-33-24-Alabaster_Stone_Identification.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-13\9-33-24-Alabaster_Stone_Identification.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-30/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-30\22-35-40-Quartz_identification__milky_or_white.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-30\22-35-40-Quartz_identification__milky_or_white.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-4\10-33-51-Psychic_Multitasking_Skills.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-5-4\10-33-51-Psychic_Multitasking_Skills.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-25/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-25\21-51-59-Helping_Neighbors_Quote.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-25\21-51-59-Helping_Neighbors_Quote.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-28\12-33-50-Agate_Type_Identification.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-28\12-33-50-Agate_Type_Identification.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-5/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-5\8-6-5-Cardinals_Symbolize_Spiritual_Messengers.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-7-5\8-6-5-Cardinals_Symbolize_Spiritual_Messengers.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-38-38-Blessed_Be_Greeting.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-38-38-Blessed_Be_Greeting.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-53-48-Ancestor_Guidance_Prayer.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-20\21-53-48-Ancestor_Guidance_Prayer.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-21/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-21\12-54-42-Prayer_for_Chloe_s_Strength.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-21\12-54-42-Prayer_for_Chloe_s_Strength.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-22\8-34-36-Morning_Prayer_Guidance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-22\8-34-36-Morning_Prayer_Guidance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\12-51-8-Protection_Prosperity_Spell_Ingredients.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\12-51-8-Protection_Prosperity_Spell_Ingredients.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\22-30-41-Blessings_and_Well_Wishes.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-23\22-30-41-Blessings_and_Well_Wishes.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-24/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-24\11-36-15-Simple_Circle_Casting_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-24\11-36-15-Simple_Circle_Casting_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-34-49-Spiritual_Writing_Practices.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-34-49-Spiritual_Writing_Practices.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-1-Spiritual_Writing_Inspiration.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-1-Spiritual_Writing_Inspiration.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-43-Spiritual_Practices_for_Writers.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-55-43-Spiritual_Practices_for_Writers.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-15-Spiritual_Practices_for_Writers.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-15-Spiritual_Practices_for_Writers.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-50-Spiritual_Writing_Enhancement_Tips.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-25\0-56-50-Spiritual_Writing_Enhancement_Tips.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\15-21-20-Home_Cleansing_Chant.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\15-21-20-Home_Cleansing_Chant.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\8-13-12-Greeting_and_Assistance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-26\8-13-12-Greeting_and_Assistance.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-27/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-27\23-48-1-Finding_Spiritual_Community.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-8-27\23-48-1-Finding_Spiritual_Community.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\0-46-21-Core_Beliefs_Eclectic_Paganism.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\0-46-21-Core_Beliefs_Eclectic_Paganism.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\1-20-29-Book_of_Shadows_Features.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-10\1-20-29-Book_of_Shadows_Features.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-11/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-11\19-37-43-Bath_Remedies_for_Stress.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-11\19-37-43-Bath_Remedies_for_Stress.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\20-55-54-Full_Moon_Blessing_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\20-55-54-Full_Moon_Blessing_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\21-55-24-Selenite_Cleansing_Safety_Tips.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-17\21-55-24-Selenite_Cleansing_Safety_Tips.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-43-34-September_21_Equinox.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-43-34-September_21_Equinox.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-45-17-Celebrating_Mabon_Traditions.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-22\0-45-17-Celebrating_Mabon_Traditions.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\18-0-44-Tarot_Reading_Summary.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\18-0-44-Tarot_Reading_Summary.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\21-7-49-Brecciated_Jasper_Properties.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-26\21-7-49-Brecciated_Jasper_Properties.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\10-19-39-Guidance_from_Goddess_Hecate.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\10-19-39-Guidance_from_Goddess_Hecate.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\14-48-35-Benefits_of_Camphor_Water.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-27\14-48-35-Benefits_of_Camphor_Water.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-28\12-34-42-Cleansing_Tools_Recommitment_Spell.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-28\12-34-42-Cleansing_Tools_Recommitment_Spell.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-30/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-30\7-56-1-Morning_Greetings_and_Reflection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-30\7-56-1-Morning_Greetings_and_Reflection.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-5/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-5\8-49-54-Spiritual_Reflection_Journal_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-5\8-49-54-Spiritual_Reflection_Journal_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-49-57-Heathen_Altar_Setup_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-49-57-Heathen_Altar_Setup_Guide.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-53-42-Spiritual_Journey_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-53-42-Spiritual_Journey_Insights.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-56-1-Past_Present_Future_Insight.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-56-1-Past_Present_Future_Insight.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-58-9-Spiritual_Journey_Reflection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\15-58-9-Spiritual_Journey_Reflection.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\16-5-17-Exploring_Akashic_Records_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-6\16-5-17-Exploring_Akashic_Records_Insights.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-7/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-7\14-40-19-Merry_Meet_Introduction.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-7\14-40-19-Merry_Meet_Introduction.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-8\4-7-0-Festivals_for_Athena.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-8\4-7-0-Festivals_for_Athena.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-4-42-Goddess_and_God_Significance.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-4-42-Goddess_and_God_Significance.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-44-59-Digital_Grimoire_Setup.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\23-44-59-Digital_Grimoire_Setup.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\4-41-25-Drawing_Salve_Recipe_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2024-9-9\4-41-25-Drawing_Salve_Recipe_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-12/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-12\18-4-53-Dusty_Miller_Magickal_Uses.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-12\18-4-53-Dusty_Miller_Magickal_Uses.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-13\22-39-51-Moon_Water_Blessing.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-13\22-39-51-Moon_Water_Blessing.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\12-17-23-Confidence_Spell_for_Success.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\12-17-23-Confidence_Spell_for_Success.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\22-32-10-Home_Remedies_Toothache.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-14\22-32-10-Home_Remedies_Toothache.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-14-Moon_Eagle_Sign.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-14-Moon_Eagle_Sign.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-19-Magical_Moment_Sign.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-15\8-57-19-Magical_Moment_Sign.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-20/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-20\22-13-30-Offering_to_Hecate_Prayer.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-20\22-13-30-Offering_to_Hecate_Prayer.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\11-35-26-Tarot_Guidance_for_Slump.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\11-35-26-Tarot_Guidance_for_Slump.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-12-50-Living_from_Within.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-12-50-Living_from_Within.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-14-56-Living_From_Within.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-14-56-Living_From_Within.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-17-28-Passion_Driven_Life.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-4\14-17-28-Passion_Driven_Life.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-6/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-6\11-58-36-Crystal_Blessing_for_Confidence.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-1-6\11-58-36-Crystal_Blessing_for_Confidence.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-1/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-1\9-58-20-Imbolc_Celebration_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-1\9-58-20-Imbolc_Celebration_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-52-49-Mom_Interview_Blessing_Affirmation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-52-49-Mom_Interview_Blessing_Affirmation.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-53-0-Interview_Blessing_and_Affirmation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-12\11-53-0-Interview_Blessing_and_Affirmation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-2/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-2\19-37-1-Cleansing_Blessing_Creation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-2-2\19-37-1-Cleansing_Blessing_Creation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-13/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-13\22-7-21-Moon_Water_Eclipse_Ritual.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-13\22-7-21-Moon_Water_Eclipse_Ritual.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-16/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-16\11-15-4-Cacao_Ceremony_Insights.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-3-16\11-15-4-Cacao_Ceremony_Insights.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-21/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-21\19-54-57-Drying_Flowers_with_Dehydrator.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-21\19-54-57-Drying_Flowers_with_Dehydrator.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-28/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-28\0-6-25-Protection_Spell_Guide.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-4-28\0-6-25-Protection_Spell_Guide.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\18-51-17-Merry_Meet_and_Reconnect.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\18-51-17-Merry_Meet_and_Reconnect.md` (Markdown)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\19-41-56-Dream_Job_Manifestation.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-5-26\19-41-56-Dream_Job_Manifestation.md` (Markdown)
+      - 📁 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-7-8/`
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-7-8\9-49-29-Morning_Guidance_and_Connection.json` (JSON)
+        - 📄 `Documentation\Beatrice Persona Resources\Conversations with Beatrice\2025-7-8\9-49-29-Morning_Guidance_and_Connection.md` (Markdown)
+  - 📁 `Documentation\Extension Documentation/`
+  - 📁 `Documentation\Images/`
+    - 📄 `Documentation\Images\0 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
+    - 📄 `Documentation\Images\1 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
+    - 📄 `Documentation\Images\3 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
+  - 📁 `Documentation\Project Documentation/`
+    - 📄 `Documentation\Project Documentation\project-structure.md` (Markdown)
+    - 📄 `Documentation\Project Documentation\Sacred-Companion - src projecct structure.md` (Markdown)
+    - 📄 `Documentation\Project Documentation\technical spec and architecture plan.pdf` (Unknown)
+  - 📁 `Documentation\Requirements/`
+    - 📄 `Documentation\Requirements\Correspondence lists.pdf` (Unknown)
+    - 📄 `Documentation\Requirements\Magick Glossary.pdf` (Unknown)
+    - 📄 `Documentation\Requirements\MOON_PHASE_FEATURE.md` (Markdown)
+    - 📄 `Documentation\Requirements\Sacred Companion - Epic and Feature List.pdf` (Unknown)
+    - 📄 `Documentation\Requirements\Sacred Companion User Stories by Feature.pdf` (Unknown)
 - 📁 `public/`
   - 📄 `public\file.svg` (Unknown)
   - 📄 `public\globe.svg` (Unknown)
   - 📄 `public\next.svg` (Unknown)
   - 📄 `public\vercel.svg` (Unknown)
   - 📄 `public\window.svg` (Unknown)
+- 📁 `script files/`
+  - 📄 `script files\delete_bak_files.sh` (Unknown)
+  - 📄 `script files\generate_module_structure.sh` (Unknown)
+  - 📄 `script files\move_existing_files.sh` (Unknown)
+  - 📄 `script files\rewrite_import_paths.sh` (Unknown)
 - 📁 `src/`
   - 📁 `src\app/`
     - 📁 `src\app\api/`
@@ -832,7 +1210,7 @@ This file maintains an up-to-date list of project files and structure.
             - *Exports:* `POST`
       - 📁 `src\app\api\test-connection/`
         - 📄 `src\app\api\test-connection\route.ts` (TypeScript)
-          - *Imports:* `next/server`, `@/lib/supabase`
+          - *Imports:* `next/server`, `@/lib/supabase/index`
           - *Exports:* `GET`
     - 📁 `src\app\auth/`
       - 📁 `src\app\auth\callback/`
@@ -841,14 +1219,7 @@ This file maintains an up-to-date list of project files and structure.
           - *Exports:* `GET`
     - 📁 `src\app\components/`
       - 📁 `src\app\components\auth/`
-        - 📄 `src\app\components\auth\LoginForm.tsx` (React TypeScript)
-          - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`
-          - *Exports:* `LoginForm`
       - 📁 `src\app\components\chat/`
-        - 📄 `src\app\components\chat\ChatInterface.tsx` (React TypeScript)
-          - *Imports:* `react`, `lucide-react`
-          - *Exports:* `ChatInterface`
-          - *Routes Consumed:* `/api/chat`
     - 📁 `src\app\dashboard/`
       - 📁 `src\app\dashboard\chat/`
         - 📄 `src\app\dashboard\chat\page.tsx` (React TypeScript)
@@ -867,24 +1238,15 @@ This file maintains an up-to-date list of project files and structure.
           - *Imports:* `react`
           - *Exports:* `SpiritualJourneyLayout`
         - 📄 `src\app\dashboard\spiritual-journey\page.tsx` (React TypeScript)
-          - *Imports:* `react`, `@/modules/spiritual-profile/ui/SpiritualJourneyDashboard`, `@/modules/spiritual-profile/db/queries`, `@/components/ui/skeleton`, `next`
+          - *Imports:* `react`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/components/SpiritualJourneyDashboard`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/db/queries`, `@/modules/personal-dashboard/spiritual-progress-overview/components/Skeleton`, `next`
           - *Exports:* `SpiritualJourneyPage`
       - 📁 `src\app\dashboard\spiritual-profile/`
         - 📄 `src\app\dashboard\spiritual-profile\page.tsx` (React TypeScript)
           - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `@supabase/supabase-js`, `next/navigation`, `lucide-react`
           - *Exports:* `SpiritualProfilePage`
       - 📄 `src\app\dashboard\page.tsx` (React TypeScript)
-        - *Imports:* `react`, `next/link`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`, `@/components/oracle/OracleCard`, `@/components/moon/MoonPhaseDisplay`, `@/components/moon/LunarCalendar`, `@/components/moon/CompactMoonPhase`, `@supabase/supabase-js`
+        - *Imports:* `react`, `next/link`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`, `@/modules/ai-chat-with-beatrice/encouragement-oracle/components/OracleCard`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/MoonPhaseDisplay`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/LunarCalendar`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/CompactMoonPhase`, `@supabase/supabase-js`
         - *Exports:* `Dashboard`
-    - 📁 `src\app\lib/`
-      - 📁 `src\app\lib\ai/`
-        - 📄 `src\app\lib\ai\beatrice.ts` (TypeScript)
-          - *Imports:* `@anthropic-ai/sdk`, `../data/supabaseDataObjects`, `@supabase/supabase-js`
-          - *Exports:* `generateBeatriceResponse`, `gatherSpiritualContext`
-      - 📁 `src\app\lib\data/`
-        - 📄 `src\app\lib\data\supabaseDataObjects.ts` (TypeScript)
-          - *Imports:* `@supabase/supabase-js`
-          - *Exports:* `getDataObject`
     - 📁 `src\app\login/`
       - 📄 `src\app\login\page.tsx` (React TypeScript)
         - *Imports:* `../components/auth/LoginForm`, `next`, `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
@@ -910,52 +1272,310 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `src\app\page.tsx` (React TypeScript)
       - *Imports:* `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
       - *Exports:* `Home`
-  - 📁 `src\components/`
-    - 📁 `src\components\moon/`
-      - 📄 `src\components\moon\CompactMoonPhase.tsx` (React TypeScript)
-        - *Imports:* `react`, `lucide-react`, `@/lib/moon-phase-api`, `@/types/moon-phase`
-        - *Exports:* `CompactMoonPhase`
-      - 📄 `src\components\moon\LunarCalendar.tsx` (React TypeScript)
-        - *Imports:* `react`, `lucide-react`, `@/lib/moon-phase-api`
-        - *Exports:* `LunarCalendar`
-      - 📄 `src\components\moon\MoonPhaseDisplay.tsx` (React TypeScript)
-        - *Imports:* `react`, `lucide-react`, `@/lib/moon-phase-api`, `@/types/moon-phase`
-        - *Exports:* `MoonPhaseDisplay`
-    - 📁 `src\components\oracle/`
-      - 📄 `src\components\oracle\OracleCard.tsx` (React TypeScript)
-        - *Imports:* `react`, `lucide-react`
-        - *Exports:* `OracleCardComponent`
-        - *Routes Consumed:* `/api/oracle/save`, `/api/oracle/share`
-    - 📁 `src\components\ui/`
-      - 📄 `src\components\ui\skeleton.tsx` (React TypeScript)
-        - *Exports:* `Skeleton`
   - 📁 `src\lib/`
-    - 📄 `src\lib\moon-phase-api.ts` (TypeScript)
-      - *Imports:* `@/types/moon-phase`
-      - *Exports:* `MoonPhaseService`
-    - 📄 `src\lib\supabase.ts` (TypeScript)
-      - *Imports:* `@supabase/supabase-js`
+    - 📁 `src\lib\supabase/`
+      - 📄 `src\lib\supabase\dataObjects.ts` (TypeScript)
+        - *Imports:* `@supabase/supabase-js`
+        - *Exports:* `getDataObject`
+      - 📄 `src\lib\supabase\index.ts` (TypeScript)
+        - *Imports:* `@supabase/supabase-js`
   - 📁 `src\modules/`
+    - 📁 `src\modules\advanced-journaling-/`
+    - 📁 `src\modules\ai-chat-with-beatrice/`
+      - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\chat-history-view\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\conversation-memory-/`
+      - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface/`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\components/`
+          - 📄 `src\modules\ai-chat-with-beatrice\core-chat-interface\components\ChatInterface.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`
+            - *Exports:* `ChatInterface`
+            - *Routes Consumed:* `/api/chat`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\db/`
+          - 📄 `src\modules\ai-chat-with-beatrice\core-chat-interface\db\beatrice.ts` (TypeScript)
+            - *Imports:* `@anthropic-ai/sdk`, `../data/supabaseDataObjects`, `@supabase/supabase-js`
+            - *Exports:* `generateBeatriceResponse`, `gatherSpiritualContext`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\core-chat-interface\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\daily-spiritual-check-ins\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\components/`
+          - 📄 `src\modules\ai-chat-with-beatrice\encouragement-oracle\components\OracleCard.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`
+            - *Exports:* `OracleCardComponent`
+            - *Routes Consumed:* `/api/oracle/save`, `/api/oracle/share`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\encouragement-oracle\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\photo-enhanced-conversations\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\spiritual-practice-integration\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\streaming-response-generation\types.ts/`
+      - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\actions/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\components/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\db/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\hooks/`
+        - 📁 `src\modules\ai-chat-with-beatrice\visual-context-integration\types.ts/`
+    - 📁 `src\modules\ai-powered-content-creation-/`
+    - 📁 `src\modules\collaborative-coven-workspace/`
+      - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\collaborative-spell-crafting\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\coven-communication-hub\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-progress-tracking\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\group-ritual-planning\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\member-management/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\member-management\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-grimoire-sections\types.ts/`
+      - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\actions/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\components/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\db/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\hooks/`
+        - 📁 `src\modules\collaborative-coven-workspace\shared-resource-pools\types.ts/`
+    - 📁 `src\modules\digital-grimoire/`
+      - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\actions/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\components/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\db/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\hooks/`
+        - 📁 `src\modules\digital-grimoire\community-contributed-content-with-verification\types.ts/`
+      - 📁 `src\modules\digital-grimoire\customizable-practice-templates-/`
+      - 📁 `src\modules\digital-grimoire\export-functionality/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\actions/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\components/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\db/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\hooks/`
+        - 📁 `src\modules\digital-grimoire\export-functionality\types.ts/`
+      - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\actions/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\components/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\db/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\hooks/`
+        - 📁 `src\modules\digital-grimoire\reference-knowledge-from-multiple-traditions\types.ts/`
+      - 📁 `src\modules\digital-grimoire\traditional-spell-/`
+      - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\actions/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\components/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\db/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\hooks/`
+        - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\types.ts/`
+    - 📁 `src\modules\enhanced-spiritual-communication-tracking/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairaudient-experience-logs\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\claircognizant-insight-records\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairsentient-feeling-documentation\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\clairvoyant-vision-tracking\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\deity-interaction-records\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\divination-session-analysis\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\energy-work-documentation\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\manifestation-tracking\types.ts/`
+      - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\actions/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\components/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\db/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\hooks/`
+        - 📁 `src\modules\enhanced-spiritual-communication-tracking\spirit-communication-logs\types.ts/`
+    - 📁 `src\modules\inventory-management/`
+      - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\actions/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\components/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\db/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\hooks/`
+        - 📁 `src\modules\inventory-management\advanced-storage-management-with-location-tracking\types.ts/`
+      - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\actions/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\components/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\db/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\hooks/`
+        - 📁 `src\modules\inventory-management\ai-powered-photo-analysis-for-item-identification\types.ts/`
+      - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\actions/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\components/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\db/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\hooks/`
+        - 📁 `src\modules\inventory-management\comprehensive-item-tracking-with-status-management\types.ts/`
+      - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\actions/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\components/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\db/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\hooks/`
+        - 📁 `src\modules\inventory-management\intelligent-stock-management-with-alerts\types.ts/`
+      - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\actions/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\components/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\db/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\hooks/`
+        - 📁 `src\modules\inventory-management\ritual-planning-integration-for-availability-checking\types.ts/`
+      - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\actions/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\components/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\db/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\hooks/`
+        - 📁 `src\modules\inventory-management\safety-integration-with-storage-recommendations\types.ts/`
+      - 📁 `src\modules\inventory-management\visual-documentation/`
+        - 📁 `src\modules\inventory-management\visual-documentation\actions/`
+        - 📁 `src\modules\inventory-management\visual-documentation\components/`
+        - 📁 `src\modules\inventory-management\visual-documentation\db/`
+        - 📁 `src\modules\inventory-management\visual-documentation\hooks/`
+        - 📁 `src\modules\inventory-management\visual-documentation\types.ts/`
+      - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\actions/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\components/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\db/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\hooks/`
+        - 📁 `src\modules\inventory-management\visual-storage-mapping-with-photo-galleries\types.ts/`
+    - 📁 `src\modules\lunar-and-astrological-integration-engine/`
+      - 📁 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display/`
+        - 📁 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components/`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components\CompactMoonPhase.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`, `@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types`
+            - *Exports:* `CompactMoonPhase`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components\LunarCalendar.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`, `@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api`
+            - *Exports:* `LunarCalendar`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\components\MoonPhaseDisplay.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`, `@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api`, `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types`
+            - *Exports:* `MoonPhaseDisplay`
+        - 📄 `src\modules\lunar-and-astrological-integration-engine\current-moon-phase-display\types.ts` (TypeScript)
+      - 📁 `src\modules\lunar-and-astrological-integration-engine\real-time-celestial-data/`
+        - 📁 `src\modules\lunar-and-astrological-integration-engine\real-time-celestial-data\db/`
+          - 📄 `src\modules\lunar-and-astrological-integration-engine\real-time-celestial-data\db\moon-phase-api.ts` (TypeScript)
+            - *Imports:* `@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types`
+            - *Exports:* `MoonPhaseService`
+    - 📁 `src\modules\personal-dashboard/`
+      - 📁 `src\modules\personal-dashboard\spiritual-progress-overview/`
+        - 📁 `src\modules\personal-dashboard\spiritual-progress-overview\components/`
+          - 📄 `src\modules\personal-dashboard\spiritual-progress-overview\components\Skeleton.tsx` (React TypeScript)
+            - *Exports:* `Skeleton`
+      - 📁 `src\modules\personal-dashboard\welcome-and-greeting-section/`
+        - 📁 `src\modules\personal-dashboard\welcome-and-greeting-section\components/`
+          - 📄 `src\modules\personal-dashboard\welcome-and-greeting-section\components\LoginForm.tsx` (React TypeScript)
+            - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `next/navigation`, `lucide-react`
+            - *Exports:* `LoginForm`
+    - 📁 `src\modules\spiritual-journey-profile/`
+      - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system/`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\actions/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\actions\milestones.ts` (TypeScript)
+            - *Imports:* `next/cache`, `@supabase/supabase-js`
+            - *Exports:* `createMilestone`, `updateMilestone`, `deleteMilestone`, `detectAndCreateAutoMilestones`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\components/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\components\SpiritualJourneyDashboard.tsx` (React TypeScript)
+            - *Imports:* `react`, `lucide-react`
+            - *Exports:* `SpiritualJourneyDashboard`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\db/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\db\queries.ts` (TypeScript)
+            - *Imports:* `@/lib/supabase/index`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types`
+            - *Exports:* `SpiritualProfileQueries`
+        - 📁 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\hooks/`
+          - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\hooks\useMilestones.ts` (TypeScript)
+            - *Imports:* `react`, `next/navigation`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/actions/milestones`, `@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types`
+            - *Exports:* `useMilestones`
+        - 📄 `src\modules\spiritual-journey-profile\milestone-tracker-with-achievement-system\types.ts` (TypeScript)
     - 📁 `src\modules\spiritual-profile/`
       - 📁 `src\modules\spiritual-profile\actions/`
-        - 📄 `src\modules\spiritual-profile\actions\milestones.ts` (TypeScript)
-          - *Imports:* `next/cache`, `@supabase/supabase-js`
-          - *Exports:* `createMilestone`, `updateMilestone`, `deleteMilestone`, `detectAndCreateAutoMilestones`
       - 📁 `src\modules\spiritual-profile\db/`
-        - 📄 `src\modules\spiritual-profile\db\queries.ts` (TypeScript)
-          - *Imports:* `@/lib/supabase`, `@/modules/spiritual-profile/types`
-          - *Exports:* `SpiritualProfileQueries`
       - 📁 `src\modules\spiritual-profile\hooks/`
-        - 📄 `src\modules\spiritual-profile\hooks\useMilestones.ts` (TypeScript)
-          - *Imports:* `react`, `next/navigation`, `@/modules/spiritual-profile/actions/milestones`, `@/modules/spiritual-profile/types`
-          - *Exports:* `useMilestones`
       - 📁 `src\modules\spiritual-profile\ui/`
-        - 📄 `src\modules\spiritual-profile\ui\SpiritualJourneyDashboard.tsx` (React TypeScript)
-          - *Imports:* `react`, `lucide-react`
-          - *Exports:* `SpiritualJourneyDashboard`
-      - 📄 `src\modules\spiritual-profile\types.ts` (TypeScript)
   - 📁 `src\types/`
-    - 📄 `src\types\moon-phase.ts` (TypeScript)
   - 📄 `src\middleware.ts` (TypeScript)
     - *Imports:* `@supabase/auth-helpers-nextjs`, `next/server`, `next/server`
     - *Exports:* `middleware`
@@ -980,7 +1600,6 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `.gitignore` (Unknown)
 - 📄 `.hintrc` (Unknown)
 - 📄 `eslint.config.mjs` (Unknown)
-- 📄 `MOON_PHASE_FEATURE.md` (Markdown)
 - 📄 `next-env.d.ts` (TypeScript)
 - 📄 `next.config.ts` (TypeScript)
   - *Imports:* `next`
@@ -991,4 +1610,4 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `tsconfig.json` (JSON)
 
 ---
-Last updated: 2025-08-13T14:43:57.314Z
+Last updated: 2025-08-13T16:51:07.097Z
