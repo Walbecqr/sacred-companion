@@ -15,20 +15,11 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Parse query parameters
-    const { searchParams } = new URL(request.url);
-    const activeOnly = searchParams.get('active_only') !== 'false'; // Default to true
-
     // Build the query
-    let query = supabase
+    const query = supabase
       .from('correspondence_categories')
       .select('*')
       .order('display_name', { ascending: true });
-
-    // Remove the is_active filter since that column doesn't exist
-    // if (activeOnly) {
-    //   query = query.eq('is_active', true);
-    // }
 
     const { data, error } = await query;
 
