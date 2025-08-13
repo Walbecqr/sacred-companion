@@ -457,6 +457,7 @@ export default function Dashboard() {
     { id: 'chat', icon: Sparkles, label: 'Chat with Beatrice', href: '/dashboard/chat', badge: null },
     { id: 'journey', icon: MapIcon, label: 'Journey', href: '/dashboard/spiritual-journey', badge: null },
     { id: 'profile', icon: Heart, label: 'Spiritual Profile', href: '/dashboard/spiritual-profile', badge: null },
+    { id: 'correspondences', icon: Gem, label: 'Correspondences', href: '/dashboard/correspondences', badge: null },
     { id: 'journal', icon: Feather, label: 'Journal', badge: 'Coming Soon' },
     { id: 'rituals', icon: Flame, label: 'Rituals', badge: 'Coming Soon' },
     { id: 'library', icon: BookOpen, label: 'Library', href: '/dashboard/library', badge: null },
