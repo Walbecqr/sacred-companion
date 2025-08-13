@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Script to rewrite import paths to match new folder structure, including .js and .jsx
+
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/app/components/auth/LoginForm@@/modules/personal-dashboard/welcome-and-greeting-section/components/LoginForm@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/app/components/chat/ChatInterface@@/modules/ai-chat-with-beatrice/core-chat-interface/components/ChatInterface@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/components/moon/CompactMoonPhase@@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/CompactMoonPhase@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/components/moon/LunarCalendar@@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/LunarCalendar@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/components/moon/MoonPhaseDisplay@@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/components/MoonPhaseDisplay@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/components/oracle/OracleCard@@/modules/ai-chat-with-beatrice/encouragement-oracle/components/OracleCard@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/components/ui/skeleton@@/modules/personal-dashboard/spiritual-progress-overview/components/Skeleton@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/app/lib/ai/beatrice@@/modules/ai-chat-with-beatrice/core-chat-interface/db/beatrice@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/app/lib/data/supabaseDataObjects@@/lib/supabase/dataObjects@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/lib/moon-phase-api@@/modules/lunar-and-astrological-integration-engine/real-time-celestial-data/db/moon-phase-api@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/lib/supabase@@/lib/supabase/index@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/modules/spiritual-profile/actions/milestones@@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/actions/milestones@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/modules/spiritual-profile/db/queries@@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/db/queries@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/modules/spiritual-profile/hooks/useMilestones@@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/hooks/useMilestones@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/modules/spiritual-profile/ui/SpiritualJourneyDashboard@@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/components/SpiritualJourneyDashboard@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/modules/spiritual-profile/types@@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/types@g' {} +
+find ./src -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' \) -exec sed -i '' 's@@/types/moon-phase@@/modules/lunar-and-astrological-integration-engine/current-moon-phase-display/types@g' {} +
