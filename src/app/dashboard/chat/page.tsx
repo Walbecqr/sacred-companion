@@ -11,7 +11,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import type { User } from '@supabase/supabase-js';
-import ChatInterface from '../../components/chat/ChatInterface';
+import ChatInterface from '@/modules/ai-chat-with-beatrice/core-chat-interface/components/ChatInterface';
 
 interface NavigationItem {
   id: string;

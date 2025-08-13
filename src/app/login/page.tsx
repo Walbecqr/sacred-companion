@@ -1,4 +1,4 @@
-import LoginForm from '../components/auth/LoginForm'
+import LoginForm from '@/modules/personal-dashboard/welcome-and-greeting-section/components/LoginForm'
 import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'

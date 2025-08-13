@@ -1,11 +1,10 @@
-'use client'
-
 // app/dashboard/spiritual-journey/page.tsx
 
 import { Suspense } from 'react'
 import SpiritualJourneyDashboard from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/components/SpiritualJourneyDashboard'
 import { SpiritualProfileQueries } from '@/modules/spiritual-journey-profile/milestone-tracker-with-achievement-system/db/queries'
 import { Skeleton } from '@/modules/personal-dashboard/spiritual-progress-overview/components/Skeleton'
+import { SpiritualJourneyErrorBoundary } from './ErrorBoundary'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -124,22 +123,9 @@ async function SpiritualJourneyContent() {
     
     // Return error state component
     return (
-      <div className="max-w-6xl mx-auto p-6">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
-          <h2 className="text-lg font-semibold text-red-800 mb-2">
-            Unable to Load Spiritual Journey
-          </h2>
-          <p className="text-red-600 mb-4">
-            We&apos;re having trouble loading your spiritual journey data. Please try refreshing the page.
-          </p>
-          <button 
-            onClick={() => window.location.reload()}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md transition-colors"
-          >
-            Refresh Page
-          </button>
-        </div>
-      </div>
+      <SpiritualJourneyErrorBoundary 
+        error={error instanceof Error ? error.message : 'Unknown error occurred'} 
+      />
     )
   }
 }

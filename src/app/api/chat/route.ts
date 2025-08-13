@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
-import { getDataObject, type DataObjectOptions } from '../../lib/data/supabaseDataObjects';
+import { getDataObject, type DataObjectOptions } from '@/lib/supabase/dataObjects';
 import type { SupabaseClient } from '@supabase/supabase-js';
-import { gatherSpiritualContext, generateBeatriceResponse } from '../../lib/ai/beatrice';
+import { gatherSpiritualContext, generateBeatriceResponse } from '@/modules/ai-chat-with-beatrice/core-chat-interface/db/beatrice';
 
 export async function POST(request: NextRequest) {
     try {
