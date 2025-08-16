@@ -23,15 +23,29 @@ export function AuthGuard({
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) {
-          // Add returnTo parameter if we're on a specific page
-          const currentPath = window.location.pathname;
-          const loginUrl = currentPath !== '/' ? `${redirectTo}?returnTo=${encodeURIComponent(currentPath)}` : redirectTo;
-          router.push(loginUrl);
+        // Small delay to ensure session is established
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        // First check for session
+        const { data: { session } } = await supabase.auth.getSession();
+        if (session?.user) {
+          setIsAuthenticated(true);
+          setIsLoading(false);
           return;
         }
-        setIsAuthenticated(true);
+
+        // If no session, try to get user directly
+        const { data: { user } } = await supabase.auth.getUser();
+        if (user) {
+          setIsAuthenticated(true);
+          setIsLoading(false);
+          return;
+        }
+
+        // No user found, redirect to login
+        const currentPath = window.location.pathname;
+        const loginUrl = currentPath !== '/' ? `${redirectTo}?returnTo=${encodeURIComponent(currentPath)}` : redirectTo;
+        router.push(loginUrl);
       } catch (error) {
         console.error('Auth check failed:', error);
         router.push(redirectTo);

@@ -96,11 +96,18 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
     dispatch({ type: 'SET_ERROR', payload: null });
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        dispatch({ type: 'SET_ERROR', payload: 'Please log in to access your grimoire' });
-        return;
-      }
+      // First check for session
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        // If no session, try to get user directly
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
+          dispatch({ type: 'SET_ERROR', payload: 'Please log in to access your grimoire' });
+          return;
+        }
+      } else {
+        // Use session user
+        const user = session.user;
 
       // Try to get existing vault
       const { data: vault, error: vaultError } = await supabase
@@ -174,9 +181,50 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // Load vault on mount
+  // Load vault on mount with retry mechanism
   useEffect(() => {
-    loadVault();
+    const initializeVault = async () => {
+      let retries = 0;
+      const maxRetries = 3;
+      
+      while (retries < maxRetries) {
+        try {
+          await loadVault();
+          break; // Success, exit retry loop
+        } catch (error) {
+          retries++;
+          if (retries >= maxRetries) {
+            console.error('Failed to load vault after', maxRetries, 'attempts:', error);
+            dispatch({ type: 'SET_ERROR', payload: 'Failed to load grimoire. Please refresh the page.' });
+          } else {
+            // Wait before retrying
+            await new Promise(resolve => setTimeout(resolve, 1000 * retries));
+          }
+        }
+      }
+    };
+
+    initializeVault();
+  }, [loadVault]);
+
+  // Listen for auth state changes
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === 'SIGNED_IN' && session?.user) {
+          // User signed in, reload vault
+          await loadVault();
+        } else if (event === 'SIGNED_OUT') {
+          // User signed out, clear state
+          dispatch({ type: 'SET_VAULT', payload: null });
+          dispatch({ type: 'SET_ENTRIES', payload: [] });
+          dispatch({ type: 'SET_COLLECTIONS', payload: [] });
+          dispatch({ type: 'SET_ERROR', payload: 'Please log in to access your grimoire' });
+        }
+      }
+    );
+
+    return () => subscription.unsubscribe();
   }, [loadVault]);
 
   // Vault operations
