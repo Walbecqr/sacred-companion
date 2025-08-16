@@ -56,7 +56,7 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
   };
 
   // Handle search params (for ActionToolbar)
-  const handleSearchParams = (params: { query?: string }) => {
+  const handleSearchParams = (params: SearchFilters) => {
     if (params.query !== undefined) {
       setSearchQuery(params.query);
       setFilters(prev => ({ ...prev, query: params.query }));
@@ -123,7 +123,7 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
         onExportVault={() => console.log('Export')}
         onSearch={handleSearchParams}
         onToggleFilters={() => setShowFilters(!showFilters)}
-        searchParams={{ query: searchQuery }}
+        searchParams={filters}
         showFilters={showFilters}
       />
 

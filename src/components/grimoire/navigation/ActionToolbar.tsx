@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { EntryType, ENTRY_TYPES, GrimoireSearchParams } from '@/types/grimoire';
+import { EntryType, ENTRY_TYPES, SearchFilters } from '@/types/grimoire';
 
 interface ActionToolbarProps {
   onCreateEntry: (type: EntryType) => void;
@@ -10,8 +10,8 @@ interface ActionToolbarProps {
   onExportVault: () => void;
   onToggleFilters: () => void;
   showFilters: boolean;
-  searchParams: GrimoireSearchParams;
-  onSearch: (params: GrimoireSearchParams) => void;
+  searchParams: SearchFilters;
+  onSearch: (params: SearchFilters) => void;
   className?: string;
 }
 
