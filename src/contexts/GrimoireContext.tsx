@@ -98,7 +98,8 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
     try {
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) {
-        throw new Error('User not authenticated');
+        dispatch({ type: 'SET_ERROR', payload: 'Please log in to access your grimoire' });
+        return;
       }
 
       // Try to get existing vault
