@@ -55,6 +55,14 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
     setFilters(prev => ({ ...prev, query }));
   };
 
+  // Handle search params (for ActionToolbar)
+  const handleSearchParams = (params: { query?: string }) => {
+    if (params.query !== undefined) {
+      setSearchQuery(params.query);
+      setFilters(prev => ({ ...prev, query: params.query }));
+    }
+  };
+
   // Handle filters
   const handleFiltersChange = (newFilters: SearchFilters) => {
     setFilters(newFilters);
@@ -111,11 +119,11 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
       {/* Action Toolbar */}
       <ActionToolbar
         onCreateEntry={handleCreateEntry}
-        onImport={() => console.log('Import')}
-        onExport={() => console.log('Export')}
-        onSearch={handleSearch}
+        onImportContent={() => console.log('Import')}
+        onExportVault={() => console.log('Export')}
+        onSearch={handleSearchParams}
         onToggleFilters={() => setShowFilters(!showFilters)}
-        searchQuery={searchQuery}
+        searchParams={{ query: searchQuery }}
         showFilters={showFilters}
       />
 
