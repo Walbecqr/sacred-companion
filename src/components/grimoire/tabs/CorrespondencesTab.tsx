@@ -22,12 +22,78 @@ export function CorrespondencesTab({
   // Mock correspondence data (in real implementation, this would come from the correspondence API)
   useEffect(() => {
     const mockCategories: CorrespondenceCategory[] = [
-      { id: '1', name: 'Elements', description: 'Earth, Air, Fire, Water', color: '#10b981' },
-      { id: '2', name: 'Planets', description: 'Planetary correspondences', color: '#8b5cf6' },
-      { id: '3', name: 'Zodiac Signs', description: 'Astrological correspondences', color: '#f59e0b' },
-      { id: '4', name: 'Crystals', description: 'Crystal and stone properties', color: '#06b6d4' },
-      { id: '5', name: 'Herbs', description: 'Herbal correspondences', color: '#84cc16' },
-      { id: '6', name: 'Colors', description: 'Color magic and symbolism', color: '#ef4444' },
+      { 
+        id: '1', 
+        name: 'elements', 
+        display_name: 'Elements', 
+        description: 'Earth, Air, Fire, Water', 
+        color_hex: '#10b981',
+        sort_order: 1,
+        item_count: 4,
+        is_active: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      { 
+        id: '2', 
+        name: 'planets', 
+        display_name: 'Planets', 
+        description: 'Planetary correspondences', 
+        color_hex: '#8b5cf6',
+        sort_order: 2,
+        item_count: 7,
+        is_active: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      { 
+        id: '3', 
+        name: 'zodiac', 
+        display_name: 'Zodiac Signs', 
+        description: 'Astrological correspondences', 
+        color_hex: '#f59e0b',
+        sort_order: 3,
+        item_count: 12,
+        is_active: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      { 
+        id: '4', 
+        name: 'crystals', 
+        display_name: 'Crystals', 
+        description: 'Crystal and stone properties', 
+        color_hex: '#06b6d4',
+        sort_order: 4,
+        item_count: 20,
+        is_active: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      { 
+        id: '5', 
+        name: 'herbs', 
+        display_name: 'Herbs', 
+        description: 'Herbal correspondences', 
+        color_hex: '#84cc16',
+        sort_order: 5,
+        item_count: 15,
+        is_active: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      { 
+        id: '6', 
+        name: 'colors', 
+        display_name: 'Colors', 
+        description: 'Color magic and symbolism', 
+        color_hex: '#ef4444',
+        sort_order: 6,
+        item_count: 8,
+        is_active: true,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
     ];
 
     const mockCorrespondences: Correspondence[] = [
@@ -169,7 +235,7 @@ export function CorrespondencesTab({
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     )}
                   >
-                    {category.name}
+                    {category.display_name}
                   </button>
                 ))}
               </div>
@@ -204,9 +270,9 @@ export function CorrespondencesTab({
                           {category && (
                             <span
                               className="px-2 py-1 text-xs font-medium rounded-full text-white"
-                              style={{ backgroundColor: category.color }}
+                              style={{ backgroundColor: category.color_hex }}
                             >
-                              {category.name}
+                              {category.display_name}
                             </span>
                           )}
                         </div>
