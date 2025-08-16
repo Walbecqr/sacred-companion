@@ -27,7 +27,7 @@ const initialState = {
 type GrimoireAction =
   | { type: 'SET_LOADING'; payload: boolean }
   | { type: 'SET_ERROR'; payload: string | null }
-  | { type: 'SET_VAULT'; payload: GrimoireVault }
+  | { type: 'SET_VAULT'; payload: GrimoireVault | null }
   | { type: 'SET_ENTRIES'; payload: GrimoireEntry[] }
   | { type: 'ADD_ENTRY'; payload: GrimoireEntry }
   | { type: 'UPDATE_ENTRY'; payload: GrimoireEntry }
