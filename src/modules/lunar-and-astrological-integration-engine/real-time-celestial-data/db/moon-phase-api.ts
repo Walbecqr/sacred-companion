@@ -199,6 +199,51 @@ export class MoonPhaseService {
     return SPIRITUAL_SIGNIFICANCE[phaseName] || SPIRITUAL_SIGNIFICANCE['New Moon'];
   }
 
+  private getMockMoonPhaseData(): MoonPhaseDisplayData {
+    const now = new Date();
+    const mockData: MoonPhaseDisplayData = {
+      moon: {
+        phase_name: 'Waxing Crescent',
+        illumination: 0.25,
+        age: 3.5,
+        distance: 384400,
+        angular_diameter: 0.5,
+        sun_distance: 149600000,
+        sun_angular_diameter: 0.5
+      },
+      moon_phases: {
+        new_moon: {
+          current: { timestamp: Math.floor((now.getTime() - 3 * 24 * 60 * 60 * 1000) / 1000) },
+          next: { timestamp: Math.floor((now.getTime() + 26 * 24 * 60 * 60 * 1000) / 1000) }
+        },
+        first_quarter: {
+          current: { timestamp: Math.floor((now.getTime() + 4 * 24 * 60 * 60 * 1000) / 1000) },
+          next: { timestamp: Math.floor((now.getTime() + 33 * 24 * 60 * 60 * 1000) / 1000) }
+        },
+        full_moon: {
+          current: { timestamp: Math.floor((now.getTime() + 11 * 24 * 60 * 60 * 1000) / 1000) },
+          next: { timestamp: Math.floor((now.getTime() + 40 * 24 * 60 * 60 * 1000) / 1000) }
+        },
+        last_quarter: {
+          current: { timestamp: Math.floor((now.getTime() + 18 * 24 * 60 * 60 * 1000) / 1000) },
+          next: { timestamp: Math.floor((now.getTime() + 47 * 24 * 60 * 60 * 1000) / 1000) }
+        }
+      },
+      location: {
+        lat: 51.4768,
+        lon: -0.0004,
+        timezone: 'Europe/London'
+      },
+      spiritual_significance: this.getSpiritualSignificance('Waxing Crescent'),
+      cached_at: Date.now(),
+      next_update: Date.now() + CACHE_DURATION
+    };
+    
+    // Cache the mock data
+    this.setCachedData(mockData);
+    return mockData;
+  }
+
   async fetchMoonPhaseData(forceRefresh = false): Promise<MoonPhaseDisplayData | MoonPhaseError> {
     try {
       // Check cache first unless forcing refresh
@@ -211,7 +256,9 @@ export class MoonPhaseService {
 
       // Check if API key is configured
       if (!MOON_PHASE_API_KEY) {
-        throw new Error('Moon Phase API key not configured. Please set NEXT_PUBLIC_MOON_PHASE_API_KEY in your environment variables.');
+        // Return mock data when API key is not configured
+        console.warn('Moon Phase API key not configured. Using mock data.');
+        return this.getMockMoonPhaseData();
       }
 
       // Get user location
