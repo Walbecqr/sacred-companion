@@ -100,48 +100,110 @@ export function CorrespondencesTab({
       {
         id: '1',
         name: 'Earth Element',
-        category_id: '1',
+        category: 'elements',
         description: 'Grounding, stability, fertility, material wealth',
-        properties: ['grounding', 'stability', 'fertility', 'wealth'],
-        associations: ['north', 'winter', 'midnight', 'black', 'brown'],
-        uses: ['grounding rituals', 'prosperity spells', 'fertility magic'],
-        notes: 'Associated with the North direction and winter season',
+        magical_uses: ['grounding rituals', 'prosperity spells', 'fertility magic'],
+        elemental_associations: ['earth'],
+        planetary_associations: ['saturn'],
+        zodiac_associations: ['capricorn', 'taurus'],
+        properties: {
+          grounding: true,
+          stability: true,
+          fertility: true,
+          wealth: true
+        },
+        associations: {
+          direction: 'north',
+          season: 'winter',
+          time: 'midnight',
+          colors: ['black', 'brown']
+        },
+        safety_warnings: {},
+        view_count: 0,
+        popularity_score: 0,
+        is_featured: false,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },
       {
         id: '2',
         name: 'Fire Element',
-        category_id: '1',
+        category: 'elements',
         description: 'Passion, transformation, energy, purification',
-        properties: ['passion', 'transformation', 'energy', 'purification'],
-        associations: ['south', 'summer', 'noon', 'red', 'orange'],
-        uses: ['courage spells', 'purification rituals', 'energy work'],
-        notes: 'Associated with the South direction and summer season',
+        magical_uses: ['courage spells', 'purification rituals', 'energy work'],
+        elemental_associations: ['fire'],
+        planetary_associations: ['mars'],
+        zodiac_associations: ['aries', 'leo'],
+        properties: {
+          passion: true,
+          transformation: true,
+          energy: true,
+          purification: true
+        },
+        associations: {
+          direction: 'south',
+          season: 'summer',
+          time: 'noon',
+          colors: ['red', 'orange']
+        },
+        safety_warnings: {},
+        view_count: 0,
+        popularity_score: 0,
+        is_featured: false,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },
       {
         id: '3',
         name: 'Moon',
-        category_id: '2',
+        category: 'planets',
         description: 'Intuition, emotions, cycles, feminine energy',
-        properties: ['intuition', 'emotions', 'cycles', 'feminine'],
-        associations: ['silver', 'white', 'water', 'night'],
-        uses: ['divination', 'emotional healing', 'lunar rituals'],
-        notes: 'Rules over emotions, intuition, and the subconscious',
+        magical_uses: ['divination', 'emotional healing', 'lunar rituals'],
+        elemental_associations: ['water'],
+        planetary_associations: ['moon'],
+        zodiac_associations: ['cancer'],
+        properties: {
+          intuition: true,
+          emotions: true,
+          cycles: true,
+          feminine: true
+        },
+        associations: {
+          colors: ['silver', 'white'],
+          element: 'water',
+          time: 'night'
+        },
+        safety_warnings: {},
+        view_count: 0,
+        popularity_score: 0,
+        is_featured: false,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },
       {
         id: '4',
         name: 'Amethyst',
-        category_id: '4',
+        category: 'crystals',
         description: 'Spiritual protection, peace, healing',
-        properties: ['protection', 'peace', 'healing', 'spirituality'],
-        associations: ['purple', 'crown chakra', 'spirituality'],
-        uses: ['protection spells', 'meditation', 'healing rituals'],
-        notes: 'Excellent for spiritual work and protection',
+        magical_uses: ['protection spells', 'meditation', 'healing rituals'],
+        elemental_associations: ['air'],
+        planetary_associations: ['jupiter'],
+        zodiac_associations: ['pisces'],
+        properties: {
+          protection: true,
+          peace: true,
+          healing: true,
+          spirituality: true
+        },
+        associations: {
+          colors: ['purple'],
+          chakra: 'crown',
+          element: 'spirituality'
+        },
+        safety_warnings: {},
+        view_count: 0,
+        popularity_score: 0,
+        is_featured: false,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       },
@@ -155,10 +217,10 @@ export function CorrespondencesTab({
   const filteredCorrespondences = correspondences.filter(corr => {
     const matchesSearch = searchQuery === '' ||
       corr.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      corr.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      corr.properties.some(prop => prop.toLowerCase().includes(searchQuery.toLowerCase()));
+      (corr.description && corr.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
+      corr.magical_uses.some(use => use.toLowerCase().includes(searchQuery.toLowerCase()));
 
-    const matchesCategory = selectedCategory === 'all' || corr.category_id === selectedCategory;
+    const matchesCategory = selectedCategory === 'all' || corr.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
   });
@@ -171,8 +233,8 @@ export function CorrespondencesTab({
     setSelectedCategory(categoryId);
   };
 
-  const getCategoryById = (categoryId: string) => {
-    return categories.find(cat => cat.id === categoryId);
+  const getCategoryByName = (categoryName: string) => {
+    return categories.find(cat => cat.name === categoryName);
   };
 
   const handleAddToGrimoire = (correspondence: Correspondence) => {
@@ -255,8 +317,8 @@ export function CorrespondencesTab({
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredCorrespondences.map((correspondence) => {
-                const category = getCategoryById(correspondence.category_id);
+                             {filteredCorrespondences.map((correspondence) => {
+                 const category = getCategoryByName(correspondence.category);
 
                 return (
                   <div
@@ -285,62 +347,71 @@ export function CorrespondencesTab({
                       </div>
                     </div>
 
-                    {/* Properties */}
-                    <div className="mb-4">
-                      <h4 className="text-sm font-medium text-gray-900 mb-2">Properties</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {correspondence.properties.map((property) => (
-                          <span
-                            key={property}
-                            className="px-2 py-1 bg-indigo-50 text-indigo-700 text-xs rounded"
-                          >
-                            {property}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                                         {/* Magical Uses */}
+                     <div className="mb-4">
+                       <h4 className="text-sm font-medium text-gray-900 mb-2">Magical Uses</h4>
+                       <div className="flex flex-wrap gap-1">
+                         {correspondence.magical_uses.map((use) => (
+                           <span
+                             key={use}
+                             className="px-2 py-1 bg-indigo-50 text-indigo-700 text-xs rounded"
+                           >
+                             {use}
+                           </span>
+                         ))}
+                       </div>
+                     </div>
 
-                    {/* Associations */}
-                    {correspondence.associations.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-medium text-gray-900 mb-2">Associations</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {correspondence.associations.map((association) => (
-                            <span
-                              key={association}
-                              className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded"
-                            >
-                              {association}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                                         {/* Elemental Associations */}
+                     {correspondence.elemental_associations.length > 0 && (
+                       <div className="mb-4">
+                         <h4 className="text-sm font-medium text-gray-900 mb-2">Elemental Associations</h4>
+                         <div className="flex flex-wrap gap-1">
+                           {correspondence.elemental_associations.map((element) => (
+                             <span
+                               key={element}
+                               className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded"
+                             >
+                               {element}
+                             </span>
+                           ))}
+                         </div>
+                       </div>
+                     )}
 
-                    {/* Uses */}
-                    {correspondence.uses.length > 0 && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-medium text-gray-900 mb-2">Common Uses</h4>
-                        <ul className="text-sm text-gray-600 space-y-1">
-                          {correspondence.uses.map((use) => (
-                            <li key={use} className="flex items-start space-x-2">
-                              <span className="text-indigo-500 mt-1">•</span>
-                              <span>{use}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                     {/* Planetary Associations */}
+                     {correspondence.planetary_associations.length > 0 && (
+                       <div className="mb-4">
+                         <h4 className="text-sm font-medium text-gray-900 mb-2">Planetary Associations</h4>
+                         <div className="flex flex-wrap gap-1">
+                           {correspondence.planetary_associations.map((planet) => (
+                             <span
+                               key={planet}
+                               className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded"
+                             >
+                               {planet}
+                             </span>
+                           ))}
+                         </div>
+                       </div>
+                     )}
 
-                    {/* Notes */}
-                    {correspondence.notes && (
-                      <div className="mb-4">
-                        <h4 className="text-sm font-medium text-gray-900 mb-2">Notes</h4>
-                        <p className="text-sm text-gray-600 italic">
-                          {correspondence.notes}
-                        </p>
-                      </div>
-                    )}
+                                         {/* Zodiac Associations */}
+                     {correspondence.zodiac_associations.length > 0 && (
+                       <div className="mb-4">
+                         <h4 className="text-sm font-medium text-gray-900 mb-2">Zodiac Associations</h4>
+                         <div className="flex flex-wrap gap-1">
+                           {correspondence.zodiac_associations.map((sign) => (
+                             <span
+                               key={sign}
+                               className="px-2 py-1 bg-yellow-50 text-yellow-700 text-xs rounded"
+                             >
+                               {sign}
+                             </span>
+                           ))}
+                         </div>
+                       </div>
+                     )}
 
                     {/* Actions */}
                     <div className="flex justify-end space-x-2 pt-4 border-t border-gray-100">
