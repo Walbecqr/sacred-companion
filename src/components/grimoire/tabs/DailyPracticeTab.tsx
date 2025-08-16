@@ -138,13 +138,13 @@ export function DailyPracticeTab({
       <div className="bg-white border-b border-gray-200 p-4">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-semibold text-gray-900">Daily Practice</h2>
-                           <input
-                   type="date"
-                   value={selectedDate}
-                   onChange={(e) => handleDateChange(e.target.value)}
-                   className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                   aria-label="Select date for daily practice"
-                 />
+          <input
+            type="date"
+            value={selectedDate}
+            onChange={(e) => handleDateChange(e.target.value)}
+            className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            aria-label="Select date for daily practice"
+          />
         </div>
       </div>
 
@@ -179,7 +179,7 @@ export function DailyPracticeTab({
 
           {/* Practice Suggestions */}
           <div className="bg-white rounded-lg border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Today's Suggestions</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Today&apos;s Suggestions</h3>
             <div className="space-y-4">
               {dailyPractice?.suggestions.map((suggestion) => {
                 const isCompleted = dailyPractice.completed_entries.includes(suggestion.id);
@@ -253,12 +253,12 @@ export function DailyPracticeTab({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">How are you feeling today?</label>
-                                 <select
-                   value={mood}
-                   onChange={(e) => setMood(e.target.value)}
-                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                   aria-label="Select your mood for today"
-                 >
+                <select
+                  value={mood}
+                  onChange={(e) => setMood(e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  aria-label="Select your mood for today"
+                >
                   <option value="">Select mood...</option>
                   <option value="peaceful">😌 Peaceful</option>
                   <option value="energized">⚡ Energized</option>
@@ -277,15 +277,15 @@ export function DailyPracticeTab({
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Energy Level: {energyLevel}/10
                 </label>
-                                 <input
-                   type="range"
-                   min="1"
-                   max="10"
-                   value={energyLevel}
-                   onChange={(e) => setEnergyLevel(Number(e.target.value))}
-                   className="w-full"
-                   aria-label="Set your energy level from 1 to 10"
-                 />
+                <input
+                  type="range"
+                  min="1"
+                  max="10"
+                  value={energyLevel}
+                  onChange={(e) => setEnergyLevel(Number(e.target.value))}
+                  className="w-full"
+                  aria-label="Set your energy level from 1 to 10"
+                />
                 <div className="flex justify-between text-xs text-gray-500 mt-1">
                   <span>Low</span>
                   <span>High</span>
@@ -296,7 +296,7 @@ export function DailyPracticeTab({
             {/* Journal Entry */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Today's Reflection
+                Today&apos;s Reflection
               </label>
               <textarea
                 value={journalEntry}

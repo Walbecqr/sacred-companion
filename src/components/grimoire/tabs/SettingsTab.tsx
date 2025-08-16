@@ -17,7 +17,7 @@ export function SettingsTab({
   const [activeSection, setActiveSection] = useState<'general' | 'appearance' | 'notifications' | 'backup' | 'advanced'>('general');
   const [isSaving, setIsSaving] = useState(false);
 
-  const handleSettingChange = (key: keyof VaultSettings, value: any) => {
+  const handleSettingChange = (key: keyof VaultSettings, value: string | boolean) => {
     setSettings(prev => ({
       ...prev,
       [key]: value,
@@ -100,7 +100,7 @@ export function SettingsTab({
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">General Settings</h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -193,7 +193,7 @@ export function SettingsTab({
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Appearance</h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -257,7 +257,7 @@ export function SettingsTab({
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Notifications</h3>
-                  
+
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div>
@@ -335,7 +335,7 @@ export function SettingsTab({
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Backup & Export</h3>
-                  
+
                   <div className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -392,7 +392,7 @@ export function SettingsTab({
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Advanced Settings</h3>
-                  
+
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <div>

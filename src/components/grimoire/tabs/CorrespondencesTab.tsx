@@ -20,7 +20,6 @@ export function CorrespondencesTab({
   const [searchQuery, setSearchQuery] = useState('');
   const [correspondences, setCorrespondences] = useState<Correspondence[]>([]);
   const [categories, setCategories] = useState<CorrespondenceCategory[]>([]);
-  const [loading, setLoading] = useState(false);
 
   // Mock correspondence data (in real implementation, this would come from the correspondence API)
   useEffect(() => {
@@ -90,13 +89,13 @@ export function CorrespondencesTab({
 
   // Filter correspondences based on search and category
   const filteredCorrespondences = correspondences.filter(corr => {
-    const matchesSearch = searchQuery === '' || 
+    const matchesSearch = searchQuery === '' ||
       corr.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       corr.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       corr.properties.some(prop => prop.toLowerCase().includes(searchQuery.toLowerCase()));
-    
+
     const matchesCategory = selectedCategory === 'all' || corr.category_id === selectedCategory;
-    
+
     return matchesSearch && matchesCategory;
   });
 
@@ -194,7 +193,7 @@ export function CorrespondencesTab({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCorrespondences.map((correspondence) => {
                 const category = getCategoryById(correspondence.category_id);
-                
+
                 return (
                   <div
                     key={correspondence.id}

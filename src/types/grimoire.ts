@@ -10,15 +10,9 @@ export interface GrimoireVault {
   book_name: string;
   owner_name?: string;
   practice: string;
-  style: string;
-  calendar: string;
-  timezone: string;
-  privacy_level: 'private' | 'shared' | 'public';
-  safety_mode: boolean;
-  settings: VaultSettings;
   created_at: string;
   updated_at: string;
-  version: string;
+  settings: VaultSettings;
 }
 
 export interface GrimoireEntry {
@@ -26,30 +20,23 @@ export interface GrimoireEntry {
   vault_id: string;
   type: EntryType;
   title: string;
-  content?: string;
-  steps: EntryStep[];
-  checklist: ChecklistItem[];
-  correspondences: Record<string, any>;
+  content: string;
   tags: string[];
-  linked_entries: string[];
-  sources: Source[];
-  media: MediaItem[];
   visibility: 'private' | 'shared' | 'public';
-  status: EntryStatus;
-  version: number;
-  history: HistoryEntry[];
+  status: 'draft' | 'active' | 'archived';
+  metadata: Record<string, unknown>;
   created_at: string;
   updated_at: string;
 }
 
 export interface GrimoireAttachment {
   id: string;
-  vault_id: string;
-  filename: string;
+  entry_id: string;
+  file_name: string;
   file_type: string;
-  file_url?: string;
-  note?: string;
-  added_at: string;
+  file_size: number;
+  file_url: string;
+  created_at: string;
 }
 
 export interface GrimoireCollection {
@@ -57,8 +44,7 @@ export interface GrimoireCollection {
   vault_id: string;
   name: string;
   description?: string;
-  color: string;
-  icon: string;
+  color?: string;
   entry_ids: string[];
   created_at: string;
   updated_at: string;
@@ -69,77 +55,43 @@ export interface GrimoireEntryHistory {
   entry_id: string;
   version: number;
   title: string;
-  content?: string;
-  steps?: EntryStep[];
-  checklist?: ChecklistItem[];
-  correspondences?: Record<string, any>;
-  tags?: string[];
-  changed_by?: string;
-  change_reason?: string;
+  content: string;
+  tags: string[];
+  metadata: Record<string, unknown>;
   created_at: string;
 }
 
-// Entry Types and Templates
+// Entry Types
 export type EntryType = 
-  | 'spell'
-  | 'ritual'
-  | 'correspondence'
-  | 'herb'
-  | 'crystal'
-  | 'dream'
-  | 'research'
-  | 'reflection'
-  | 'deity'
-  | 'tool'
-  | 'recipe'
-  | 'journal'
+  | 'spell' 
+  | 'ritual' 
+  | 'correspondence' 
+  | 'herb' 
+  | 'crystal' 
+  | 'dream' 
+  | 'research' 
+  | 'reflection' 
+  | 'deity' 
+  | 'tool' 
+  | 'recipe' 
+  | 'journal' 
   | 'note';
 
-export type EntryStatus = 'draft' | 'active' | 'archived' | 'template';
-
-export interface EntryStep {
-  id: string;
-  order: number;
-  title: string;
-  description: string;
-  duration?: number; // in minutes
-  materials?: string[];
-  notes?: string;
-  completed?: boolean;
-}
-
-export interface ChecklistItem {
-  id: string;
-  text: string;
-  completed: boolean;
-  order: number;
-}
-
-export interface Source {
-  id: string;
-  title: string;
-  author?: string;
-  url?: string;
-  type: 'book' | 'article' | 'website' | 'personal' | 'other';
-  notes?: string;
-}
-
-export interface MediaItem {
-  id: string;
-  type: 'image' | 'video' | 'audio' | 'document';
-  url: string;
-  filename: string;
-  description?: string;
-  uploaded_at: string;
-}
-
-export interface HistoryEntry {
-  version: number;
-  changed_at: string;
-  changed_by?: string;
-  change_reason?: string;
-  changes: string[];
-}
+export const ENTRY_TYPES: Record<EntryType, { label: string; icon: string; color: string }> = {
+  spell: { label: 'Spell', icon: '✨', color: 'purple' },
+  ritual: { label: 'Ritual', icon: '🕯️', color: 'indigo' },
+  correspondence: { label: 'Correspondence', icon: '📊', color: 'blue' },
+  herb: { label: 'Herb', icon: '🌿', color: 'green' },
+  crystal: { label: 'Crystal', icon: '💎', color: 'cyan' },
+  dream: { label: 'Dream', icon: '🌙', color: 'purple' },
+  research: { label: 'Research', icon: '📚', color: 'orange' },
+  reflection: { label: 'Reflection', icon: '🤔', color: 'yellow' },
+  deity: { label: 'Deity', icon: '👁️', color: 'red' },
+  tool: { label: 'Tool', icon: '🔮', color: 'gray' },
+  recipe: { label: 'Recipe', icon: '🧪', color: 'pink' },
+  journal: { label: 'Journal', icon: '📖', color: 'brown' },
+  note: { label: 'Note', icon: '📝', color: 'gray' },
+};
 
 // Vault Settings
 export interface VaultSettings {
@@ -152,77 +104,12 @@ export interface VaultSettings {
   safety_warnings: boolean;
   correspondences_integration: boolean;
   lunar_integration: boolean;
-  notifications: NotificationSettings;
-}
-
-export interface NotificationSettings {
-  daily_reminders: boolean;
-  new_suggestions: boolean;
-  backup_reminders: boolean;
-  practice_reminders: boolean;
-}
-
-// Search and Filter Types
-export interface GrimoireSearchParams {
-  query?: string;
-  types?: EntryType[];
-  tags?: string[];
-  status?: EntryStatus[];
-  visibility?: string[];
-  date_from?: string;
-  date_to?: string;
-  sort_by?: 'title' | 'created_at' | 'updated_at' | 'type' | 'status';
-  sort_order?: 'asc' | 'desc';
-  limit?: number;
-  offset?: number;
-}
-
-export interface GrimoireSearchResult {
-  entries: GrimoireEntry[];
-  total_count: number;
-  has_more: boolean;
-  next_offset?: number;
-}
-
-// Entry Templates
-export interface EntryTemplate {
-  type: EntryType;
-  label: string;
-  icon: string;
-  description: string;
-  fields: TemplateField[];
-  default_values: Partial<GrimoireEntry>;
-}
-
-export interface TemplateField {
-  name: string;
-  label: string;
-  type: 'text' | 'textarea' | 'select' | 'multiselect' | 'checkbox' | 'date' | 'number';
-  required: boolean;
-  options?: string[];
-  placeholder?: string;
-  help_text?: string;
-}
-
-// AI Evolution Types
-export interface EvolutionSuggestion {
-  id: string;
-  type: 'connection' | 'improvement' | 'expansion' | 'safety' | 'research';
-  title: string;
-  message: string;
-  priority: 'low' | 'medium' | 'high';
-  entry_id?: string;
-  related_entries?: string[];
-  actions: SuggestionAction[];
-  created_at: string;
-}
-
-export interface SuggestionAction {
-  id: string;
-  label: string;
-  action: string;
-  description: string;
-  icon: string;
+  notifications: {
+    daily_reminders: boolean;
+    new_suggestions: boolean;
+    backup_reminders: boolean;
+    practice_reminders: boolean;
+  };
 }
 
 // Daily Practice Types
@@ -231,9 +118,20 @@ export interface DailyPractice {
   moon_phase?: MoonPhase;
   suggestions: PracticeSuggestion[];
   completed_entries: string[];
-  journal_entry?: string;
-  mood?: string;
-  energy_level?: number;
+  journal_entry: string;
+  mood: string;
+  energy_level: number;
+}
+
+export interface PracticeSuggestion {
+  id: string;
+  type: 'meditation' | 'ritual' | 'study' | 'reflection' | 'correspondence';
+  title: string;
+  description: string;
+  duration: number;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  correspondences?: string[];
+  entry_id?: string;
 }
 
 export interface MoonPhase {
@@ -244,69 +142,99 @@ export interface MoonPhase {
   element: string;
 }
 
-export interface PracticeSuggestion {
-  id: string;
-  type: 'ritual' | 'meditation' | 'study' | 'reflection' | 'correspondence';
-  title: string;
-  description: string;
-  duration: number;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
-  correspondences?: string[];
-  entry_id?: string;
+// Search and Filter Types
+export interface SearchFilters {
+  query?: string;
+  types?: EntryType[];
+  tags?: string[];
+  status?: string[];
+  date_range?: {
+    start: string;
+    end: string;
+  };
+  sort_by?: 'title' | 'created_at' | 'updated_at' | 'type';
+  sort_order?: 'asc' | 'desc';
+}
+
+export interface SearchResult {
+  entry: GrimoireEntry;
+  relevance_score: number;
+  matched_fields: string[];
 }
 
 // Context Types
 export interface GrimoireContextType {
+  // State
   vault: GrimoireVault | null;
   entries: GrimoireEntry[];
   collections: GrimoireCollection[];
-  attachments: GrimoireAttachment[];
   loading: boolean;
   error: string | null;
   
-  // Vault operations
+  // Vault Operations
   createVault: (data: Partial<GrimoireVault>) => Promise<GrimoireVault>;
-  updateVault: (data: Partial<GrimoireVault>) => Promise<void>;
-  loadVault: () => Promise<void>;
+  updateVault: (data: Partial<GrimoireVault>) => Promise<GrimoireVault>;
   
-  // Entry operations
+  // Entry Operations
   createEntry: (type: EntryType, data: Partial<GrimoireEntry>) => Promise<GrimoireEntry>;
-  updateEntry: (id: string, data: Partial<GrimoireEntry>) => Promise<void>;
+  updateEntry: (id: string, data: Partial<GrimoireEntry>) => Promise<GrimoireEntry>;
   deleteEntry: (id: string) => Promise<void>;
-  duplicateEntry: (id: string) => Promise<GrimoireEntry>;
+  getEntry: (id: string) => Promise<GrimoireEntry | null>;
   
-  // Search and filtering
-  searchEntries: (params: GrimoireSearchParams) => Promise<GrimoireSearchResult>;
-  getEntriesByType: (type: EntryType) => GrimoireEntry[];
-  getEntriesByTag: (tag: string) => GrimoireEntry[];
-  
-  // Content ingestion
-  ingestContent: (content: string, type?: EntryType) => Promise<GrimoireEntry[]>;
-  importVault: (data: string) => Promise<void>;
-  exportVault: () => string;
-  
-  // Collections
+  // Collection Operations
   createCollection: (data: Partial<GrimoireCollection>) => Promise<GrimoireCollection>;
-  updateCollection: (id: string, data: Partial<GrimoireCollection>) => Promise<void>;
+  updateCollection: (id: string, data: Partial<GrimoireCollection>) => Promise<GrimoireCollection>;
   deleteCollection: (id: string) => Promise<void>;
   addEntryToCollection: (collectionId: string, entryId: string) => Promise<void>;
   removeEntryFromCollection: (collectionId: string, entryId: string) => Promise<void>;
   
-  // Attachments
-  uploadAttachment: (file: File, note?: string) => Promise<GrimoireAttachment>;
-  deleteAttachment: (id: string) => Promise<void>;
+  // Search and Filter
+  searchEntries: (filters: SearchFilters) => Promise<SearchResult[]>;
+  
+  // Content Ingestion
+  ingestContent: (content: string, type: EntryType) => Promise<GrimoireEntry>;
+  
+  // Import/Export
+  exportVault: () => Promise<string>;
+  importVault: (data: string) => Promise<void>;
   
   // AI Evolution
-  getSuggestions: () => Promise<EvolutionSuggestion[]>;
-  applySuggestion: (suggestionId: string, actionId: string) => Promise<void>;
+  evolveEntry: (entryId: string, suggestions: string[]) => Promise<GrimoireEntry>;
   
   // Daily Practice
   getDailyPractice: (date: string) => Promise<DailyPractice>;
-  updateDailyPractice: (date: string, data: Partial<DailyPractice>) => Promise<void>;
+  saveDailyPractice: (practice: DailyPractice) => Promise<void>;
 }
 
-// UI Component Props
+// Component Props Types
 export interface GrimoireDashboardProps {
+  className?: string;
+}
+
+export interface MainTabsProps {
+  activeTab: string;
+  onTabChange: (tab: string) => void;
+  entryCount: number;
+  collectionCount: number;
+  className?: string;
+}
+
+export interface ActionToolbarProps {
+  onCreateEntry: (type: EntryType) => void;
+  onImport: () => void;
+  onExport: () => void;
+  onSearch: (query: string) => void;
+  onToggleFilters: () => void;
+  searchQuery: string;
+  showFilters: boolean;
+  className?: string;
+}
+
+export interface FilterSidebarProps {
+  filters: SearchFilters;
+  onFiltersChange: (filters: SearchFilters) => void;
+  onClose: () => void;
+  isOpen: boolean;
   className?: string;
 }
 
@@ -316,14 +244,7 @@ export interface EntryCardProps {
   onEdit: (entry: GrimoireEntry) => void;
   onDelete: (entry: GrimoireEntry) => void;
   onDuplicate: (entry: GrimoireEntry) => void;
-  compact?: boolean;
-  className?: string;
-}
-
-export interface EntryViewerProps {
-  entry: GrimoireEntry;
-  onEdit: () => void;
-  onClose: () => void;
+  layout?: 'compact' | 'full';
   className?: string;
 }
 
@@ -336,102 +257,23 @@ export interface EntryEditorProps {
 }
 
 export interface ContentIngestionProps {
-  onIngest: (entries: GrimoireEntry[]) => Promise<void>;
+  onIngest: (content: string, type: EntryType) => Promise<void>;
   onCancel: () => void;
   className?: string;
 }
 
-export interface SearchInterfaceProps {
-  onSearch: (params: GrimoireSearchParams) => Promise<void>;
-  loading?: boolean;
-  className?: string;
-}
-
-export interface FilterPanelProps {
-  filters: GrimoireSearchParams;
-  onFiltersChange: (filters: GrimoireSearchParams) => void;
-  onClearFilters: () => void;
-  className?: string;
-}
-
-// Menu Types
-export interface MenuItem {
-  id: string;
-  label: string;
-  icon: string;
-  action: string;
-  description?: string;
-  disabled?: boolean;
-  children?: MenuItem[];
-}
-
-export interface ContextMenuProps {
-  items: MenuItem[];
-  onSelect: (action: string) => void;
-  onClose: () => void;
-  x: number;
-  y: number;
-}
-
 // Constants
-export const ENTRY_TYPES: Record<EntryType, { label: string; icon: string; description: string }> = {
-  spell: { label: 'Spell', icon: '✨', description: 'Magical spells and incantations' },
-  ritual: { label: 'Ritual', icon: '🕯️', description: 'Ceremonial rituals and practices' },
-  correspondence: { label: 'Correspondence', icon: '📊', description: 'Magical correspondences and associations' },
-  herb: { label: 'Herb Profile', icon: '🌿', description: 'Herbal knowledge and properties' },
-  crystal: { label: 'Crystal Profile', icon: '💎', description: 'Crystal and stone properties' },
-  dream: { label: 'Dream Journal', icon: '🌙', description: 'Dream records and interpretations' },
-  research: { label: 'Research Note', icon: '📝', description: 'Research findings and notes' },
-  reflection: { label: 'Reflection', icon: '🤔', description: 'Personal reflections and insights' },
-  deity: { label: 'Deity Work', icon: '👁️', description: 'Deity-related practices and knowledge' },
-  tool: { label: 'Tool Profile', icon: '🔧', description: 'Magical tools and instruments' },
-  recipe: { label: 'Recipe', icon: '🍯', description: 'Magical recipes and preparations' },
-  journal: { label: 'Journal Entry', icon: '📖', description: 'Personal journal entries' },
-  note: { label: 'Note', icon: '📄', description: 'General notes and observations' }
-};
-
-export const ENTRY_STATUSES: Record<EntryStatus, { label: string; color: string }> = {
-  draft: { label: 'Draft', color: '#6b7280' },
-  active: { label: 'Active', color: '#10b981' },
-  archived: { label: 'Archived', color: '#f59e0b' },
-  template: { label: 'Template', color: '#8b5cf6' }
-};
-
-export const VISIBILITY_LEVELS = [
-  { value: 'private', label: 'Private', icon: '🔒' },
-  { value: 'shared', label: 'Shared', icon: '👥' },
-  { value: 'public', label: 'Public', icon: '🌍' }
-] as const;
+export const GRIMOIRE_CONSTANTS = {
+  MAX_TITLE_LENGTH: 200,
+  MAX_CONTENT_LENGTH: 10000,
+  MAX_TAGS_PER_ENTRY: 20,
+  MAX_TAG_LENGTH: 50,
+  SUPPORTED_FILE_TYPES: ['image/jpeg', 'image/png', 'image/gif', 'application/pdf'],
+  MAX_FILE_SIZE: 10 * 1024 * 1024, // 10MB
+} as const;
 
 // Utility Types
-export type GrimoireInsert = Omit<GrimoireEntry, 'id' | 'created_at' | 'updated_at'>;
-export type GrimoireUpdate = Partial<Omit<GrimoireEntry, 'id' | 'created_at' | 'updated_at'>>;
-
-export type VaultInsert = Omit<GrimoireVault, 'id' | 'created_at' | 'updated_at'>;
-export type VaultUpdate = Partial<Omit<GrimoireVault, 'id' | 'created_at' | 'updated_at'>>;
-
-// Error Types
-export class GrimoireError extends Error {
-  constructor(
-    message: string,
-    public code?: string,
-    public statusCode?: number
-  ) {
-    super(message);
-    this.name = 'GrimoireError';
-  }
-}
-
-// API Response Types
-export interface GrimoireAPIResponse<T = any> {
-  success: boolean;
-  data?: T;
-  error?: string;
-  message?: string;
-}
-
-export interface VaultAPIResponse extends GrimoireAPIResponse<GrimoireVault> {}
-export interface EntriesAPIResponse extends GrimoireAPIResponse<GrimoireEntry[]> {}
-export interface EntryAPIResponse extends GrimoireAPIResponse<GrimoireEntry> {}
-export interface CollectionsAPIResponse extends GrimoireAPIResponse<GrimoireCollection[]> {}
-export interface SearchAPIResponse extends GrimoireAPIResponse<GrimoireSearchResult> {}
+export type EntryStatus = 'draft' | 'active' | 'archived';
+export type EntryVisibility = 'private' | 'shared' | 'public';
+export type PracticeType = 'meditation' | 'ritual' | 'study' | 'reflection' | 'correspondence';
+export type DifficultyLevel = 'beginner' | 'intermediate' | 'advanced';

@@ -1,13 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GrimoireEntry, EntryType, ENTRY_TYPES } from '@/types/grimoire';
 import { cn } from '@/lib/utils';
 
 interface EntryEditorProps {
   entry?: GrimoireEntry;
   type?: EntryType;
-  onSave: (entry: GrimoireEntry) => Promise<void>;
+  onSave: (entry: Partial<GrimoireEntry>) => Promise<void>;
   onCancel: () => void;
   className?: string;
 }
@@ -31,7 +31,7 @@ export function EntryEditor({
 
   const entryType = type || entry?.type || 'note';
 
-  const handleInputChange = (field: string, value: any) => {
+  const handleInputChange = (field: string, value: string | string[]) => {
     setFormData(prev => ({
       ...prev,
       [field]: value,
@@ -58,7 +58,7 @@ export function EntryEditor({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSaving(true);
-    
+
     try {
       const entryData: Partial<GrimoireEntry> = {
         type: entryType,
@@ -69,7 +69,7 @@ export function EntryEditor({
         status: formData.status,
       };
 
-      await onSave(entryData as GrimoireEntry);
+      await onSave(entryData);
     } catch (error) {
       console.error('Failed to save entry:', error);
     } finally {

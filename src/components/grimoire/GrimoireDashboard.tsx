@@ -1,89 +1,73 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useGrimoire } from '@/contexts/GrimoireContext';
-import { GrimoireDashboardProps, EntryType, ENTRY_TYPES } from '@/types/grimoire';
-import { cn } from '@/lib/utils';
-
-// Tab components
+import { MainTabs } from './navigation/MainTabs';
+import { ActionToolbar } from './navigation/ActionToolbar';
+import { FilterSidebar } from './navigation/FilterSidebar';
 import { LibraryTab } from './tabs/LibraryTab';
 import { DailyPracticeTab } from './tabs/DailyPracticeTab';
 import { CorrespondencesTab } from './tabs/CorrespondencesTab';
 import { SettingsTab } from './tabs/SettingsTab';
-
-// Navigation components
-import { MainTabs } from './navigation/MainTabs';
-import { ActionToolbar } from './navigation/ActionToolbar';
-import { FilterSidebar } from './navigation/FilterSidebar';
-
-// Utility components
-import { LoadingSpinner } from '../ui/LoadingSpinner';
-import { ErrorMessage } from '../ui/ErrorMessage';
-
-type TabType = 'library' | 'daily' | 'correspondences' | 'settings';
+import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
+import { ErrorMessage } from '@/components/ui/ErrorMessage';
+import { EntryEditor } from './entries/EntryEditor';
+import { GrimoireDashboardProps, EntryType, SearchFilters } from '@/types/grimoire';
+import { cn } from '@/lib/utils';
 
 export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
-  const {
-    vault,
-    entries,
-    collections,
-    loading,
-    error,
-    createEntry,
-    searchEntries,
-  } = useGrimoire();
-
-  const [activeTab, setActiveTab] = useState<TabType>('library');
+  const { vault, entries, loading, error, createEntry } = useGrimoire();
+  
+  // State for UI
+  const [activeTab, setActiveTab] = useState('library');
   const [showFilters, setShowFilters] = useState(false);
-  const [searchParams, setSearchParams] = useState({
-    query: '',
-    types: [] as EntryType[],
-    tags: [] as string[],
-    status: [] as string[],
-  });
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filters, setFilters] = useState<SearchFilters>({});
+  const [showEntryEditor, setShowEntryEditor] = useState(false);
+  const [editingEntry, setEditingEntry] = useState<EntryType | null>(null);
 
-  // Handle search
-  const handleSearch = async (params: any) => {
-    try {
-      await searchEntries(params);
-    } catch (error) {
-      console.error('Search failed:', error);
-    }
+  // Handle entry creation
+  const handleCreateEntry = (type: EntryType) => {
+    setEditingEntry(type);
+    setShowEntryEditor(true);
   };
 
-  // Handle create entry
-  const handleCreateEntry = async (type: EntryType) => {
+  const handleSaveEntry = async (entryData: any) => {
+    if (!editingEntry) return;
+    
     try {
-      const entry = await createEntry(type, {
-        title: `New ${ENTRY_TYPES[type].label}`,
-        content: '',
-        tags: [],
-      });
-      // Navigate to editor or show success message
-      console.log('Created entry:', entry);
+      await createEntry(editingEntry, entryData);
+      setShowEntryEditor(false);
+      setEditingEntry(null);
     } catch (error) {
       console.error('Failed to create entry:', error);
     }
   };
 
-  // Handle import content
-  const handleImportContent = () => {
-    // Open import modal
-    console.log('Open import modal');
+  const handleCancelEntry = () => {
+    setShowEntryEditor(false);
+    setEditingEntry(null);
   };
 
-  // Handle export vault
-  const handleExportVault = () => {
-    // Trigger vault export
-    console.log('Export vault');
+  // Handle search
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    setFilters(prev => ({ ...prev, query }));
+  };
+
+  // Handle filters
+  const handleFiltersChange = (newFilters: SearchFilters) => {
+    setFilters(newFilters);
   };
 
   // Loading state
-  if (loading && !vault) {
+  if (loading) {
     return (
-      <div className={cn('flex items-center justify-center min-h-screen', className)}>
-        <LoadingSpinner size="lg" />
-        <span className="ml-3 text-lg">Loading your Digital Grimoire...</span>
+      <div className={cn('flex items-center justify-center h-screen', className)}>
+        <div className="text-center">
+          <LoadingSpinner size="xl" className="mb-4" />
+          <p className="text-gray-600">Loading your grimoire...</p>
+        </div>
       </div>
     );
   }
@@ -91,9 +75,9 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
   // Error state
   if (error) {
     return (
-      <div className={cn('flex items-center justify-center min-h-screen', className)}>
-        <ErrorMessage 
-          title="Failed to load Grimoire"
+      <div className={cn('flex items-center justify-center h-screen', className)}>
+        <ErrorMessage
+          title="Failed to Load Grimoire"
           message={error}
           onRetry={() => window.location.reload()}
         />
@@ -104,122 +88,91 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
   // No vault state
   if (!vault) {
     return (
-      <div className={cn('flex items-center justify-center min-h-screen', className)}>
-        <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Welcome to Digital Grimoire</h2>
-          <p className="text-gray-600 mb-6">Your personal magical library is being prepared...</p>
-          <LoadingSpinner size="md" />
-        </div>
+      <div className={cn('flex items-center justify-center h-screen', className)}>
+        <ErrorMessage
+          title="No Grimoire Found"
+          message="Unable to load your grimoire. Please try again."
+          onRetry={() => window.location.reload()}
+        />
       </div>
     );
   }
 
   return (
-    <div className={cn('flex flex-col h-screen bg-gray-50', className)}>
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <h1 className="text-2xl font-bold text-gray-900">
-              {vault.book_name}
-            </h1>
-            <span className="text-sm text-gray-500">
-              {entries.length} entries
-            </span>
-          </div>
-          
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-500">
-              {vault.practice} • {vault.style}
-            </span>
-          </div>
-        </div>
-      </header>
-
+    <div className={cn('h-screen flex flex-col bg-gray-50', className)}>
       {/* Main Navigation */}
-      <MainTabs 
+      <MainTabs
         activeTab={activeTab}
         onTabChange={setActiveTab}
         entryCount={entries.length}
-        collectionCount={collections.length}
+        collectionCount={0} // TODO: Get from context
       />
 
       {/* Action Toolbar */}
       <ActionToolbar
         onCreateEntry={handleCreateEntry}
-        onImportContent={handleImportContent}
-        onExportVault={handleExportVault}
-        onToggleFilters={() => setShowFilters(!showFilters)}
-        showFilters={showFilters}
-        searchParams={searchParams}
+        onImport={() => console.log('Import')}
+        onExport={() => console.log('Export')}
         onSearch={handleSearch}
+        onToggleFilters={() => setShowFilters(!showFilters)}
+        searchQuery={searchQuery}
+        showFilters={showFilters}
       />
 
       {/* Main Content */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex-1 flex overflow-hidden">
         {/* Filter Sidebar */}
         {showFilters && (
           <FilterSidebar
-            filters={searchParams}
-            onFiltersChange={setSearchParams}
-            onClearFilters={() => setSearchParams({
-              query: '',
-              types: [],
-              tags: [],
-              status: [],
-            })}
-            className="w-64 border-r border-gray-200"
+            filters={filters}
+            onFiltersChange={handleFiltersChange}
+            onClose={() => setShowFilters(false)}
+            isOpen={showFilters}
           />
         )}
 
         {/* Tab Content */}
-        <main className="flex-1 overflow-auto">
+        <div className="flex-1 overflow-hidden">
           {activeTab === 'library' && (
             <LibraryTab
+              vault={vault}
               entries={entries}
-              collections={collections}
-              searchParams={searchParams}
+              searchParams={filters}
               onSearch={handleSearch}
-              onCreateEntry={handleCreateEntry}
             />
           )}
-          
           {activeTab === 'daily' && (
             <DailyPracticeTab
               vault={vault}
               entries={entries}
             />
           )}
-          
           {activeTab === 'correspondences' && (
             <CorrespondencesTab
               vault={vault}
               entries={entries}
             />
           )}
-          
           {activeTab === 'settings' && (
             <SettingsTab
               vault={vault}
             />
           )}
-        </main>
+        </div>
       </div>
 
-      {/* Status Bar */}
-      <footer className="bg-white border-t border-gray-200 px-6 py-2">
-        <div className="flex items-center justify-between text-sm text-gray-500">
-          <div className="flex items-center space-x-4">
-            <span>Vault: {vault.version}</span>
-            <span>Last updated: {new Date(vault.updated_at).toLocaleDateString()}</span>
-          </div>
-          
-          <div className="flex items-center space-x-4">
-            <span>Safety Mode: {vault.safety_mode ? 'On' : 'Off'}</span>
-            <span>Privacy: {vault.privacy_level}</span>
+      {/* Entry Editor Modal */}
+      {showEntryEditor && editingEntry && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <EntryEditor
+              type={editingEntry}
+              onSave={handleSaveEntry}
+              onCancel={handleCancelEntry}
+            />
           </div>
         </div>
-      </footer>
+      )}
     </div>
   );
 }
