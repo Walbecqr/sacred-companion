@@ -870,6 +870,8 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `Documentation\Project Documentation\technical spec and architecture plan.pdf` (Unknown)
   - 📁 `Documentation\Requirements/`
     - 📄 `Documentation\Requirements\Correspondence lists.pdf` (Unknown)
+    - 📄 `Documentation\Requirements\Digital Grimoire OS Prmpt and instructions` (Unknown)
+    - 📄 `Documentation\Requirements\Magical Correspondence Reference Guide Prompt` (Unknown)
     - 📄 `Documentation\Requirements\Magick Glossary.pdf` (Unknown)
     - 📄 `Documentation\Requirements\MOON_PHASE_FEATURE.md` (Markdown)
     - 📄 `Documentation\Requirements\Sacred Companion - Epic and Feature List.pdf` (Unknown)
@@ -898,6 +900,26 @@ This file maintains an up-to-date list of project files and structure.
         - 📄 `src\app\api\chat\route.ts` (TypeScript)
           - *Imports:* `next/server`, `next/headers`, `@supabase/auth-helpers-nextjs`, `@/lib/supabase/dataObjects`, `@supabase/supabase-js`, `@/modules/ai-chat-with-beatrice/core-chat-interface/db/beatrice`
           - *Exports:* `POST`
+      - 📁 `src\app\api\correspondences/`
+        - 📁 `src\app\api\correspondences\[id]/`
+          - 📄 `src\app\api\correspondences\[id]\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `GET`
+        - 📁 `src\app\api\correspondences\categories/`
+          - 📄 `src\app\api\correspondences\categories\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `GET`, `POST`
+        - 📁 `src\app\api\correspondences\favorites/`
+          - 📄 `src\app\api\correspondences\favorites\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+            - *Exports:* `GET`, `POST`, `PUT`, `DELETE`
+        - 📁 `src\app\api\correspondences\recent/`
+          - 📄 `src\app\api\correspondences\recent\route.ts` (TypeScript)
+            - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`, `@/types/correspondence`
+            - *Exports:* `GET`, `DELETE`
+        - 📄 `src\app\api\correspondences\route.ts` (TypeScript)
+          - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`, `@/types/correspondence`
+          - *Exports:* `GET`, `POST`
       - 📁 `src\app\api\journaling/`
         - 📁 `src\app\api\journaling\prompts/`
           - 📄 `src\app\api\journaling\prompts\route.ts` (TypeScript)
@@ -951,6 +973,15 @@ This file maintains an up-to-date list of project files and structure.
         - 📄 `src\app\dashboard\chat\page.tsx` (React TypeScript)
           - *Imports:* `react`, `next/link`, `next/navigation`, `@supabase/auth-helpers-nextjs`, `lucide-react`, `@supabase/supabase-js`, `@/modules/ai-chat-with-beatrice/core-chat-interface/components/ChatInterface`
           - *Exports:* `ChatPage`
+      - 📁 `src\app\dashboard\correspondences/`
+        - 📄 `src\app\dashboard\correspondences\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `lucide-react`, `@/types/correspondence`, `../../../components/correspondence/CorrespondenceGrid`, `../../../components/correspondence/CategoryBrowser`, `../../../components/correspondence/CorrespondenceDetail`, `../../../components/correspondence/SearchFilters`
+          - *Exports:* `CorrespondencesPage`
+          - *Routes Consumed:* `/api/correspondences/categories`, `/api/correspondences/favorites`, `/api/correspondences/favorites`, `/api/correspondences`
+      - 📁 `src\app\dashboard\grimoire/`
+        - 📄 `src\app\dashboard\grimoire\page.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/contexts/GrimoireContext`, `@/components/grimoire/GrimoireDashboard`
+          - *Exports:* `GrimoirePage`
       - 📁 `src\app\dashboard\library/`
         - 📄 `src\app\dashboard\library\page.tsx` (React TypeScript)
           - *Imports:* `lucide-react`, `next/link`
@@ -1003,6 +1034,61 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `src\app\page.tsx` (React TypeScript)
       - *Imports:* `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
       - *Exports:* `Home`
+  - 📁 `src\components/`
+    - 📁 `src\components\correspondence/`
+      - 📄 `src\components\correspondence\CategoryBrowser.tsx` (React TypeScript)
+        - *Imports:* `react`, `@/types/correspondence`, `lucide-react`
+      - 📄 `src\components\correspondence\CorrespondenceDetail.tsx` (React TypeScript)
+        - *Imports:* `react`, `lucide-react`, `@/types/correspondence`
+      - 📄 `src\components\correspondence\CorrespondenceGrid.tsx` (React TypeScript)
+        - *Imports:* `react`, `lucide-react`, `@/types/correspondence`
+      - 📄 `src\components\correspondence\SearchFilters.tsx` (React TypeScript)
+        - *Imports:* `react`, `lucide-react`, `@/types/correspondence`
+    - 📁 `src\components\grimoire/`
+      - 📁 `src\components\grimoire\entries/`
+        - 📄 `src\components\grimoire\entries\EntryCard.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/types/grimoire`, `@/lib/utils`
+          - *Exports:* `EntryCard`
+        - 📄 `src\components\grimoire\entries\EntryEditor.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/types/grimoire`, `@/lib/utils`
+          - *Exports:* `EntryEditor`
+      - 📁 `src\components\grimoire\navigation/`
+        - 📄 `src\components\grimoire\navigation\ActionToolbar.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/lib/utils`, `@/types/grimoire`
+          - *Exports:* `ActionToolbar`
+        - 📄 `src\components\grimoire\navigation\FilterSidebar.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/types/grimoire`, `@/lib/utils`
+          - *Exports:* `FilterSidebar`
+        - 📄 `src\components\grimoire\navigation\MainTabs.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/lib/utils`
+          - *Exports:* `MainTabs`
+      - 📁 `src\components\grimoire\tabs/`
+        - 📄 `src\components\grimoire\tabs\CorrespondencesTab.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/types/grimoire`, `@/types/correspondence`, `@/lib/utils`
+          - *Exports:* `CorrespondencesTab`
+        - 📄 `src\components\grimoire\tabs\DailyPracticeTab.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/types/grimoire`, `@/lib/utils`
+          - *Exports:* `DailyPracticeTab`
+        - 📄 `src\components\grimoire\tabs\LibraryTab.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/types/grimoire`, `../entries/EntryCard`, `@/lib/utils`
+          - *Exports:* `LibraryTab`
+        - 📄 `src\components\grimoire\tabs\SettingsTab.tsx` (React TypeScript)
+          - *Imports:* `react`, `@/types/grimoire`, `@/lib/utils`
+          - *Exports:* `SettingsTab`
+      - 📄 `src\components\grimoire\GrimoireDashboard.tsx` (React TypeScript)
+        - *Imports:* `react`, `@/contexts/GrimoireContext`, `./navigation/MainTabs`, `./navigation/ActionToolbar`, `./navigation/FilterSidebar`, `./tabs/LibraryTab`, `./tabs/DailyPracticeTab`, `./tabs/CorrespondencesTab`, `./tabs/SettingsTab`, `@/components/ui/LoadingSpinner`, `@/components/ui/ErrorMessage`, `./entries/EntryEditor`, `@/types/grimoire`, `@/lib/utils`
+        - *Exports:* `GrimoireDashboard`
+    - 📁 `src\components\ui/`
+      - 📄 `src\components\ui\ErrorMessage.tsx` (React TypeScript)
+        - *Imports:* `react`, `@/lib/utils`
+        - *Exports:* `ErrorMessage`
+      - 📄 `src\components\ui\LoadingSpinner.tsx` (React TypeScript)
+        - *Imports:* `react`, `@/lib/utils`
+        - *Exports:* `LoadingSpinner`
+  - 📁 `src\contexts/`
+    - 📄 `src\contexts\GrimoireContext.tsx` (React TypeScript)
+      - *Imports:* `react`, `@/lib/supabase`, `@/types/grimoire`
+      - *Exports:* `GrimoireProvider`, `useGrimoire`
   - 📁 `src\lib/`
     - 📁 `src\lib\supabase/`
       - 📄 `src\lib\supabase\dataObjects.ts` (TypeScript)
@@ -1010,6 +1096,9 @@ This file maintains an up-to-date list of project files and structure.
         - *Exports:* `getDataObject`
       - 📄 `src\lib\supabase\index.ts` (TypeScript)
         - *Imports:* `@supabase/supabase-js`
+    - 📄 `src\lib\utils.ts` (TypeScript)
+      - *Imports:* `clsx`, `tailwind-merge`
+      - *Exports:* `cn`
   - 📁 `src\modules/`
     - 📁 `src\modules\advanced-journaling-/`
     - 📁 `src\modules\ai-chat-with-beatrice/`
@@ -1144,6 +1233,7 @@ This file maintains an up-to-date list of project files and structure.
         - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\db/`
         - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\hooks/`
         - 📁 `src\modules\digital-grimoire\version-control-for-template-modifications\types.ts/`
+      - 📄 `src\modules\digital-grimoire\README.md` (Markdown)
     - 📁 `src\modules\enhanced-spiritual-communication-tracking/`
       - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking/`
         - 📁 `src\modules\enhanced-spiritual-communication-tracking\ancestral-veneration-tracking\actions/`
@@ -1307,6 +1397,10 @@ This file maintains an up-to-date list of project files and structure.
       - 📁 `src\modules\spiritual-profile\hooks/`
       - 📁 `src\modules\spiritual-profile\ui/`
   - 📁 `src\types/`
+    - 📄 `src\types\correspondence.ts` (TypeScript)
+      - *Exports:* `CorrespondenceError`
+    - 📄 `src\types\grimoire.ts` (TypeScript)
+      - *Imports:* `./correspondence`
   - 📄 `src\middleware.ts` (TypeScript)
     - *Imports:* `@supabase/auth-helpers-nextjs`, `next/server`, `next/server`
     - *Exports:* `middleware`
@@ -1323,6 +1417,9 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `supabase\.temp\storage-version` (Unknown)
   - 📁 `supabase\migrations/`
     - 📄 `supabase\migrations\20250114_oracle_system.sql` (Unknown)
+    - 📄 `supabase\migrations\20250115_digital_grimoire.sql` (Unknown)
+    - 📄 `supabase\migrations\20250202_correspondence_data_seed.sql` (Unknown)
+    - 📄 `supabase\migrations\20250202_correspondence_enhancement.sql` (Unknown)
     - 📄 `supabase\migrations\20250811_add_spiritual_profile_fields.sql` (Unknown)
   - 📄 `supabase\config.toml` (Unknown)
 - 📄 `.env.example` (Unknown)
@@ -1340,4 +1437,4 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `tsconfig.json` (JSON)
 
 ---
-Last updated: 2025-08-13T20:28:25.757Z
+Last updated: 2025-08-16T17:39:54.577Z
