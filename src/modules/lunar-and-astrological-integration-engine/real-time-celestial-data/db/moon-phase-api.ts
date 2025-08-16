@@ -202,37 +202,121 @@ export class MoonPhaseService {
   private getMockMoonPhaseData(): MoonPhaseDisplayData {
     const now = new Date();
     const mockData: MoonPhaseDisplayData = {
-      moon: {
-        phase_name: 'Waxing Crescent',
-        illumination: 0.25,
-        age: 3.5,
-        distance: 384400,
-        angular_diameter: 0.5,
+      timestamp: Math.floor(now.getTime() / 1000),
+      datestamp: now.toISOString(),
+      sun: {
+        sunrise: 6,
+        sunrise_timestamp: '06:00:00',
+        sunset: 18,
+        sunset_timestamp: '18:00:00',
+        solar_noon: '12:00:00',
+        day_length: '12:00:00',
+        sun_altitude: 45,
         sun_distance: 149600000,
-        sun_angular_diameter: 0.5
+        sun_azimuth: 180,
+        next_solar_eclipse: {
+          timestamp: Math.floor((now.getTime() + 365 * 24 * 60 * 60 * 1000) / 1000),
+          datestamp: new Date(now.getTime() + 365 * 24 * 60 * 60 * 1000).toISOString(),
+          type: 'Partial',
+          visibility_regions: 'North America'
+        }
+      },
+      moon: {
+        phase: 0.25,
+        phase_name: 'Waxing Crescent',
+        stage: 'waxing',
+        illumination: '25%',
+        age_days: 3.5,
+        lunar_cycle: 'Day 3',
+        emoji: '🌒',
+        zodiac: {
+          sun_sign: 'Aries',
+          moon_sign: 'Gemini'
+        },
+        moonrise: '10:00:00',
+        moonrise_timestamp: Math.floor((now.getTime() + 4 * 60 * 60 * 1000) / 1000),
+        moonset: '22:00:00',
+        moonset_timestamp: Math.floor((now.getTime() + 16 * 60 * 60 * 1000) / 1000),
+        moon_altitude: 30,
+        moon_distance: 384400,
+        moon_azimuth: 90,
+        moon_parallactic_angle: 0,
+        next_lunar_eclipse: {
+          timestamp: Math.floor((now.getTime() + 180 * 24 * 60 * 60 * 1000) / 1000),
+          datestamp: new Date(now.getTime() + 180 * 24 * 60 * 60 * 1000).toISOString(),
+          type: 'Total',
+          visibility_regions: 'Europe, Africa'
+        }
       },
       moon_phases: {
         new_moon: {
-          current: { timestamp: Math.floor((now.getTime() - 3 * 24 * 60 * 60 * 1000) / 1000) },
-          next: { timestamp: Math.floor((now.getTime() + 26 * 24 * 60 * 60 * 1000) / 1000) }
+          last: {
+            timestamp: Math.floor((now.getTime() - 3 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ago: 3,
+            name: 'New Moon',
+            description: 'New beginnings and intention setting'
+          },
+          next: {
+            timestamp: Math.floor((now.getTime() + 26 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() + 26 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ahead: 26,
+            name: 'New Moon',
+            description: 'New beginnings and intention setting'
+          }
         },
         first_quarter: {
-          current: { timestamp: Math.floor((now.getTime() + 4 * 24 * 60 * 60 * 1000) / 1000) },
-          next: { timestamp: Math.floor((now.getTime() + 33 * 24 * 60 * 60 * 1000) / 1000) }
+          last: {
+            timestamp: Math.floor((now.getTime() - 18 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() - 18 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ago: 18,
+            name: 'First Quarter',
+            description: 'Action and decision making'
+          },
+          next: {
+            timestamp: Math.floor((now.getTime() + 4 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() + 4 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ahead: 4,
+            name: 'First Quarter',
+            description: 'Action and decision making'
+          }
         },
         full_moon: {
-          current: { timestamp: Math.floor((now.getTime() + 11 * 24 * 60 * 60 * 1000) / 1000) },
-          next: { timestamp: Math.floor((now.getTime() + 40 * 24 * 60 * 60 * 1000) / 1000) }
+          last: {
+            timestamp: Math.floor((now.getTime() - 11 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() - 11 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ago: 11,
+            name: 'Full Moon',
+            description: 'Manifestation and completion'
+          },
+          next: {
+            timestamp: Math.floor((now.getTime() + 11 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() + 11 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ahead: 11,
+            name: 'Full Moon',
+            description: 'Manifestation and completion'
+          }
         },
         last_quarter: {
-          current: { timestamp: Math.floor((now.getTime() + 18 * 24 * 60 * 60 * 1000) / 1000) },
-          next: { timestamp: Math.floor((now.getTime() + 47 * 24 * 60 * 60 * 1000) / 1000) }
+          last: {
+            timestamp: Math.floor((now.getTime() - 18 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() - 18 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ago: 18,
+            name: 'Last Quarter',
+            description: 'Release and letting go'
+          },
+          next: {
+            timestamp: Math.floor((now.getTime() + 18 * 24 * 60 * 60 * 1000) / 1000),
+            datestamp: new Date(now.getTime() + 18 * 24 * 60 * 60 * 1000).toISOString(),
+            days_ahead: 18,
+            name: 'Last Quarter',
+            description: 'Release and letting go'
+          }
         }
       },
       location: {
-        lat: 51.4768,
-        lon: -0.0004,
-        timezone: 'Europe/London'
+        latitude: 51.4768,
+        longitude: -0.0004
       },
       spiritual_significance: this.getSpiritualSignificance('Waxing Crescent'),
       cached_at: Date.now(),
