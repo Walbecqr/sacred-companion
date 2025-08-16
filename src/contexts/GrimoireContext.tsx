@@ -109,68 +109,69 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
         // Use session user
         const user = session.user;
 
-      // Try to get existing vault
-      const { data: vault, error: vaultError } = await supabase
-        .from('grimoire_vaults')
-        .select('*')
-        .eq('user_id', user.id)
-        .single();
-
-      if (vaultError && vaultError.code !== 'PGRST116') {
-        throw vaultError;
-      }
-
-      if (vault) {
-        dispatch({ type: 'SET_VAULT', payload: vault });
-        
-        // Load entries and collections
-        const [entriesResponse, collectionsResponse] = await Promise.all([
-          supabase.from('grimoire_entries').select('*').eq('vault_id', vault.id),
-          supabase.from('grimoire_collections').select('*').eq('vault_id', vault.id)
-        ]);
-
-        if (entriesResponse.data) {
-          dispatch({ type: 'SET_ENTRIES', payload: entriesResponse.data });
-        }
-        if (collectionsResponse.data) {
-          dispatch({ type: 'SET_COLLECTIONS', payload: collectionsResponse.data });
-        }
-      } else {
-        // Create new vault
-        const defaultSettings: VaultSettings = {
-          theme: 'light',
-          layout: 'grid',
-          default_view: 'library',
-          auto_save: true,
-          backup_frequency: 'weekly',
-          ai_suggestions: true,
-          safety_warnings: true,
-          correspondences_integration: true,
-          lunar_integration: true,
-          notifications: {
-            daily_reminders: true,
-            new_suggestions: true,
-            backup_reminders: true,
-            practice_reminders: true,
-          },
-        };
-
-        const newVault: Partial<GrimoireVault> = {
-          user_id: user.id,
-          book_name: 'My Grimoire',
-          practice: 'Eclectic',
-          settings: defaultSettings,
-        };
-
-        const { data: createdVault, error: createError } = await supabase
+        // Try to get existing vault
+        const { data: vault, error: vaultError } = await supabase
           .from('grimoire_vaults')
-          .insert(newVault)
-          .select()
+          .select('*')
+          .eq('user_id', user.id)
           .single();
 
-        if (createError) throw createError;
-        if (createdVault) {
-          dispatch({ type: 'SET_VAULT', payload: createdVault });
+        if (vaultError && vaultError.code !== 'PGRST116') {
+          throw vaultError;
+        }
+
+        if (vault) {
+          dispatch({ type: 'SET_VAULT', payload: vault });
+          
+          // Load entries and collections
+          const [entriesResponse, collectionsResponse] = await Promise.all([
+            supabase.from('grimoire_entries').select('*').eq('vault_id', vault.id),
+            supabase.from('grimoire_collections').select('*').eq('vault_id', vault.id)
+          ]);
+
+          if (entriesResponse.data) {
+            dispatch({ type: 'SET_ENTRIES', payload: entriesResponse.data });
+          }
+          if (collectionsResponse.data) {
+            dispatch({ type: 'SET_COLLECTIONS', payload: collectionsResponse.data });
+          }
+        } else {
+          // Create new vault
+          const defaultSettings: VaultSettings = {
+            theme: 'light',
+            layout: 'grid',
+            default_view: 'library',
+            auto_save: true,
+            backup_frequency: 'weekly',
+            ai_suggestions: true,
+            safety_warnings: true,
+            correspondences_integration: true,
+            lunar_integration: true,
+            notifications: {
+              daily_reminders: true,
+              new_suggestions: true,
+              backup_reminders: true,
+              practice_reminders: true,
+            },
+          };
+
+          const newVault: Partial<GrimoireVault> = {
+            user_id: user.id,
+            book_name: 'My Grimoire',
+            practice: 'Eclectic',
+            settings: defaultSettings,
+          };
+
+          const { data: createdVault, error: createError } = await supabase
+            .from('grimoire_vaults')
+            .insert(newVault)
+            .select()
+            .single();
+
+          if (createError) throw createError;
+          if (createdVault) {
+            dispatch({ type: 'SET_VAULT', payload: createdVault });
+          }
         }
       }
     } catch (error) {
