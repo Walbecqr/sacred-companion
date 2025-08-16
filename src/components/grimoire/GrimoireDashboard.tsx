@@ -19,7 +19,7 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
   const { vault, entries, loading, error, createEntry } = useGrimoire();
   
   // State for UI
-  const [activeTab, setActiveTab] = useState('library');
+  const [activeTab, setActiveTab] = useState<'library' | 'daily' | 'correspondences' | 'settings'>('library');
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState<SearchFilters>({});
