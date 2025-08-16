@@ -11,7 +11,6 @@ interface DailyPracticeTabProps {
 }
 
 export function DailyPracticeTab({
-  vault,
   entries,
   className,
 }: DailyPracticeTabProps) {
@@ -106,30 +105,6 @@ export function DailyPracticeTab({
       // Here you would save to the database
       console.log('Saving daily practice:', updatedPractice);
     }
-  };
-
-  const getEnergyLevelColor = (level: number) => {
-    if (level <= 2) return 'bg-red-500';
-    if (level <= 4) return 'bg-yellow-500';
-    if (level <= 6) return 'bg-blue-500';
-    if (level <= 8) return 'bg-green-500';
-    return 'bg-purple-500';
-  };
-
-  const getMoodEmoji = (mood: string) => {
-    const moodMap: Record<string, string> = {
-      'peaceful': '😌',
-      'energized': '⚡',
-      'contemplative': '🤔',
-      'grateful': '🙏',
-      'creative': '🎨',
-      'focused': '🎯',
-      'tired': '😴',
-      'stressed': '😰',
-      'joyful': '😊',
-      'mystical': '✨',
-    };
-    return moodMap[mood] || '😐';
   };
 
   return (

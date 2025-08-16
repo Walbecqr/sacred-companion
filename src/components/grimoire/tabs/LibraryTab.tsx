@@ -14,7 +14,6 @@ interface LibraryTabProps {
 }
 
 export function LibraryTab({
-  vault,
   entries,
   searchParams,
   onSearch,

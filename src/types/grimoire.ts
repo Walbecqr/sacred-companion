@@ -1,8 +1,6 @@
 // Digital Grimoire Module Types
 // TypeScript interfaces and types for the Digital Grimoire system
 
-import { Correspondence } from './correspondence';
-
 // Core Grimoire Types
 export interface GrimoireVault {
   id: string;

@@ -12,7 +12,7 @@ import { SettingsTab } from './tabs/SettingsTab';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { ErrorMessage } from '@/components/ui/ErrorMessage';
 import { EntryEditor } from './entries/EntryEditor';
-import { GrimoireDashboardProps, EntryType, SearchFilters } from '@/types/grimoire';
+import { GrimoireDashboardProps, EntryType, SearchFilters, GrimoireEntry } from '@/types/grimoire';
 import { cn } from '@/lib/utils';
 
 export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
@@ -32,7 +32,7 @@ export function GrimoireDashboard({ className }: GrimoireDashboardProps) {
     setShowEntryEditor(true);
   };
 
-  const handleSaveEntry = async (entryData: any) => {
+  const handleSaveEntry = async (entryData: Partial<GrimoireEntry>) => {
     if (!editingEntry) return;
     
     try {

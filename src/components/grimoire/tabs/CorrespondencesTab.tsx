@@ -12,8 +12,6 @@ interface CorrespondencesTabProps {
 }
 
 export function CorrespondencesTab({
-  vault,
-  entries,
   className,
 }: CorrespondencesTabProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');

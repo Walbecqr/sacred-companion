@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { GrimoireEntry, ENTRY_TYPES, ENTRY_STATUSES } from '@/types/grimoire';
+import { GrimoireEntry, ENTRY_TYPES } from '@/types/grimoire';
 import { cn } from '@/lib/utils';
 
 interface EntryCardProps {
@@ -10,7 +10,7 @@ interface EntryCardProps {
   onEdit: (entry: GrimoireEntry) => void;
   onDelete: (entry: GrimoireEntry) => void;
   onDuplicate: (entry: GrimoireEntry) => void;
-  compact?: boolean;
+  layout?: 'compact' | 'full';
   className?: string;
 }
 
@@ -20,14 +20,32 @@ export function EntryCard({
   onEdit,
   onDelete,
   onDuplicate,
-  compact = false,
+  layout = 'full',
   className,
 }: EntryCardProps) {
   const [showContextMenu, setShowContextMenu] = useState(false);
   const [contextMenuPosition, setContextMenuPosition] = useState({ x: 0, y: 0 });
 
   const entryType = ENTRY_TYPES[entry.type];
-  const entryStatus = ENTRY_STATUSES[entry.status];
+
+  // Get status color
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'draft': return '#6b7280';
+      case 'active': return '#10b981';
+      case 'archived': return '#f59e0b';
+      default: return '#6b7280';
+    }
+  };
+
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case 'draft': return 'Draft';
+      case 'active': return 'Active';
+      case 'archived': return 'Archived';
+      default: return 'Draft';
+    }
+  };
 
   // Handle right-click context menu
   const handleContextMenu = (e: React.MouseEvent) => {
@@ -75,7 +93,7 @@ export function EntryCard({
     return date.toLocaleDateString();
   };
 
-  if (compact) {
+  if (layout === 'compact') {
     return (
       <div className={cn('relative group', className)}>
         <div
@@ -94,7 +112,7 @@ export function EntryCard({
               </h3>
               <span
                 className="inline-block w-2 h-2 rounded-full flex-shrink-0"
-                style={{ backgroundColor: entryStatus.color }}
+                style={{ backgroundColor: getStatusColor(entry.status) }}
               />
             </div>
             
@@ -195,8 +213,8 @@ export function EntryCard({
           <div className="flex items-center space-x-1">
             <span
               className="inline-block w-3 h-3 rounded-full"
-              style={{ backgroundColor: entryStatus.color }}
-              title={entryStatus.label}
+              style={{ backgroundColor: getStatusColor(entry.status) }}
+              title={getStatusLabel(entry.status)}
             />
             <div className="opacity-0 group-hover:opacity-100 transition-opacity">
               <button
@@ -244,25 +262,12 @@ export function EntryCard({
         {/* Footer */}
         <div className="flex items-center justify-between text-xs text-gray-500">
           <div className="flex items-center space-x-2">
-            <span>v{entry.version}</span>
+            <span className="capitalize">{entry.status}</span>
             {entry.visibility !== 'private' && (
               <>
                 <span>•</span>
                 <span className="capitalize">{entry.visibility}</span>
               </>
-            )}
-          </div>
-          
-          <div className="flex items-center space-x-1">
-            {entry.linked_entries.length > 0 && (
-              <span title={`${entry.linked_entries.length} linked entries`}>
-                🔗 {entry.linked_entries.length}
-              </span>
-            )}
-            {entry.media.length > 0 && (
-              <span title={`${entry.media.length} media files`}>
-                📎 {entry.media.length}
-              </span>
             )}
           </div>
         </div>
