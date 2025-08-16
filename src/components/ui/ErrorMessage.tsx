@@ -12,14 +12,14 @@ interface ErrorMessageProps {
 
 export function ErrorMessage({ title, message, onRetry, className }: ErrorMessageProps) {
   return (
-    <div className={cn('text-center', className)}>
-      <div className="text-4xl mb-4">⚠️</div>
-      <h2 className="text-xl font-semibold text-gray-900 mb-2">{title}</h2>
-      <p className="text-gray-600 mb-4">{message}</p>
+    <div className={cn('text-center p-8', className)}>
+      <div className="text-6xl mb-4">⚠️</div>
+      <h3 className="text-xl font-semibold text-gray-900 mb-2">{title}</h3>
+      <p className="text-gray-600 mb-6 max-w-md mx-auto">{message}</p>
       {onRetry && (
         <button
           onClick={onRetry}
-          className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors"
         >
           Try Again
         </button>
