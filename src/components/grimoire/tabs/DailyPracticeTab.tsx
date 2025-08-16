@@ -68,7 +68,7 @@ export function DailyPracticeTab({
 
     const practice: DailyPractice = {
       date: selectedDate,
-      moon_phase: moonPhase,
+      moon_phase: moonPhase || undefined,
       suggestions,
       completed_entries: [],
       journal_entry: journalEntry,
