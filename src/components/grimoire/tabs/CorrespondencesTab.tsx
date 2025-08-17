@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { GrimoireVault, GrimoireEntry } from '@/types/grimoire';
 import { Correspondence, CorrespondenceCategory } from '@/types/correspondence';
+import { useGrimoire } from '@/contexts/GrimoireContext';
 import { cn } from '@/lib/utils';
 
 interface CorrespondencesTabProps {
@@ -14,216 +15,72 @@ interface CorrespondencesTabProps {
 export function CorrespondencesTab({
   className,
 }: CorrespondencesTabProps) {
+  const { createEntry } = useGrimoire();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [correspondences, setCorrespondences] = useState<Correspondence[]>([]);
   const [categories, setCategories] = useState<CorrespondenceCategory[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Mock correspondence data (in real implementation, this would come from the correspondence API)
+  // Fetch correspondences from the API
   useEffect(() => {
-    const mockCategories: CorrespondenceCategory[] = [
-      { 
-        id: '1', 
-        name: 'elements', 
-        display_name: 'Elements', 
-        description: 'Earth, Air, Fire, Water', 
-        color_hex: '#10b981',
-        sort_order: 1,
-        item_count: 4,
-        is_active: true,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      },
-      { 
-        id: '2', 
-        name: 'planets', 
-        display_name: 'Planets', 
-        description: 'Planetary correspondences', 
-        color_hex: '#8b5cf6',
-        sort_order: 2,
-        item_count: 7,
-        is_active: true,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      },
-      { 
-        id: '3', 
-        name: 'zodiac', 
-        display_name: 'Zodiac Signs', 
-        description: 'Astrological correspondences', 
-        color_hex: '#f59e0b',
-        sort_order: 3,
-        item_count: 12,
-        is_active: true,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      },
-      { 
-        id: '4', 
-        name: 'crystals', 
-        display_name: 'Crystals', 
-        description: 'Crystal and stone properties', 
-        color_hex: '#06b6d4',
-        sort_order: 4,
-        item_count: 20,
-        is_active: true,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      },
-      { 
-        id: '5', 
-        name: 'herbs', 
-        display_name: 'Herbs', 
-        description: 'Herbal correspondences', 
-        color_hex: '#84cc16',
-        sort_order: 5,
-        item_count: 15,
-        is_active: true,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      },
-      { 
-        id: '6', 
-        name: 'colors', 
-        display_name: 'Colors', 
-        description: 'Color magic and symbolism', 
-        color_hex: '#ef4444',
-        sort_order: 6,
-        item_count: 8,
-        is_active: true,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-      },
-    ];
+    const fetchCorrespondences = async () => {
+      try {
+        setLoading(true);
+        setError(null);
 
-    const mockCorrespondences: Correspondence[] = [
-      {
-        id: '1',
-        name: 'Earth Element',
-        category: 'elements',
-        description: 'Grounding, stability, fertility, material wealth',
-        magical_uses: ['grounding rituals', 'prosperity spells', 'fertility magic'],
-        elemental_associations: ['earth'],
-        planetary_associations: ['saturn'],
-        zodiac_associations: ['capricorn', 'taurus'],
-        properties: {
-          grounding: true,
-          stability: true,
-          fertility: true,
-          wealth: true
-        },
-        associations: {
-          direction: 'north',
-          season: 'winter',
-          time: 'midnight',
-          colors: ['black', 'brown']
-        },
-        safety_warnings: {},
-        view_count: 0,
-        popularity_score: 0,
-        is_featured: false,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-      {
-        id: '2',
-        name: 'Fire Element',
-        category: 'elements',
-        description: 'Passion, transformation, energy, purification',
-        magical_uses: ['courage spells', 'purification rituals', 'energy work'],
-        elemental_associations: ['fire'],
-        planetary_associations: ['mars'],
-        zodiac_associations: ['aries', 'leo'],
-        properties: {
-          passion: true,
-          transformation: true,
-          energy: true,
-          purification: true
-        },
-        associations: {
-          direction: 'south',
-          season: 'summer',
-          time: 'noon',
-          colors: ['red', 'orange']
-        },
-        safety_warnings: {},
-        view_count: 0,
-        popularity_score: 0,
-        is_featured: false,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-      {
-        id: '3',
-        name: 'Moon',
-        category: 'planets',
-        description: 'Intuition, emotions, cycles, feminine energy',
-        magical_uses: ['divination', 'emotional healing', 'lunar rituals'],
-        elemental_associations: ['water'],
-        planetary_associations: ['moon'],
-        zodiac_associations: ['cancer'],
-        properties: {
-          intuition: true,
-          emotions: true,
-          cycles: true,
-          feminine: true
-        },
-        associations: {
-          colors: ['silver', 'white'],
-          element: 'water',
-          time: 'night'
-        },
-        safety_warnings: {},
-        view_count: 0,
-        popularity_score: 0,
-        is_featured: false,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-      {
-        id: '4',
-        name: 'Amethyst',
-        category: 'crystals',
-        description: 'Spiritual protection, peace, healing',
-        magical_uses: ['protection spells', 'meditation', 'healing rituals'],
-        elemental_associations: ['air'],
-        planetary_associations: ['jupiter'],
-        zodiac_associations: ['pisces'],
-        properties: {
-          protection: true,
-          peace: true,
-          healing: true,
-          spirituality: true
-        },
-        associations: {
-          colors: ['purple'],
-          chakra: 'crown',
-          element: 'spirituality'
-        },
-        safety_warnings: {},
-        view_count: 0,
-        popularity_score: 0,
-        is_featured: false,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      },
-    ];
+        // Build query parameters
+        const params = new URLSearchParams();
+        if (searchQuery) params.append('query', searchQuery);
+        if (selectedCategory !== 'all') params.append('category', selectedCategory);
+        params.append('limit', '50');
 
-    setCategories(mockCategories);
-    setCorrespondences(mockCorrespondences);
+        const response = await fetch(`/api/correspondences?${params.toString()}`);
+        const result = await response.json();
+
+        if (result.success) {
+          setCorrespondences(result.data.data || []);
+        } else {
+          setError(result.error || 'Failed to fetch correspondences');
+        }
+      } catch (err) {
+        console.error('Error fetching correspondences:', err);
+        setError('Failed to load correspondences');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCorrespondences();
+  }, [searchQuery, selectedCategory]);
+
+  // Fetch categories
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('/api/correspondences/categories');
+        const result = await response.json();
+
+        if (result.success) {
+          setCategories(result.data || []);
+        }
+      } catch (err) {
+        console.error('Error fetching categories:', err);
+        // Fallback to basic categories if API fails
+        setCategories([
+          { id: 'elements', name: 'elements', display_name: 'Elements', description: 'Earth, Air, Fire, Water', color_hex: '#10b981', sort_order: 1, item_count: 0, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+          { id: 'planets', name: 'planets', display_name: 'Planets', description: 'Planetary correspondences', color_hex: '#8b5cf6', sort_order: 2, item_count: 0, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+          { id: 'zodiac', name: 'zodiac', display_name: 'Zodiac Signs', description: 'Astrological correspondences', color_hex: '#f59e0b', sort_order: 3, item_count: 0, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+          { id: 'crystals', name: 'crystals', display_name: 'Crystals', description: 'Crystal and stone properties', color_hex: '#06b6d4', sort_order: 4, item_count: 0, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+          { id: 'herbs', name: 'herbs', display_name: 'Herbs', description: 'Herbal correspondences', color_hex: '#84cc16', sort_order: 5, item_count: 0, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+          { id: 'colors', name: 'colors', display_name: 'Colors', description: 'Color magic and symbolism', color_hex: '#ef4444', sort_order: 6, item_count: 0, is_active: true, created_at: new Date().toISOString(), updated_at: new Date().toISOString() },
+        ]);
+      }
+    };
+
+    fetchCategories();
   }, []);
-
-  // Filter correspondences based on search and category
-  const filteredCorrespondences = correspondences.filter(corr => {
-    const matchesSearch = searchQuery === '' ||
-      corr.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (corr.description && corr.description.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      corr.magical_uses.some(use => use.toLowerCase().includes(searchQuery.toLowerCase()));
-
-    const matchesCategory = selectedCategory === 'all' || corr.category === selectedCategory;
-
-    return matchesSearch && matchesCategory;
-  });
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -237,10 +94,65 @@ export function CorrespondencesTab({
     return categories.find(cat => cat.name === categoryName);
   };
 
-  const handleAddToGrimoire = (correspondence: Correspondence) => {
-    // This would create a new grimoire entry based on the correspondence
-    console.log('Add to grimoire:', correspondence);
+  const handleAddToGrimoire = async (correspondence: Correspondence) => {
+    try {
+      // Create a new grimoire entry based on the correspondence
+      const entryData = {
+        title: `${correspondence.name} - Correspondence`,
+        content: `## ${correspondence.name}\n\n${correspondence.description}\n\n### Magical Uses\n${correspondence.magical_uses.map(use => `- ${use}`).join('\n')}\n\n### Elemental Associations\n${correspondence.elemental_associations.map(element => `- ${element}`).join('\n')}\n\n### Planetary Associations\n${correspondence.planetary_associations.map(planet => `- ${planet}`).join('\n')}\n\n### Zodiac Associations\n${correspondence.zodiac_associations.map(sign => `- ${sign}`).join('\n')}`,
+        tags: [correspondence.category, 'correspondence', ...correspondence.magical_uses],
+        metadata: {
+          correspondence_id: correspondence.id,
+          category: correspondence.category,
+          properties: correspondence.properties,
+          associations: correspondence.associations,
+          safety_warnings: correspondence.safety_warnings
+        }
+      };
+
+      await createEntry('correspondence', entryData);
+      
+      // Show success feedback
+      // You could add a toast notification here
+      console.log('Added to grimoire:', correspondence.name);
+    } catch (error) {
+      console.error('Failed to add to grimoire:', error);
+      setError('Failed to add correspondence to grimoire');
+    }
   };
+
+  const handleViewDetails = (correspondence: Correspondence) => {
+    // This could open a modal with detailed information
+    console.log('View details:', correspondence);
+  };
+
+  if (loading) {
+    return (
+      <div className={cn('h-full flex items-center justify-center', className)}>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading correspondences...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className={cn('h-full flex items-center justify-center', className)}>
+        <div className="text-center">
+          <div className="text-red-500 mb-4">⚠️</div>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+          >
+            Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={cn('h-full flex flex-col', className)}>
@@ -250,7 +162,7 @@ export function CorrespondencesTab({
           <h2 className="text-xl font-semibold text-gray-900">Magical Correspondences</h2>
           <div className="flex items-center space-x-2">
             <span className="text-sm text-gray-500">
-              {filteredCorrespondences.length} correspondences
+              {correspondences.length} correspondences
             </span>
           </div>
         </div>
@@ -305,7 +217,7 @@ export function CorrespondencesTab({
           </div>
 
           {/* Correspondences Grid */}
-          {filteredCorrespondences.length === 0 ? (
+          {correspondences.length === 0 ? (
             <div className="text-center py-12">
               <div className="text-6xl mb-4">📊</div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -317,8 +229,8 @@ export function CorrespondencesTab({
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                             {filteredCorrespondences.map((correspondence) => {
-                 const category = getCategoryByName(correspondence.category);
+              {correspondences.map((correspondence) => {
+                const category = getCategoryByName(correspondence.category);
 
                 return (
                   <div
@@ -347,71 +259,71 @@ export function CorrespondencesTab({
                       </div>
                     </div>
 
-                                         {/* Magical Uses */}
-                     <div className="mb-4">
-                       <h4 className="text-sm font-medium text-gray-900 mb-2">Magical Uses</h4>
-                       <div className="flex flex-wrap gap-1">
-                         {correspondence.magical_uses.map((use) => (
-                           <span
-                             key={use}
-                             className="px-2 py-1 bg-indigo-50 text-indigo-700 text-xs rounded"
-                           >
-                             {use}
-                           </span>
-                         ))}
-                       </div>
-                     </div>
+                    {/* Magical Uses */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-medium text-gray-900 mb-2">Magical Uses</h4>
+                      <div className="flex flex-wrap gap-1">
+                        {correspondence.magical_uses?.map((use) => (
+                          <span
+                            key={use}
+                            className="px-2 py-1 bg-indigo-50 text-indigo-700 text-xs rounded"
+                          >
+                            {use}
+                          </span>
+                        )) || <span className="text-gray-500 text-xs">No uses specified</span>}
+                      </div>
+                    </div>
 
-                                         {/* Elemental Associations */}
-                     {correspondence.elemental_associations.length > 0 && (
-                       <div className="mb-4">
-                         <h4 className="text-sm font-medium text-gray-900 mb-2">Elemental Associations</h4>
-                         <div className="flex flex-wrap gap-1">
-                           {correspondence.elemental_associations.map((element) => (
-                             <span
-                               key={element}
-                               className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded"
-                             >
-                               {element}
-                             </span>
-                           ))}
-                         </div>
-                       </div>
-                     )}
+                    {/* Elemental Associations */}
+                    {correspondence.elemental_associations && correspondence.elemental_associations.length > 0 && (
+                      <div className="mb-4">
+                        <h4 className="text-sm font-medium text-gray-900 mb-2">Elemental Associations</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {correspondence.elemental_associations.map((element) => (
+                            <span
+                              key={element}
+                              className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded"
+                            >
+                              {element}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                     {/* Planetary Associations */}
-                     {correspondence.planetary_associations.length > 0 && (
-                       <div className="mb-4">
-                         <h4 className="text-sm font-medium text-gray-900 mb-2">Planetary Associations</h4>
-                         <div className="flex flex-wrap gap-1">
-                           {correspondence.planetary_associations.map((planet) => (
-                             <span
-                               key={planet}
-                               className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded"
-                             >
-                               {planet}
-                             </span>
-                           ))}
-                         </div>
-                       </div>
-                     )}
+                    {/* Planetary Associations */}
+                    {correspondence.planetary_associations && correspondence.planetary_associations.length > 0 && (
+                      <div className="mb-4">
+                        <h4 className="text-sm font-medium text-gray-900 mb-2">Planetary Associations</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {correspondence.planetary_associations.map((planet) => (
+                            <span
+                              key={planet}
+                              className="px-2 py-1 bg-purple-50 text-purple-700 text-xs rounded"
+                            >
+                              {planet}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
-                                         {/* Zodiac Associations */}
-                     {correspondence.zodiac_associations.length > 0 && (
-                       <div className="mb-4">
-                         <h4 className="text-sm font-medium text-gray-900 mb-2">Zodiac Associations</h4>
-                         <div className="flex flex-wrap gap-1">
-                           {correspondence.zodiac_associations.map((sign) => (
-                             <span
-                               key={sign}
-                               className="px-2 py-1 bg-yellow-50 text-yellow-700 text-xs rounded"
-                             >
-                               {sign}
-                             </span>
-                           ))}
-                         </div>
-                       </div>
-                     )}
+                    {/* Zodiac Associations */}
+                    {correspondence.zodiac_associations && correspondence.zodiac_associations.length > 0 && (
+                      <div className="mb-4">
+                        <h4 className="text-sm font-medium text-gray-900 mb-2">Zodiac Associations</h4>
+                        <div className="flex flex-wrap gap-1">
+                          {correspondence.zodiac_associations.map((sign) => (
+                            <span
+                              key={sign}
+                              className="px-2 py-1 bg-yellow-50 text-yellow-700 text-xs rounded"
+                            >
+                              {sign}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Actions */}
                     <div className="flex justify-end space-x-2 pt-4 border-t border-gray-100">
@@ -421,7 +333,10 @@ export function CorrespondencesTab({
                       >
                         Add to Grimoire
                       </button>
-                      <button className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors">
+                      <button 
+                        onClick={() => handleViewDetails(correspondence)}
+                        className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded hover:bg-gray-200 transition-colors"
+                      >
                         View Details
                       </button>
                     </div>

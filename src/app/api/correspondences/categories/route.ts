@@ -15,25 +15,39 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Build the query
-    const query = supabase
-      .from('correspondence_categories')
-      .select('*')
-      .order('display_name', { ascending: true });
-
-    const { data, error } = await query;
+    // Get unique categories from correspondences table
+    const { data: categories, error } = await supabase
+      .from('correspondences')
+      .select('category')
+      .order('category');
 
     if (error) {
-      console.error('Error fetching correspondence categories:', error);
+      console.error('Error fetching categories:', error);
       return NextResponse.json(
         { success: false, error: 'Failed to fetch categories' },
         { status: 500 }
       );
     }
 
+    // Transform the data to match the expected format
+    const uniqueCategories = [...new Set(categories.map(item => item.category))];
+    
+    const categoryData = uniqueCategories.map((category, index) => ({
+      id: category,
+      name: category,
+      display_name: category.charAt(0).toUpperCase() + category.slice(1),
+      description: `${category} correspondences`,
+      color_hex: getCategoryColor(category),
+      sort_order: index + 1,
+      item_count: categories.filter(item => item.category === category).length,
+      is_active: true,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
+    }));
+
     return NextResponse.json({
       success: true,
-      data: data || [],
+      data: categoryData,
     });
 
   } catch (error) {
@@ -43,6 +57,26 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
+}
+
+// Helper function to assign colors to categories
+function getCategoryColor(category: string): string {
+  const colorMap: Record<string, string> = {
+    elements: '#10b981', // Green
+    planets: '#8b5cf6',  // Purple
+    zodiac: '#f59e0b',   // Amber
+    crystals: '#06b6d4', // Cyan
+    herbs: '#84cc16',    // Lime
+    colors: '#ef4444',   // Red
+    animals: '#8b5a2b',  // Brown
+    metals: '#6b7280',   // Gray
+    numbers: '#3b82f6',  // Blue
+    days: '#ec4899',     // Pink
+    months: '#10b981',   // Green
+    seasons: '#f97316',  // Orange
+  };
+
+  return colorMap[category.toLowerCase()] || '#6366f1'; // Default indigo
 }
 
 // Update category counts (admin function)
