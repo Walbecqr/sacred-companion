@@ -76,7 +76,6 @@ This file maintains an up-to-date list of project files and structure.
   - 📁 `.next\server/`
     - 📁 `.next\server\app/`
       - 📁 `.next\server\app\_not-found/`
-        - 📄 `.next\server\app\_not-found\page_client-reference-manifest.js` (JavaScript)
         - 📄 `.next\server\app\_not-found\page.js` (JavaScript)
           - *Imports:* `../../webpack-runtime.js`
           - *Exports:* `module.exports`
@@ -85,141 +84,143 @@ This file maintains an up-to-date list of project files and structure.
         - 📁 `.next\server\app\api\chat/`
           - 📁 `.next\server\app\api\chat\history/`
             - 📁 `.next\server\app\api\chat\history\[id]/`
-              - 📄 `.next\server\app\api\chat\history\[id]\route_client-reference-manifest.js` (JavaScript)
               - 📄 `.next\server\app\api\chat\history\[id]\route.js` (JavaScript)
                 - *Imports:* `../../../../../webpack-runtime.js`
                 - *Exports:* `module.exports`
               - 📄 `.next\server\app\api\chat\history\[id]\route.js.nft.json` (JSON)
-          - 📄 `.next\server\app\api\chat\route_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\api\chat\route.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
           - 📄 `.next\server\app\api\chat\route.js.nft.json` (JSON)
+        - 📁 `.next\server\app\api\correspondences/`
+          - 📁 `.next\server\app\api\correspondences\[id]/`
+            - 📄 `.next\server\app\api\correspondences\[id]\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\correspondences\[id]\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\correspondences\categories/`
+            - 📄 `.next\server\app\api\correspondences\categories\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\correspondences\categories\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\correspondences\favorites/`
+            - 📄 `.next\server\app\api\correspondences\favorites\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\correspondences\favorites\route.js.nft.json` (JSON)
+          - 📁 `.next\server\app\api\correspondences\recent/`
+            - 📄 `.next\server\app\api\correspondences\recent\route.js` (JavaScript)
+              - *Imports:* `../../../../webpack-runtime.js`
+              - *Exports:* `module.exports`
+            - 📄 `.next\server\app\api\correspondences\recent\route.js.nft.json` (JSON)
+          - 📄 `.next\server\app\api\correspondences\route.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\api\correspondences\route.js.nft.json` (JSON)
         - 📁 `.next\server\app\api\journaling/`
           - 📁 `.next\server\app\api\journaling\prompts/`
-            - 📄 `.next\server\app\api\journaling\prompts\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\journaling\prompts\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\journaling\prompts\route.js.nft.json` (JSON)
         - 📁 `.next\server\app\api\logs/`
           - 📁 `.next\server\app\api\logs\profile-usage/`
-            - 📄 `.next\server\app\api\logs\profile-usage\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\logs\profile-usage\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\logs\profile-usage\route.js.nft.json` (JSON)
         - 📁 `.next\server\app\api\oracle/`
           - 📁 `.next\server\app\api\oracle\collections/`
-            - 📄 `.next\server\app\api\oracle\collections\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\oracle\collections\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\oracle\collections\route.js.nft.json` (JSON)
           - 📁 `.next\server\app\api\oracle\daily/`
-            - 📄 `.next\server\app\api\oracle\daily\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\oracle\daily\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\oracle\daily\route.js.nft.json` (JSON)
           - 📁 `.next\server\app\api\oracle\save/`
-            - 📄 `.next\server\app\api\oracle\save\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\oracle\save\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\oracle\save\route.js.nft.json` (JSON)
           - 📁 `.next\server\app\api\oracle\seasonal/`
-            - 📄 `.next\server\app\api\oracle\seasonal\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\oracle\seasonal\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\oracle\seasonal\route.js.nft.json` (JSON)
           - 📁 `.next\server\app\api\oracle\share/`
-            - 📄 `.next\server\app\api\oracle\share\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\oracle\share\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\oracle\share\route.js.nft.json` (JSON)
         - 📁 `.next\server\app\api\rituals/`
           - 📁 `.next\server\app\api\rituals\suggest/`
-            - 📄 `.next\server\app\api\rituals\suggest\route_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\api\rituals\suggest\route.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\api\rituals\suggest\route.js.nft.json` (JSON)
         - 📁 `.next\server\app\api\test-connection/`
-          - 📄 `.next\server\app\api\test-connection\route_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\api\test-connection\route.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
           - 📄 `.next\server\app\api\test-connection\route.js.nft.json` (JSON)
       - 📁 `.next\server\app\auth/`
         - 📁 `.next\server\app\auth\callback/`
-          - 📄 `.next\server\app\auth\callback\route_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\auth\callback\route.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
           - 📄 `.next\server\app\auth\callback\route.js.nft.json` (JSON)
       - 📁 `.next\server\app\dashboard/`
         - 📁 `.next\server\app\dashboard\chat/`
-          - 📄 `.next\server\app\dashboard\chat\page_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\dashboard\chat\page.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
             - *Routes Consumed:* `/api/chat`
           - 📄 `.next\server\app\dashboard\chat\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\correspondences/`
+          - 📄 `.next\server\app\dashboard\correspondences\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+            - *Routes Consumed:* `/api/correspondences/favorites`, `/api/correspondences`
+          - 📄 `.next\server\app\dashboard\correspondences\page.js.nft.json` (JSON)
+        - 📁 `.next\server\app\dashboard\grimoire/`
+          - 📄 `.next\server\app\dashboard\grimoire\page.js` (JavaScript)
+            - *Imports:* `../../../webpack-runtime.js`
+            - *Exports:* `module.exports`
+          - 📄 `.next\server\app\dashboard\grimoire\page.js.nft.json` (JSON)
         - 📁 `.next\server\app\dashboard\library/`
-          - 📄 `.next\server\app\dashboard\library\page_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\dashboard\library\page.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
           - 📄 `.next\server\app\dashboard\library\page.js.nft.json` (JSON)
         - 📁 `.next\server\app\dashboard\reference/`
-          - 📄 `.next\server\app\dashboard\reference\page_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\dashboard\reference\page.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
           - 📄 `.next\server\app\dashboard\reference\page.js.nft.json` (JSON)
         - 📁 `.next\server\app\dashboard\spiritual-journey/`
-          - 📄 `.next\server\app\dashboard\spiritual-journey\page_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\dashboard\spiritual-journey\page.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
           - 📄 `.next\server\app\dashboard\spiritual-journey\page.js.nft.json` (JSON)
         - 📁 `.next\server\app\dashboard\spiritual-profile/`
-          - 📄 `.next\server\app\dashboard\spiritual-profile\page_client-reference-manifest.js` (JavaScript)
           - 📄 `.next\server\app\dashboard\spiritual-profile\page.js` (JavaScript)
             - *Imports:* `../../../webpack-runtime.js`
             - *Exports:* `module.exports`
           - 📄 `.next\server\app\dashboard\spiritual-profile\page.js.nft.json` (JSON)
-        - 📄 `.next\server\app\dashboard\chat.html` (HTML)
-        - 📄 `.next\server\app\dashboard\chat.meta` (Unknown)
-        - 📄 `.next\server\app\dashboard\chat.rsc` (Unknown)
-        - 📄 `.next\server\app\dashboard\library.html` (HTML)
-        - 📄 `.next\server\app\dashboard\library.meta` (Unknown)
-        - 📄 `.next\server\app\dashboard\library.rsc` (Unknown)
-        - 📄 `.next\server\app\dashboard\page_client-reference-manifest.js` (JavaScript)
         - 📄 `.next\server\app\dashboard\page.js` (JavaScript)
           - *Imports:* `../../webpack-runtime.js`
           - *Exports:* `module.exports`
           - *Routes Consumed:* `/api/oracle/save`, `/api/oracle/share`
         - 📄 `.next\server\app\dashboard\page.js.nft.json` (JSON)
-        - 📄 `.next\server\app\dashboard\reference.html` (HTML)
-        - 📄 `.next\server\app\dashboard\reference.meta` (Unknown)
-        - 📄 `.next\server\app\dashboard\reference.rsc` (Unknown)
-        - 📄 `.next\server\app\dashboard\spiritual-journey.html` (HTML)
-        - 📄 `.next\server\app\dashboard\spiritual-journey.meta` (Unknown)
-        - 📄 `.next\server\app\dashboard\spiritual-journey.rsc` (Unknown)
-        - 📄 `.next\server\app\dashboard\spiritual-profile.html` (HTML)
-        - 📄 `.next\server\app\dashboard\spiritual-profile.meta` (Unknown)
-        - 📄 `.next\server\app\dashboard\spiritual-profile.rsc` (Unknown)
       - 📁 `.next\server\app\favicon.ico/`
         - 📄 `.next\server\app\favicon.ico\route.js` (JavaScript)
           - *Imports:* `../../webpack-runtime.js`
           - *Exports:* `module.exports`
         - 📄 `.next\server\app\favicon.ico\route.js.nft.json` (JSON)
       - 📁 `.next\server\app\login/`
-        - 📄 `.next\server\app\login\page_client-reference-manifest.js` (JavaScript)
         - 📄 `.next\server\app\login\page.js` (JavaScript)
           - *Imports:* `../../webpack-runtime.js`
           - *Exports:* `module.exports`
@@ -227,41 +228,30 @@ This file maintains an up-to-date list of project files and structure.
       - 📁 `.next\server\app\oracle/`
         - 📁 `.next\server\app\oracle\embed/`
           - 📁 `.next\server\app\oracle\embed\[id]/`
-            - 📄 `.next\server\app\oracle\embed\[id]\page_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\oracle\embed\[id]\page.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\oracle\embed\[id]\page.js.nft.json` (JSON)
         - 📁 `.next\server\app\oracle\shared/`
           - 📁 `.next\server\app\oracle\shared\[id]/`
-            - 📄 `.next\server\app\oracle\shared\[id]\page_client-reference-manifest.js` (JavaScript)
             - 📄 `.next\server\app\oracle\shared\[id]\page.js` (JavaScript)
               - *Imports:* `../../../../webpack-runtime.js`
               - *Exports:* `module.exports`
             - 📄 `.next\server\app\oracle\shared\[id]\page.js.nft.json` (JSON)
-      - 📄 `.next\server\app\_not-found.html` (HTML)
-      - 📄 `.next\server\app\_not-found.meta` (Unknown)
-      - 📄 `.next\server\app\_not-found.rsc` (Unknown)
-      - 📄 `.next\server\app\dashboard.html` (HTML)
-      - 📄 `.next\server\app\dashboard.meta` (Unknown)
-      - 📄 `.next\server\app\dashboard.rsc` (Unknown)
-      - 📄 `.next\server\app\favicon.ico.body` (Unknown)
-      - 📄 `.next\server\app\favicon.ico.meta` (Unknown)
-      - 📄 `.next\server\app\page_client-reference-manifest.js` (JavaScript)
       - 📄 `.next\server\app\page.js` (JavaScript)
         - *Imports:* `../webpack-runtime.js`
         - *Exports:* `module.exports`
       - 📄 `.next\server\app\page.js.nft.json` (JSON)
     - 📁 `.next\server\chunks/`
-      - 📄 `.next\server\chunks\17.js` (JavaScript)
       - 📄 `.next\server\chunks\406.js` (JavaScript)
+      - 📄 `.next\server\chunks\547.js` (JavaScript)
       - 📄 `.next\server\chunks\548.js` (JavaScript)
         - *Imports:* `@builder.io/partytown/integration`
       - 📄 `.next\server\chunks\55.js` (JavaScript)
       - 📄 `.next\server\chunks\605.js` (JavaScript)
         - *Routes Provided:* `GET /`, `GET /`
       - 📄 `.next\server\chunks\621.js` (JavaScript)
-      - 📄 `.next\server\chunks\679.js` (JavaScript)
+      - 📄 `.next\server\chunks\666.js` (JavaScript)
       - 📄 `.next\server\chunks\745.js` (JavaScript)
         - *Routes Provided:* `GET /`, `GET /`
       - 📄 `.next\server\chunks\8.js` (JavaScript)
@@ -283,8 +273,6 @@ This file maintains an up-to-date list of project files and structure.
         - *Exports:* `module.exports`
         - *Routes Provided:* `GET /_error`
       - 📄 `.next\server\pages\_error.js.nft.json` (JSON)
-      - 📄 `.next\server\pages\404.html` (HTML)
-      - 📄 `.next\server\pages\500.html` (HTML)
     - 📁 `.next\server\src/`
       - 📄 `.next\server\src\middleware.js` (JavaScript)
         - *Routes Provided:* `GET /`, `GET /`, `GET /`, `GET /`
@@ -292,113 +280,12 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `.next\server\app-paths-manifest.json` (JSON)
     - 📄 `.next\server\edge-runtime-webpack.js` (JavaScript)
     - 📄 `.next\server\edge-runtime-webpack.js.map` (Unknown)
-    - 📄 `.next\server\functions-config-manifest.json` (JSON)
     - 📄 `.next\server\interception-route-rewrite-manifest.js` (JavaScript)
-    - 📄 `.next\server\middleware-build-manifest.js` (JavaScript)
     - 📄 `.next\server\middleware-manifest.json` (JSON)
-    - 📄 `.next\server\middleware-react-loadable-manifest.js` (JavaScript)
-    - 📄 `.next\server\next-font-manifest.js` (JavaScript)
-    - 📄 `.next\server\next-font-manifest.json` (JSON)
     - 📄 `.next\server\pages-manifest.json` (JSON)
     - 📄 `.next\server\server-reference-manifest.js` (JavaScript)
     - 📄 `.next\server\server-reference-manifest.json` (JSON)
     - 📄 `.next\server\webpack-runtime.js` (JavaScript)
-  - 📁 `.next\static/`
-    - 📁 `.next\static\chunks/`
-      - 📁 `.next\static\chunks\app/`
-        - 📁 `.next\static\chunks\app\_not-found/`
-          - 📄 `.next\static\chunks\app\_not-found\page-8bc4dec389e39dc0.js` (JavaScript)
-        - 📁 `.next\static\chunks\app\api/`
-          - 📁 `.next\static\chunks\app\api\chat/`
-            - 📁 `.next\static\chunks\app\api\chat\history/`
-              - 📁 `.next\static\chunks\app\api\chat\history\[id]/`
-                - 📄 `.next\static\chunks\app\api\chat\history\[id]\route-b6a78dd1f4aebf99.js` (JavaScript)
-            - 📄 `.next\static\chunks\app\api\chat\route-b6a78dd1f4aebf99.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\api\journaling/`
-            - 📁 `.next\static\chunks\app\api\journaling\prompts/`
-              - 📄 `.next\static\chunks\app\api\journaling\prompts\route-b6a78dd1f4aebf99.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\api\logs/`
-            - 📁 `.next\static\chunks\app\api\logs\profile-usage/`
-              - 📄 `.next\static\chunks\app\api\logs\profile-usage\route-b6a78dd1f4aebf99.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\api\oracle/`
-            - 📁 `.next\static\chunks\app\api\oracle\collections/`
-              - 📄 `.next\static\chunks\app\api\oracle\collections\route-b6a78dd1f4aebf99.js` (JavaScript)
-            - 📁 `.next\static\chunks\app\api\oracle\daily/`
-              - 📄 `.next\static\chunks\app\api\oracle\daily\route-b6a78dd1f4aebf99.js` (JavaScript)
-            - 📁 `.next\static\chunks\app\api\oracle\save/`
-              - 📄 `.next\static\chunks\app\api\oracle\save\route-b6a78dd1f4aebf99.js` (JavaScript)
-            - 📁 `.next\static\chunks\app\api\oracle\seasonal/`
-              - 📄 `.next\static\chunks\app\api\oracle\seasonal\route-b6a78dd1f4aebf99.js` (JavaScript)
-            - 📁 `.next\static\chunks\app\api\oracle\share/`
-              - 📄 `.next\static\chunks\app\api\oracle\share\route-b6a78dd1f4aebf99.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\api\rituals/`
-            - 📁 `.next\static\chunks\app\api\rituals\suggest/`
-              - 📄 `.next\static\chunks\app\api\rituals\suggest\route-b6a78dd1f4aebf99.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\api\test-connection/`
-            - 📄 `.next\static\chunks\app\api\test-connection\route-b6a78dd1f4aebf99.js` (JavaScript)
-        - 📁 `.next\static\chunks\app\auth/`
-          - 📁 `.next\static\chunks\app\auth\callback/`
-            - 📄 `.next\static\chunks\app\auth\callback\route-b6a78dd1f4aebf99.js` (JavaScript)
-        - 📁 `.next\static\chunks\app\dashboard/`
-          - 📁 `.next\static\chunks\app\dashboard\chat/`
-            - 📄 `.next\static\chunks\app\dashboard\chat\page-12d0dc8ca669cab1.js` (JavaScript)
-              - *Routes Consumed:* `/api/chat/history/`, `/api/chat`
-          - 📁 `.next\static\chunks\app\dashboard\library/`
-            - 📄 `.next\static\chunks\app\dashboard\library\page-be47aea7f12a09d3.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\dashboard\reference/`
-            - 📄 `.next\static\chunks\app\dashboard\reference\page-c834b3ccc58a8a66.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\dashboard\spiritual-journey/`
-            - 📄 `.next\static\chunks\app\dashboard\spiritual-journey\layout-b6a78dd1f4aebf99.js` (JavaScript)
-            - 📄 `.next\static\chunks\app\dashboard\spiritual-journey\page-8f6ef71aa7ee4665.js` (JavaScript)
-          - 📁 `.next\static\chunks\app\dashboard\spiritual-profile/`
-            - 📄 `.next\static\chunks\app\dashboard\spiritual-profile\page-796f7f8799411bdd.js` (JavaScript)
-          - 📄 `.next\static\chunks\app\dashboard\page-2519e3074ee89d82.js` (JavaScript)
-            - *Routes Consumed:* `/api/oracle/daily?`, `/api/oracle/save`, `/api/oracle/share`, `/api/chat/history/`
-        - 📁 `.next\static\chunks\app\login/`
-          - 📄 `.next\static\chunks\app\login\page-d929441351d61661.js` (JavaScript)
-        - 📁 `.next\static\chunks\app\oracle/`
-          - 📁 `.next\static\chunks\app\oracle\embed/`
-            - 📁 `.next\static\chunks\app\oracle\embed\[id]/`
-              - 📄 `.next\static\chunks\app\oracle\embed\[id]\page-799d653d7de3dbe0.js` (JavaScript)
-                - *Routes Consumed:* `/api/oracle/share?card_id=`
-          - 📁 `.next\static\chunks\app\oracle\shared/`
-            - 📁 `.next\static\chunks\app\oracle\shared\[id]/`
-              - 📄 `.next\static\chunks\app\oracle\shared\[id]\page-cb901e5c6ed66034.js` (JavaScript)
-                - *Routes Consumed:* `/api/oracle/share?card_id=`
-        - 📄 `.next\static\chunks\app\layout-5f20073994b9780a.js` (JavaScript)
-        - 📄 `.next\static\chunks\app\page-b6a78dd1f4aebf99.js` (JavaScript)
-      - 📁 `.next\static\chunks\pages/`
-        - 📄 `.next\static\chunks\pages\_app-663ec5428c344dae.js` (JavaScript)
-          - *Routes Provided:* `GET /_app-663ec5428c344dae`
-        - 📄 `.next\static\chunks\pages\_error-544778206352ce59.js` (JavaScript)
-          - *Routes Provided:* `GET /_error-544778206352ce59`
-      - 📄 `.next\static\chunks\341.716d46e6e5cb6bdc.js` (JavaScript)
-      - 📄 `.next\static\chunks\472.a3826d29d6854395.js` (JavaScript)
-      - 📄 `.next\static\chunks\4bd1b696-cf72ae8a39fa05aa.js` (JavaScript)
-      - 📄 `.next\static\chunks\632-6b3fa0f5f27df848.js` (JavaScript)
-      - 📄 `.next\static\chunks\663-a2024bbdf443cdb6.js` (JavaScript)
-      - 📄 `.next\static\chunks\77-549565c98de7e269.js` (JavaScript)
-        - *Routes Provided:* `GET /`, `GET /`
-      - 📄 `.next\static\chunks\874-437a265a67d6cfee.js` (JavaScript)
-      - 📄 `.next\static\chunks\964-7a34cadcb7695cec.js` (JavaScript)
-      - 📄 `.next\static\chunks\framework-7c95b8e5103c9e90.js` (JavaScript)
-      - 📄 `.next\static\chunks\main-80f9c9b2241174c9.js` (JavaScript)
-        - *Routes Provided:* `GET /_next/image`, `GET /_next/image`
-      - 📄 `.next\static\chunks\main-app-5d25c55c8222f9af.js` (JavaScript)
-      - 📄 `.next\static\chunks\polyfills-42372ed130431b0a.js` (JavaScript)
-      - 📄 `.next\static\chunks\webpack-b47fd1548851b972.js` (JavaScript)
-    - 📁 `.next\static\css/`
-      - 📄 `.next\static\css\45ac2f753db9eb23.css` (CSS)
-    - 📁 `.next\static\gBwPnJbaufN5s0uTlDlbH/`
-      - 📄 `.next\static\gBwPnJbaufN5s0uTlDlbH\_buildManifest.js` (JavaScript)
-      - 📄 `.next\static\gBwPnJbaufN5s0uTlDlbH\_ssgManifest.js` (JavaScript)
-    - 📁 `.next\static\media/`
-      - 📄 `.next\static\media\569ce4b8f30dc480-s.p.woff2` (Unknown)
-      - 📄 `.next\static\media\747892c23ea88013-s.woff2` (Unknown)
-      - 📄 `.next\static\media\8d697b304b401681-s.woff2` (Unknown)
-      - 📄 `.next\static\media\93f479601ee12b01-s.p.woff2` (Unknown)
-      - 📄 `.next\static\media\9610d9e46709d722-s.woff2` (Unknown)
-      - 📄 `.next\static\media\ba015fad6dcf6784-s.woff2` (Unknown)
   - 📁 `.next\types/`
     - 📁 `.next\types\app/`
       - 📁 `.next\types\app\api/`
@@ -409,6 +296,21 @@ This file maintains an up-to-date list of project files and structure.
                 - *Imports:* `../../../../../../../src/app/api/chat/history/[id]/route.js`, `next/server.js`
           - 📄 `.next\types\app\api\chat\route.ts` (TypeScript)
             - *Imports:* `../../../../../src/app/api/chat/route.js`, `next/server.js`
+        - 📁 `.next\types\app\api\correspondences/`
+          - 📁 `.next\types\app\api\correspondences\[id]/`
+            - 📄 `.next\types\app\api\correspondences\[id]\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/correspondences/[id]/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\correspondences\categories/`
+            - 📄 `.next\types\app\api\correspondences\categories\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/correspondences/categories/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\correspondences\favorites/`
+            - 📄 `.next\types\app\api\correspondences\favorites\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/correspondences/favorites/route.js`, `next/server.js`
+          - 📁 `.next\types\app\api\correspondences\recent/`
+            - 📄 `.next\types\app\api\correspondences\recent\route.ts` (TypeScript)
+              - *Imports:* `../../../../../../src/app/api/correspondences/recent/route.js`, `next/server.js`
+          - 📄 `.next\types\app\api\correspondences\route.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/api/correspondences/route.js`, `next/server.js`
         - 📁 `.next\types\app\api\journaling/`
           - 📁 `.next\types\app\api\journaling\prompts/`
             - 📄 `.next\types\app\api\journaling\prompts\route.ts` (TypeScript)
@@ -448,6 +350,12 @@ This file maintains an up-to-date list of project files and structure.
         - 📁 `.next\types\app\dashboard\chat/`
           - 📄 `.next\types\app\dashboard\chat\page.ts` (TypeScript)
             - *Imports:* `../../../../../src/app/dashboard/chat/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\correspondences/`
+          - 📄 `.next\types\app\dashboard\correspondences\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/correspondences/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
+        - 📁 `.next\types\app\dashboard\grimoire/`
+          - 📄 `.next\types\app\dashboard\grimoire\page.ts` (TypeScript)
+            - *Imports:* `../../../../../src/app/dashboard/grimoire/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
         - 📁 `.next\types\app\dashboard\library/`
           - 📄 `.next\types\app\dashboard\library\page.ts` (TypeScript)
             - *Imports:* `../../../../../src/app/dashboard/library/page.js`, `next/dist/lib/metadata/types/metadata-interface.js`
@@ -483,19 +391,7 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `.next\types\cache-life.d.ts` (TypeScript)
       - *Exports:* `* from next/dist/server/web/spec-extension/unstable-cache`, `* from next/dist/server/web/spec-extension/revalidate`, `* from next/dist/server/web/spec-extension/unstable-no-store`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `unstable_cacheLife`, `* from next/dist/server/use-cache/cache-tag`
     - 📄 `.next\types\package.json` (JSON)
-  - 📄 `.next\app-build-manifest.json` (JSON)
-  - 📄 `.next\app-path-routes-manifest.json` (JSON)
-  - 📄 `.next\BUILD_ID` (Unknown)
-  - 📄 `.next\build-manifest.json` (JSON)
-  - 📄 `.next\export-marker.json` (JSON)
-  - 📄 `.next\images-manifest.json` (JSON)
-  - 📄 `.next\next-minimal-server.js.nft.json` (JSON)
-  - 📄 `.next\next-server.js.nft.json` (JSON)
   - 📄 `.next\package.json` (JSON)
-  - 📄 `.next\prerender-manifest.json` (JSON)
-  - 📄 `.next\react-loadable-manifest.json` (JSON)
-  - 📄 `.next\required-server-files.json` (JSON)
-  - 📄 `.next\routes-manifest.json` (JSON)
   - 📄 `.next\trace` (Unknown)
 - 📁 `.vscode/`
   - 📄 `.vscode\launch.json` (JSON)
@@ -887,6 +783,7 @@ This file maintains an up-to-date list of project files and structure.
   - 📄 `script files\generate_module_structure.sh` (Unknown)
   - 📄 `script files\move_existing_files.sh` (Unknown)
   - 📄 `script files\rewrite_import_paths.sh` (Unknown)
+  - 📄 `script files\setup-grimoire.sql` (Unknown)
 - 📁 `src/`
   - 📁 `src\app/`
     - 📁 `src\app\api/`
@@ -960,6 +857,10 @@ This file maintains an up-to-date list of project files and structure.
         - 📄 `src\app\api\test-connection\route.ts` (TypeScript)
           - *Imports:* `next/server`, `@/lib/supabase/index`
           - *Exports:* `GET`
+      - 📁 `src\app\api\test-grimoire/`
+        - 📄 `src\app\api\test-grimoire\route.ts` (TypeScript)
+          - *Imports:* `next/server`, `@supabase/auth-helpers-nextjs`, `next/headers`
+          - *Exports:* `GET`
     - 📁 `src\app\auth/`
       - 📁 `src\app\auth\callback/`
         - 📄 `src\app\auth\callback\route.ts` (TypeScript)
@@ -979,8 +880,9 @@ This file maintains an up-to-date list of project files and structure.
           - *Exports:* `CorrespondencesPage`
           - *Routes Consumed:* `/api/correspondences/categories`, `/api/correspondences/favorites`, `/api/correspondences/favorites`, `/api/correspondences`
       - 📁 `src\app\dashboard\grimoire/`
+        - 📁 `src\app\dashboard\grimoire\test/`
         - 📄 `src\app\dashboard\grimoire\page.tsx` (React TypeScript)
-          - *Imports:* `react`, `@/contexts/GrimoireContext`, `@/components/grimoire/GrimoireDashboard`
+          - *Imports:* `react`, `@/components/auth/AuthGuard`, `@/contexts/GrimoireContext`, `@/components/grimoire/GrimoireDashboard`
           - *Exports:* `GrimoirePage`
       - 📁 `src\app\dashboard\library/`
         - 📄 `src\app\dashboard\library\page.tsx` (React TypeScript)
@@ -1025,7 +927,10 @@ This file maintains an up-to-date list of project files and structure.
             - *Imports:* `react`, `next/navigation`, `next/link`, `lucide-react`
             - *Exports:* `SharedOracleCardPage`
     - 📁 `src\app\supabase/`
+      - 📁 `src\app\supabase\migrations/`
+        - 📄 `src\app\supabase\migrations\002_grimoire_tables.sql` (Unknown)
       - 📄 `src\app\supabase\001_initial_schema.sql` (Unknown)
+      - 📄 `src\app\supabase\002_grimoire_tables.sql` (Unknown)
     - 📄 `src\app\favicon.ico` (Unknown)
     - 📄 `src\app\globals.css` (CSS)
     - 📄 `src\app\layout.tsx` (React TypeScript)
@@ -1035,6 +940,10 @@ This file maintains an up-to-date list of project files and structure.
       - *Imports:* `next/headers`, `next/navigation`, `@supabase/auth-helpers-nextjs`
       - *Exports:* `Home`
   - 📁 `src\components/`
+    - 📁 `src\components\auth/`
+      - 📄 `src\components\auth\AuthGuard.tsx` (React TypeScript)
+        - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `next/navigation`
+        - *Exports:* `AuthGuard`
     - 📁 `src\components\correspondence/`
       - 📄 `src\components\correspondence\CategoryBrowser.tsx` (React TypeScript)
         - *Imports:* `react`, `@/types/correspondence`, `lucide-react`
@@ -1044,6 +953,7 @@ This file maintains an up-to-date list of project files and structure.
         - *Imports:* `react`, `lucide-react`, `@/types/correspondence`
       - 📄 `src\components\correspondence\SearchFilters.tsx` (React TypeScript)
         - *Imports:* `react`, `lucide-react`, `@/types/correspondence`
+    - 📁 `src\components\debug/`
     - 📁 `src\components\grimoire/`
       - 📁 `src\components\grimoire\entries/`
         - 📄 `src\components\grimoire\entries\EntryCard.tsx` (React TypeScript)
@@ -1064,8 +974,9 @@ This file maintains an up-to-date list of project files and structure.
           - *Exports:* `MainTabs`
       - 📁 `src\components\grimoire\tabs/`
         - 📄 `src\components\grimoire\tabs\CorrespondencesTab.tsx` (React TypeScript)
-          - *Imports:* `react`, `@/types/grimoire`, `@/types/correspondence`, `@/lib/utils`
+          - *Imports:* `react`, `@/types/grimoire`, `@/types/correspondence`, `@/contexts/GrimoireContext`, `@/lib/utils`
           - *Exports:* `CorrespondencesTab`
+          - *Routes Consumed:* `/api/correspondences/categories`
         - 📄 `src\components\grimoire\tabs\DailyPracticeTab.tsx` (React TypeScript)
           - *Imports:* `react`, `@/types/grimoire`, `@/lib/utils`
           - *Exports:* `DailyPracticeTab`
@@ -1087,7 +998,7 @@ This file maintains an up-to-date list of project files and structure.
         - *Exports:* `LoadingSpinner`
   - 📁 `src\contexts/`
     - 📄 `src\contexts\GrimoireContext.tsx` (React TypeScript)
-      - *Imports:* `react`, `@/lib/supabase`, `@/types/grimoire`
+      - *Imports:* `react`, `@supabase/auth-helpers-nextjs`, `@/types/grimoire`
       - *Exports:* `GrimoireProvider`, `useGrimoire`
   - 📁 `src\lib/`
     - 📁 `src\lib\supabase/`
@@ -1400,7 +1311,6 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `src\types\correspondence.ts` (TypeScript)
       - *Exports:* `CorrespondenceError`
     - 📄 `src\types\grimoire.ts` (TypeScript)
-      - *Imports:* `./correspondence`
   - 📄 `src\middleware.ts` (TypeScript)
     - *Imports:* `@supabase/auth-helpers-nextjs`, `next/server`, `next/server`
     - *Exports:* `middleware`
@@ -1427,6 +1337,7 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `.gitignore` (Unknown)
 - 📄 `.hintrc` (Unknown)
 - 📄 `eslint.config.mjs` (Unknown)
+- 📄 `GRIMOIRE_FIXES.md` (Markdown)
 - 📄 `next-env.d.ts` (TypeScript)
 - 📄 `next.config.ts` (TypeScript)
   - *Imports:* `next`
@@ -1437,4 +1348,4 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `tsconfig.json` (JSON)
 
 ---
-Last updated: 2025-08-16T17:39:54.577Z
+Last updated: 2025-08-17T06:32:02.254Z
