@@ -3,8 +3,22 @@
 import React, { useEffect, useState } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
+interface AuthState {
+  session?: {
+    user?: string;
+    email?: string;
+    expires_at?: number;
+  } | null;
+  user?: {
+    id?: string;
+    email?: string;
+  } | null;
+  timestamp?: string;
+  error?: string;
+}
+
 export function AuthDebugger() {
-  const [authState, setAuthState] = useState<any>(null);
+  const [authState, setAuthState] = useState<AuthState | null>(null);
   const [loading, setLoading] = useState(true);
   const supabase = createClientComponentClient();
 
@@ -37,7 +51,7 @@ export function AuthDebugger() {
     };
 
     checkAuth();
-  }, [supabase.auth]);
+  }, [supabase]);
 
   if (loading) {
     return <div className="p-4 bg-yellow-100 border border-yellow-400 rounded">Loading auth debug info...</div>;
