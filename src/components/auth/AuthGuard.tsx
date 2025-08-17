@@ -28,6 +28,8 @@ export function AuthGuard({
 
         // First check for session
         const { data: { session } } = await supabase.auth.getSession();
+        console.log('AuthGuard - Session check:', { hasSession: !!session, hasUser: !!session?.user });
+        
         if (session?.user) {
           setIsAuthenticated(true);
           setIsLoading(false);
@@ -36,6 +38,8 @@ export function AuthGuard({
 
         // If no session, try to get user directly
         const { data: { user } } = await supabase.auth.getUser();
+        console.log('AuthGuard - User check:', { hasUser: !!user });
+        
         if (user) {
           setIsAuthenticated(true);
           setIsLoading(false);
@@ -43,6 +47,7 @@ export function AuthGuard({
         }
 
         // No user found, redirect to login
+        console.log('AuthGuard - No user found, redirecting to login');
         const currentPath = window.location.pathname;
         const loginUrl = currentPath !== '/' ? `${redirectTo}?returnTo=${encodeURIComponent(currentPath)}` : redirectTo;
         router.push(loginUrl);
@@ -55,7 +60,7 @@ export function AuthGuard({
     };
 
     checkAuth();
-  }, [supabase.auth, router, redirectTo]);
+  }, [supabase, router, redirectTo]);
 
   if (isLoading) {
     return fallback || (

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useReducer, useCallback, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { 
   GrimoireContextType, 
   GrimoireVault, 
@@ -89,6 +89,7 @@ const GrimoireContext = createContext<GrimoireContextType | undefined>(undefined
 // Provider component
 export function GrimoireProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(grimoireReducer, initialState);
+  const supabase = createClientComponentClient();
 
   // Load or create user's vault
   const loadVault = useCallback(async () => {
@@ -180,7 +181,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
     } finally {
       dispatch({ type: 'SET_LOADING', payload: false });
     }
-  }, []);
+  }, [supabase]);
 
   // Load vault on mount with retry mechanism
   useEffect(() => {
@@ -241,7 +242,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     dispatch({ type: 'SET_VAULT', payload: vault });
     return vault;
-  }, []);
+  }, [supabase]);
 
   const updateVault = useCallback(async (data: Partial<GrimoireVault>): Promise<GrimoireVault> => {
     if (!state.vault) throw new Error('No vault to update');
@@ -258,7 +259,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     dispatch({ type: 'SET_VAULT', payload: vault });
     return vault;
-  }, [state.vault]);
+  }, [state.vault, supabase]);
 
   // Entry operations
   const createEntry = useCallback(async (type: EntryType, data: Partial<GrimoireEntry>): Promise<GrimoireEntry> => {
@@ -287,7 +288,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     dispatch({ type: 'ADD_ENTRY', payload: entry });
     return entry;
-  }, [state.vault]);
+  }, [state.vault, supabase]);
 
   const updateEntry = useCallback(async (id: string, data: Partial<GrimoireEntry>): Promise<GrimoireEntry> => {
     const { data: entry, error } = await supabase
@@ -302,7 +303,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     dispatch({ type: 'UPDATE_ENTRY', payload: entry });
     return entry;
-  }, []);
+  }, [supabase]);
 
   const deleteEntry = useCallback(async (id: string): Promise<void> => {
     const { error } = await supabase
@@ -312,7 +313,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     if (error) throw error;
     dispatch({ type: 'DELETE_ENTRY', payload: id });
-  }, []);
+  }, [supabase]);
 
   const getEntry = useCallback(async (id: string): Promise<GrimoireEntry | null> => {
     const { data: entry, error } = await supabase
@@ -323,7 +324,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     if (error) throw error;
     return entry;
-  }, []);
+  }, [supabase]);
 
   // Collection operations
   const createCollection = useCallback(async (data: Partial<GrimoireCollection>): Promise<GrimoireCollection> => {
@@ -349,7 +350,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     dispatch({ type: 'ADD_COLLECTION', payload: collection });
     return collection;
-  }, [state.vault]);
+  }, [state.vault, supabase]);
 
   const updateCollection = useCallback(async (id: string, data: Partial<GrimoireCollection>): Promise<GrimoireCollection> => {
     const { data: collection, error } = await supabase
@@ -364,7 +365,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     dispatch({ type: 'UPDATE_COLLECTION', payload: collection });
     return collection;
-  }, []);
+  }, [supabase]);
 
   const deleteCollection = useCallback(async (id: string): Promise<void> => {
     const { error } = await supabase
@@ -374,7 +375,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
 
     if (error) throw error;
     dispatch({ type: 'DELETE_COLLECTION', payload: id });
-  }, []);
+  }, [supabase]);
 
   const addEntryToCollection = useCallback(async (collectionId: string, entryId: string): Promise<void> => {
     const collection = state.collections.find(c => c.id === collectionId);
@@ -440,7 +441,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
     }));
 
     return results;
-  }, [state.vault]);
+  }, [state.vault, supabase]);
 
   // Content ingestion
   const ingestContent = useCallback(async (content: string, type: EntryType): Promise<GrimoireEntry> => {
@@ -506,7 +507,7 @@ export function GrimoireProvider({ children }: { children: React.ReactNode }) {
     } catch (error) {
       throw new Error(`Import failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
-  }, [state.vault, loadVault]);
+  }, [state.vault, loadVault, supabase]);
 
   // AI Evolution
   const evolveEntry = useCallback(async (entryId: string, suggestions: string[]): Promise<GrimoireEntry> => {
