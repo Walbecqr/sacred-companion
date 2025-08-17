@@ -3,9 +3,24 @@
 import React, { useEffect, useState } from 'react';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
+interface AuthInfo {
+  hasSession?: boolean;
+  hasUser?: boolean;
+  userId?: string;
+  userEmail?: string;
+  sessionExpires?: number;
+  error?: string;
+}
+
+interface DbInfo {
+  vaultsAccessible?: boolean;
+  vaultError?: string;
+  vaultCount?: number;
+}
+
 export default function GrimoireTestPage() {
-  const [authInfo, setAuthInfo] = useState<any>(null);
-  const [dbInfo, setDbInfo] = useState<any>(null);
+  const [authInfo, setAuthInfo] = useState<AuthInfo | null>(null);
+  const [dbInfo, setDbInfo] = useState<DbInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const supabase = createClientComponentClient();
 
@@ -56,7 +71,7 @@ export default function GrimoireTestPage() {
     };
 
     testAuthAndDb();
-  }, [supabase.auth]);
+  }, [supabase]);
 
   if (loading) {
     return (
