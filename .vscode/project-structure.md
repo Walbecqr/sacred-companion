@@ -761,6 +761,7 @@ This file maintains an up-to-date list of project files and structure.
     - 📄 `Documentation\Images\1 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
     - 📄 `Documentation\Images\3 - Create a realistic avatar for Beatrice Crandon.png` (Unknown)
   - 📁 `Documentation\Project Documentation/`
+    - 📄 `Documentation\Project Documentation\GRIMOIRE_FIXES.md` (Markdown)
     - 📄 `Documentation\Project Documentation\project-structure.md` (Markdown)
     - 📄 `Documentation\Project Documentation\Sacred-Companion - src projecct structure.md` (Markdown)
     - 📄 `Documentation\Project Documentation\technical spec and architecture plan.pdf` (Unknown)
@@ -1337,7 +1338,9 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `.gitignore` (Unknown)
 - 📄 `.hintrc` (Unknown)
 - 📄 `eslint.config.mjs` (Unknown)
-- 📄 `GRIMOIRE_FIXES.md` (Markdown)
+- 📄 `intentions_loader.py` (Python)
+  - *Imports:* `re`, `pandas`, `psycopg`, `psycopg.rows`
+  - *Exports:* `norm`, `norm_key`, `parse_parent_and_variety`, `upsert_intention`, `load_intentions_csv`
 - 📄 `next-env.d.ts` (TypeScript)
 - 📄 `next.config.ts` (TypeScript)
   - *Imports:* `next`
@@ -1348,4 +1351,4 @@ This file maintains an up-to-date list of project files and structure.
 - 📄 `tsconfig.json` (JSON)
 
 ---
-Last updated: 2025-08-17T06:32:02.254Z
+Last updated: 2025-08-22T16:45:41.531Z
